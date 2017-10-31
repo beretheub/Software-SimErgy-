@@ -183,7 +183,7 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_fALy8b15EeeoS738Z9gZXQ" name="patientstate" type="_X1E3IL15EeeoS738Z9gZXQ" association="_fAKk0L15EeeoS738Z9gZXQ"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_ichKUL5SEeeM5_hwRzKk7g" name="essai"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ichKUL5SEeeM5_hwRzKk7g" name="vicoire"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Eu9-YL14EeeoS738Z9gZXQ">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Evp64L14EeeoS738Z9gZXQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
