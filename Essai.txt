@@ -1,6 +1,2 @@
 Bonjour benoit
-<<<<<<< HEAD
 bonjour hello benoit
-=======
-bonjour hello esses 
->>>>>>> 0c7ccc101a52dc8493db6b295d6b7f003f351637
