@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_I-Di8LyREee3n8t2HDlBGA" name="RootElement">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_bvFZALyREee3n8t2HDlBGA" name="Ressources">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_B5HxgLyaEee3n8t2HDlBGA" name="id">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_V9CFYLySEee3n8t2HDlBGA" name="HR">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_PJ65MLyaEee3n8t2HDlBGA" name="name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_YW5mILyaEee3n8t2HDlBGA" name="surname">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_XRog0LySEee3n8t2HDlBGA" name="NHR">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cbmKoLyaEee3n8t2HDlBGA" name="name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_f88xgLyaEee3n8t2HDlBGA" name="cost">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_jeAdcLyaEee3n8t2HDlBGA" name="waitingQueue" type="_I0Ne4LybEee3n8t2HDlBGA" aggregation="shared"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_aqO0ULySEee3n8t2HDlBGA" name="Transporter">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_mWP6ELyTEee3n8t2HDlBGA" client="_aqO0ULySEee3n8t2HDlBGA" supplier="_V9CFYLySEee3n8t2HDlBGA" contract="_V9CFYLySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_eC3kELySEee3n8t2HDlBGA" name="Physician">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_nXZOALyTEee3n8t2HDlBGA" client="_eC3kELySEee3n8t2HDlBGA" supplier="_V9CFYLySEee3n8t2HDlBGA" contract="_V9CFYLySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_fjfCQLySEee3n8t2HDlBGA" name="Nurse">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_n4ESILyTEee3n8t2HDlBGA" client="_fjfCQLySEee3n8t2HDlBGA" supplier="_V9CFYLySEee3n8t2HDlBGA" contract="_V9CFYLySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lY-O8LySEee3n8t2HDlBGA" name="Room" isAbstract="true">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_wexCMLyTEee3n8t2HDlBGA" client="_lY-O8LySEee3n8t2HDlBGA" supplier="_XRog0LySEee3n8t2HDlBGA" contract="_XRog0LySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_oIbe0LySEee3n8t2HDlBGA" name="WaitingRoom">
+    <generalization xmi:type="uml:Generalization" xmi:id="_dSmA4LyWEee3n8t2HDlBGA" general="_lY-O8LySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_rktYcLySEee3n8t2HDlBGA" name="ShockRoom">
+    <generalization xmi:type="uml:Generalization" xmi:id="_gJWLkLyWEee3n8t2HDlBGA" general="_lY-O8LySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tETi8LySEee3n8t2HDlBGA" name="BoxRoom">
+    <generalization xmi:type="uml:Generalization" xmi:id="_gxo6oLyWEee3n8t2HDlBGA" general="_lY-O8LySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_0DSuULySEee3n8t2HDlBGA" name="Strechers">
+    <generalization xmi:type="uml:Generalization" xmi:id="_mHdAkLzJEee3n8t2HDlBGA" general="_gxu5ELzJEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_2XPt8LySEee3n8t2HDlBGA" name="HealthService" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_BmbyULzXEee3n8t2HDlBGA" name="Observers" type="_YwiW4LzWEee3n8t2HDlBGA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_HMfmcLzYEee3n8t2HDlBGA" name="results"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_xBdfkLyTEee3n8t2HDlBGA" client="_2XPt8LySEee3n8t2HDlBGA" supplier="_XRog0LySEee3n8t2HDlBGA" contract="_XRog0LySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-OJ_0LySEee3n8t2HDlBGA" name="Consultation">
+    <generalization xmi:type="uml:Generalization" xmi:id="_hZiBELyWEee3n8t2HDlBGA" general="_2XPt8LySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GyYqsLyTEee3n8t2HDlBGA" name="XRay">
+    <generalization xmi:type="uml:Generalization" xmi:id="_h9S1cLyWEee3n8t2HDlBGA" general="_2XPt8LySEee3n8t2HDlBGA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_QQYTsLzWEee3n8t2HDlBGA" client="_GyYqsLyTEee3n8t2HDlBGA" supplier="_4bwA4LzVEee3n8t2HDlBGA" contract="_4bwA4LzVEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_I-G7YLyTEee3n8t2HDlBGA" name="MRI">
+    <generalization xmi:type="uml:Generalization" xmi:id="_iYMBsLyWEee3n8t2HDlBGA" general="_2XPt8LySEee3n8t2HDlBGA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_RHhXELzWEee3n8t2HDlBGA" client="_I-G7YLyTEee3n8t2HDlBGA" supplier="_4bwA4LzVEee3n8t2HDlBGA" contract="_4bwA4LzVEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MDqXELyTEee3n8t2HDlBGA" name="Radiography">
+    <generalization xmi:type="uml:Generalization" xmi:id="_iz1b4LyWEee3n8t2HDlBGA" general="_2XPt8LySEee3n8t2HDlBGA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Rq04cLzWEee3n8t2HDlBGA" client="_MDqXELyTEee3n8t2HDlBGA" supplier="_4bwA4LzVEee3n8t2HDlBGA" contract="_4bwA4LzVEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_QQlDcLyTEee3n8t2HDlBGA" name="BloodTesting">
+    <generalization xmi:type="uml:Generalization" xmi:id="_jPEmYLyWEee3n8t2HDlBGA" general="_2XPt8LySEee3n8t2HDlBGA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_SJa48LzWEee3n8t2HDlBGA" client="_QQlDcLyTEee3n8t2HDlBGA" supplier="_4bwA4LzVEee3n8t2HDlBGA" contract="_4bwA4LzVEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_VAP3kLyTEee3n8t2HDlBGA" name="Scan">
+    <generalization xmi:type="uml:Generalization" xmi:id="_jrif8LyWEee3n8t2HDlBGA" general="_2XPt8LySEee3n8t2HDlBGA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_SiTTALzWEee3n8t2HDlBGA" client="_VAP3kLyTEee3n8t2HDlBGA" supplier="_4bwA4LzVEee3n8t2HDlBGA" contract="_4bwA4LzVEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_tT1-ULyTEee3n8t2HDlBGA" client="_V9CFYLySEee3n8t2HDlBGA" supplier="_bvFZALyREee3n8t2HDlBGA"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_vnajcLyTEee3n8t2HDlBGA" client="_XRog0LySEee3n8t2HDlBGA" supplier="_bvFZALyREee3n8t2HDlBGA"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_I0Ne4LybEee3n8t2HDlBGA" name="Patient"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_NjyzcLybEee3n8t2HDlBGA" name="ED"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_t-VzMLybEee3n8t2HDlBGA" name="ClientInterface"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_a0CPkLydEee3n8t2HDlBGA" name="AbstractFactory" isAbstract="true">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_lQs3YLzMEee3n8t2HDlBGA" name="getHR"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qZgkQLzMEee3n8t2HDlBGA" name="getRoom"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_unlHMLzMEee3n8t2HDlBGA" name="getEquipment"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_xfMNgLzMEee3n8t2HDlBGA" name="getHealthService"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tloGULydEee3n8t2HDlBGA" name="HRFactory">
+    <generalization xmi:type="uml:Generalization" xmi:id="_7xq8MLzHEee3n8t2HDlBGA" general="_a0CPkLydEee3n8t2HDlBGA"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Jh_iYLzREee3n8t2HDlBGA" name="getHR"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kDTCYLzHEee3n8t2HDlBGA" name="FactoryProducer">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_OAeSILzMEee3n8t2HDlBGA" name="GetFactory"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_BW9JsLzIEee3n8t2HDlBGA" name="RoomFactory">
+    <generalization xmi:type="uml:Generalization" xmi:id="_x0ngYLzLEee3n8t2HDlBGA" general="_a0CPkLydEee3n8t2HDlBGA"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_pWLCgLzNEee3n8t2HDlBGA" name="getRoom"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gxu5ELzJEee3n8t2HDlBGA" name="Equipement" isAbstract="true">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_lZvmALzJEee3n8t2HDlBGA" client="_gxu5ELzJEee3n8t2HDlBGA" supplier="_XRog0LySEee3n8t2HDlBGA" contract="_XRog0LySEee3n8t2HDlBGA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tpkuMLzJEee3n8t2HDlBGA" name="EquipmentFactory">
+    <generalization xmi:type="uml:Generalization" xmi:id="_REg80LzKEee3n8t2HDlBGA" general="_a0CPkLydEee3n8t2HDlBGA"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_L1tRcLzREee3n8t2HDlBGA" name="getEquipment"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_CecEQLzKEee3n8t2HDlBGA" name="HealthServiceFactory">
+    <generalization xmi:type="uml:Generalization" xmi:id="_hgPBALzNEee3n8t2HDlBGA" general="_a0CPkLydEee3n8t2HDlBGA"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PHqxcLzREee3n8t2HDlBGA" name="getHealtService"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_4bwA4LzVEee3n8t2HDlBGA" name="Observable">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_G1S5ULzWEee3n8t2HDlBGA" name="registerObserver"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_JpT5ELzWEee3n8t2HDlBGA" name="deletObserver"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Mb8YwLzWEee3n8t2HDlBGA" name="notifyObservers"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_PgERELzWEee3n8t2HDlBGA" client="_-OJ_0LySEee3n8t2HDlBGA" supplier="_4bwA4LzVEee3n8t2HDlBGA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_YwiW4LzWEee3n8t2HDlBGA" name="Observer">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_cRriYLzWEee3n8t2HDlBGA" name="update"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_tokz8L1eEeeoS738Z9gZXQ" name="Event">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_MtXhsL1fEeeoS738Z9gZXQ" name="timeStamp"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_RCsjML1fEeeoS738Z9gZXQ" name="duration"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zyvQIL1eEeeoS738Z9gZXQ" name="Arrival">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Es0LoL1fEeeoS738Z9gZXQ" client="_zyvQIL1eEeeoS738Z9gZXQ" supplier="_tokz8L1eEeeoS738Z9gZXQ" contract="_tokz8L1eEeeoS738Z9gZXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_3h5pgL1eEeeoS738Z9gZXQ" name="Registration">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_FQdrQL1fEeeoS738Z9gZXQ" client="_3h5pgL1eEeeoS738Z9gZXQ" supplier="_tokz8L1eEeeoS738Z9gZXQ" contract="_tokz8L1eEeeoS738Z9gZXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4tX-IL1eEeeoS738Z9gZXQ" name="Transportation">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Fpvt8L1fEeeoS738Z9gZXQ" client="_4tX-IL1eEeeoS738Z9gZXQ" supplier="_tokz8L1eEeeoS738Z9gZXQ" contract="_tokz8L1eEeeoS738Z9gZXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_88TcsL1eEeeoS738Z9gZXQ" name="Consultation">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_GByagL1fEeeoS738Z9gZXQ" client="_88TcsL1eEeeoS738Z9gZXQ" supplier="_tokz8L1eEeeoS738Z9gZXQ" contract="_tokz8L1eEeeoS738Z9gZXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="__d_9YL1eEeeoS738Z9gZXQ" name="Transportation2">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_G_tbUL1fEeeoS738Z9gZXQ" client="__d_9YL1eEeeoS738Z9gZXQ" supplier="_tokz8L1eEeeoS738Z9gZXQ" contract="_tokz8L1eEeeoS738Z9gZXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_A7B8EL1fEeeoS738Z9gZXQ" name="Exam">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_GhHa0L1fEeeoS738Z9gZXQ" client="_A7B8EL1fEeeoS738Z9gZXQ" supplier="_tokz8L1eEeeoS738Z9gZXQ" contract="_tokz8L1eEeeoS738Z9gZXQ"/>
+  </packagedElement>
+</uml:Model>

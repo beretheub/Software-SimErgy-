@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rootElement" nsURI="http:///rootElement.ecore" nsPrefix="rootElement">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="RootElement"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Ressources" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hr" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="HR"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" ordered="false"
+        lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nhr" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="NHR"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cost" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="waitingQueue" ordered="false"
+        lowerBound="1" eType="#//Patient"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Patient"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transporter" eSuperTypes="#//Hr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Physician" eSuperTypes="#//Hr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Nurse" eSuperTypes="#//Hr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Room" abstract="true" eSuperTypes="#//Nhr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WaitingRoom" eSuperTypes="#//Room"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShockRoom" eSuperTypes="#//Room"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BoxRoom" eSuperTypes="#//Room"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Strechers" eSuperTypes="#//Equipement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Equipement" abstract="true" eSuperTypes="#//Nhr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HealthService" abstract="true" eSuperTypes="#//Nhr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="observers" ordered="false"
+        lowerBound="1" eType="#//Observer">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="Observers"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="results" ordered="false"
+        lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Observer" abstract="true" interface="true">
+    <eOperations name="update" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Consultation" eSuperTypes="#//HealthService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XRay" eSuperTypes="#//HealthService #//Observable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Observable" abstract="true" interface="true">
+    <eOperations name="registerObserver" ordered="false" lowerBound="1"/>
+    <eOperations name="deletObserver" ordered="false" lowerBound="1"/>
+    <eOperations name="notifyObservers" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mri" eSuperTypes="#//HealthService #//Observable">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="MRI"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Radiography" eSuperTypes="#//HealthService #//Observable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BloodTesting" eSuperTypes="#//HealthService #//Observable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scan" eSuperTypes="#//HealthService #//Observable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ed">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="ED"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientInterface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractFactory" abstract="true">
+    <eOperations name="getHr" ordered="false" lowerBound="1">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="getHR"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getRoom" ordered="false" lowerBound="1"/>
+    <eOperations name="getEquipment" ordered="false" lowerBound="1"/>
+    <eOperations name="getHealthService" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HrFactory" eSuperTypes="#//AbstractFactory">
+    <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details key="originalName" value="HRFactory"/>
+    </eAnnotations>
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EOperation" name="getHr" ordered="false" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details key="originalName" value="getHR"/>
+        </eAnnotations>
+        <eAnnotations source="redefines" references="#//AbstractFactory/getHr"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FactoryProducer">
+    <eOperations name="getFactory" ordered="false" lowerBound="1">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details key="originalName" value="GetFactory"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RoomFactory" eSuperTypes="#//AbstractFactory">
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EOperation" name="getRoom" ordered="false" lowerBound="1">
+        <eAnnotations source="redefines" references="#//AbstractFactory/getRoom"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EquipmentFactory" eSuperTypes="#//AbstractFactory">
+    <eAnnotations source="duplicates">
+      <contents xsi:type="ecore:EOperation" name="getEquipment" ordered="false" lowerBound="1">
+        <eAnnotations source="redefines" references="#//AbstractFactory/getEquipment"/>
+      </contents>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HealthServiceFactory" eSuperTypes="#//AbstractFactory">
+    <eOperations name="getHealtService" ordered="false" lowerBound="1"/>
+  </eClassifiers>
+</ecore:EPackage>
