@@ -1,63 +1,7 @@
 package fr.ecp.is1220.projet.part1;
 
-public class Nurse implements HumanRessources {
-	int id;
-	String name;
-	String surname;
+public class Nurse extends HumanRessources{
 	NurseState state;
-	
-	
-	/**
-	 * Return an int number which is the id of the nurse.
-	 */
-	@Override
-	public int getId() {
-		// TODO Auto-generated method stub
-		return this.id;
-	}
-	
-	/**
-	 * Sets a new id for the nurse. Which is the int number taken as parameter.
-	 */
-	@Override
-	public void setId(int id) {
-		this.id = id;
-		
-	}
-	/**
-	 * Return a string which is the name of the nurse.
-	 */
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return this.name;
-	}
-	/**
-	 * Sets a new name for the nurse. Which is the string taken as parameter.
-	 */
-	@Override
-	public void setName(String name) {
-		// TODO Auto-generated method stub
-		this.name = name;
-	}
-	
-	/**
-	 * Return a string which is the surname of the nurse.
-	 */
-	@Override
-	public String getSurname() {
-		// TODO Auto-generated method stub
-		return this.surname;
-	}
-	
-	/**
-	 * Sets a new surname for the nurse. Which is the string taken as parameter.
-	 */
-	@Override
-	public void setSurname(String surname) {
-		// TODO Auto-generated method stub
-		this.surname = surname;
-	}
 	/**
 	 * Returns the state of the nurse
 	 * @return int number :  0 if the nurse is ONDUTY, 1 if the nurse is OFFDUTY, 2 if the nurse is OCCUPIED
@@ -104,17 +48,11 @@ public class Nurse implements HumanRessources {
 	 *  0 (or any other number) means ONDUTY
 	 */
 	public Nurse(int id, String name, String surname) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
+		super(id, name, surname);
 		this.state = NurseState.ONDUTY;
 	}
 	public Nurse(int id, String name, String surname, int choice) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
+		super(id, name, surname);
 		this.setState(choice);
 	}
 	
