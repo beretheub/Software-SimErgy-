@@ -6,11 +6,11 @@ public class Transporter extends HumanRessources {
 
 	/**
 	 * 3 parameters 
-	 * 1. An int number : the id of the nurse
-	 * 2. A string : the name of the nurse
-	 * 3. A string : the surname of the nurse
+	 * 1. An int number : the id of the transporter
+	 * 2. A string : the name of the transporter
+	 * 3. A string : the surname of the transporter
 	 * 
-	 *  A nurse also has a state (OFFDUTY, ONDUTY, OCCUPIED), its state is set ONDUTY by default 
+	 *  A transporter also has a state (OFFDUTY, ONDUTY, OCCUPIED), its state is set ONDUTY by default 
 	 *  
 	 *  it can also be setted at the declaration of the nurse by an int number : 
 	 *  1 means OFFDUTY
@@ -44,6 +44,18 @@ public class Transporter extends HumanRessources {
 			this.state = TransporterState.ONDUTY;
 		}
 		
+	}
+	/**
+	 * Returns the state of the transporter
+	 * @return int number :  0 if the transporter is ONDUTY, 1 if the transporter is OFFDUTY, 2 if the transporter is OCCUPIED
+	 */
+	public int getState(){
+		if(this.state == TransporterState.OCCUPIED){
+			return 2;
+		}else if(this.state == TransporterState.OFFDUTY){
+			return 1;
+		}
+		return 0;
 	}
 	
 
