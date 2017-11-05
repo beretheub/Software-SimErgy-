@@ -95,6 +95,8 @@ public abstract class Rooms implements NonHumanRessources {
 		super();
 		this.name = name;
 		listOfPatientsInside = new ArrayList<>();
+		IdGenerator idRoom = new IdGenerator();
+		this.id = idRoom.generateId(01); //Le prefix des id des room est 01 
 		
 	}
 	

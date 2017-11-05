@@ -8,11 +8,10 @@ public class IdGenerator {
 	 * @return uniqId (int)
 	 * 
 	 * Prefixes : 
-	 * 
-	 * 00 : Human resource
-	 * 01 : room
-	 * 02 : equipment
-	 * 03 : health service
+	 * (00 : Human resource)
+	 * (01 : room)
+	 * (02 : equipment)
+	 * (03 : health service)
 	 */
 	public int generateId(int idPrefix){
 		String id = String.valueOf(idcompteur);
