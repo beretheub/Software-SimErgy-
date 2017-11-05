@@ -17,10 +17,6 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_cbmKoLyaEee3n8t2HDlBGA" name="name">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_f88xgLyaEee3n8t2HDlBGA" name="cost">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_jeAdcLyaEee3n8t2HDlBGA" name="waitingQueue" type="_I0Ne4LybEee3n8t2HDlBGA" aggregation="shared"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_aqO0ULySEee3n8t2HDlBGA" name="Transporter">
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_mWP6ELyTEee3n8t2HDlBGA" client="_aqO0ULySEee3n8t2HDlBGA" supplier="_V9CFYLySEee3n8t2HDlBGA" contract="_V9CFYLySEee3n8t2HDlBGA"/>
@@ -184,7 +180,6 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_fALy8b15EeeoS738Z9gZXQ" name="patientstate" type="_X1E3IL15EeeoS738Z9gZXQ" association="_fAKk0L15EeeoS738Z9gZXQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_ichKUL5SEeeM5_hwRzKk7g" name="essai"/>
-  <packagedElement xmi:type="uml:Enumeration" xmi:id="_SeMoQMDKEee1UNy1C3czqA" name="TransporterState"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Eu9-YL14EeeoS738Z9gZXQ">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Evp64L14EeeoS738Z9gZXQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>

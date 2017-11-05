@@ -17,10 +17,6 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_cbmKoLyaEee3n8t2HDlBGA" name="name">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_f88xgLyaEee3n8t2HDlBGA" name="cost">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_jeAdcLyaEee3n8t2HDlBGA" name="waitingQueue" type="_I0Ne4LybEee3n8t2HDlBGA" aggregation="shared"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_aqO0ULySEee3n8t2HDlBGA" name="Transporter">
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_mWP6ELyTEee3n8t2HDlBGA" client="_aqO0ULySEee3n8t2HDlBGA" supplier="_V9CFYLySEee3n8t2HDlBGA" contract="_V9CFYLySEee3n8t2HDlBGA"/>

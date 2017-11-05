@@ -74,14 +74,6 @@
         <element xmi:type="uml:Property" href="model.uml#_cbmKoLyaEee3n8t2HDlBGA"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ccuMAbyaEee3n8t2HDlBGA"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_f9pVELyaEee3n8t2HDlBGA" type="Property_InterfaceAttributeLabel">
-        <element xmi:type="uml:Property" href="model.uml#_f88xgLyaEee3n8t2HDlBGA"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_f9pVEbyaEee3n8t2HDlBGA"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_jej3ELyaEee3n8t2HDlBGA" type="Property_InterfaceAttributeLabel">
-        <element xmi:type="uml:Property" href="model.uml#_jeAdcLyaEee3n8t2HDlBGA"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_jej3EbyaEee3n8t2HDlBGA"/>
-      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_XRsLMLySEee3n8t2HDlBGA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_XRsLMbySEee3n8t2HDlBGA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_XRsLMrySEee3n8t2HDlBGA"/>
@@ -1177,11 +1169,8 @@
     <element xmi:type="uml:Class" href="model.uml#_ichKUL5SEeeM5_hwRzKk7g"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iculsb5SEeeM5_hwRzKk7g" x="1120" y="-140"/>
   </children>
-  <styles xmi:type="notation:StringValueStyle" xmi:id="_UejKoLyREee3n8t2HDlBGA" name="diagram_compatibility_version" stringValue="1.3.0"/>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_UejKoLyREee3n8t2HDlBGA" name="diagram_compatibility_version" stringValue="1.2.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_UejKobyREee3n8t2HDlBGA"/>
-  <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_WoWK8L5NEeeM5_hwRzKk7g" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
-    <owner xmi:type="uml:Model" href="model.uml#_I-Di8LyREee3n8t2HDlBGA"/>
-  </styles>
   <element xmi:type="uml:Model" href="model.uml#_I-Di8LyREee3n8t2HDlBGA"/>
   <edges xmi:type="notation:Connector" xmi:id="_mW7PgLyTEee3n8t2HDlBGA" type="InterfaceRealization_Edge" source="_aqR3oLySEee3n8t2HDlBGA" target="_V9YDoLySEee3n8t2HDlBGA">
     <children xmi:type="notation:DecorationNode" xmi:id="_mW72kLyTEee3n8t2HDlBGA" type="InterfaceRealization_StereotypeLabel">
@@ -1704,4 +1693,7 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fExYAL15EeeoS738Z9gZXQ" id="(0.0,0.2448377581120944)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fExYAb15EeeoS738Z9gZXQ" id="(1.0,0.6717428087986463)"/>
   </edges>
+  <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_WoWK8L5NEeeM5_hwRzKk7g" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
+    <owner xmi:type="uml:Model" href="model.uml#_I-Di8LyREee3n8t2HDlBGA"/>
+  </styles>
 </notation:Diagram>
