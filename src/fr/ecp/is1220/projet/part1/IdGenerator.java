@@ -1,7 +1,25 @@
 package fr.ecp.is1220.projet.part1;
 
 public class IdGenerator {
-	private static int idcompteur = 0;
+	private int idcompteur = 0;
+	private static IdGenerator instance = null;
+	
+	
+	// contructor singleton pattern
+	private IdGenerator() {
+		super();
+	}
+
+	/**
+	 * Returns the only instance of IdGenerator, if none creates it.
+	 */
+	public static IdGenerator getInstance(){
+		if (instance == null){
+			instance = new IdGenerator();
+		}
+		return instance;
+	}
+
 	/**
 	 * Retruns a unique id with a prefix (two first numbers of the id) according to the type of resource.
 	 * @param idPrefix, int number (between 00 and 99) which is a prefix for the 00 for HR, 01 for rooms etc...
