@@ -27,12 +27,12 @@ public class Physician extends HumanRessources implements Observer {
 	 *  2 means VISITING 
 	 *  0 (or any other number) means ONDUTY
 	 */
-	public Physician(int id, String name, String surname) {
-		super(id, name, surname);
+	public Physician(String name, String surname) {
+		super(name, surname);
 		this.state = PhysicianState.ONDUTY;
 	}
-	public Physician(int id, String name, String surname, int choice) {
-		super(id, name, surname);
+	public Physician(String name, String surname, int choice) {
+		super(name, surname);
 		this.setState(choice);
 	}
 	/**

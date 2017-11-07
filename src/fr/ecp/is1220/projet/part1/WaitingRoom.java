@@ -9,6 +9,6 @@ public class WaitingRoom extends Rooms {
 		super(name);
 		// TODO Auto-generated constructor stub
 		this.setCapacity(-1);
-		// disons qu'une box room a une capacité infinie.
+		// disons qu'une waiting room a une capacité infinie.
 	}
 }
