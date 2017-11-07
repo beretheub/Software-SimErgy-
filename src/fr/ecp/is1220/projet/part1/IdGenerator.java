@@ -30,6 +30,7 @@ public class IdGenerator {
 	 * (01 : room)
 	 * (02 : equipment)
 	 * (03 : health service)
+	 * (10 : Patient)
 	 */
 	public int generateId(int idPrefix){
 		String id = String.valueOf(idcompteur);
@@ -37,7 +38,8 @@ public class IdGenerator {
 		// Pas fini, il faut travailler ça encore puis changer tous le constructor de HR pour qu'il attribu automatiquement un id
 		if (idPrefix >= 0 && idPrefix < 100){
 			prefix = String.valueOf(idPrefix);
-		}else{
+		}
+		else{
 			System.out.println("Wrong Prefix : the attribution of an id did not work");
 			return null;
 		}

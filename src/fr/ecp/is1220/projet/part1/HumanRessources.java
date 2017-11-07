@@ -53,9 +53,10 @@ public abstract class HumanRessources implements Ressources {
 		// TODO Auto-generated method stub
 		this.surname = surname;
 	}
-	public HumanRessources(int id, String name, String surname) {
+	public HumanRessources(String name, String surname) {
 		super();
-		this.id = id;
+		IdGenerator idRoom = IdGenerator.getInstance();
+		this.id = idRoom.generateId(00); //Le prefix des id des HR est 00 
 		this.name = name;
 		this.surname = surname;
 	

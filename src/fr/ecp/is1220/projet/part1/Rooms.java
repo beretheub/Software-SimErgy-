@@ -99,6 +99,11 @@ public abstract class Rooms implements NonHumanRessources {
 		this.id = idRoom.generateId(01); //Le prefix des id des room est 01 
 		
 	}
+	@Override
+	public String toString() {
+		return "Rooms [id=" + id + ", name=" + name + ", capacity=" + capacity + ", listOfPatientsInside="
+				+ listOfPatientsInside + "]";
+	}
 	
 	
 
