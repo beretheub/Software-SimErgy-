@@ -16,13 +16,13 @@ public class NurseTest {
 		n1.getId();
 		n1.toString();
 		
-		n1.setState(0);
+		n1.setState(NurseState.OCCUPIED);
 		n1.toString();
 		
-		n1.setState(1);
+		n1.setState(NurseState.ONDUTY);
 		n1.toString();
 		
-		n1.setState(2);
+		n1.setState(NurseState.OFFDUTY);
 		n1.toString();
 		
 		
