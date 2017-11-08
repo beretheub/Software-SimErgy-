@@ -41,7 +41,7 @@ public class IdGenerator {
 		}
 		else{
 			System.out.println("Wrong Prefix : the attribution of an id did not work");
-			return null;
+			return -1;
 		}
 		
 		idcompteur += 1;

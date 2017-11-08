@@ -5,6 +5,4 @@ public interface NonHumanRessources extends Ressources {
 	public void setName(String name);
 	public int getId();
 	public void setId(int newId);
-	
-
 }
