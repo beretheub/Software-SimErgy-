@@ -7,9 +7,11 @@ Rq :
 
 
 - Jamais de to string ? 
-- Je rajoute un préfixe pour l'ID des patients, tu ne l'avais pas fait je crois ?
-- J'ai du mal à voir l'intéret d'un JUNite dans le cas de la création d'une room ou d'un patient ? Du coup je fais un test classique pour l'instant. Ah si, je crois que j'ai trouvé pour la BoxRoom et le patient 
 - HR : il faut generer des ID automatiques aussi non ? les mettre en 20, puis différencier nurse, physician, transporter ? 
 Pas de Test pour les abstract class (HR, ...) -> je vais bouger mon test HR, mais je dois y aller là
 - pourquoi NHR est une interface, et HR une abstract class ? 
-- pourquoi des uméros pour les états, ça complique tout non ? 
+- pourquoi des uméros pour les états, ça complique tout non ?
+
+
+Je termine le idgenerator ce soir, j'ai presque fini mais j'ai pas eu le temps de tout achever ! Et j'essaie de terminer la création de toutes les classes !
+ 
