@@ -1,6 +1,9 @@
-package fr.ecp.is1220.projet.part1;
+package tests;
 
 import org.junit.Test;
+
+import fr.ecp.is1220.projet.part1.Insurance;
+import fr.ecp.is1220.projet.part1.Patient;
 
 public class PatientTest {
 	@Test

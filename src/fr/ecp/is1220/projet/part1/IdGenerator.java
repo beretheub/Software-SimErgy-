@@ -21,7 +21,7 @@ public class IdGenerator {
 	}
 
 	/**
-	 * Retruns a unique id with a prefix (two first numbers of the id) according to the type of resource.
+	 * Returns a unique id with a prefix (two first numbers of the id) according to the type of resource.
 	 * @param idPrefix, int number (between 10 and 99) which is a prefix for the 10 for HR, 11 for rooms etc...
 	 * @return uniqId (int)
 	 * 
