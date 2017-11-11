@@ -17,14 +17,7 @@ Pas de Test pour les abstract class (HR, ...) -> je vais bouger mon test HR, mai
 11/11/2017. 
 
 
-- J'ai changé le fonctionnement de l'id generator, il marche normalement maintenant. A noter : j'ai changé la manière dont sont notés les id pour des raisons pratiques ils commencent tous par un chiffre strictement supérieur à 0. Je pense que c'était pas forcément nécessaire de faire tout ça mais bon maintenant que c'est fait autant s'y tenir !
- 
 
-- j'enlève le setId pour tout le monde, ça n'a pas de sens de la garder à mon avis, si on veut vraiment un id unique il ne faut pas qu'on donne la possibilité de le changer.
-
-
-- Je ne sais pas si les consultation ont leur place en tant que health service etant donné que l'on a déjà la class consultation room dans laquelle est la liste d'attente des patients... (voir les commentaire de la class consultation. 
- 
 
  - je mets les tests en public sinon ne fonctionnent pas 
  + création du dossier test demandé dans l'énoncé
@@ -36,4 +29,12 @@ Pas de Test pour les abstract class (HR, ...) -> je vais bouger mon test HR, mai
  		je vais courir, et après je me mets au dossier event ! :D
  		
  		(J'ai pas trop compris ton dernier point... C'est quoi l'index ?)  
+- J'ai changé le fonctionnement de l'id generator, il marche normalement maintenant. A noter : j'ai changé la manière dont sont notés les id pour des raisons pratiques ils commencent tous par un chiffre strictement supérieur à 0. Je pense que c'était pas forcément nécessaire de faire tout ça mais bon maintenant que c'est fait autant s'y tenir !
+ 
 
+- j'enlève le setId pour tout le monde, ça n'a pas de sens de la garder à mon avis, si on veut vraiment un id unique il ne faut pas qu'on donne la possibilité de le changer.
+
+
+- Je ne sais pas si les consultation ont leur place en tant que health service etant donné que l'on a déjà la class consultation room dans laquelle est la liste d'attente des patients... (voir les commentaire de la class consultation. 
+ 
+ - J'ai commencé le factory pattern, je le fini demain et après je pourrais m'attaquer aux fonctionnalités un peu plus avancées des classes ressources !
