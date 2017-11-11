@@ -2,6 +2,9 @@ package fr.ecp.is1220.projet.part1;
 
 import java.util.ArrayList;
 
+import fr.ecp.is1220.projet.part1.ObserverPattern.Observable;
+import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
+
 public abstract class HealthServices implements Observable, NonHumanRessources {
 	private int id;
 	private String name;
