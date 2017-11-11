@@ -124,6 +124,14 @@ public class Physician extends HumanRessources implements Observer {
 		// A REMPLIR UN FOIS QUE LE PATTERN OBSERVABLE EST PRET !
 		
 	}
+	@Override
+	public String toString() {
+		return "Physician [state=" + state + ", patientsBeingOverseen=" + patientsBeingOverseen + ", patientsTreated="
+				+ patientsTreated + ", messageBox=" + messageBox + ", id=" + id + ", name=" + name + ", surname="
+				+ surname + "]";
+	}
+
+	
 	
 	
 	

@@ -1,8 +1,10 @@
-package fr.ecp.is1220.projet.part1;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import fr.ecp.is1220.projet.part1.IdGenerator;
 
 public class IdGeneratorTest {
 	

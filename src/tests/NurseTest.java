@@ -1,10 +1,13 @@
-package fr.ecp.is1220.projet.part1;
+package tests;
 
 import org.junit.Test;
 
+import fr.ecp.is1220.projet.part1.Nurse;
+import fr.ecp.is1220.projet.part1.NurseState;
+
 public class NurseTest {
 @Test
-	private void TestNurse1() {
+	public void TestNurse1() {
 		// TODO Auto-generated method stub
 		Nurse n1=new Nurse("Cathy","Einstein");
 		

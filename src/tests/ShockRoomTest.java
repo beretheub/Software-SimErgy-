@@ -1,10 +1,13 @@
-package fr.ecp.is1220.projet.part1;
+package tests;
 
 import org.junit.Test;
 
+import fr.ecp.is1220.projet.part1.Patient;
+import fr.ecp.is1220.projet.part1.ShockRoom;
+
 public class ShockRoomTest {
 @Test
-	private void TestShockRoom1() {
+	public void TestShockRoom1() {
 		// TODO Auto-generated method stub
 		ShockRoom cr1=new ShockRoom("WRA");
 		

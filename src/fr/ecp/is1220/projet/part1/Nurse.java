@@ -35,6 +35,11 @@ public class Nurse extends HumanRessources{
 		super(name, surname);
 		this.setState(choice);
 	}
+	@Override
+	public String toString() {
+		return "Nurse [state=" + state + ", id=" + id + ", name=" + name + ", surname=" + surname + "]";
+	}
+	
 	
 	
 

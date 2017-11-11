@@ -1,10 +1,13 @@
-package fr.ecp.is1220.projet.part1;
+package tests;
 
 import org.junit.Test;
 
+import fr.ecp.is1220.projet.part1.Patient;
+import fr.ecp.is1220.projet.part1.WaitingRoom;
+
 public class WaitingRoomTest {
 @Test
-	private void TestWaitingRoom1() {
+	public void TestWaitingRoom1() {
 		// TODO Auto-generated method stub
 		WaitingRoom wr1=new WaitingRoom("WRA");
 		

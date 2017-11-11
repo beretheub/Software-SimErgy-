@@ -57,6 +57,10 @@ public class Transporter extends HumanRessources {
 		}
 		return 0;
 	}
+	@Override
+	public String toString() {
+		return "Transporter [state=" + state + ", id=" + id + ", name=" + name + ", surname=" + surname + "]";
+	}
 	
 
 }

@@ -1,10 +1,12 @@
-package fr.ecp.is1220.projet.part1;
+package tests;
 
 import org.junit.Test;
 
+import fr.ecp.is1220.projet.part1.Physician;
+
 public class PhysicianTest {
 @Test
-	private void TestPhysician1() {
+	public void TestPhysician1() {
 		// TODO Auto-generated method stub
 		Physician p1=new Physician("Homère","Ortie");
 		
