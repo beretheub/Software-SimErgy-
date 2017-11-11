@@ -1,30 +1,32 @@
 package fr.ecp.is1220.projet.part1;
 
 public class Patient {
-	protected int idPatient;
+	protected int id;
 	protected String name;
 	protected Insurance insurance=Insurance.NO;
 	
 	/** 
 	*On part du principe que le patient n'a pas d'assurance par défaut
 	*O peut aussi créer un patient avec assurance
-	*L'ID se génrère automatiquement, en commençant par le préfixe 10
+	*L'ID se génère automatiquement, en commençant par le préfixe 20
 	**/
 	
 	public Patient(String name) {
 		super();
 		this.name = name;
-		IdGenerator idPatient = IdGenerator.getInstance();
+		IdGenerator idG = IdGenerator.getInstance();
+		id = idG.generateId(20);
 	}
 	
 	public Patient(String name, Insurance insurance) {
 		this.insurance=insurance;
 		this.name = name;
-		IdGenerator idPatient = IdGenerator.getInstance();
+		IdGenerator idG = IdGenerator.getInstance();
+		id = idG.generateId(20);
 	}
 
-	public int getIdPatient() {
-		return idPatient;
+	public int getId() {
+		return id;
 	}
 
 	public String getName() {
@@ -33,10 +35,6 @@ public class Patient {
 
 	public Insurance getInsurance() {
 		return insurance;
-	}
-
-	public void setIdPatient(int idPatient) {
-		this.idPatient = idPatient;
 	}
 
 	public void setName(String name) {
@@ -49,7 +47,7 @@ public class Patient {
 
 	@Override
 	public String toString() {
-		return "Patient [idPatient=" + idPatient + ", name=" + name + ", insurance=" + insurance + "]";
+		return "Patient [idPatient=" + id + ", name=" + name + ", insurance=" + insurance + "]";
 	}
 	
 	

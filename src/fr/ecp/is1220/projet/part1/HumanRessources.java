@@ -49,7 +49,7 @@ public abstract class HumanRessources implements Ressources {
 	public HumanRessources(String name, String surname) {
 		super();
 		IdGenerator idRoom = IdGenerator.getInstance();
-		this.id = idRoom.generateId(00); //Le prefix des id des HR est 00 
+		this.id = idRoom.generateId(10); //Le prefix des id des HR est 10 
 		this.name = name;
 		this.surname = surname;
 	
