@@ -25,8 +25,7 @@ Pas de Test pour les abstract class (HR, ...) -> je vais bouger mon test HR, mai
  		- Un dossier event
  		- Un dossier Hopital
  		- ...
- 		et un index pour tout ça 
- 		je vais courir, et après je me mets au dossier event ! :D
+ 		et un xommaire dans la doc 
  		
  		(J'ai pas trop compris ton dernier point... C'est quoi l'index ?)  
 - J'ai changé le fonctionnement de l'id generator, il marche normalement maintenant. A noter : j'ai changé la manière dont sont notés les id pour des raisons pratiques ils commencent tous par un chiffre strictement supérieur à 0. Je pense que c'était pas forcément nécessaire de faire tout ça mais bon maintenant que c'est fait autant s'y tenir !
@@ -38,3 +37,7 @@ Pas de Test pour les abstract class (HR, ...) -> je vais bouger mon test HR, mai
 - Je ne sais pas si les consultation ont leur place en tant que health service etant donné que l'on a déjà la class consultation room dans laquelle est la liste d'attente des patients... (voir les commentaire de la class consultation. 
  
  - J'ai commencé le factory pattern, je le fini demain et après je pourrais m'attaquer aux fonctionnalités un peu plus avancées des classes ressources !
+
+- Finalement, pour les consultations et examens, on a des services, mais pas de room ? 
+
+- Il faut que je complète , Ce sera ensuite la class de création d'ED, qui sera capable de voir par exemple si une nurse est libre, un docteur, ou une pièce je pense 
