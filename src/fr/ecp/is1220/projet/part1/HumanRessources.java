@@ -15,14 +15,7 @@ public abstract class HumanRessources implements Ressources {
 		return this.id;
 	}
 	
-	/**
-	 * Sets a new id for the HR. Which is the int number taken as parameter.
-	 */
-	@Override
-	public void setId(int id) {
-		this.id = id;
-		
-	}
+	
 	/**
 	 * Return a string which is the name of the HR.
 	 */

@@ -50,15 +50,7 @@ public abstract class Rooms implements NonHumanRessources {
 		// TODO Auto-generated method stub
 		return this.id;
 	}
-	/**
-	 * sets a new id for the room.
-	 * @param newId (int)
-	 */
-	@Override
-	public void setId(int newId) {
-		// TODO Auto-generated method stub
-
-	}
+	
 	/**
 	 * Returns the list of patient that are in the room
 	 * @return listOfPatientsInside (ArrayList<Patient>)

@@ -22,31 +22,28 @@ public class IdGenerator {
 
 	/**
 	 * Retruns a unique id with a prefix (two first numbers of the id) according to the type of resource.
-	 * @param idPrefix, int number (between 00 and 99) which is a prefix for the 00 for HR, 01 for rooms etc...
+	 * @param idPrefix, int number (between 10 and 99) which is a prefix for the 10 for HR, 11 for rooms etc...
 	 * @return uniqId (int)
 	 * 
 	 * Prefixes : 
-	 * (00 : Human resource)
-	 * (01 : room)
-	 * (02 : equipment)
-	 * (03 : health service)
-	 * (10 : Patient)
+	 * (10 : Human resource)
+	 * (11 : room)
+	 * (12 : equipment)
+	 * (13 : health service)
+	 * (20 : Patient)
+	 * 
+	 * Negative id signifies a wrong id attribution.
+	 * 
 	 */
 	public int generateId(int idPrefix){
 		String id = String.valueOf(idcompteur);
 		String prefix;
-		if (idPrefix >= 0 && idPrefix < 100){
-			if(idPrefix > 9){
-				prefix = String.valueOf(idPrefix);
-				System.out.println(prefix + " : 1");
-			}else{
-				prefix = "0".concat(String.valueOf(idPrefix));
-				System.out.println(prefix + " : 2");
-			}
+		if (idPrefix >= 10 && idPrefix < 100){
+			prefix = String.valueOf(idPrefix);
 		}
 		else{
 			System.out.println("Wrong Prefix : the attribution of an id did not work");
-			return -1;
+			return-1;
 		}
 		
 		idcompteur += 1;
