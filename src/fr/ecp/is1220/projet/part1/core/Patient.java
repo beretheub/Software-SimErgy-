@@ -8,11 +8,13 @@ import fr.ecp.is1220.projet.part1.event.Arrival;
 import fr.ecp.is1220.projet.part1.event.Event;
 
 public class Patient {
+	private EmergencyDepartment ed;
 	private int id;
 	private String name;
 	private Insurance insurance;
 	private ArrayList<Event> listOfEvent;
-	private Date PatientArrivalTime;
+	private int PatientArrivalTime;
+	private SeverityLevel severity;
 	
 	/** 
 	*On part du principe que le patient n'a pas d'assurance par défaut
@@ -20,21 +22,28 @@ public class Patient {
 	*L'ID se génère automatiquement, en commençant par le préfixe 20
 	**/
 	
-	public Patient(String name) {
+	public Patient(EmergencyDepartment ed, String name) {
 		super();
+		this.ed = ed;
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(20);
 		this.insurance = Insurance.NO;
 		listOfEvent = new ArrayList<>();
+		
 	}
 	
-	public Patient(String name, Insurance insurance) {
+	public Patient(EmergencyDepartment ed, String name, Insurance insurance) {
+		this.ed = ed;
 		this.insurance=insurance;
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(20);
 		listOfEvent = new ArrayList<>();
+	}
+	
+	public EmergencyDepartment getPatientEd(){
+		return ed;
 	}
 
 	public int getId() {
@@ -56,20 +65,28 @@ public class Patient {
 	public void setInsurance(Insurance insurance) {
 		this.insurance = insurance;
 	}
-
-	@Override
-	public String toString() {
-		return "Patient [idPatient=" + id + ", name=" + name + ", insurance=" + insurance + "]";
-	}
 	
+	public SeverityLevel getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(SeverityLevel severity) {
+		this.severity = severity;
+	}
 	
 	
 	//------------------------------------------
 	
 	
 	public void arrives(){
-		Event arrival = new Arrival()
+		// First we generate an arrivale time randomly - à préciser par la suite ! Pour l'instant 
+		// il arrive uniformément entre la minute 0 et la minute 100
+		PatientArrivalTime = (int) Math.random()*100;
+		Event arrival = new Arrival(PatientArrivalTime, this);
+		listOfEvent.add(arrival); // On ajoute l'évent arrival à la liste des event subis par le patient
 	}
+
+	
 	
 	
 	

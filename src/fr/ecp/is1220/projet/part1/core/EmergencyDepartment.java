@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class EmergencyDepartment {
 	private String edName;
 	private ArrayList<Resources> edResources;
+	private ArrayList<Patient> listOfPatientsInTheED;
+	private ArrayList<Patient> patientsWaitingForTriage;
+	
 	/**
 	 * Creates a new Emergency department with no resources 
 	 * @param edName (String) 
@@ -30,6 +33,30 @@ public class EmergencyDepartment {
 		else{
 			//Juste au cas où, normalement
 			System.out.println("Error, the ressource which id is : " + res.getId() + " does not belong to this Emergency Departement");
+		}
+	}
+	public void addPatientInED(Patient p){
+		listOfPatientsInTheED.add(p);
+	}
+	public void removePatientInTheED(Patient p){
+		if (listOfPatientsInTheED.contains(p)){
+			listOfPatientsInTheED.remove(p);
+		}
+		else{
+			//Juste au cas où, normalement
+			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
+		}
+	}
+	public void addPatientInWaitingForTriage(Patient p){
+		patientsWaitingForTriage.add(p);
+	}
+	public void removePatientInWaitingForTriage(Patient p){
+		if (patientsWaitingForTriage.contains(p)){
+			patientsWaitingForTriage.remove(p);
+		}
+		else{
+			//Juste au cas où, normalement
+			System.out.println("Error, the patient which id is : " + p.getId() + " is not waiting for triage");
 		}
 	}
 	
