@@ -7,7 +7,7 @@ import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
 // TO DO : Compléter la fonction observer une fois que l'autre partie est prête !
 // TO DO : Compléter les fonction une fois que la structure de base de l'ensemble est prête
 
-public class Physician extends HumanRessources implements Observer {
+public class Physician extends HumanResources implements Observer {
 	
 	private PhysicianState state;
 	private ArrayList<Patient> patientsBeingOverseen = new ArrayList<>();

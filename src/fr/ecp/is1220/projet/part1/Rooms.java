@@ -2,7 +2,7 @@ package fr.ecp.is1220.projet.part1;
 
 import java.util.ArrayList;
 
-public abstract class Rooms implements NonHumanRessources {
+public abstract class Rooms implements NonHumanResources {
 	protected int id;
 	protected String name;
 	protected int capacity;

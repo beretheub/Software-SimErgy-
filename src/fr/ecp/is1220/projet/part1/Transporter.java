@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1;
 
-public class Transporter extends HumanRessources {
+public class Transporter extends HumanResources {
 	
 	TransporterState state;
 

@@ -12,7 +12,7 @@ package fr.ecp.is1220.projet.part1;
  */
 
 
-public class Consultation extends HealthServices {
+public class ConsultationService extends HealthServices {
 	/**
 	 * Creates a new consultation service. It inherits the attributes of a healtService.
 	 * 
@@ -20,13 +20,13 @@ public class Consultation extends HealthServices {
 	 * 
 	 */
 	
-	public Consultation(String name) {
+	public ConsultationService(String name) {
 		// Il je fixe le prix par défaut d'une consultation à 10
 		super(name, 10);
 		// TODO Auto-generated constructor stub
 		
 	}
-	public Consultation(String name, float cost) {
+	public ConsultationService(String name, float cost) {
 		super(name, cost);
 		// TODO Auto-generated constructor stub
 		

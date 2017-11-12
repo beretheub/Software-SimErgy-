@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1;
 
-public abstract class HumanRessources implements Ressources {
+public abstract class HumanResources implements Resources {
 	int id;
 	String name;
 	String surname;
@@ -46,7 +46,7 @@ public abstract class HumanRessources implements Ressources {
 		// TODO Auto-generated method stub
 		this.surname = surname;
 	}
-	public HumanRessources(String name, String surname) {
+	public HumanResources(String name, String surname) {
 		super();
 		IdGenerator idRoom = IdGenerator.getInstance();
 		this.id = idRoom.generateId(10); //Le prefix des id des HR est 10 

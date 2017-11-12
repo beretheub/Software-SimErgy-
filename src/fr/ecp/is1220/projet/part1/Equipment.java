@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1;
 
-public abstract class Equipment implements NonHumanRessources {
+public abstract class Equipment implements NonHumanResources {
 	
 	private String name;
 	private int id;

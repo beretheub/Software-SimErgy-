@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import fr.ecp.is1220.projet.part1.ObserverPattern.Observable;
 import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
 
-public abstract class HealthServices implements Observable, NonHumanRessources {
+public abstract class HealthServices implements Observable, NonHumanResources {
 	private int id;
 	private String name;
 	private ArrayList<Observer> observers;

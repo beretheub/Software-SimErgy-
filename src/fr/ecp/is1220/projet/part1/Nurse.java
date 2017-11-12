@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1;
 
-public class Nurse extends HumanRessources{
+public class Nurse extends HumanResources{
 	NurseState state;
 	/**
 	 * Returns the state of the nurse
