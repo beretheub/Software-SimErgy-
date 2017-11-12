@@ -7,9 +7,17 @@ import fr.ecp.is1220.projet.part1.core.HumanResources;
 import fr.ecp.is1220.projet.part1.core.Rooms;
 
 public abstract class AbstractFactory {
-	abstract HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname);
-	abstract Rooms getRoom(EmergencyDepartment ed, String resourceType, String name);
-	abstract Equipment getEquipment (EmergencyDepartment ed, String resourceType, String name);
-	abstract HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name);
+	public HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) {
+		return null;
+	}
+	public Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
+		return null;
+	}
+	public Equipment getEquipment (EmergencyDepartment ed, String resourceType, String name) {
+		return null;
+	}
+	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
+		return null;
+	}
 
 }

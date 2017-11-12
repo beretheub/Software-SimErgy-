@@ -15,7 +15,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Then it takes a second parameter String for its name 
 	 */
 	@Override
-	Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
+	public Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
 		if (resourceType.equalsIgnoreCase("waitingRoom")){
 			return new WaitingRoom(ed, name);
 		}
@@ -35,7 +35,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	Equipment getEquipment(EmergencyDepartment ed, String resourceType, String name) {
+	public Equipment getEquipment(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -43,7 +43,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
+	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -51,7 +51,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) {
+	public HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) {
 		// TODO Auto-generated method stub
 		return null;
 	}

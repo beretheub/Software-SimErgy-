@@ -1,9 +1,18 @@
 package fr.ecp.is1220.projet.part1.core;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Date;
+
+import fr.ecp.is1220.projet.part1.event.Arrival;
+import fr.ecp.is1220.projet.part1.event.Event;
+
 public class Patient {
-	protected int id;
-	protected String name;
-	protected Insurance insurance=Insurance.NO;
+	private int id;
+	private String name;
+	private Insurance insurance;
+	private ArrayList<Event> listOfEvent;
+	private Date PatientArrivalTime;
 	
 	/** 
 	*On part du principe que le patient n'a pas d'assurance par défaut
@@ -16,6 +25,8 @@ public class Patient {
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(20);
+		this.insurance = Insurance.NO;
+		listOfEvent = new ArrayList<>();
 	}
 	
 	public Patient(String name, Insurance insurance) {
@@ -23,6 +34,7 @@ public class Patient {
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(20);
+		listOfEvent = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -49,6 +61,19 @@ public class Patient {
 	public String toString() {
 		return "Patient [idPatient=" + id + ", name=" + name + ", insurance=" + insurance + "]";
 	}
+	
+	
+	
+	//------------------------------------------
+	
+	
+	public void arrives(){
+		Event arrival = new Arrival()
+	}
+	
+	
+	
+	
 	
 	
 }
