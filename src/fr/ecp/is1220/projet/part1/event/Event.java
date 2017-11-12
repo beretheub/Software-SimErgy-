@@ -17,20 +17,20 @@ public abstract class Event {
 	 * L'événement s'éxécute sur le patient 
 	 */
 	public abstract void execute();
+
 	
-	/**
-	 * Le patient rejoint la file d'attente
-	 */
-	public void fileattente (Patient p) {
-		if (fileattente.isEmpty()){
-			this.execute();
-		}
-		else { 
-			fileattente.add(patient);
-			
-			
-		}
+	public Event(int arrivalDate, Patient patient){
+		this.startevent = arrivalDate;
+		this.setPatient(patient);
 	}
+
+	
+	protected abstract void setEndDate();
+
+	public Patient getPatient() {
+		return patient;
+	}
+
 	
 	/**
 	 * La fiche patient est remplie
@@ -40,7 +40,17 @@ public abstract class Event {
 	}
 	
 	public abstract String toString();
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
-	
+	public int getStartDate(){
+		return startevent;
+
+	}
+	public int getEndDate(){
+		return endevent;
+	}
+	 
 	
 }

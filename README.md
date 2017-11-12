@@ -43,3 +43,8 @@ Pas de Test pour les abstract class (HR, ...) -> je vais bouger mon test HR, mai
 - Il faut que je complète , Ce sera ensuite la class de création d'ED, qui sera capable de voir par exemple si une nurse est libre, un docteur, ou une pièce je pense 
 
 - feuille de soin : du coup je supprime la méthide de création de feuille de soin. Je laisse la mise à jour des informations + l'émission du résultat à la sortie
+
+Questions : 
+- distribution inverse de det ? 
+- abstract class probabilitydistribution -> je ne choisis pas param, ne sert à rien en l'état, je vais peut-être la supprimer
+
