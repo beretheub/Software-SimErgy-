@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 public class Transporter extends HumanResources {
 	
@@ -17,12 +17,12 @@ public class Transporter extends HumanResources {
 	 *  2 means OCCUPIED 
 	 *  0 (or any other number) means ONDUTY
 	 */
-	public Transporter(String name, String surname) {
-		super(name, surname);
+	public Transporter(EmergencyDepartment ed, String name, String surname) {
+		super(ed, name, surname);
 		this.state = TransporterState.ONDUTY;
 	}
-	public Transporter(String name, String surname, int choice) {
-		super(name, surname);
+	public Transporter(EmergencyDepartment ed, String name, String surname, int choice) {
+		super(ed, name, surname);
 		this.setState(choice);
 	}
 	/**

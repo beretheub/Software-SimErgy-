@@ -2,9 +2,9 @@ package tests;
 
 import org.junit.Test;
 
-import fr.ecp.is1220.projet.part1.BoxRoom;
-import fr.ecp.is1220.projet.part1.Patient;
-import fr.ecp.is1220.projet.part1.Rooms;
+import fr.ecp.is1220.projet.part1.core.BoxRoom;
+import fr.ecp.is1220.projet.part1.core.Patient;
+import fr.ecp.is1220.projet.part1.core.Rooms;
 
 public class BoxRoomTest {
 @Test

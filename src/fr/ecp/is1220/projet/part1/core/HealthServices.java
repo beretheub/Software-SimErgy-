@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
@@ -6,12 +6,19 @@ import fr.ecp.is1220.projet.part1.ObserverPattern.Observable;
 import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
 
 public abstract class HealthServices implements Observable, NonHumanResources {
+	private EmergencyDepartment ed;
 	private int id;
 	private String name;
 	private ArrayList<Observer> observers;
 	private ArrayList<Patient> waitingQueue;
 	private float cost;
 	
+	/**
+	 * Returns the ed of the health service
+	 */
+	public EmergencyDepartment getEd(){
+		return ed;
+	}
 	/**
 	 * Returns the name of the healthService
 	 */
@@ -102,8 +109,12 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 		
 		
 	}
-
-	public HealthServices(String name, float cost) {
+	/**
+	 *  Create a new health service with the automatic generation of an id
+	 * @param name
+	 * @param cost
+	 */
+	public HealthServices(EmergencyDepartment ed, String name, float cost) {
 		super();
 		this.name = name;
 		this.cost = cost;
@@ -111,5 +122,7 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 		observers = new ArrayList<>();
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(13);
+		this.ed = ed;
+		ed.addResource(this);
 	}
 }

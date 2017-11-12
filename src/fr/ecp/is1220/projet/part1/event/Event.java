@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-import fr.ecp.is1220.projet.part1.Patient;
+import fr.ecp.is1220.projet.part1.core.Patient;
 
 public abstract class Event {
 	protected Date startevent;

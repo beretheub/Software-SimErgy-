@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 
 /*
@@ -20,14 +20,14 @@ public class ConsultationService extends HealthServices {
 	 * 
 	 */
 	
-	public ConsultationService(String name) {
+	public ConsultationService(EmergencyDepartment ed, String name) {
 		// Il je fixe le prix par défaut d'une consultation à 10
-		super(name, 10);
+		super(ed, name, 10);
 		// TODO Auto-generated constructor stub
 		
 	}
-	public ConsultationService(String name, float cost) {
-		super(name, cost);
+	public ConsultationService(EmergencyDepartment ed, String name, float cost) {
+		super(ed, name, cost);
 		// TODO Auto-generated constructor stub
 		
 	}

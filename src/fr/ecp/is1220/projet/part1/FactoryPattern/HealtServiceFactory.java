@@ -1,22 +1,23 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
-import fr.ecp.is1220.projet.part1.BloodTest;
-import fr.ecp.is1220.projet.part1.ConsultationService;
-import fr.ecp.is1220.projet.part1.Equipment;
-import fr.ecp.is1220.projet.part1.HealthServices;
-import fr.ecp.is1220.projet.part1.HumanResources;
-import fr.ecp.is1220.projet.part1.MRI;
-import fr.ecp.is1220.projet.part1.Radiography;
-import fr.ecp.is1220.projet.part1.Rooms;
-import fr.ecp.is1220.projet.part1.Scan;
-import fr.ecp.is1220.projet.part1.Xray;
+import fr.ecp.is1220.projet.part1.core.BloodTest;
+import fr.ecp.is1220.projet.part1.core.Equipment;
+import fr.ecp.is1220.projet.part1.core.ConsultationService;
+import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
+import fr.ecp.is1220.projet.part1.core.HealthServices;
+import fr.ecp.is1220.projet.part1.core.HumanResources;
+import fr.ecp.is1220.projet.part1.core.MRI;
+import fr.ecp.is1220.projet.part1.core.Radiography;
+import fr.ecp.is1220.projet.part1.core.Rooms;
+import fr.ecp.is1220.projet.part1.core.Scan;
+import fr.ecp.is1220.projet.part1.core.Xray;
 
 public class HealtServiceFactory extends AbstractFactory {
 	/**
 	 * Unusable For this factory
 	 */
 	@Override
-	HumanResources getHumanResource(String resourceType, String name, String surname) {
+	HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -24,7 +25,7 @@ public class HealtServiceFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	Rooms getRoom(String resourceType, String name) {
+	Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -32,7 +33,7 @@ public class HealtServiceFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	Equipment getEquipment(String resourceType, String name) {
+	Equipment getEquipment(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -41,21 +42,21 @@ public class HealtServiceFactory extends AbstractFactory {
 	 * Then it takes a second parameter String for its name 
 	 */
 	@Override
-	HealthServices getHealthService(String resourceType, String name) {
+	HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
 		if (resourceType.equalsIgnoreCase("Xray")){
-			return new Xray(name);
+			return new Xray(ed, name);
 		}
 		else if (resourceType.equalsIgnoreCase("consultation")){
-			return new ConsultationService(name);
+			return new ConsultationService(ed, name);
 		}
 		else if (resourceType.equalsIgnoreCase("MRI")){
-			return new MRI(name);
+			return new MRI(ed, name);
 		}else if(resourceType.equalsIgnoreCase("radiography")){
-			return new Radiography(name);
+			return new Radiography(ed, name);
 		}else if(resourceType.equalsIgnoreCase("scan")){
-			return new Scan(name);
+			return new Scan(ed, name);
 		}else if(resourceType.equalsIgnoreCase("bloodtest")){
-			return new BloodTest(name);
+			return new BloodTest(ed, name);
 		}else{
 			// On pourrait peut être faire ça avec une exception ?
 			System.out.println("The creation of the health service didn't work, please enter a valid choice");

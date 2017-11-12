@@ -1,9 +1,9 @@
 package tests;
-import fr.ecp.is1220.projet.part1.Strecher;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import fr.ecp.is1220.projet.part1.core.Strecher;
 
 public class StretchersTest {
 

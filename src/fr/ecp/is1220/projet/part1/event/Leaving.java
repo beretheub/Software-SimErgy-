@@ -2,7 +2,7 @@ package fr.ecp.is1220.projet.part1.event;
 
 import java.io.*;
 
-import fr.ecp.is1220.projet.part1.Patient;
+import fr.ecp.is1220.projet.part1.core.Patient;
 
 public class Leaving extends Event {
 

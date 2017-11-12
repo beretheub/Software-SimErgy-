@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fr.ecp.is1220.projet.part1.IdGenerator;
+import fr.ecp.is1220.projet.part1.core.IdGenerator;
 
 public class IdGeneratorTest {
 	

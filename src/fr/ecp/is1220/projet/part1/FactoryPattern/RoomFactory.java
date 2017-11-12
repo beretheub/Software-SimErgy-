@@ -1,12 +1,13 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
-import fr.ecp.is1220.projet.part1.BoxRoom;
-import fr.ecp.is1220.projet.part1.Equipment;
-import fr.ecp.is1220.projet.part1.HealthServices;
-import fr.ecp.is1220.projet.part1.HumanResources;
-import fr.ecp.is1220.projet.part1.Rooms;
-import fr.ecp.is1220.projet.part1.ShockRoom;
-import fr.ecp.is1220.projet.part1.WaitingRoom;
+import fr.ecp.is1220.projet.part1.core.Equipment;
+import fr.ecp.is1220.projet.part1.core.BoxRoom;
+import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
+import fr.ecp.is1220.projet.part1.core.HealthServices;
+import fr.ecp.is1220.projet.part1.core.HumanResources;
+import fr.ecp.is1220.projet.part1.core.Rooms;
+import fr.ecp.is1220.projet.part1.core.ShockRoom;
+import fr.ecp.is1220.projet.part1.core.WaitingRoom;
 
 public class RoomFactory extends AbstractFactory {
 	/**
@@ -14,15 +15,15 @@ public class RoomFactory extends AbstractFactory {
 	 * Then it takes a second parameter String for its name 
 	 */
 	@Override
-	Rooms getRoom(String resourceType, String name) {
+	Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
 		if (resourceType.equalsIgnoreCase("waitingRoom")){
-			return new WaitingRoom(name);
+			return new WaitingRoom(ed, name);
 		}
 		else if (resourceType.equalsIgnoreCase("boxRoom")){
-			return new BoxRoom(name);
+			return new BoxRoom(ed, name);
 		}
 		else if (resourceType.equalsIgnoreCase("ShockRoom")){
-			return new ShockRoom(name);
+			return new ShockRoom(ed, name);
 		}
 		else{
 			// On pourrait peut être faire ça avec une exception ?
@@ -34,7 +35,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	Equipment getEquipment(String resourceType, String name) {
+	Equipment getEquipment(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -42,7 +43,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	HealthServices getHealthService(String resourceType, String name) {
+	HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -50,7 +51,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	HumanResources getHumanResource(String resourceType, String name, String surname) {
+	HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) {
 		// TODO Auto-generated method stub
 		return null;
 	}

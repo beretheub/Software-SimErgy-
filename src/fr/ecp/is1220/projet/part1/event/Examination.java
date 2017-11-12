@@ -1,7 +1,7 @@
 package fr.ecp.is1220.projet.part1.event;
 
-import fr.ecp.is1220.projet.part1.BoxRoom;
-import fr.ecp.is1220.projet.part1.Physician;
+import fr.ecp.is1220.projet.part1.core.BoxRoom;
+import fr.ecp.is1220.projet.part1.core.Physician;
 
 public class Examination extends Event {
 	protected Physician physician; 

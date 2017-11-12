@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.event;
 
-import fr.ecp.is1220.projet.part1.Physician;
+import fr.ecp.is1220.projet.part1.core.Physician;
 
 
 public class Consultation extends Event {

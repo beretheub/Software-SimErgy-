@@ -1,8 +1,8 @@
 package fr.ecp.is1220.projet.part1.event;
 import java.io.*;
 
-import fr.ecp.is1220.projet.part1.Patient;
-import fr.ecp.is1220.projet.part1.SeverityLevel;
+import fr.ecp.is1220.projet.part1.core.Patient;
+import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 
 public class Arrival extends Event {
 	protected SeverityLevel severity;

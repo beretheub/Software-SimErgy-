@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.event;
 
-import fr.ecp.is1220.projet.part1.WaitingRoom;
+import fr.ecp.is1220.projet.part1.core.WaitingRoom;
 
 public class Waiting extends Event {
 	protected WaitingRoom waitingroom;

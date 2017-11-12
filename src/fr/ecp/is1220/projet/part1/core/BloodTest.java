@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 public class BloodTest extends HealthServices {
 
@@ -9,13 +9,13 @@ public class BloodTest extends HealthServices {
 		 * 
 		 */
 		
-		public BloodTest(String name) {
+		public BloodTest(EmergencyDepartment ed, String name) {
 			// Il je fixe le prix par défaut d'un blood à 12
-			super(name, 12);
+			super(ed, name, 12);
 			// TODO Auto-generated constructor stub
 		}
-		public BloodTest(String name, float cost){
-		super(name, cost);
+		public BloodTest(EmergencyDepartment ed, String name, float cost){
+		super(ed, name, cost);
 		// TODO Auto-generated constructor stub
 	}
 

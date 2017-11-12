@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 public class Nurse extends HumanResources{
 	NurseState state;
@@ -27,12 +27,12 @@ public class Nurse extends HumanResources{
 	 *  
 	 *  it can also be setted at the declaration, by adding a NurseState Parameter 
 	 */
-	public Nurse(String name, String surname) {
-		super(name, surname);
+	public Nurse(EmergencyDepartment ed, String name, String surname) {
+		super(ed, name, surname);
 		this.state = NurseState.ONDUTY;
 	}
-	public Nurse(String name, String surname, NurseState choice) {
-		super(name, surname);
+	public Nurse(EmergencyDepartment ed, String name, String surname, NurseState choice) {
+		super(ed, name, surname);
 		this.setState(choice);
 	}
 	@Override

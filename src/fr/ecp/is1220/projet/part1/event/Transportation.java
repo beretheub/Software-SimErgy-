@@ -1,7 +1,7 @@
 package fr.ecp.is1220.projet.part1.event;
 
-import fr.ecp.is1220.projet.part1.Strecher;
-import fr.ecp.is1220.projet.part1.Transporter;
+import fr.ecp.is1220.projet.part1.core.Strecher;
+import fr.ecp.is1220.projet.part1.core.Transporter;
 
 public class Transportation extends Event {
 	protected Transporter transporter; 

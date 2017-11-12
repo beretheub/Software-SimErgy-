@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
@@ -29,12 +29,12 @@ public class Physician extends HumanResources implements Observer {
 	 *  2 means VISITING 
 	 *  0 (or any other number) means ONDUTY
 	 */
-	public Physician(String name, String surname) {
-		super(name, surname);
+	public Physician(EmergencyDepartment ed, String name, String surname) {
+		super(ed, name, surname);
 		this.state = PhysicianState.ONDUTY;
 	}
-	public Physician(String name, String surname, int choice) {
-		super(name, surname);
+	public Physician(EmergencyDepartment ed, String name, String surname, int choice) {
+		super(ed, name, surname);
 		this.setState(choice);
 	}
 	/**

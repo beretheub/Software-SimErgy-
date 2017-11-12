@@ -1,13 +1,19 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
 public abstract class Rooms implements NonHumanResources {
+	protected EmergencyDepartment ed;
 	protected int id;
 	protected String name;
 	protected int capacity;
 	protected ArrayList<Patient> listOfPatientsInside;
-	
+	/**
+	 * Returns the ed of the room
+	 */
+	public EmergencyDepartment getEd(){
+		return ed;
+	}
 	/**
 	 * returns the capacity (in terms of number of patients) of the room
 	 * A negative capacity means that there is no capacity restriction for this room
@@ -83,19 +89,17 @@ public abstract class Rooms implements NonHumanResources {
 		}
 		
 	}
-	public Rooms( String name) {
+	public Rooms(EmergencyDepartment ed, String name) {
 		super();
 		this.name = name;
 		listOfPatientsInside = new ArrayList<>();
 		IdGenerator idRoom = IdGenerator.getInstance();
-		this.id = idRoom.generateId(11); //Le prefix des id des room est 11 
+		this.id = idRoom.generateId(11); //Le prefix des id des room est 11
+		this.ed = ed;
+		ed.addResource(this);
 		
 	}
-	@Override
-	public String toString() {
-		return "Rooms [id=" + id + ", name=" + name + ", capacity=" + capacity + ", listOfPatientsInside="
-				+ listOfPatientsInside + "]";
-	}
+	
 	
 	
 

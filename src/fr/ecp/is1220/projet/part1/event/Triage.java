@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.event;
 
-import fr.ecp.is1220.projet.part1.Nurse;
+import fr.ecp.is1220.projet.part1.core.Nurse;
 
 public class Triage extends Event{
 	protected Nurse nurse;

@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.Test;
 
-import fr.ecp.is1220.projet.part1.Physician;
+import fr.ecp.is1220.projet.part1.core.Physician;
 
 public class PhysicianTest {
 @Test

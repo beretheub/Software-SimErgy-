@@ -2,8 +2,8 @@ package tests;
 
 import org.junit.Test;
 
-import fr.ecp.is1220.projet.part1.Nurse;
-import fr.ecp.is1220.projet.part1.NurseState;
+import fr.ecp.is1220.projet.part1.core.Nurse;
+import fr.ecp.is1220.projet.part1.core.NurseState;
 
 public class NurseTest {
 @Test

@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1;
+package fr.ecp.is1220.projet.part1.core;
 
 public class Xray extends HealthServices {
 	/**
@@ -8,14 +8,14 @@ public class Xray extends HealthServices {
 	 * 
 	 */
 	
-	public Xray(String name) {
+	public Xray(EmergencyDepartment ed, String name) {
 		// Il je fixe le prix par défaut d'un Xray à 15
-		super(name, 15);
+		super(ed, name, 15);
 		// TODO Auto-generated constructor stub
 		
 	}
-	public Xray(String name, float cost) {
-		super(name, cost);
+	public Xray(EmergencyDepartment ed, String name, float cost) {
+		super(ed, name, cost);
 		// TODO Auto-generated constructor stub
 		
 	}

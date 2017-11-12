@@ -1,12 +1,13 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
-import fr.ecp.is1220.projet.part1.Equipment;
-import fr.ecp.is1220.projet.part1.HealthServices;
-import fr.ecp.is1220.projet.part1.HumanResources;
-import fr.ecp.is1220.projet.part1.Nurse;
-import fr.ecp.is1220.projet.part1.Physician;
-import fr.ecp.is1220.projet.part1.Rooms;
-import fr.ecp.is1220.projet.part1.Transporter;
+import fr.ecp.is1220.projet.part1.core.Equipment;
+import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
+import fr.ecp.is1220.projet.part1.core.HealthServices;
+import fr.ecp.is1220.projet.part1.core.HumanResources;
+import fr.ecp.is1220.projet.part1.core.Nurse;
+import fr.ecp.is1220.projet.part1.core.Physician;
+import fr.ecp.is1220.projet.part1.core.Rooms;
+import fr.ecp.is1220.projet.part1.core.Transporter;
 
 public class HumanResourcesFactory extends AbstractFactory {
 	/**
@@ -14,15 +15,15 @@ public class HumanResourcesFactory extends AbstractFactory {
 	 * Then it takes a second parameter String for his/her name and a third for the surname 
 	 */
 	@Override
-	HumanResources getHumanResource(String resourceType, String name, String surname) {
+	HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) {
 		if (resourceType.equalsIgnoreCase("nurse")){
-			return new Nurse(name, surname);
+			return new Nurse(ed, name, surname);
 		}
 		else if (resourceType.equalsIgnoreCase("transporter")){
-			return new Transporter(name, surname);
+			return new Transporter(ed, name, surname);
 		}
 		else if (resourceType.equalsIgnoreCase("physician")){
-			return new Physician(name, surname);
+			return new Physician(ed, name, surname);
 		}
 		else{
 			// On pourrait peut être faire ça avec une exception ?
@@ -36,7 +37,7 @@ public class HumanResourcesFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	Rooms getRoom(String resourceType, String name) {
+	Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -44,7 +45,7 @@ public class HumanResourcesFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	Equipment getEquipment(String resourceType, String name) {
+	Equipment getEquipment(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -52,7 +53,7 @@ public class HumanResourcesFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	HealthServices getHealthService(String resourceType, String name) {
+	HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
