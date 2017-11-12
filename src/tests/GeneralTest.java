@@ -1,5 +1,8 @@
 package tests;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
@@ -14,7 +17,8 @@ public class GeneralTest {
 		HumanResources med1 = hrFact.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
 		System.out.println(med1.toString());
 		System.out.println(ed1.toString());
-		
+		Date maintenant2 = Calendar.getInstance().getTime();
+		System.out.println(maintenant2);
 		
 	}
 }

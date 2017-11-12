@@ -11,7 +11,7 @@ public class Patient {
 	private int id;
 	private String name;
 	private Insurance insurance;
-	private ArrayList<Event> listOfEvent;
+	public ArrayList<Event> listOfEvent;
 	private Date PatientArrivalTime;
 	
 	/** 
@@ -68,7 +68,7 @@ public class Patient {
 	
 	
 	public void arrives(){
-		Event arrival = new Arrival()
+		Event arrival = new Arrival();
 	}
 	
 	

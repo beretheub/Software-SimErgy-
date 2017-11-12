@@ -41,3 +41,5 @@ Pas de Test pour les abstract class (HR, ...) -> je vais bouger mon test HR, mai
 - Finalement, pour les consultations et examens, on a des services, mais pas de room ? 
 
 - Il faut que je complète , Ce sera ensuite la class de création d'ED, qui sera capable de voir par exemple si une nurse est libre, un docteur, ou une pièce je pense 
+
+- feuille de soin : du coup je supprime la méthide de création de feuille de soin. Je laisse la mise à jour des informations + l'émission du résultat à la sortie
