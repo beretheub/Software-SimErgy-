@@ -69,6 +69,28 @@ public class EmergencyDepartment {
 		}
 	}
 	
+	private boolean isNurseAvailable() {
+		// Je ne fais pas le truc le plus optimisé
+		for (Resources resources : edResources) {
+	
+			
+			
+		}
+		return false;
+	}
+	
+	// -------------------------------------------------
+	
+	
+	/**
+	 * Fonction qui prend le patient le plus urgent (ou avec un certain coef, le patient qui a attendu le plus longtemps.
+	 * 
+	 */
+	public void triage(){
+		if(this.isNurseAvailable()){
+			
+		}
+	}
 	
 
 }
