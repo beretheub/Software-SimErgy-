@@ -1,4 +1,4 @@
-package fr.ecp.is1220.projet.part1.core;
+ package fr.ecp.is1220.projet.part1.core;
 
 public class BloodTest extends HealthServices {
 

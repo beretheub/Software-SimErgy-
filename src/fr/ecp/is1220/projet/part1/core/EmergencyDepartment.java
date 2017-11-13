@@ -16,6 +16,8 @@ public class EmergencyDepartment {
 		super();
 		this.edName = edName;
 		edResources = new ArrayList<>();
+		listOfPatientsInTheED = new ArrayList<>();
+		patientsWaitingForTriage = new ArrayList<>();
 	}
 	public String getEdName() {
 		return edName;
@@ -45,6 +47,13 @@ public class EmergencyDepartment {
 		else{
 			//Juste au cas où, normalement
 			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
+		}
+	}
+	public void printPatientInTheEd(){
+		System.out.println("------ List of Patient in the Emergency Departement ------");
+		for (Patient patient : listOfPatientsInTheED) {
+			System.out.println("id " + patient.getId() + " - name : " + patient.getName());
+			
 		}
 	}
 	public void addPatientInWaitingForTriage(Patient p){

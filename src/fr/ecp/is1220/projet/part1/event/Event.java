@@ -1,26 +1,17 @@
 package fr.ecp.is1220.projet.part1.event;
 
-import java.util.ArrayList;
-import java.util.Calendar;
+
 import java.util.Date;
 
 import fr.ecp.is1220.projet.part1.core.Patient;
 
 public abstract class Event {
-	public Date startevent = Calendar.getInstance().getTime();
-	public Date endevent;
+	public Date startEvent;
+	public Date endEvent;
 	public Patient patient; 
-	public ArrayList<Patient> fileattente = new ArrayList<>(); 
 	
-
-	/**
-	 * L'événement s'éxécute sur le patient 
-	 */
-	public abstract void execute();
-
-	
-	public Event(int arrivalDate, Patient patient){
-		this.startevent = arrivalDate;
+	public Event(Date arrivalDate, Patient patient){
+		this.startEvent = arrivalDate;
 		this.setPatient(patient);
 	}
 
@@ -30,13 +21,12 @@ public abstract class Event {
 	public Patient getPatient() {
 		return patient;
 	}
-
-	
 	/**
-	 * La fiche patient est remplie
+	 * Remplit la fiche du patient
 	 */
+	// Bien faire attention à plus tard, cette compétence est du domaine de l'event
 	public void fillrecord(){
-		patient.listOfEvent.add(this);
+		patient.addEvent(this);
 	}
 	
 	public abstract String toString();
@@ -44,12 +34,12 @@ public abstract class Event {
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
-	public int getStartDate(){
-		return startevent;
+	public Date getStartDate(){
+		return startEvent;
 
 	}
-	public int getEndDate(){
-		return endevent;
+	public Date getEndDate(){
+		return endEvent;
 	}
 	 
 	

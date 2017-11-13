@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.core;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,14 +12,9 @@ public class Patient {
 	private int id;
 	private String name;
 	private Insurance insurance;
-<<<<<<< HEAD
-	public ArrayList<Event> listOfEvent;
-	private Date PatientArrivalTime;
-=======
 	private ArrayList<Event> listOfEvent;
-	private int PatientArrivalTime;
 	private SeverityLevel severity;
->>>>>>> dcff7a5e35908d83a645f57c4fb61036aafc3c86
+
 	
 	/** 
 	*On part du principe que le patient n'a pas d'assurance par défaut
@@ -47,6 +42,12 @@ public class Patient {
 		listOfEvent = new ArrayList<>();
 	}
 	
+	public ArrayList<Event> getListOfEvent(){
+		return listOfEvent;
+	}
+	public void addEvent(Event event){
+		listOfEvent.add(event);
+	}
 	public EmergencyDepartment getPatientEd(){
 		return ed;
 	}
@@ -83,16 +84,13 @@ public class Patient {
 	//------------------------------------------
 	
 	
+	@SuppressWarnings("deprecation")
 	public void arrives(){
-<<<<<<< HEAD
-		Event arrival = new Arrival();
-=======
-		// First we generate an arrivale time randomly - à préciser par la suite ! Pour l'instant 
-		// il arrive uniformément entre la minute 0 et la minute 100
-		PatientArrivalTime = (int) Math.random()*100;
-		Event arrival = new Arrival(PatientArrivalTime, this);
-		listOfEvent.add(arrival); // On ajoute l'évent arrival à la liste des event subis par le patient
->>>>>>> dcff7a5e35908d83a645f57c4fb61036aafc3c86
+		
+		Date PatientArrivalTime = new Date();
+		// A titre d'exemple. Pour l'instant. Après il faudra gérer la  
+		PatientArrivalTime.setTime(Date.parse( "Sat, 12 Aug 1995 13:30:00 GMT"));
+		Event arrival = (Event) new Arrival(this, PatientArrivalTime);
 	}
 
 	

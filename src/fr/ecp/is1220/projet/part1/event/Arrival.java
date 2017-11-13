@@ -1,23 +1,18 @@
 package fr.ecp.is1220.projet.part1.event;
 
-import java.util.Calendar;
+
 import java.util.Date;
 
-import java.util.Random;
-
-
+import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 
 public class Arrival extends Event {
 
 	protected SeverityLevel severity;
-	protected Date arrivaldate = Calendar.getInstance().getTime();
-
-
-	private SeverityLevel severity;
+	protected Date arrivaldate;
 	
-	public Arrival(int arrivalTime, Patient patient){
+	public Arrival(Patient patient, Date arrivalTime){
 		super(arrivalTime, patient);
 		
 		// On génère la sévérité du patient 
@@ -36,28 +31,33 @@ public class Arrival extends Event {
 		// Une fois générée par la classe event, on modifie l'attribut du patient 
 		patient.setSeverity(severity);
 		// Le patient entre dans l'hopital, on l'ajoute à la liste 
-		patient.getPatientEd().addPatientInED(patient);
+		EmergencyDepartment ed = patient.getPatientEd();
+		ed.addPatientInED(patient);
 		// on ajoute le patient à la file d'attente pour triage de son ED
-		patient.getPatientEd().addPatientInWaitingForTriage(patient);
+		ed.addPatientInWaitingForTriage(patient);
 		
+		this.setEndDate();
 		
-	}
-
-	public Arrival(Patient P, Date arrivaldate) {
-		super();
-		this.severity = severity;
-		this.arrivaldate = arrivaldate;
+		this.fillrecord();
+		
 	}
 
 	@Override
 
 	public String toString() {
-		return "Arrived at" + startevent + ", Niveau de gravité = "+ severity;
+		return "Arrived at" + this.getStartDate() + ", Niveau de gravité = "+ severity;
 	}
 
+	@SuppressWarnings("deprecation")
 	protected void setEndDate() {
 		// Disons que l'arrivée du patient à l'hopital dure 1 minutes
-		this.endevent = this.getStartDate() + 1;
+		int year = this.getStartDate().getYear();
+		int month = this.getStartDate().getMonth();
+		int date = this.getStartDate().getDate();
+		int hrs = this.getStartDate().getHours();
+		int min = this.getStartDate().getMinutes() + 1;
+		
+		this.endEvent = new Date(year, month, date, hrs, min);
 		
 		
 	}
