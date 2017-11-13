@@ -24,16 +24,13 @@ public class Physician extends HumanResources implements Observer {
 	 * 
 	 *  A physician also has a state (OFFDUTY, ONDUTY, VISITING), its state is set ONDUTY by default 
 	 *  
-	 *  it can also be setted at the declaration of the nurse by an int number : 
-	 *  1 means OFFDUTY
-	 *  2 means VISITING 
-	 *  0 (or any other number) means ONDUTY
+	 *  it can also be setted at the declaration of the physician
 	 */
 	public Physician(EmergencyDepartment ed, String name, String surname) {
 		super(ed, name, surname);
 		this.state = PhysicianState.ONDUTY;
 	}
-	public Physician(EmergencyDepartment ed, String name, String surname, int choice) {
+	public Physician(EmergencyDepartment ed, String name, String surname, PhysicianState choice) {
 		super(ed, name, surname);
 		this.setState(choice);
 	}
@@ -41,36 +38,25 @@ public class Physician extends HumanResources implements Observer {
 	 * 
 	 * @param choice
 	 * 
-	 *  Set the state of the physician by an int number : 
-	 *  
-	 *  1 means OFFDUTY
-	 *  2 means VISITING 
-	 *  0 (or any other number) means ONDUTY
+	 *  Set the state of the physician 
 	 */
-	public void setState(int choice){
-		if (choice == 1){
-			this.state = PhysicianState.OFFDUTY;
-		}else if(choice == 2){
-			this.state = PhysicianState.VISITING;
-		}else{
-			this.state = PhysicianState.ONDUTY;
-		}
+	public void setState(PhysicianState choice){
+		this.state = choice;
 		
 	}
 	/**
 	 * Returns the state of the physician
-	 * @return int number :  0 if the physician is ONDUTY, 1 if the physician is OFFDUTY, 2 if the physician is VISITING
 	 */
-	public int getState(){
-		if(this.state == PhysicianState.VISITING){
-			return 2;
-		}else if(this.state == PhysicianState.OFFDUTY){
-			return 1;
-		}
-		return 0;
+	public PhysicianState getState(){
+		return this.state;
+	}
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "physician";
 	}
 	/**
-	 * Add a patient to the list of patien that the physician is overseeing
+	 * Add a patient to the list of patient that the physician is overseeing
 	 * Takes a patient as a parameter
 	 */
 	void newPatientOverseen(Patient patient){
@@ -126,12 +112,8 @@ public class Physician extends HumanResources implements Observer {
 		// A REMPLIR UN FOIS QUE LE PATTERN OBSERVABLE EST PRET !
 		
 	}
-	@Override
-	public String toString() {
-		return "Physician [state=" + state + ", patientsBeingOverseen=" + patientsBeingOverseen + ", patientsTreated="
-				+ patientsTreated + ", messageBox=" + messageBox + ", id=" + id + ", name=" + name + ", surname="
-				+ surname + "]";
-	}
+	
+	
 
 	
 	

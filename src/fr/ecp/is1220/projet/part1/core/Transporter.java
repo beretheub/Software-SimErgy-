@@ -6,22 +6,19 @@ public class Transporter extends HumanResources {
 
 	/**
 	 * 3 parameters 
-	 * 1. An int number : the id of the transporter
+	 * 1. The emergency Department of the transporter
 	 * 2. A string : the name of the transporter
 	 * 3. A string : the surname of the transporter
 	 * 
 	 *  A transporter also has a state (OFFDUTY, ONDUTY, OCCUPIED), its state is set ONDUTY by default 
 	 *  
-	 *  it can also be setted at the declaration of the nurse by an int number : 
-	 *  1 means OFFDUTY
-	 *  2 means OCCUPIED 
-	 *  0 (or any other number) means ONDUTY
+	 *  it can also be setted at the declaration of the transporter
 	 */
 	public Transporter(EmergencyDepartment ed, String name, String surname) {
 		super(ed, name, surname);
 		this.state = TransporterState.ONDUTY;
 	}
-	public Transporter(EmergencyDepartment ed, String name, String surname, int choice) {
+	public Transporter(EmergencyDepartment ed, String name, String surname, TransporterState choice) {
 		super(ed, name, surname);
 		this.setState(choice);
 	}
@@ -29,38 +26,24 @@ public class Transporter extends HumanResources {
 	 * 
 	 * @param choice
 	 * 
-	 *  Set the state of the transporter by an int number : 
-	 *  
-	 *  1 means OFFDUTY
-	 *  2 means OCCUPIED 
-	 *  0 (or any other number) means ONDUTY
+	 *  Set the state of the transporter 
 	 */
-	public void setState(int choice){
-		if (choice == 1){
-			this.state = TransporterState.OFFDUTY;
-		}else if(choice == 2){
-			this.state = TransporterState.OCCUPIED;
-		}else{
-			this.state = TransporterState.ONDUTY;
-		}
+	public void setState(TransporterState choice){
+		this.state = choice;
 		
 	}
 	/**
 	 * Returns the state of the transporter
-	 * @return int number :  0 if the transporter is ONDUTY, 1 if the transporter is OFFDUTY, 2 if the transporter is OCCUPIED
 	 */
-	public int getState(){
-		if(this.state == TransporterState.OCCUPIED){
-			return 2;
-		}else if(this.state == TransporterState.OFFDUTY){
-			return 1;
-		}
-		return 0;
+	public TransporterState getState(){
+		return this.state;
 	}
 	@Override
-	public String toString() {
-		return "Transporter [state=" + state + ", id=" + id + ", name=" + name + ", surname=" + surname + "]";
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "transporter";
 	}
+	
 	
 
 }
