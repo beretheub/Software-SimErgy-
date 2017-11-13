@@ -27,8 +27,12 @@ public class Uniform extends ProbabilityDistributions {
 		}
 	}
 	
-	public double getSample(double borneinf, double bornesup) {
+	public static double getSample(double borneinf, double bornesup) throws ParameterUnifException {
 	    Random rand = new Random();
+		// il suffit donc de le vérifier pour la plus faible des deux
+		if (borneinf<0){
+			throw new ParameterUnifException();
+		}
 	    return borneinf+(bornesup-borneinf)*rand.nextDouble();
 	}
 

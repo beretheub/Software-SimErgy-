@@ -2,11 +2,16 @@ package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
+import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
+import fr.ecp.is1220.projet.part1.event.Arrival;
+import fr.ecp.is1220.projet.part1.event.Event;
+
 public class EmergencyDepartment {
 	private String edName;
 	private ArrayList<Resources> edResources;
 	private ArrayList<Patient> listOfPatientsInTheED;
 	private ArrayList<Patient> patientsWaitingForTriage;
+	private ArrayList<Patient> patientsWaitingForConsultation;
 	
 	/**
 	 * Creates a new Emergency department with no resources 
@@ -28,13 +33,13 @@ public class EmergencyDepartment {
 	public void addResource(Resources res){
 		edResources.add(res);
 	}
-	public void removeResource(Resources res){
+	public void removeResource(Resources res) throws RessourceEDException{
 		if (edResources.contains(res)){
 			edResources.remove(res);
 		}
 		else{
 			//Juste au cas où, normalement
-			System.out.println("Error, the ressource which id is : " + res.getId() + " does not belong to this Emergency Departement");
+			throw new RessourceEDException(); 
 		}
 	}
 	public void addPatientInED(Patient p){
@@ -58,7 +63,8 @@ public class EmergencyDepartment {
 	}
 	public void addPatientInWaitingForTriage(Patient p){
 		patientsWaitingForTriage.add(p);
-	}
+		
+
 	public void removePatientInWaitingForTriage(Patient p){
 		if (patientsWaitingForTriage.contains(p)){
 			patientsWaitingForTriage.remove(p);
@@ -69,7 +75,18 @@ public class EmergencyDepartment {
 		}
 	}
 	
-	private boolean isNurseAvailable() {
+	public Patient getfirstPatientInWaitingForTriage(){
+		Patient p = patientsWaitingForTriage.get(0);
+		this.removePatientInWaitingForTriage(p);
+		return (p);
+	}
+	
+	public void triagepatients(){
+		Patient patient = this.getfirstPatientInWaitingForTriage();	
+		Event triage = (Event) new Triage(patient, PatientArrivalTime);
+	}
+	
+	public boolean isNurseAvailable() {
 		// Je ne fais pas le truc le plus optimisé
 		for (Resources resources : edResources) {
 	
@@ -82,15 +99,29 @@ public class EmergencyDepartment {
 	// -------------------------------------------------
 	
 	
-	/**
-	 * Fonction qui prend le patient le plus urgent (ou avec un certain coef, le patient qui a attendu le plus longtemps.
-	 * 
-	 */
-	public void triage(){
-		if(this.isNurseAvailable()){
-			
+
+	}
+	public void addPatientInWaitingForConsultation(Patient p){
+		patientsWaitingForConsultation.add(p);
+		
+
+	public void removePatientInWaitingForConsultation(Patient p){
+		if (patientsWaitingForConsultation.contains(p)){
+			patientsWaitingForConsultation.remove(p);
+		}
+		else{
+			//Juste au cas où, normalement
+			System.out.println("Error, the patient which id is : " + p.getId() + " is not waiting for consultation");
 		}
 	}
+	public Patient getfirstPatientInWaitingForConsultation(){
+		Patient p = patientsWaitingForConsultation.get(0);
+		this.removePatientInWaitingForConsultation(p);
+		return (p);
+	}
 	
-
+	public void consultationpatients(){
+		Patient patient = this.getfirstPatientInWaitingForConsultation();	
+		Event triage = (Event) new Consultation(patient, PatientArrivalTime);
+	}
 }
