@@ -4,30 +4,30 @@ import java.util.Date;
 
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Nurse;
+import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Patient;
+import fr.ecp.is1220.projet.part1.core.PhysicianState;
 
 public class Triage extends Event{
 	
 	protected Nurse nurse;
 	
 	/**
-	 * Début des actions de ttraige
+	 * Début des actions de triage
 	 * Lorsqu'une nurse est libre, récupère le premier patient de la file d'attente, le supprime de la file d'attente, et le traite
 	 */
-	public Triage(EmergencyDepartment ed, Date endEvent) {
-		super(endEvent, patient);
-		Chrono chrono = new Chrono();
-		chrono.start(); // démarrage du chrono
-		while (ed.isNurseAvailable()){ // J'avais modifié en oubliant de le  commit la methode isNurseAvailable : c'est devenu un ReturnFreeHumanResource qui renvoit directement la nurse (ou autre HR) disponible 
-			wait();// si le notify est en dehors de ta boucle, à quel moment tu en sort ? T'a pas une boucle infini ici ?
-			// il faut pas oublier de mettre à jour l'attribut nurse, et de rendre celle ci occupied le temps du triage
-			
-		}
-		notify();
-		chrono.stop(); // arrêt, je comprends vraiment pas comment est ce que tu veu gérer le temps...
-		this.setEndDate(chrono.getDureeSec());
+	public Triage(EmergencyDepartment ed, Patient patient, Date arrivaldate) {
+		super(arrivaldate, patient);
+		
+		while (ed.returnFreeHumanResource("nurse")==null){} 
+
+		this.nurse = (Nurse) ed.returnFreeHumanResource("nurse");
+		nurse.setState(NurseState.OCCUPIED);
+		//this.setEndDate(tempsattente); // Je comprends pas comment tu veux le calculer du coup ... 
+		// La nurse est ensuite libérée
+		nurse.setState(NurseState.ONDUTY);
 		this.fillrecord();
-		// Est ce que la méthode fonctionne ? Tu l'as testé ? Il vaut mieux etre sur que celle là fonctionne pour continuer à coder la suite
+		ed.addPatientInWaitingForConsultation(patient);
 		}
 
 	/**
@@ -37,19 +37,19 @@ public class Triage extends Event{
 
 	@Override
 	public String toString() {
-		return "Patient enregistré par " + nurse + " à " + startEvent;
+		return ("Patient enregistré par " + nurse + " à " + startEvent);
 	}
 
-	@Override
-	protected void setEndDate(chrono) {
+	protected void setEndDate (int tempsattente) {
 		// Disons que l'arrivée du patient à l'hopital dure 1 minutes
 		int year = this.getStartDate().getYear();
 		int month = this.getStartDate().getMonth();
 		int date = this.getStartDate().getDate();
 		int hrs = this.getStartDate().getHours();
-		int min = this.getStartDate().getMinutes()+chrono/60 ;
+		int min = this.getStartDate().getMinutes()+tempsattente ;
 		
 		this.endEvent = new Date(year, month, date, hrs, min);
 		
 	}
+
 }

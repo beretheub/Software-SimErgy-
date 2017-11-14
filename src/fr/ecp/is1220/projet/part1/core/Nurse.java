@@ -39,6 +39,11 @@ public class Nurse extends HumanResources{
 	public String toString() {
 		return "Nurse [state=" + state + ", id=" + id + ", name=" + name + ", surname=" + surname + "]";
 	}
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "nurse";
+	}
 	
 	
 	

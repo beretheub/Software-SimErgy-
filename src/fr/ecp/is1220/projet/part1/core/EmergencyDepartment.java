@@ -1,10 +1,15 @@
 package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
+import java.util.Date;
 
+import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
 import fr.ecp.is1220.projet.part1.event.Arrival;
+import fr.ecp.is1220.projet.part1.event.Chrono;
+import fr.ecp.is1220.projet.part1.event.Consultation;
 import fr.ecp.is1220.projet.part1.event.Event;
+import fr.ecp.is1220.projet.part1.event.Triage;
 
 public class EmergencyDepartment {
 	private String edName;
@@ -23,6 +28,7 @@ public class EmergencyDepartment {
 		edResources = new ArrayList<>();
 		listOfPatientsInTheED = new ArrayList<>();
 		patientsWaitingForTriage = new ArrayList<>();
+		patientsWaitingForConsultation = new ArrayList<>();
 	}
 	public String getEdName() {
 		return edName;
@@ -84,7 +90,8 @@ public class EmergencyDepartment {
 	
 	public void triagepatients(){
 		Patient patient = this.getfirstPatientInWaitingForTriage();	
-		Event triage = (Event) new Triage(patient, PatientArrivalTime);
+		Date patientarrivaltime = (patient.getListOfEvent()).get(0).endEvent; // on récupère la date : c'est celle de la fin de la période d'arrivée
+		Event triage = (Event) new Triage(this, patient, patientarrivaltime);
 	}
 	
 	public void addPatientInWaitingForConsultation(Patient p){
@@ -106,12 +113,13 @@ public class EmergencyDepartment {
 		return (p);
 	}
 	
-	public void consultationpatients(){
+	public void consultationpatients() throws ParameterUnifException{
 		Patient patient = this.getfirstPatientInWaitingForConsultation();	
-		Event triage = (Event) new Consultation(patient, PatientArrivalTime);
+		Date patientarrivaltime = (patient.getListOfEvent()).get(1).endEvent; // on récupère la date : c'est celle de la fin du triage
+		Event consultation = (Event) new Consultation(this,patient, patientarrivaltime);
 	}
 	
-	private HumanResources returnFreeHumanResource(String type) {
+	public HumanResources returnFreeHumanResource(String type) {
 		// Je ne fais pas le truc le plus optimisé
 			for (Resources resources : edResources) {
 				if (resources.getType() == type && type.equalsIgnoreCase("nurse")){

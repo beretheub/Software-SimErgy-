@@ -112,6 +112,7 @@ public class Physician extends HumanResources implements Observer {
 		// A REMPLIR UN FOIS QUE LE PATTERN OBSERVABLE EST PRET !
 		
 	}
+
 	
 	
 

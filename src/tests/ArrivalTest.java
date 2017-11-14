@@ -1,5 +1,6 @@
 package tests;
 
+import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
@@ -8,10 +9,11 @@ import fr.ecp.is1220.projet.part1.core.Patient;
 
 
 public class ArrivalTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParameterUnifException {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Grenoble");
 		AbstractFactory hrFact = FactoryProducer.getFactory("humanresource");
 		HumanResources med1 = hrFact.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+		HumanResources med2 = hrFact.getHumanResource(ed1, "physician", "Benoit", "Charmettant");
 		System.out.println(med1.getName());
 		
 		Patient p1 = new Patient(ed1, "Jo");
@@ -29,8 +31,11 @@ public class ArrivalTest {
 		
 		ed1.printPatientInTheEd();
 		
+		ed1.triagepatients();
+		System.out.println(p1.getListOfEvent());
 	
-		
+		ed1.consultationpatients();
+		System.out.println(p1.getListOfEvent());
 		
 	}
 
