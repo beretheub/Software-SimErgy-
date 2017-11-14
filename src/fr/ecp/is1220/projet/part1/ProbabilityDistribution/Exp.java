@@ -17,8 +17,11 @@ public class Exp extends ProbabilityDistributions {
 			}
 	}
 	
-	public double getSample(double lambda) {
+	public static double getSample(double lambda) throws ParameterExpException {
 	    Random rand = new Random();
+		if (lambda <=0){
+			throw new ParameterExpException();
+		}
 	    return -(1 / lambda) * Math.log( 1 - rand.nextDouble() );
 	}
 

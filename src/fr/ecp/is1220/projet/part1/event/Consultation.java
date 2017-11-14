@@ -18,6 +18,6 @@ public class Consultation extends Event {
 	@Override
 	public String toString() {
 		return "Consultation effectuée par " + physician + ", /n Verdict : " + ", débuté à "
-				+ startevent + ",terminé à " + endevent ;
+				+ startEvent + ",terminé à " + endEvent ;
 	}
 }

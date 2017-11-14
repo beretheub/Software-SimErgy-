@@ -48,3 +48,5 @@ Questions :
 - distribution inverse de det ? 
 - abstract class probabilitydistribution -> je ne choisis pas param, ne sert à rien en l'état, je vais peut-être la supprimer
 
+13/11
+- remplacement d'une de tes erreurs par une exception (classe ED). Enfin je l'ai fait pour le premier, mais en fait je vois que tu en as d'autres tu veux qu'on le fasse aussi ? 

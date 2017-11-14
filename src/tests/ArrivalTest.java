@@ -25,6 +25,8 @@ public class ArrivalTest {
 		p3.arrives();
 		p4.arrives();
 		
+		
+		
 		ed1.printPatientInTheEd();
 		
 	
