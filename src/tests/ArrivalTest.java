@@ -13,7 +13,9 @@ public class ArrivalTest {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Grenoble");
 		AbstractFactory hrFact = FactoryProducer.getFactory("humanresource");
 		HumanResources med1 = hrFact.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
-		HumanResources med2 = hrFact.getHumanResource(ed1, "physician", "Benoit", "Charmettant");
+		AbstractFactory hrFact2 = FactoryProducer.getFactory("humanresource");
+		HumanResources med2 = hrFact
+				2.getHumanResource(ed1, "physician", "Béré", "Heuberger");
 		System.out.println(med1.getName());
 		
 		Patient p1 = new Patient(ed1, "Jo");
