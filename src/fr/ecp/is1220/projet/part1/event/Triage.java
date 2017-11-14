@@ -27,7 +27,7 @@ public class Triage extends Event{
 		chrono.stop(); // arrêt, je comprends vraiment pas comment est ce que tu veu gérer le temps...
 		this.setEndDate(chrono.getDureeSec());
 		this.fillrecord();
-		// Est ce que la méthode fonctionne ? Tu l'as testé ?
+		// Est ce que la méthode fonctionne ? Tu l'as testé ? Il vaut mieux etre sur que celle là fonctionne pour continuer à coder la suite
 		}
 
 	/**
