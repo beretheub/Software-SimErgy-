@@ -20,7 +20,7 @@ public class Triage extends Event{
 	public Triage(EmergencyDepartment ed, Patient patient, Date arrivaldate) {
 		super(arrivaldate, patient);
 		
-		while (ed.returnFreeHumanResource("nurse")==null){ 
+		while (ed.returnFreeHumanResource("nurse")==null){}  
 		this.nurse = (Nurse) ed.returnFreeHumanResource("nurse");
 		nurse.setState(NurseState.OCCUPIED);
 		//this.setEndDate(tempsattente); // Je comprends pas comment tu veux le calculer du coup ... 
@@ -28,7 +28,7 @@ public class Triage extends Event{
 		nurse.setState(NurseState.ONDUTY);
 		this.fillrecord();
 		ed.addPatientInWaitingForConsultation(patient);
-		}
+		
 	}
 
 	/**
