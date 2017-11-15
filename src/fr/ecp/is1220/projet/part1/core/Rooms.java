@@ -69,13 +69,13 @@ public abstract class Rooms implements NonHumanResources {
 	 * @param patient
 	 * @return if the room is full returns false, if there the patient is accepted returns true
 	 */
-	public boolean newPatient(Patient patient){
+	public boolean newPatient(Patient patient) throws FullRoom {
 		int numberOfPatient = listOfPatientsInside.size();
 		if (this.getCapacity() < 0 || numberOfPatient < this.getCapacity()){
 			listOfPatientsInside.add(patient);
 			return true; 
 		}
-		return false;
+		throw new FullRoom();
 	}
 	/**
 	 * Displays the name, surname and id of the patients that are in the room

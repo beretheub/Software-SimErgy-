@@ -153,7 +153,16 @@ public class EmergencyDepartment {
 			}
 			return null;
 		}
-
+	/**
+	 * Returns the first NHR of the asked type that is available from the list of resources of the ED
+	 * @param (String) the type of resource you want : nurse, physician or transporter
+	 * 
+	 *  if there is no such hr available or if the type entered as parameter is wrong returns null 
+	 */
+	public Rooms returnFreeNonHumanResources(String Choice) {
+		return null;
+		
+	}
 
 // ------------------------------------------------------ Méthodes d'event
 	
@@ -174,6 +183,7 @@ public class EmergencyDepartment {
 		}	
 		
 	}
+	
 
 
 
