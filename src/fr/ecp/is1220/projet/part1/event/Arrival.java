@@ -10,7 +10,7 @@ import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 public class Arrival extends Event {
 
 	protected SeverityLevel severity;
-	protected Date arrivaldate;
+	public Date arrivaldate;
 	
 	public Arrival(Patient patient, Date arrivalTime){
 		super(arrivalTime, patient);
@@ -36,7 +36,8 @@ public class Arrival extends Event {
 		// on ajoute le patient à la file d'attente pour triage de son ED
 		ed.addPatientInWaitingForTriage(patient);
 		
-		this.setEndDate();
+		this.setEndDate(1);
+		//on suppose qu'une arrivée dure une minute
 		
 		this.fillrecord();
 		
@@ -46,20 +47,6 @@ public class Arrival extends Event {
 
 	public String toString() {
 		return "Arrived at" + this.getStartDate() + ", Niveau de gravité = "+ severity;
-	}
-
-	@SuppressWarnings("deprecation")
-	protected void setEndDate() {
-		// Disons que l'arrivée du patient à l'hopital dure 1 minutes
-		int year = this.getStartDate().getYear();
-		int month = this.getStartDate().getMonth();
-		int date = this.getStartDate().getDate();
-		int hrs = this.getStartDate().getHours();
-		int min = this.getStartDate().getMinutes() + 1;
-		
-		this.endEvent = new Date(year, month, date, hrs, min);
-		
-		
 	}
 
 }

@@ -15,9 +15,6 @@ public abstract class Event {
 		this.setPatient(patient);
 	}
 
-	
-	protected abstract void setEndDate();
-
 	public Patient getPatient() {
 		return patient;
 	}
@@ -40,6 +37,21 @@ public abstract class Event {
 	}
 	public Date getEndDate(){
 		return endEvent;
+	}
+
+
+	@SuppressWarnings("deprecation")
+	protected void setEndDate(double duree) {
+		// Disons que l'arrivée du patient à l'hopital dure 1 minutes
+		int year = this.getStartDate().getYear();
+		int month = this.getStartDate().getMonth();
+		int date = this.getStartDate().getDate();
+		int hrs = this.getStartDate().getHours();
+		int min = this.getStartDate().getMinutes() + (int)duree;
+		
+		this.endEvent = new Date(year, month, date, hrs, min);
+		
+		
 	}
 	 
 	

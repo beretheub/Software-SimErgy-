@@ -10,5 +10,10 @@ public class Scan extends HealthServices {
 		super(ed, name, cost);
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "scan";
+	}
 
 }

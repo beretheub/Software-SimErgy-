@@ -29,7 +29,7 @@ public class Patient {
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(20);
 		this.insurance = Insurance.NO;
-		listOfEvent = new ArrayList<>();
+		listOfEvent = new ArrayList<Event>();
 		
 	}
 	
@@ -44,6 +44,7 @@ public class Patient {
 	
 	public ArrayList<Event> getListOfEvent(){
 		return listOfEvent;
+		
 	}
 	public void addEvent(Event event){
 		listOfEvent.add(event);

@@ -11,6 +11,12 @@ public class BoxRoom extends Rooms {
 		this.setCapacity(1);
 		// disons qu'une box room a une capacité de 1.
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "boxroom";
+	}
 	
 	
 

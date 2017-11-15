@@ -8,6 +8,12 @@ public class Strecher extends Equipment {
 	public Strecher(EmergencyDepartment ed, String name) {
 		super(ed, name);
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "strecher";
+	}
 	
 
 }

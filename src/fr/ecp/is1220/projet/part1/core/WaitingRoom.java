@@ -12,4 +12,10 @@ public class WaitingRoom extends Rooms {
 		this.setCapacity(-1);
 		// disons qu'une waiting room a une capacité infinie.
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "waitingroom";
+	}
 }

@@ -31,6 +31,11 @@ public class ConsultationService extends HealthServices {
 		// TODO Auto-generated constructor stub
 		
 	}
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "consultationService";
+	}
 
 
 }
