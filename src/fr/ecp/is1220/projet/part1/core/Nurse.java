@@ -1,7 +1,10 @@
 package fr.ecp.is1220.projet.part1.core;
 
+import java.util.Date;
+
 public class Nurse extends HumanResources{
 	NurseState state;
+	Date nextFreeTime;
 	/**
 	 * Returns the state of the nurse
 	 * @return NurseState (Enum)
@@ -43,6 +46,10 @@ public class Nurse extends HumanResources{
 	public String getType() {
 		// TODO Auto-generated method stub
 		return "nurse";
+	}
+	public void nextFreeTime(Date endEvent) {
+		this.nextFreeTime = endEvent;
+		
 	}
 	
 	

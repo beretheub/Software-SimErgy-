@@ -21,7 +21,6 @@ public abstract class Event {
 	/**
 	 * Remplit la fiche du patient
 	 */
-	// Bien faire attention à plus tard, cette compétence est du domaine de l'event
 	public void fillrecord(){
 		patient.addEvent(this);
 	}

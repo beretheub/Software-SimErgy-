@@ -2,12 +2,10 @@ package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 import java.util.Date;
-
-import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
-import fr.ecp.is1220.projet.part1.event.Arrival;
-import fr.ecp.is1220.projet.part1.event.Chrono;
-import fr.ecp.is1220.projet.part1.event.Consultation;
+import fr.ecp.is1220.projet.part1.Exceptions.noNurseAvailableException;
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientWaitingForConsultation;
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientWaitingForTriage;
 import fr.ecp.is1220.projet.part1.event.Event;
 import fr.ecp.is1220.projet.part1.event.Triage;
 
@@ -67,10 +65,16 @@ public class EmergencyDepartment {
 			
 		}
 	}
+	public void printPatientWaitingforConsultation(){
+		System.out.println("------ List of Patient waiting for consultation ------");
+		for (Patient patient : patientsWaitingForConsultation) {
+			System.out.println("id " + patient.getId() + " - name : " + patient.getName());
+			
+		}
+	}
 	public void addPatientInWaitingForTriage(Patient p){
 		patientsWaitingForTriage.add(p);
 	}
-
 	public void removePatientInWaitingForTriage(Patient p){
 		if (patientsWaitingForTriage.contains(p)){
 			patientsWaitingForTriage.remove(p);
@@ -80,20 +84,15 @@ public class EmergencyDepartment {
 			System.out.println("Error, the patient which id is : " + p.getId() + " is not waiting for triage");
 		}
 	}
-	
-
-	public Patient getfirstPatientInWaitingForTriage(){
-		Patient p = patientsWaitingForTriage.get(0);
-		this.removePatientInWaitingForTriage(p);
-		return (p);
+	public Patient getfirstPatientInWaitingForTriage() throws noPatientWaitingForTriage{
+		if (!patientsWaitingForTriage.isEmpty()){
+			Patient p = patientsWaitingForTriage.get(0);
+			this.removePatientInWaitingForTriage(p);
+			return (p);
+		}else{
+			throw new noPatientWaitingForTriage();
+		}
 	}
-	
-	public void triagepatients(){
-		Patient patient = this.getfirstPatientInWaitingForTriage();	
-		Date patientarrivaltime = (patient.getListOfEvent()).get(0).endEvent; // on récupère la date : c'est celle de la fin de la période d'arrivée
-		Event triage = (Event) new Triage(this, patient, patientarrivaltime);
-	}
-	
 	public void addPatientInWaitingForConsultation(Patient p){
 		patientsWaitingForConsultation.add(p);
 	}
@@ -107,17 +106,23 @@ public class EmergencyDepartment {
 			System.out.println("Error, the patient which id is : " + p.getId() + " is not waiting for consultation");
 		}
 	}
-	public Patient getfirstPatientInWaitingForConsultation(){ // Il faut absolument gérer le cas ou il n'y a pas de patient dans la liste !
-		Patient p = patientsWaitingForConsultation.get(0);
-		this.removePatientInWaitingForConsultation(p);
-		return (p);
+	public Patient getfirstPatientInWaitingForConsultation() throws noPatientWaitingForConsultation{
+		if (!patientsWaitingForConsultation.isEmpty()){
+			Patient p = patientsWaitingForConsultation.get(0);
+			this.removePatientInWaitingForConsultation(p);
+			return (p);
+		}else{
+			throw new noPatientWaitingForConsultation();
+		}
 	}
 	
-	public void consultationpatients() throws ParameterUnifException{
+	/*
+	public void consultationatients() throws ParameterUnifException{
 		Patient patient = this.getfirstPatientInWaitingForConsultation();	
 		Date patientarrivaltime = (patient.getListOfEvent()).get(1).endEvent; // on récupère la date : c'est celle de la fin du triage
+		@SuppressWarnings("unused")
 		Event consultation = (Event) new Consultation(this,patient, patientarrivaltime);
-	}
+	}*/
 	/**
 	 * Returns the first HR of the asked type that is available from the list of resources of the ED
 	 * @param (String) the type of resource you want : nurse, physician or transporter
@@ -148,4 +153,29 @@ public class EmergencyDepartment {
 			}
 			return null;
 		}
+
+
+// ------------------------------------------------------ Méthodes d'event
+	
+	
+	public void triagePatients(){
+		Patient patient;
+		try {
+			patient = this.getfirstPatientInWaitingForTriage();
+			Date patientarrivaltime = (patient.getListOfEvent()).get(0).endEvent; // on récupère la date : c'est celle de la fin de la période d'arrivée
+			try {
+				@SuppressWarnings("unused")
+				Event triage = (Event) new Triage(this, patient, patientarrivaltime);
+			} catch (noNurseAvailableException e) {
+				
+			}
+		} catch (noPatientWaitingForTriage e1) {
+			
+		}	
+		
+	}
+
+
+
+
 }
