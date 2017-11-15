@@ -21,7 +21,7 @@ public class Triage extends Event{
 		while (ed.isNurseAvailable()){ // J'avais modifié en oubliant de le  commit la methode isNurseAvailable : c'est devenu un ReturnFreeHumanResource qui renvoit directement la nurse (ou autre HR) disponible 
 			wait();// si le notify est en dehors de ta boucle, à quel moment tu en sort ? T'a pas une boucle infini ici ?
 			// il faut pas oublier de mettre à jour l'attribut nurse, et de rendre celle ci occupied le temps du triage
-			
+			 
 		}
 		notify();
 		chrono.stop(); // arrêt, je comprends vraiment pas comment est ce que tu veu gérer le temps...
