@@ -14,6 +14,7 @@ public class Patient {
 	private Insurance insurance;
 	private ArrayList<Event> listOfEvent;
 	private SeverityLevel severity;
+	private PatientState state;
 
 	
 	/** 
@@ -30,6 +31,7 @@ public class Patient {
 		id = idG.generateId(20);
 		this.insurance = Insurance.NO;
 		listOfEvent = new ArrayList<Event>();
+		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
 		
 	}
 	
@@ -84,7 +86,7 @@ public class Patient {
 	
 	//------------------------------------------
 	
-	
+	/*
 	@SuppressWarnings("deprecation")
 	public void arrives(){
 		
@@ -92,6 +94,10 @@ public class Patient {
 		// A titre d'exemple. Pour l'instant. Après il faudra gérer la  
 		PatientArrivalTime.setTime(Date.parse( "Sat, 12 Aug 1995 13:30:00 GMT"));
 		Event arrival = (Event) new Arrival(this, PatientArrivalTime);
+	}*/
+
+	public void setPatientState(PatientState state) {
+		this.state = state;
 	}
 
 	
