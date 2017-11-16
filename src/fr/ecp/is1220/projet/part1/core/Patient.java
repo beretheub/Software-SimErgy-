@@ -2,18 +2,16 @@ package fr.ecp.is1220.projet.part1.core;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 
-import fr.ecp.is1220.projet.part1.event.Arrival;
-import fr.ecp.is1220.projet.part1.event.Event;
 
 public class Patient {
 	private EmergencyDepartment ed;
 	private int id;
 	private String name;
 	private Insurance insurance;
-	private ArrayList<Event> listOfEvent;
+	private ArrayList<String> patientRecord;
 	private SeverityLevel severity;
+	@SuppressWarnings("unused")
 	private PatientState state;
 
 	
@@ -30,7 +28,7 @@ public class Patient {
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(20);
 		this.insurance = Insurance.NO;
-		listOfEvent = new ArrayList<Event>();
+		patientRecord = new ArrayList<>();
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
 		
 	}
@@ -41,15 +39,16 @@ public class Patient {
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();
 		id = idG.generateId(20);
-		listOfEvent = new ArrayList<>();
+		patientRecord = new ArrayList<>();
+		this.state = PatientState.WAITING;
 	}
 	
-	public ArrayList<Event> getListOfEvent(){
-		return listOfEvent;
+	public ArrayList<String> getPatientRecord(){
+		return patientRecord;
 		
 	}
-	public void addEvent(Event event){
-		listOfEvent.add(event);
+	public void fillRecord(String message){
+		patientRecord.add(message);
 	}
 	public EmergencyDepartment getPatientEd(){
 		return ed;
@@ -82,19 +81,6 @@ public class Patient {
 	public void setSeverity(SeverityLevel severity) {
 		this.severity = severity;
 	}
-	
-	
-	//------------------------------------------
-	
-	/*
-	@SuppressWarnings("deprecation")
-	public void arrives(){
-		
-		Date PatientArrivalTime = new Date();
-		// A titre d'exemple. Pour l'instant. Après il faudra gérer la  
-		PatientArrivalTime.setTime(Date.parse( "Sat, 12 Aug 1995 13:30:00 GMT"));
-		Event arrival = (Event) new Arrival(this, PatientArrivalTime);
-	}*/
 
 	public void setPatientState(PatientState state) {
 		this.state = state;
