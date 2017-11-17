@@ -11,6 +11,7 @@ import fr.ecp.is1220.projet.part1.core.Rooms;
 
 
 // A besoin d'une nurse, d'une shockRoom libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L4 ou L5.
+// Cet évènement doit etre classé avant (dans la liste EventQueue) les events Regist_NonUrgent (pour un meme timeStamp) 
 public class Regist_Urgent extends Regist {
 
 	public Regist_Urgent(int timeStamp, EmergencyDepartment ed, Rooms room1, Patient p, Nurse n1) {
