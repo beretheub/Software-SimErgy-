@@ -28,6 +28,8 @@ public class Arr_L1 extends Arr {
 		EndEvent e = new EndEvent(this.timeStamp + 3, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
 		this.ed.addEventInEventQueue(e);
 		this.ed.addPatientInED(p1);
+		this.ed.addPatientWaitingForTriage(p1);
+		
 		
 		
 	}
