@@ -1,19 +1,16 @@
 package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
-import java.util.Date;
+
 import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
-import fr.ecp.is1220.projet.part1.Exceptions.noNurseAvailableException;
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientWaitingForConsultation;
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientWaitingForTriage;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
-import fr.ecp.is1220.projet.part1.event.Triage;
-import fr.ecp.is1220.projet.part1.event_v2.EndEvent;
+
 
 public class EmergencyDepartment {
 	private String edName;
 	private ArrayList<Resources> edResources;
-	private ArrayList<Patient> listOfPatientsInTheED;
+	public ArrayList<Patient> listOfPatientsInTheED;
+	private ArrayList<Patient> patientWaitingForTriage;
 	private ArrayList<Event> eventQueue;
 	
 	
@@ -27,6 +24,7 @@ public class EmergencyDepartment {
 		edResources = new ArrayList<>();
 		listOfPatientsInTheED = new ArrayList<>();
 		eventQueue = new ArrayList<>();
+		patientWaitingForTriage = new ArrayList<>();
 	}
 	public String getEdName() {
 		return edName;
@@ -63,6 +61,18 @@ public class EmergencyDepartment {
 		for (Patient patient : listOfPatientsInTheED) {
 			System.out.println("id " + patient.getId() + " - name : " + patient.getName());
 			
+		}
+	}
+	public void addPatientWaitingForTriage(Patient p){
+		patientWaitingForTriage.add(p);
+	}
+	public void removePatientWaitingForTriage(Patient p){
+		if (patientWaitingForTriage.contains(p)){
+			patientWaitingForTriage.remove(p);
+		}
+		else{
+			//Juste au cas où, normalement
+			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
 		}
 	}
 	/**
@@ -109,8 +119,11 @@ public class EmergencyDepartment {
 // ------------------------------------------------------ Méthodes d'event
 	
 	
-	public void addEventInEventQueue(EndEvent e) {
+	public void addEventInEventQueue(Event e) {
 		eventQueue.add(e);
+		//eventQueue.sort(); Il faut absolument créer une fonction qui réordone temporellement la liste
+		//Et utiliser cette méthode à chaque fois que l'on touche à la liste eventQueue
+		//A coder quand on s'occupera de la partie 2
 		
 	}
 	
