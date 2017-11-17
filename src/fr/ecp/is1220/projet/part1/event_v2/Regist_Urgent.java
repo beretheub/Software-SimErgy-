@@ -2,13 +2,13 @@ package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.FullRoom;
-import fr.ecp.is1220.projet.part1.core.HumanResources;
+
 import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Rooms;
-import fr.ecp.is1220.projet.part1.core.ShockRoom;
+
 
 // A besoin d'une nurse, d'une shockRoom libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L4 ou L5.
 public class Regist_Urgent extends Regist {
@@ -31,7 +31,7 @@ public class Regist_Urgent extends Regist {
 		this.p1.setPatientState(PatientState.OCCUPIED);
 		this.nurse.setState(NurseState.OCCUPIED);
 		EndEvent e = new EndEvent(this.timeStamp + 5, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
-		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by " + this.nurse + " at " + Integer.toString(this.timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
+		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + Integer.toString(this.timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
 		this.ed.addEventInEventQueue(e);
 		FreeNurse e2 = new FreeNurse(this.timeStamp + 5, this.ed, this.nurse); // La nurse est occupée pendant 5 minutes puis libérée de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);

@@ -32,8 +32,10 @@ public class Triagetest_v2 {
  		
  		Regist_Urgent ev4 = new Regist_Urgent(18, ed1, room1, p1, (Nurse) n1);
  		
- 		System.out.println(ev4.timeStamp);
+ 		
  		ev4.execute();
+ 		
+ 		System.out.println(ev4.timeStamp);
  		
  		
  		
