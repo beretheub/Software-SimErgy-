@@ -8,13 +8,16 @@ import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 
 public class Arr_L1 extends Arr {
 	private static int lastArr = 0;
+	
 	public Arr_L1(EmergencyDepartment ed) {
 		super(Arr_L1.getNextPatientTimeStamp(lastArr), ed);
-		lastArr = this.timeStamp;
-		
-		
+		lastArr = this.timeStamp;	
 	}
-
+	
+	/**
+	 * 
+	 * L'arrivée du prochain patient est calculée à partir de la loi de probabilité et l'arrivée de celui qui le précède 
+	 */
 	private static int getNextPatientTimeStamp(int lastArr2) {
 		return lastArr2 + 5; // Il faudra utiliser la loi de proba pour déterminer le temps d'arrivée du prochain patient
 	}
@@ -24,6 +27,7 @@ public class Arr_L1 extends Arr {
 		Patient p1 = new Patient(this.ed, "Random name");
 		p1.setSeverity(SeverityLevel.L1);
 		p1.setPatientState(PatientState.OCCUPIED);
+		//Maintenant def 
 		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Arrived in " + p1.getPatientEd() + " at " + Integer.toString(this.timeStamp)); 
 		EndEvent e = new EndEvent(this.timeStamp + 3, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
 		this.ed.addEventInEventQueue(e);
