@@ -13,7 +13,7 @@ import fr.ecp.is1220.projet.part1.core.Rooms;
 public class Visit extends Event {
 	
 	/**
-	 * Fonctionnemet blood-test : 
+	 * Fonctionnement visite : 
 	 * 
 	 */	
 
@@ -49,7 +49,7 @@ public class Visit extends Event {
 		pat.setNexstep(outputconsultation);
 			
 		}
-	}
+	
 	
 	private Output calculoutput() {
 		double output = Math.random();

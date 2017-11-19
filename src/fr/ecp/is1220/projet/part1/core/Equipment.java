@@ -56,6 +56,7 @@ public abstract class Equipment implements NonHumanResources {
 		id = idG.generateId(12);
 		this.ed = ed;
 		ed.addResource(this);
+		this.nhrstate=NHRState.FREE;
 	}
 	
 	public boolean newPatient(Patient patient) throws FullEquipment {
@@ -64,7 +65,7 @@ public abstract class Equipment implements NonHumanResources {
 			this.nhrstate=NHRState.OCCUPIED;
 			return true; 
 		}
-		throw new FullEquipment();
+		else{throw new FullEquipment();}
 	}
 	
 

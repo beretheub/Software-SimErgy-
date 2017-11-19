@@ -27,6 +27,7 @@ public class EmergencyDepartment {
 		listOfPatientsInTheED = new ArrayList<>();
 		eventQueue = new ArrayList<>();
 		patientWaitingForTriage = new ArrayList<>();
+		patientWaitingForExam = new ArrayList<>();
 	}
 	public String getEdName() {
 		return edName;
@@ -78,6 +79,7 @@ public class EmergencyDepartment {
 			//Juste au cas où, normalement
 			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
 		}
+	}
 		
 	public void addPatientWaitingForExam(Patient p1) {
 			// TODO Auto-generated method stub
