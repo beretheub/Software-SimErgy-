@@ -12,7 +12,7 @@ import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.PhysicianState;
 import fr.ecp.is1220.projet.part1.core.Rooms;
 
-public class Bloodtest extends Exam {
+public class XRAY extends Exam {
 	public double duree;
 
 	/**
@@ -22,7 +22,7 @@ public class Bloodtest extends Exam {
 	 * 
 	 */	
 
-	public Bloodtest(int timeStamp, EmergencyDepartment ed, HealthServices room, Patient p1,Physician phys) throws ParameterUnifException {
+	public XRAY(int timeStamp, EmergencyDepartment ed, HealthServices room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed, room, p1, phys);
 		this.duree=calculduree();
 				

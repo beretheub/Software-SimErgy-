@@ -35,14 +35,16 @@ public class Transportation extends Event {
 			strecher.newPatient(p1);
 		} catch (FullEquipment e) {		
 			e.printStackTrace();
-			return; //si on arrive pas a placer le patient dans la salle, on arrête la méthode ! On ne fait pas la suite
+			return; //Si on ne peut pas placer le patient dans le strecher, on s'arrête
 		}
 
 		p1.setPatientState(PatientState.INSTALLING);
 		
 		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Transporté par " + transporter.getName() + " :" + transporter.getId() + " sur " + strecher.getId() + " at " + Integer.toString(this.timeStamp)); 
 		EndEvent e = new EndEvent(this.timeStamp + 3, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
+		FreeTransporter e2 = new FreeTransporter(this.timeStamp + 5, this.ed, this.transporter); // le transport dure 5 minutes
 		this.ed.addEventInEventQueue(e);
+		this.ed.addEventInEventQueue(e2);
 		this.ed.addPatientWaitingForExam(p1);
 		
 		
