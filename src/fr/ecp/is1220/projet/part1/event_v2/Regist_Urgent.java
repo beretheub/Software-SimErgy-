@@ -1,6 +1,7 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.NurseState;
@@ -20,7 +21,7 @@ public class Regist_Urgent extends Regist {
 	}
 
 	@Override
-	public void execute() {
+	public void execute() throws noPatientinED {
 		
 		try {
 			this.nextRoom.newPatient(p1);

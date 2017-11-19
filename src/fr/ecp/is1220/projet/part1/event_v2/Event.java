@@ -1,5 +1,6 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 
 public abstract class Event {
@@ -13,7 +14,7 @@ public abstract class Event {
 		this.ed = ed;
 	}
 	
-	public abstract void execute();
+	public abstract void execute() throws noPatientinED;
 	
 
 }

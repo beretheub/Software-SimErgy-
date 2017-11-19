@@ -55,7 +55,8 @@ Questions :
 - pourquoi 2 event urgent et non-urgent, et pas 1 seul, avec une boucle if ?
 - sort : en fonction de la priorité, puis par temps d'attente pour une priorité égale
 		=> fonction getIntPriority pour ce tri
-- il faut gérer le cas où le patient s'en va/ meurt
+- il faut gérer le cas où le patient s'en va/ meurt / il faut aussi pouvoir chager la sévérité au cours du processus si on veut que ce soit plus réaliste ? 
+- les cas urgens ne sont pour l'instant pas pris en compte dans la consultation 
 - pourquoi patient state et pas roomstate dans ce cas ? 
 - pourquoi pas execute() dans Arr ? 
 - il faudra peut-être voir si ce n'est pas plus simple d'intégrer freenurse, physician et freepatient à la classe endevent ? Et faire de même pour les pièces et équipements ? 
