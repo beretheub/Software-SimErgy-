@@ -2,9 +2,9 @@ package fr.ecp.is1220.projet.part1.event;
 
 import java.util.Date;
 
+import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
 import fr.ecp.is1220.projet.part1.Exceptions.noNurseAvailableException;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
-import fr.ecp.is1220.projet.part1.core.FullRoom;
 import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Patient;

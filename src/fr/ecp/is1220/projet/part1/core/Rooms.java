@@ -2,6 +2,8 @@ package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
+import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
+
 public abstract class Rooms implements NonHumanResources {
 	protected EmergencyDepartment ed;
 	protected int id;

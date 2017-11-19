@@ -50,3 +50,23 @@ Questions :
 
 13/11
 - remplacement d'une de tes erreurs par une exception (classe ED). Enfin je l'ai fait pour le premier, mais en fait je vois que tu en as d'autres tu veux qu'on le fasse aussi ? 
+
+18/11
+- pourquoi 2 event urgent et non-urgent, et pas 1 seul, avec une boucle if ?
+- sort : en fonction de la priorité, puis par temps d'attente pour une priorité égale
+		=> fonction getIntPriority pour ce tri
+- il faut gérer le cas où le patient s'en va/ meurt
+- pourquoi patient state et pas roomstate dans ce cas ? 
+- pourquoi pas execute() dans Arr ? 
+- il faudra peut-être voir si ce n'est pas plus simple d'intégrer freenurse, physician et freepatient à la classe endevent ? Et faire de même pour les pièces et équipements ? 
+- J'ai changé les états du patient par ceux qui sont décrits dans l'énoncé (en vist/test/consultations, ...), mais ça me parait moins simple, à voir comment on fait 
+- Le système de prix n'est pas encore fait -> attribut pricetopay dans patient ? 
+- Je vois 2 solutions pour le résultat d'un examen, qu dans tous les cas, est envoyé au médecin (observer pattern)
+	- On prépare des énumérations comme pour la consultation (c'est ce qu'il avait eu l'air de dire quand je lui ai posé la question en cours ...)
+	- On n'a pas besoin de savoir quel est le résultat, il est renvoyé au médecin ??? Je tente ça pour l'instant. 
+
+- Je ne me rappelle plus ce qu'on avait dit à propos des pièces pour les healthservices ... pour l'instant je fais appel au service, là où c'était la pièce pour la consultation/installation
+- J'ai commencé ma fonction de trie, elle fonctionne à partir du moment où on récupère le patient dans l'événement
+- Je suppose pour l'instant que suite à la consultation, le patient est transporté (5minutes): 
+	soit vers la sortie
+	soit vers les salles d'attentes d'exam

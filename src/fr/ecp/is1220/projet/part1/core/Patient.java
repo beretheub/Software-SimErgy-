@@ -77,6 +77,13 @@ public class Patient {
 	public SeverityLevel getSeverity() {
 		return severity;
 	}
+	public int getIntSeverity() {
+		if (severity==SeverityLevel.L1) { return 1;}
+		else if (severity==SeverityLevel.L2) { return 2;}
+		else if (severity==SeverityLevel.L3) { return 3;}
+		else if (severity==SeverityLevel.L4) { return 4;}
+		else {return 5;}
+	}
 
 	public void setSeverity(SeverityLevel severity) {
 		this.severity = severity;

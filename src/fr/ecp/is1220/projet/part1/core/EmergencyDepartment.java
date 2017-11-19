@@ -1,19 +1,17 @@
 package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Comparator;
+
 import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
-import fr.ecp.is1220.projet.part1.Exceptions.noNurseAvailableException;
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientWaitingForConsultation;
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientWaitingForTriage;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
-import fr.ecp.is1220.projet.part1.event.Triage;
-import fr.ecp.is1220.projet.part1.event_v2.EndEvent;
+
 
 public class EmergencyDepartment {
 	private String edName;
 	private ArrayList<Resources> edResources;
-	private ArrayList<Patient> listOfPatientsInTheED;
+	public ArrayList<Patient> listOfPatientsInTheED;
+	private ArrayList<Patient> patientWaitingForTriage;
 	private ArrayList<Event> eventQueue;
 	
 	
@@ -27,6 +25,7 @@ public class EmergencyDepartment {
 		edResources = new ArrayList<>();
 		listOfPatientsInTheED = new ArrayList<>();
 		eventQueue = new ArrayList<>();
+		patientWaitingForTriage = new ArrayList<>();
 	}
 	public String getEdName() {
 		return edName;
@@ -65,6 +64,20 @@ public class EmergencyDepartment {
 			
 		}
 	}
+	public void addPatientWaitingForTriage(Patient p){
+		patientWaitingForTriage.add(p);
+		p.setPatientState(PatientState.WAITING);
+	}
+	public void removePatientWaitingForTriage(Patient p){
+		if (patientWaitingForTriage.contains(p)){
+			patientWaitingForTriage.remove(p);
+			p.setPatientState(PatientState.INSTALLING);
+		}
+		else{
+			//Juste au cas où, normalement
+			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
+		}
+	}
 	/**
 	 * Returns the first HR of the asked type that is available from the list of resources of the ED
 	 * @param (String) the type of resource you want : nurse, physician or transporter
@@ -72,7 +85,7 @@ public class EmergencyDepartment {
 	 *  if there is no such hr available or if the type entered as parameter is wrong returns null 
 	 */
 	public HumanResources returnFreeHumanResource(String type) {
-		// Je ne fais pas le truc le plus optimisé
+		// Je ne fais pas le truc le plus optimisé 
 			for (Resources resources : edResources) {
 				if (resources.getType() == type && type.equalsIgnoreCase("nurse")){
 					Nurse resources1 = (Nurse) resources;
@@ -109,13 +122,19 @@ public class EmergencyDepartment {
 // ------------------------------------------------------ Méthodes d'event
 	
 	
-	public void addEventInEventQueue(EndEvent e) {
+	public void addEventInEventQueue(Event e) {
 		eventQueue.add(e);
+		//eventQueue.sort(); Il faut absolument créer une fonction qui réordone temporellement la liste
+		//Et utiliser cette méthode à chaque fois que l'on touche à la liste eventQueue
+		//A coder quand on s'occupera de la partie 2
 		
 	}
 	
-
-
-
+	/**public ArrayList<Event> sortEvent(ArrayList<Event> eQ){
+	* Comparator<Event> comparator = (e1, e2) -> (getIntSeveritylevel(e1.patient) < getIntSeveritylevel(e2.patient)) ? 1 : ((getIntSeverityLevel(e1.patient) == getIntSeverityLevel(e2.patient) ? 0 : -1)); 
+	* eQ.sort(comparator);
+	* return eQ;
+	* }
+	**/
 
 }

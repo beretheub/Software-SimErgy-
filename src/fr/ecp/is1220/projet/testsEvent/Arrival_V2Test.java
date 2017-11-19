@@ -1,4 +1,4 @@
-package tests;
+package fr.ecp.is1220.projet.testsEvent;
 
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;

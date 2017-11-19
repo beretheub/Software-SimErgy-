@@ -4,6 +4,11 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 
+/**
+*Fonction à expliquer 
+*
+**/
+
 public class EndEvent extends Event {
 	private Patient patient;
 	public EndEvent(int timeStamp, EmergencyDepartment ed, Patient patient) {
