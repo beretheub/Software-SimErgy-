@@ -13,6 +13,7 @@ public class EmergencyDepartment {
 	public ArrayList<Patient> listOfPatientsInTheED;
 	private ArrayList<Patient> patientWaitingForTriage;
 	private ArrayList<Event> eventQueue;
+	private ArrayList<Patient> patientWaitingForExam;
 	
 	
 	/**
@@ -77,6 +78,22 @@ public class EmergencyDepartment {
 			//Juste au cas où, normalement
 			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
 		}
+		
+	public void addPatientWaitingForExam(Patient p1) {
+			// TODO Auto-generated method stub
+		patientWaitingForExam.add(p1);
+		p1.setPatientState(PatientState.WAITING);
+		}
+	
+	public void removePatientWaitingForExam(Patient p){
+		if (patientWaitingForExam.contains(p)){
+			patientWaitingForExam.remove(p);
+			p.setPatientState(PatientState.TAKINGEXAM);
+		}
+		else{
+			//Juste au cas où, normalement
+			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
+		}
 	}
 	/**
 	 * Returns the first HR of the asked type that is available from the list of resources of the ED
@@ -129,6 +146,7 @@ public class EmergencyDepartment {
 		//A coder quand on s'occupera de la partie 2
 		
 	}
+
 	
 	/**public ArrayList<Event> sortEvent(ArrayList<Event> eQ){
 	* Comparator<Event> comparator = (e1, e2) -> (getIntSeveritylevel(e1.patient) < getIntSeveritylevel(e2.patient)) ? 1 : ((getIntSeverityLevel(e1.patient) == getIntSeverityLevel(e2.patient) ? 0 : -1)); 

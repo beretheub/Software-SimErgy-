@@ -5,7 +5,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
-import fr.ecp.is1220.projet.part1.core.OutputConsultation;
+import fr.ecp.is1220.projet.part1.core.Output;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Physician;
@@ -43,7 +43,7 @@ public class MRI extends Exam {
 		exam.notifyObservers();
 			// Le résultat du test est envoyé au médecin
 			// Fonction à compléter dans HealthService
-		
+		p1.setNexstep(output);
 		
 	}
 	

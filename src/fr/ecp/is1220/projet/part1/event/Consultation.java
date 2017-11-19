@@ -7,7 +7,7 @@ import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.NurseState;
-import fr.ecp.is1220.projet.part1.core.OutputConsultation;
+import fr.ecp.is1220.projet.part1.core.Output;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.PhysicianState;
@@ -16,7 +16,7 @@ import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 
 public class Consultation extends Event {
 	protected Physician physician;
-	protected OutputConsultation outputconsultation;
+	protected Output outputconsultation;
 	
 	/**
 	 * Si un médecin est libre, la consultation peut avoir lieu. Sinon le patient patiente en salle d'attente.  
@@ -41,16 +41,16 @@ public class Consultation extends Event {
 		}
 	
 	
-	private OutputConsultation calculoutput() {
+	private Output calculoutput() {
 		double output = Math.random();
 		if (output <= 0.35){
-			outputconsultation = OutputConsultation.NOTEST;
+			outputconsultation = Output.NOTEST;
 		}else if (output <= 0.55){
-			outputconsultation = OutputConsultation.RADIOGRAPHY;
+			outputconsultation = Output.RADIOGRAPHY;
 		}else if (output <= 0.95){
-			outputconsultation = OutputConsultation.BLOODTEST;
+			outputconsultation = Output.BLOODTEST;
 		}else{
-			outputconsultation = OutputConsultation.MRI;
+			outputconsultation = Output.MRI;
 		}
 		return outputconsultation;
 	}

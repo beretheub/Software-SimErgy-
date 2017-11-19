@@ -24,15 +24,16 @@ public class Transporter extends HumanResources {
 	}
 	/**
 	 * 
-	 * @param choice
+	 * @param onduty
 	 * 
 	 *  Set the state of the transporter 
 	 */
-	public void setState(TransporterState choice){
-		this.state = choice;
+	public void setState(TransporterState state){
+		this.state = state;
 		
 	}
 	/**
+	 * 
 	 * Returns the state of the transporter
 	 */
 	public TransporterState getState(){

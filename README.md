@@ -70,3 +70,5 @@ Questions :
 - Je suppose pour l'instant que suite à la consultation, le patient est transporté (5minutes): 
 	soit vers la sortie
 	soit vers les salles d'attentes d'exam
+- pour que ce soit plus simple, je rajoute un attribut nexstep à un patient
+- il faut remettre des exceptions un peu partout dans l'ED, mais je ne comprends pas du tout ce que tu as fait pour l'instant avec les exceptions donc je ne touche aps tout de suite 

@@ -3,7 +3,7 @@ package fr.ecp.is1220.projet.part1.event_v2;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
-import fr.ecp.is1220.projet.part1.core.OutputConsultation;
+import fr.ecp.is1220.projet.part1.core.Output;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Physician;
@@ -20,7 +20,7 @@ public class Visit extends Event {
 	Rooms room; 
 	Patient pat;
 	Physician physician;
-	OutputConsultation outputconsultation;
+	Output outputconsultation;
 	double duree;
 	
 	public Visit(int timeStamp, EmergencyDepartment ed, Rooms room, Physician phys) throws ParameterUnifException {
@@ -46,21 +46,21 @@ public class Visit extends Event {
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.physician); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);
 
-		/**
-		 * Boucle if qui traite le patient selon le résultat de la consultation  ? 
-		 */
+		pat.setNexstep(outputconsultation);
+			
+		}
 	}
 	
-	private OutputConsultation calculoutput() {
+	private Output calculoutput() {
 		double output = Math.random();
 		if (output <= 0.35){
-			outputconsultation = OutputConsultation.NOTEST;
+			outputconsultation = Output.NOTEST;
 		}else if (output <= 0.55){
-			outputconsultation = OutputConsultation.RADIOGRAPHY;
+			outputconsultation = Output.RADIOGRAPHY;
 		}else if (output <= 0.95){
-			outputconsultation = OutputConsultation.BLOODTEST;
+			outputconsultation = Output.BLOODTEST;
 		}else{
-			outputconsultation = OutputConsultation.MRI;
+			outputconsultation = Output.MRI;
 		}
 		return outputconsultation;
 	}
