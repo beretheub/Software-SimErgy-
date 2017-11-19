@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 
@@ -50,13 +51,13 @@ public class EmergencyDepartment {
 	public void addPatientInED(Patient p){
 		listOfPatientsInTheED.add(p);
 	}
-	public void removePatientInTheED(Patient p){
+	public void removePatientInTheED(Patient p) throws noPatientinED{
 		if (listOfPatientsInTheED.contains(p)){
 			listOfPatientsInTheED.remove(p);
 		}
 		else{
 			//Juste au cas où, normalement
-			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
+			throw new noPatientinED();
 		}
 	}
 	public void printPatientInTheEd(){
@@ -70,14 +71,13 @@ public class EmergencyDepartment {
 		patientWaitingForTriage.add(p);
 		p.setPatientState(PatientState.WAITING);
 	}
-	public void removePatientWaitingForTriage(Patient p){
+	public void removePatientWaitingForTriage(Patient p) throws noPatientinED{
 		if (patientWaitingForTriage.contains(p)){
 			patientWaitingForTriage.remove(p);
 			p.setPatientState(PatientState.INSTALLING);
 		}
 		else{
-			//Juste au cas où, normalement
-			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
+			throw new noPatientinED();
 		}
 	}
 		
@@ -87,14 +87,13 @@ public class EmergencyDepartment {
 		p1.setPatientState(PatientState.WAITING);
 		}
 	
-	public void removePatientWaitingForExam(Patient p){
+	public void removePatientWaitingForExam(Patient p) throws noPatientinED{
 		if (patientWaitingForExam.contains(p)){
 			patientWaitingForExam.remove(p);
 			p.setPatientState(PatientState.TAKINGEXAM);
 		}
 		else{
-			//Juste au cas où, normalement
-			System.out.println("Error, the patient which id is : " + p.getId() + " is not in this Emergency Departement");
+			throw new noPatientinED();
 		}
 	}
 	/**

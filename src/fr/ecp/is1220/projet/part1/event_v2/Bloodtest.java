@@ -32,7 +32,6 @@ public class Bloodtest extends Exam {
 	@Override
 	public void execute() {
 		this.exam.newPatient(p1);
-		
 		this.physician.setState(PhysicianState.VISITING);
 		this.p1.setPatientState(PatientState.TAKINGEXAM);
 		EndEvent e = new EndEvent((int)(this.timeStamp + duree), this.ed, this.p1); 
