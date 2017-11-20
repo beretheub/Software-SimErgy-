@@ -56,7 +56,7 @@ Questions :
 - sort : en fonction de la priorité, puis par temps d'attente pour une priorité égale
 		=> fonction getIntPriority pour ce tri
 - il faut gérer le cas où le patient s'en va/ meurt / il faut aussi pouvoir chager la sévérité au cours du processus si on veut que ce soit plus réaliste ? 
-- les cas urgens ne sont pour l'instant pas pris en compte dans la consultation 
+- les cas urgens ne sont pour l'instant pas pris en compte dans la consultation (shockroom, mais après ?)
 - pourquoi patient state et pas roomstate dans ce cas ? 
 - pourquoi pas execute() dans Arr ? 
 - il faudra peut-être voir si ce n'est pas plus simple d'intégrer freenurse, physician et freepatient à la classe endevent ? Et faire de même pour les pièces et équipements ? 
@@ -73,3 +73,4 @@ Questions :
 	soit vers les salles d'attentes d'exam
 - pour que ce soit plus simple, je rajoute un attribut nexstep à un patient
 - il faut remettre des exceptions un peu partout dans l'ED, mais je ne comprends pas du tout ce que tu as fait pour l'instant avec les exceptions donc je ne touche aps tout de suite 
+- je fais le système de couts => Il faut peut-être revoir ceux fixés pour l'instant : 100€ l'examen, 30€ la consultation, 5€ le transport en strecher ? On doit rajouter le prix d'une éventuelle érrivée en ambulance ? ATTENTION, je m'arrête au mileiu de ce que j'ai fait, 

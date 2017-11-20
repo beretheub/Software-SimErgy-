@@ -1,8 +1,8 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
-import fr.ecp.is1220.projet.part1.core.Output;
 import fr.ecp.is1220.projet.part1.core.Output;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
@@ -26,7 +26,7 @@ public abstract class Exam extends Event {
 	}
 
 	@Override
-	public void execute() {
+	public void execute() throws noPatientinED {
 		// TODO Auto-generated method stub
 
 	}

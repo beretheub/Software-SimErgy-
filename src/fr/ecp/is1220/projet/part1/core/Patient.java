@@ -15,7 +15,9 @@ public class Patient {
 	private SeverityLevel severity;
 	@SuppressWarnings("unused")
 	private PatientState state;
-	private Output nextstep;
+	public Output nextstep;
+	public double totalcharge;
+	
 
 	
 	/** 
@@ -33,7 +35,7 @@ public class Patient {
 		this.insurance = Insurance.NO;
 		patientRecord = new ArrayList<>();
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
-		
+		this.totalcharge=0;
 	}
 	
 	public Patient(EmergencyDepartment ed, String name, Insurance insurance) {
@@ -44,6 +46,7 @@ public class Patient {
 		id = idG.generateId(20);
 		patientRecord = new ArrayList<>();
 		this.state = PatientState.WAITING;
+		this.totalcharge=0;
 	}
 	
 	public ArrayList<String> getPatientRecord(){
@@ -104,9 +107,21 @@ public class Patient {
 		this.nextstep = nextstep;
 	}
 
+	public void addcharges(double newcharge) {
+		this.totalcharge = this.totalcharge+calculPrixService(newcharge);
+	}
 	
-	
-	
+	public double calculPrixService(double coutservice) {
+		if (this.insurance==Insurance.NO){
+			return coutservice;
+		}
+		else if (this.insurance==Insurance.SILVER){
+			return (coutservice/50);
+		}
+		else {
+			return (coutservice*(80/100));
+		}
+	}
 	
 	
 	

@@ -29,6 +29,7 @@ public class Leaving extends Event {
 		ed.removePatientInTheED(p1);
 		p1.setPatientState(PatientState.OUT);
 		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - leaves the ED at " + Integer.toString(this.timeStamp)); 
+		System.out.println("Prix total à payer : " + p1.totalcharge);
 		EndEvent e = new EndEvent(this.timeStamp + 3, this.ed, p1); // Supposons qu'il met 3 minutes à partir
 		this.ed.addEventInEventQueue(e);
 

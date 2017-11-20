@@ -2,6 +2,7 @@ package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
@@ -30,8 +31,9 @@ public class Bloodtest extends Exam {
 	}
 	
 	@Override
-	public void execute() {
+	public void execute() throws noPatientinED {
 		this.exam.newPatient(p1);
+		this.ed.removePatientWaitingForExam(p1);
 		this.physician.setState(PhysicianState.VISITING);
 		this.p1.setPatientState(PatientState.TAKINGEXAM);
 		EndEvent e = new EndEvent((int)(this.timeStamp + duree), this.ed, this.p1); 
