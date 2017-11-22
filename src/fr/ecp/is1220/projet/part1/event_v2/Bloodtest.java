@@ -23,7 +23,7 @@ public class Bloodtest extends Exam {
 	 * 
 	 */	
 
-	public Bloodtest(int timeStamp, EmergencyDepartment ed, HealthServices room, Patient p1,Physician phys) throws ParameterUnifException {
+	public Bloodtest(EmergencyDepartment ed, int timeStamp, HealthServices room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed, room, p1, phys);
 		this.duree=calculduree();
 				

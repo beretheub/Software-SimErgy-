@@ -6,11 +6,11 @@ import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.HumanResources;
-import fr.ecp.is1220.projet.part1.core.MRI;
+import fr.ecp.is1220.projet.part1.core.MRIservice;
 import fr.ecp.is1220.projet.part1.core.Radiography;
 import fr.ecp.is1220.projet.part1.core.Rooms;
 import fr.ecp.is1220.projet.part1.core.Scan;
-import fr.ecp.is1220.projet.part1.core.Xray;
+import fr.ecp.is1220.projet.part1.core.XrayService;
 
 public class HealtServiceFactory extends AbstractFactory {
 	/**
@@ -44,13 +44,13 @@ public class HealtServiceFactory extends AbstractFactory {
 	@Override
 	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
 		if (resourceType.equalsIgnoreCase("Xray")){
-			return new Xray(ed, name);
+			return new XrayService(ed, name);
 		}
 		else if (resourceType.equalsIgnoreCase("consultation")){
 			return new ConsultationService(ed, name);
 		}
 		else if (resourceType.equalsIgnoreCase("MRI")){
-			return new MRI(ed, name);
+			return new MRIservice(ed, name);
 		}else if(resourceType.equalsIgnoreCase("radiography")){
 			return new Radiography(ed, name);
 		}else if(resourceType.equalsIgnoreCase("scan")){

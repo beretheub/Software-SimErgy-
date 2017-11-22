@@ -22,7 +22,7 @@ public class MRI extends Exam {
 	 * 
 	 */	
 
-	public MRI(int timeStamp, EmergencyDepartment ed, HealthServices room, Patient p1,Physician phys) throws ParameterUnifException {
+	public MRI( EmergencyDepartment ed,int timeStamp, HealthServices room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed, room, p1, phys);
 		this.duree=calculduree();
 				
