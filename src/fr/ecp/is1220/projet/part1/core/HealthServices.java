@@ -11,7 +11,7 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	private String name;
 	private ArrayList<Observer> observers;
 	private ArrayList<Patient> waitingQueue;
-	private float cost;
+	private double cost;
 	
 	/**
 	 * Returns the ed of the health service
@@ -86,12 +86,12 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 		return waitingQueue;
 	}
 	
-	public float getCost() {
+	public double getCost() {
 		return cost;
 	}
 
 
-	public void setCost(float cost) {
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 

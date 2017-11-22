@@ -45,6 +45,7 @@ public class XRAY extends Exam {
 			// Fonction à compléter dans HealthService
 		
 		p1.setNexstep(output);
+		p1.addcharges(exam.getCost());
 	}
 	
 	

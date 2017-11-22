@@ -9,6 +9,9 @@ import fr.ecp.is1220.projet.part1.core.Physician;
 
 public abstract class Exam extends Event {
 
+	/**
+	 * Les différents examens disponibles : Bloodtest, MRI, XRAY 
+	 */	
 	public HealthServices exam; 
 	public Patient p1;
 	public Physician physician;

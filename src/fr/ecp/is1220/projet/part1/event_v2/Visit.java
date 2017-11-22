@@ -2,6 +2,7 @@ package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
+import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Output;
 import fr.ecp.is1220.projet.part1.core.Patient;
@@ -22,14 +23,16 @@ public class Visit extends Event {
 	Physician physician;
 	Output outputconsultation;
 	double duree;
+	ConsultationService consultation;
 	
-	public Visit(int timeStamp, EmergencyDepartment ed, Rooms room, Physician phys) throws ParameterUnifException {
+	public Visit(int timeStamp, EmergencyDepartment ed, Rooms room, Physician phys,ConsultationService consultation ) throws ParameterUnifException {
 		super(timeStamp, ed);
 		this.room=room;
 		this.pat=room.getPatientsInside().get(0); // on récupère le patient qui est dans la pièce
 		this.physician=phys;
 		this.outputconsultation=calculoutput();
 		this.duree=calculduree();
+		this.consultation=consultation;
 				
 		// TODO Auto-generated constructor stub
 	}
@@ -45,7 +48,7 @@ public class Visit extends Event {
 		this.ed.addEventInEventQueue(e);
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.physician); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);
-		pat.addcharges(newcharge);
+		pat.addcharges(consultation.getCost());
 		pat.setNexstep(outputconsultation);
 			
 		}

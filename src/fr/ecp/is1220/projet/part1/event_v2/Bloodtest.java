@@ -45,6 +45,7 @@ public class Bloodtest extends Exam {
 			// Le résultat du test est envoyé au médecin
 			// Fonction à compléter dans HealthService
 		p1.setNexstep(output);
+		p1.addcharges(exam.getCost());
 		
 	}
 	

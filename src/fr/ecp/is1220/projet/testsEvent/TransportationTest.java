@@ -1,9 +1,12 @@
 package fr.ecp.is1220.projet.testsEvent;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
+import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
+import fr.ecp.is1220.projet.part1.core.BloodTest;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
+import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HumanResources;
 import fr.ecp.is1220.projet.part1.core.Nurse;
@@ -22,7 +25,7 @@ import fr.ecp.is1220.projet.part1.event_v2.Visit;
 
 public class TransportationTest {
 
-	public static void main(String[] args) throws ParameterUnifException {
+	public static void main(String[] args) throws ParameterUnifException, noPatientinED {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		Arr_L1 ev1 = new Arr_L1(ed1);
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");
@@ -31,8 +34,11 @@ public class TransportationTest {
  		Transporter t1 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
  		AbstractFactory roomfac = FactoryProducer.getFactory("room");
  		AbstractFactory equipfac = FactoryProducer.getFactory("equipment");
+ 		AbstractFactory hservice = FactoryProducer.getFactory("healtservice");
  		BoxRoom room2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
  		Strecher strecher1 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
+ 		BloodTest bloodtest1 =(BloodTest) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
+ 		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1") ;
 		
  		System.out.println(ev1.timeStamp);
  		ev1.execute();
@@ -41,10 +47,10 @@ public class TransportationTest {
  		Regist_NonUrgent ev2 = new Regist_NonUrgent(ev1.timeStamp, ed1, room2, p1, n1);
  		ev2.execute();
  		System.out.println(ev2.timeStamp);
- 		Visit ev3 = new Visit(ev2.timeStamp, ed1, room2, phys1);
+ 		Visit ev3 = new Visit(ev2.timeStamp, ed1, room2, phys1, consult1);
  		ev3.execute();
  		System.out.println(ev3.timeStamp);
- 		Transportation ev4= new Transportation( ed1,ev3.timeStamp, t1, strecher1, p1);
+ 		Transportation ev4= new Transportation( ed1,ev3.timeStamp, t1, strecher1, p1, bloodtest1);
  		ev4.execute();
  		System.out.println(ev4.timeStamp);
  		System.out.println(p1.getPatientRecord());
