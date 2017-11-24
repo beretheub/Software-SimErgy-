@@ -1,13 +1,13 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.FullEquipment;
-import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
+
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
-import fr.ecp.is1220.projet.part1.core.Output;
+
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
-import fr.ecp.is1220.projet.part1.core.SeverityLevel;
+
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
 
@@ -49,6 +49,7 @@ public class Transportation extends Event {
 		FreeTransporter e2 = new FreeTransporter(this.timeStamp + 5, this.ed, this.transporter); // le transport dure 5 minutes
 		this.ed.addEventInEventQueue(e);
 		this.ed.addEventInEventQueue(e2);
+		
 		this.ed.addPatientWaitingForExam(p1);		
 		
 	}

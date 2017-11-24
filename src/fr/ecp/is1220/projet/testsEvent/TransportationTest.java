@@ -8,16 +8,12 @@ import fr.ecp.is1220.projet.part1.core.BloodTest;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
 import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
-import fr.ecp.is1220.projet.part1.core.HumanResources;
 import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
-import fr.ecp.is1220.projet.part1.core.ShockRoom;
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
-import fr.ecp.is1220.projet.part1.event_v2.Arr_L2;
-import fr.ecp.is1220.projet.part1.event_v2.Arr_L5;
 import fr.ecp.is1220.projet.part1.event_v2.Regist_NonUrgent;
 import fr.ecp.is1220.projet.part1.event_v2.Transportation;
 import fr.ecp.is1220.projet.part1.event_v2.Visit;
@@ -40,20 +36,20 @@ public class TransportationTest {
  		BloodTest bloodtest1 =(BloodTest) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
  		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1");
 		
- 		System.out.println(ev1.timeStamp);
+ 		
  		ev1.execute();
- 		System.out.println(ev1.timeStamp);
+ 		
  		Patient p1 = ed1.listOfPatientsInTheED.get(0);
  		Regist_NonUrgent ev2 = new Regist_NonUrgent(ev1.timeStamp, ed1, room2, p1, n1);
  		ev2.execute();
- 		System.out.println(ev2.timeStamp);
+ 
  		Visit ev3 = new Visit(ev2.timeStamp, ed1, room2, phys1, consult1);
  		ev3.execute();
- 		System.out.println(ev3.timeStamp);
- 		Transportation ev4= new Transportation( ed1,ev3.timeStamp, t1, strecher1, p1, bloodtest1);
+ 		
+ 		Transportation ev4= new Transportation(ed1,ev3.timeStamp, t1, strecher1, p1, bloodtest1);
  		ev4.execute();
  		System.out.println(ev4.timeStamp);
- 		System.out.println(p1.getPatientRecord());
+ 		p1.printPatientRecord();
 	}
 
 }

@@ -25,7 +25,7 @@ public class VisitTest {
 
 	public static void main(String[] args) throws ParameterUnifException, noPatientinED {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
-		Arr_L1 ev1 = new Arr_L1(ed1);
+		Arr_L1 arrive = new Arr_L1(ed1);
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");
  		Nurse n1 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
  		Physician phys1 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
@@ -36,18 +36,17 @@ public class VisitTest {
  		Strecher strecher1 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
  		BloodTest bloodtest1 =(BloodTest) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
  		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1");
-		
- 		System.out.println(ev1.timeStamp);
- 		ev1.execute();
- 		System.out.println(ev1.timeStamp);
+ 		
+ 		arrive.execute();
+ 		
  		Patient p1 = ed1.listOfPatientsInTheED.get(0);
- 		Regist_NonUrgent ev2 = new Regist_NonUrgent(ev1.timeStamp, ed1, room2, p1, n1);
- 		ev2.execute();
- 		System.out.println(ev2.timeStamp);
- 		Visit ev3 = new Visit(ev2.timeStamp, ed1, room2, phys1, consult1);
- 		ev3.execute();
- 		System.out.println(ev3.timeStamp);
- 		System.out.println(p1.getPatientRecord());
+ 		Regist_NonUrgent regist = new Regist_NonUrgent(0, ed1, room2, p1, n1);
+ 		regist.execute();
+ 		
+ 		Visit visite = new Visit(regist.timeStamp, ed1, room2, phys1, consult1);
+ 		
+ 		System.out.println(visite.timeStamp);
+ 		p1.printPatientRecord();
 	}
 
 }

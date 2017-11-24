@@ -5,6 +5,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
+import fr.ecp.is1220.projet.part1.core.MRIservice;
 import fr.ecp.is1220.projet.part1.core.Output;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
@@ -22,8 +23,8 @@ public class MRI extends Exam {
 	 * 
 	 */	
 
-	public MRI( EmergencyDepartment ed,int timeStamp, HealthServices room, Patient p1,Physician phys) throws ParameterUnifException {
-		super(timeStamp, ed, room, p1, phys);
+	public MRI( EmergencyDepartment ed,int timeStamp, MRIservice room, Patient p1,Physician phys) throws ParameterUnifException {
+		super(timeStamp, ed, (HealthServices) room, p1, phys);
 		this.duree=calculduree();
 				
 		// TODO Auto-generated constructor stub

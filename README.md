@@ -74,3 +74,21 @@ Questions :
 - pour que ce soit plus simple, je rajoute un attribut nexstep à un patient
 - il faut remettre des exceptions un peu partout dans l'ED, mais je ne comprends pas du tout ce que tu as fait pour l'instant avec les exceptions donc je ne touche aps tout de suite 
 - je fais le système de couts => Il faut peut-être revoir ceux fixés pour l'instant : 100€ l'examen, 30€ la consultation, 5€ le transport en strecher ? On doit rajouter le prix d'une éventuelle érrivée en ambulance ? ATTENTION, je m'arrête au mileiu de ce que j'ai fait, 
+
+
+
+-------------
+
+
+Je met la fonction calculoutput plutot dans la class physician en l'appelant prescribeExam pour coller mieux à l'énoncé.
+
+J'ajoute les services manquant à la liste des output possible
+Je dois changer les proba de output (je fais ça vite il faudra re-réfléchir à la pertinence de  celles ci)
+
+pour une première version un patient n'est pas obligé de voir le même médecin à chaque fois, j'enlève donc la liste PatientBeeingOverseen de la classe physician
+
+Je mets consultation comme nextstep initial des patient comme ils doivent de toute manière commencer par une consultation
+
+La condition pour enable un event transportation doit être de trouver un patient dans une boxroom ou shock avec un nextstep != consultation
+
+

@@ -10,7 +10,6 @@ import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
 public class Physician extends HumanResources implements Observer {
 	
 	private PhysicianState state;
-	private ArrayList<Patient> patientsBeingOverseen = new ArrayList<>();
 	private ArrayList<Patient> patientsTreated = new ArrayList<>();
 	private ArrayList<String> messageBox = new ArrayList<>();
 	
@@ -55,25 +54,12 @@ public class Physician extends HumanResources implements Observer {
 		// TODO Auto-generated method stub
 		return "physician";
 	}
-	/**
-	 * Add a patient to the list of patient that the physician is overseeing
-	 * Takes a patient as a parameter
-	 */
-	void newPatientOverseen(Patient patient){
-		patientsBeingOverseen.add(patient);
-	}
-	/**
-	 * Returns a list of patients being overseen by the physician
-	 * @return Arraylist<Patient>
-	 */
-	ArrayList<Patient> getPatientBeingOverseen(){
-		return patientsBeingOverseen;
-	}
+	
 	/**
 	 * Add a patient to the list of patient that the physician treated
 	 * Takes a patient as a parameter
 	 */
-	void newPatientTreated(Patient patient){
+	public void newPatientTreated(Patient patient){
 		patientsTreated.add(patient);
 	}
 	/**
@@ -110,6 +96,25 @@ public class Physician extends HumanResources implements Observer {
 	public void update() {
 		// TODO Auto-generated method stub
 		// A REMPLIR UN FOIS QUE LE PATTERN OBSERVABLE EST PRET !
+		
+	}
+	public Output prescribeExam(Patient pat, int timeStamp) {
+		double output = Math.random();
+		
+		if (output <= 0.35){
+			this.newMessage("Prescribe no further test for patient " + Integer.toString(pat.getId()) + " at time " + Integer.toString(timeStamp)); 
+			return Output.NOTEST;
+		}else if (output <= 0.46){
+			return Output.RADIOGRAPHY;
+		}else if (output <= 0.62){
+			return Output.BLOODTEST;
+		}else if (output <= 0.75){
+			return Output.SCAN;
+		}else if (output <= 0.95){
+			return Output.XRAY;
+		}else{
+			return Output.MRI;
+		}
 		
 	}
 

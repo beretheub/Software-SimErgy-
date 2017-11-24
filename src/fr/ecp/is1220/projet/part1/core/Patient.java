@@ -36,6 +36,7 @@ public class Patient {
 		patientRecord = new ArrayList<>();
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
 		this.totalcharge=0;
+		this.nextstep = Output.CONSULTATION;
 	}
 	
 	public Patient(EmergencyDepartment ed, String name, Insurance insurance) {
@@ -47,6 +48,7 @@ public class Patient {
 		patientRecord = new ArrayList<>();
 		this.state = PatientState.WAITING;
 		this.totalcharge=0;
+		this.nextstep = Output.CONSULTATION;
 	}
 	
 	public ArrayList<String> getPatientRecord(){
@@ -54,7 +56,14 @@ public class Patient {
 		
 	}
 	public void fillRecord(String message){
+
 		patientRecord.add(message);
+	}
+	public void printPatientRecord(){
+		System.out.println("id : " + Integer.toString(this.getId()) + " ----- Patient Record -----");
+		for (String string : patientRecord) {
+			System.out.println(string);
+		}
 	}
 	public EmergencyDepartment getPatientEd(){
 		return ed;
