@@ -31,7 +31,7 @@ public class timeManager {
 	 * @param Limit, initialED
 	 * @return edAfterSimulation
 	 */
-	public void startSimulation(int limit, EmergencyDepartment initialED){
+	public EmergencyDepartment startSimulation(int limit, EmergencyDepartment initialED){
 		// Initialisation de la simulation
 		this.simTime = 0; // on initialise le temps à 0
 		EmergencyDepartment simultatedED = initialED;  // On crée une copy de l'ed initial, et on retourne son état final, ça permet de pouvoir faire plusieurs simulation sur le m 

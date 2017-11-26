@@ -51,6 +51,7 @@ public class Visit extends Event {
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.physician); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);
 		
+		
 		// On actualise les données du médecin
 		this.physician.newPatientTreated(this.pat);
 		

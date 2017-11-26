@@ -115,10 +115,12 @@ public abstract class Exam extends Event {
 		//On envoie le patient dans la file d'attente suivante
 		try {
 			Exam.directPatient(this.getPatient());
+			
 		} catch (noValidOutputException e1) {
 			// si on récupère l'excpation on replace le patient dans patientWaitingForExam
 			System.out.println(Integer.toString(this.getPatient().getId()) + "Exam didn't worout well, trying again");
 			this.ed.addPatientWaitingForExam(this.getPatient());
+			
 		}
 		
 	}
