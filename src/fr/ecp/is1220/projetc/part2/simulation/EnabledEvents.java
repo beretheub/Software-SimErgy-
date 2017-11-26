@@ -2,13 +2,25 @@ package fr.ecp.is1220.projetc.part2.simulation;
 
 import java.util.ArrayList;
 
+import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 public class EnabledEvents {
-	private ArrayList<Event> enabledEvents;
+	
+	private ArrayList<Event> list;
 	
 	public EnabledEvents(){
-		enabledEvents = new ArrayList<>();
+		list = new ArrayList<>();
+	}
+
+	public static EnabledEvents updateEnabledEvents(EnabledEvents enabledEvents, EmergencyDepartment state) {
+		
+		return null;
+	}
+
+	public static void updateEventQueue(EnabledEvents enabledEventsBis, EnabledEvents enabledEvents, ArrayList<Event> eventQueue) {
+		
+		
 	}
 
 }

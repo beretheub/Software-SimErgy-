@@ -9,18 +9,11 @@ public class timeManager {
 	private timeManager instance = null;
 	private ArrayList<Event> eventQueue;
 	private EnabledEvents enabledEvents;
+	public int simTime;
 	
-	public timeManager getInstance(){
-		if (instance == null){
-			return new timeManager();
-		}
-		else return instance;
-	}
 
-	private timeManager() {
+	public timeManager() {
 		super();
-		eventQueue = new ArrayList<>();
-		enabledEvents = new EnabledEvents();
 	}
 	
 	public void addEventInEventQueue(Event event){
@@ -38,9 +31,29 @@ public class timeManager {
 	 * @param Limit, initialED
 	 * @return edAfterSimulation
 	 */
-	public void startSimulation(int Limit, EmergencyDepartment initialED){
-		int simTime = 0; // on initialise le temps à 0
-		EmergencyDepartment finalED = initialED;  // On crée une copy de l'ed initial, et on retourne son état final, ça permet de pouvoir faire plusieurs simulation sur le même ED en changeant quelques paramètres 
+	public void startSimulation(int limit, EmergencyDepartment initialED){
+		// Initialisation de la simulation
+		this.simTime = 0; // on initialise le temps à 0
+		EmergencyDepartment simultatedED = initialED;  // On crée une copy de l'ed initial, et on retourne son état final, ça permet de pouvoir faire plusieurs simulation sur le m 
+		
+		eventQueue = new ArrayList<>(); 	// On initialise les liste en début de simulation
+		enabledEvents = new EnabledEvents();
+		
+		// on crée la liste enabledEventsbis
+		
+		EnabledEvents enabledEventsBis = new EnabledEvents();
+		
+		// initialisation de la liste enabledEventBis
+		enabledEventsBis = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
+		// initialisation de l'eventQueue 
+		EnabledEvents.updateEventQueue(enabledEventsBis, enabledEvents,eventQueue);
+		
+		while (simTime < limit) {
+			Event e1 = eventQueue.get(0);
+			e1.execute();
+			
+		}
+		
 		
 	}
 	

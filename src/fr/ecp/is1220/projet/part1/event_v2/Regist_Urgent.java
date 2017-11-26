@@ -20,7 +20,7 @@ public class Regist_Urgent extends Regist {
 	}
 
 	@Override
-	public void execute() throws noPatientinED {
+	public void execute() {
 		
 		try {
 			this.nextRoom.newPatient(p1);
@@ -28,7 +28,12 @@ public class Regist_Urgent extends Regist {
 			e.printStackTrace();
 			return; //si on arrive pas a placer le patient dans la salle, on arrête la méthode ! On ne fait pas la suite
 		}
-		this.ed.removePatientWaitingForTriage(p1);
+		try {
+			this.ed.removePatientWaitingForTriage(p1);
+		} catch (noPatientinED e1) {
+			System.out.println("Error regist didn't work out");
+			return;
+		}
 		this.p1.setPatientState(PatientState.INSTALLING);
 		this.nurse.setState(NurseState.OCCUPIED);
 		EndEvent e = new EndEvent(this.timeStamp + 5, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
