@@ -27,4 +27,12 @@ public class XRAY extends Exam {
 	private static double calculduree() throws ParameterUnifException {
 		return Uniform.getSample(15,90);
 	}
+
+
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "xray";
+	}
 }

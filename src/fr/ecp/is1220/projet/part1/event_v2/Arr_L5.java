@@ -30,4 +30,10 @@ public class Arr_L5 extends Arr {
 		this.ed.addPatientWaitingForTriage(p1);
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "arrl5";
+	}
+
 }

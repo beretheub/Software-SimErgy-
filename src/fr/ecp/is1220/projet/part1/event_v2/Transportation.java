@@ -54,4 +54,10 @@ public class Transportation extends Event {
 		
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "transportation";
+	}
+
 }

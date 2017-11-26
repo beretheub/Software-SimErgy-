@@ -44,4 +44,10 @@ public class Regist_Urgent extends Regist {
 
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "registurgent";
+	}
+
 }

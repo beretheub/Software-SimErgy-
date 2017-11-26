@@ -22,4 +22,10 @@ public class EndEvent extends Event {
 
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "endevent";
+	}
+
 }	 

@@ -30,4 +30,10 @@ public class Arr_L2 extends Arr {
 
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "arrl2";
+	}
+
 }

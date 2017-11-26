@@ -54,8 +54,16 @@ public class timeManager {
 			e1.execute();
 			simTime = e1.timeStamp;
 			
+			enabledEvents = enabledEventsBis;
 			
+			enabledEvents.removeFirstEventOfType(e1.getType());
+			
+			enabledEventsBis = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
+			
+			EnabledEvents.updateEventQueue(enabledEventsBis, enabledEventsBis, eventQueue);	
 		}
+		
+		return simultatedED;
 		
 		
 	}

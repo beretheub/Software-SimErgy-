@@ -29,4 +29,12 @@ public class RADIOGRAPHY extends Exam{
 		return Uniform.getSample(15,90);
 	}
 
+
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "radiography";
+	}
+
 }

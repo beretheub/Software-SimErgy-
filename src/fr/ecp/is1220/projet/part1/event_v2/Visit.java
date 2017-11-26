@@ -66,4 +66,10 @@ public class Visit extends Event {
 	private double calculduree() throws ParameterUnifException {
 		return Uniform.getSample(5,20);
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "visit";
+	}
 }

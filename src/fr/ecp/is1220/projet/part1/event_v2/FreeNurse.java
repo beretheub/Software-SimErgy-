@@ -19,5 +19,11 @@ public class FreeNurse extends Event {
 
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "freenurse";
+	}
+
 
 }
