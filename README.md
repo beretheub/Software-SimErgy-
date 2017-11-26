@@ -100,3 +100,5 @@ Je commence à coder la partie deux simulation, et on fera tous les ajouts de fon
 
 Je crée une nouvelle class EnabledEvents dans la partie simulation pour rassembler toutes les méthodes liées à cette liste
 
+Dants la méthode timeManager.startSimulation :   On crée une copie de l'ed initial, et on retourne son état final, ça permet de pouvoir faire plusieurs simulation sur le même ED en changeant quelques paramètres (on ne fait pas de changement directement sur l'ed) 
+
