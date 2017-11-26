@@ -5,11 +5,11 @@ import java.util.Random;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterExpException;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 
-public class Uniform extends ProbabilityDistributions {
+public class Norm extends ProbabilityDistributions {
 	protected double borneinf;
 	protected double bornesup;
 	
-	public Uniform() throws ParameterUnifException {
+	public Norm() throws ParameterUnifException {
 		super();
 		// On échange les valeurs sup et inf si elles ne sont pas dans le bon ordre
 		if (borneinf>bornesup){
@@ -26,21 +26,17 @@ public class Uniform extends ProbabilityDistributions {
 	this.bornesup=bornesup;
 		}
 	}
+	// Loi noramle centrée réduite
+	public static double getSample(){
+		Random rand=new Random();
+		return (rand.nextGaussian());
+	}
 	
-	public static double getSample(double borneinf, double bornesup) throws ParameterUnifException {
-	    Random rand = new Random();
-		// il suffit donc de le vérifier pour la plus faible des deux
-		if (borneinf<0){
-			throw new ParameterUnifException();
-		}
-	    return borneinf+(bornesup-borneinf)*rand.nextDouble();
+	// LOI NORMALE non centrée réduite 
+	public static double getSample(double esperance, double ecarttype){
+	     
+	     return esperance + ecarttype*Norm.getSample();
 	}
 
-	public static double getSample() {
-	    Random rand = new Random();
-		// Par défaut, loi uniforme sur [0,1]
-
-	    return rand.nextDouble();
-	}
 
 }
