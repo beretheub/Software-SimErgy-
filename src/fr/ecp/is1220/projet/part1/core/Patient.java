@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 
 public class Patient {
+	
 	private EmergencyDepartment ed;
 	private int id;
 	private String name;

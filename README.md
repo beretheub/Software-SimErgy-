@@ -91,4 +91,6 @@ Je mets consultation comme nextstep initial des patient comme ils doivent de tou
 
 La condition pour enable un event transportation doit être de trouver un patient dans une boxroom ou shock avec un nextstep != consultation
 
+Je rajoute à ton event exam, la fonction qui dirige le patient vers la file d'attente suivante en fonction de l'output de l'exam
+
 

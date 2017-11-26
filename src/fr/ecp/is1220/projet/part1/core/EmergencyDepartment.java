@@ -15,6 +15,7 @@ public class EmergencyDepartment {
 	private ArrayList<Patient> patientWaitingForTriage;
 	private ArrayList<Event> eventQueue;
 	private ArrayList<Patient> patientWaitingForExam;
+	private ArrayList<Patient> listOfEndedPatient;
 	
 	
 	/**
@@ -29,6 +30,7 @@ public class EmergencyDepartment {
 		eventQueue = new ArrayList<>();
 		patientWaitingForTriage = new ArrayList<>();
 		patientWaitingForExam = new ArrayList<>();
+		listOfEndedPatient = new ArrayList<>();
 	}
 	public String getEdName() {
 		return edName;
@@ -96,6 +98,17 @@ public class EmergencyDepartment {
 			throw new noPatientinED();
 		}
 	}
+	public void patientOutOfEmergencyDepartment(Patient patient) {
+		listOfEndedPatient.add(patient);
+		
+		try {
+			this.removePatientInTheED(patient);
+		} catch (noPatientinED e) {
+			System.out.println(Integer.toString(patient.getId()) + " : is already out of the ED");
+			return;
+		}
+		
+	}
 	/**
 	 * Returns the first HR of the asked type that is available from the list of resources of the ED
 	 * @param (String) the type of resource you want : nurse, physician or transporter
@@ -147,6 +160,7 @@ public class EmergencyDepartment {
 		//A coder quand on s'occupera de la partie 2
 		
 	}
+	
 
 	
 	/**public ArrayList<Event> sortEvent(ArrayList<Event> eQ){
