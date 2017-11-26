@@ -50,7 +50,10 @@ public class timeManager {
 		
 		while (simTime < limit) {
 			Event e1 = eventQueue.get(0);
+			eventQueue.remove(0);	
 			e1.execute();
+			simTime = e1.timeStamp;
+			
 			
 		}
 		
