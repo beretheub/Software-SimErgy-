@@ -3,8 +3,6 @@ package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
-import fr.ecp.is1220.projet.part1.event_v2.Event;
-
 
 public class Patient {
 	
