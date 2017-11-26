@@ -13,6 +13,7 @@ public class EmergencyDepartment {
 	private ArrayList<Patient> patientWaitingForTriage;
 	private ArrayList<Event> eventQueue;
 	private ArrayList<Patient> patientWaitingForExam;
+	private ArrayList<Patient> patientWaitingForTransportation;
 	private ArrayList<Patient> listOfEndedPatient;
 	
 	
@@ -28,6 +29,7 @@ public class EmergencyDepartment {
 		eventQueue = new ArrayList<>();
 		patientWaitingForTriage = new ArrayList<>();
 		patientWaitingForExam = new ArrayList<>();
+		patientWaitingForTransportation = new ArrayList<>();
 		listOfEndedPatient = new ArrayList<>();
 	}
 	public String getEdName() {
@@ -96,6 +98,20 @@ public class EmergencyDepartment {
 			throw new noPatientinED();
 		}
 	}
+	public void addPatientWaitingForTransportation(Patient p1) {
+		// TODO Auto-generated method stub
+	patientWaitingForTransportation.add(p1);
+	p1.setPatientState(PatientState.WAITING);
+	}
+
+	public void removePatientWaitingForTransportation(Patient p) throws noPatientinED{
+		if (patientWaitingForTransportation.contains(p)){
+			patientWaitingForTransportation.remove(p);
+			p.setPatientState(PatientState.INTRANSPORT);
+		}
+		else{
+			throw new noPatientinED();
+		}
 	public void patientOutOfEmergencyDepartment(Patient patient) {
 		listOfEndedPatient.add(patient);
 		

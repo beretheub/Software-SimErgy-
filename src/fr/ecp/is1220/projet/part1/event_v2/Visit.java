@@ -59,6 +59,7 @@ public class Visit extends Event {
 		pat.addcharges(consultation.getCost());
 		
 		pat.setNexstep(outputconsultation);
+		ed.addPatientWaitingForTransportation(pat);
 			
 		}
 	
