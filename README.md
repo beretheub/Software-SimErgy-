@@ -97,3 +97,6 @@ Je rajoute à ton event exam, la fonction qui dirige le patient vers la file d'at
 Je pense que l'on a toutes les fonctionnalités de base du  core system (même s'il en manque pleins ! Genre utiliser les loi de probas, le calcul du cout, le système observer etc...)
 Je commence à coder la partie deux simulation, et on fera tous les ajouts de fonctionnalité demandés dans l'énoncé ou non par la suite pour rendre la simulation plus réaliste
 
+
+Je crée une nouvelle class EnabledEvents dans la partie simulation pour rassembler toutes les méthodes liées à cette liste
+
