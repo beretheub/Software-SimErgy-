@@ -7,7 +7,6 @@ import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
-import fr.ecp.is1220.projet.part1.core.Rooms;
 import fr.ecp.is1220.projet.part1.core.ShockRoom;
 
 

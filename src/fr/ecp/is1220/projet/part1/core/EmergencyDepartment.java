@@ -1,8 +1,6 @@
 package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-
 import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
 import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.event_v2.Event;

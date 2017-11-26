@@ -47,31 +47,31 @@ public class Examtest {
  		XrayService xray1 =(XrayService)hservice.getHealthService(ed1, "xray", "XRAY1");
  		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1");
 		
- 		System.out.println(ev1.timeStamp);
+ 		
  		ev1.execute();
- 		System.out.println(ev1.timeStamp);
+ 		
  		Patient p1 = ed1.listOfPatientsInTheED.get(0);
  		Regist_NonUrgent ev2 = new Regist_NonUrgent(ev1.timeStamp, ed1, room2, p1, n1);
  		ev2.execute();
- 		System.out.println(ev2.timeStamp);
+ 		
  		Visit ev3 = new Visit(ev2.timeStamp, ed1, room2, phys1, consult1);
  		ev3.execute();
- 		System.out.println(ev3.timeStamp);
+ 		
  		Transportation ev4= new Transportation( ed1,ev3.timeStamp, t1, strecher1, p1, bloodtest1);
  		ev4.execute();
- 		System.out.println(ev4.timeStamp);
+ 		
  		
  		Bloodtest ev5 =new Bloodtest(ed1,ev4.timeStamp, bloodtest1, p1, phys1);
  		ev5.execute();
- 		System.out.println(p1.getPatientRecord());
+ 		p1.printPatientRecord();
  		
  		MRI ev6 =new MRI(ed1,ev5.timeStamp, mri1, p1, phys1);
  		ev6.execute();
- 		System.out.println(p1.getPatientRecord());
+ 		p1.printPatientRecord();
  		
  		XRAY ev7 =new XRAY(ed1,ev6.timeStamp, xray1, p1, phys1);
  		ev7.execute();
- 		System.out.println(p1.getPatientRecord());
+ 		p1.printPatientRecord();
 	}
 
 }

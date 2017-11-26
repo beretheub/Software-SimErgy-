@@ -4,13 +4,11 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
-import fr.ecp.is1220.projet.part1.core.MRIservice;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
+import fr.ecp.is1220.projet.part1.core.Scan;
 
-public class MRI extends Exam {
-	
-
+public class SCAN extends Exam {
 	/**
 	 * Fonctionnemet de la visite : 
 	 * - temps de duree suit une loi de probabilité uniforme (15,90)
@@ -18,11 +16,14 @@ public class MRI extends Exam {
 	 * 
 	 */	
 
-	public MRI( EmergencyDepartment ed,int timeStamp, MRIservice room, Patient p1,Physician phys) throws ParameterUnifException {
-		super(timeStamp, ed, (HealthServices) room, p1, phys, calculduree());
+	public SCAN(EmergencyDepartment ed, int timeStamp, Scan room, Patient p1,Physician phys) throws ParameterUnifException {
+		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
+		this.duree=calculduree();
 				
-
+		// TODO Auto-generated constructor stub
 	}
+	
+	
 	
 	private static double calculduree() throws ParameterUnifException {
 		return Uniform.getSample(15,90);
