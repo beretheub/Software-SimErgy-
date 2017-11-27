@@ -3,21 +3,23 @@
 public class BloodTest extends HealthServices {
 
 		/**
-		 * Creates a new Blood test service. It inherits the attributes of a healtService.
-		 * 
-		 * The default price of an Blood test is 12, bus you can determine a new price for this specific blood test service
-		 * 
+		 * Bloodtest service : hérite de la classe heathservice.
+		 * Le prix par défaut est fixé à 50, mais il est possible de fixer directement le prix à la création. 
 		 */
-		
+
 		public BloodTest(EmergencyDepartment ed, String name) {
-			// Il je fixe le prix par défaut d'un blood à 12
-			super(ed, name, 12);
+			// Il je fixe le prix par défaut d'un blood à 50
+			super(ed, name, 50);
 			// TODO Auto-generated constructor stub
 		}
 		public BloodTest(EmergencyDepartment ed, String name, float cost){
 		super(ed, name, cost);
 		// TODO Auto-generated constructor stub
 	}
+		
+		/**
+		 * Retourne le type de la ressource : bloodtest ici
+		 *  */
 		@Override
 		public ResourcesType getType() {
 			// TODO Auto-generated method stub
