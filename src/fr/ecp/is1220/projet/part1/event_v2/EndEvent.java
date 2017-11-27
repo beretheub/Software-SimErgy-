@@ -11,8 +11,8 @@ import fr.ecp.is1220.projet.part1.core.PatientState;
 
 public class EndEvent extends Event {
 	private Patient patient;
-	public EndEvent(int timeStamp, EmergencyDepartment ed, Patient patient) {
-		super(timeStamp, ed);
+	public EndEvent(double d, EmergencyDepartment ed, Patient patient) {
+		super(d, ed);
 		this.patient = patient;
 	}
 

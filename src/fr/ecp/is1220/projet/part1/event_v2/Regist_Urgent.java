@@ -37,7 +37,7 @@ public class Regist_Urgent extends Regist {
 		this.p1.setPatientState(PatientState.INSTALLING);
 		this.nurse.setState(NurseState.OCCUPIED);
 		EndEvent e = new EndEvent(this.timeStamp + 5, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
-		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + Integer.toString(this.timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
+		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + Double.toString(this.timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
 		this.ed.addEventInEventQueue(e);
 		FreeNurse e2 = new FreeNurse(this.timeStamp + 5, this.ed, this.nurse); // La nurse est occupée pendant 5 minutes puis libérée de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);

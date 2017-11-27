@@ -4,12 +4,12 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 
 public abstract class Event {
 	
-	public int timeStamp; // instant d'occurence de l'évènement auquel l'évent se produit
+	public double timeStamp; // instant d'occurence de l'évènement auquel l'évent se produit
 	protected EmergencyDepartment ed;
 	
 	
-	public Event(int timeStamp, EmergencyDepartment ed){
-		this.timeStamp = timeStamp;	
+	public Event(double d, EmergencyDepartment ed){
+		this.timeStamp = d;	
 		this.ed = ed;
 	}
 	

@@ -98,11 +98,11 @@ public class Physician extends HumanResources implements Observer {
 		// A REMPLIR UN FOIS QUE LE PATTERN OBSERVABLE EST PRET !
 		
 	}
-	public Output prescribeExam(Patient pat, int timeStamp) {
+	public Output prescribeExam(Patient pat, double timeStamp) {
 		double output = Math.random();
 		
 		if (output <= 0.35){
-			this.newMessage("Prescribe no further test for patient " + Integer.toString(pat.getId()) + " at time " + Integer.toString(timeStamp)); 
+			this.newMessage("Prescribe no further test for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp)); 
 			return Output.NOTEST;
 		}else if (output <= 0.46){
 			return Output.RADIOGRAPHY;

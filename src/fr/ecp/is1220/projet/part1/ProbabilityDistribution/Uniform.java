@@ -36,5 +36,11 @@ public class Uniform extends ProbabilityDistributions {
 	    return borneinf+(bornesup-borneinf)*rand.nextDouble();
 	}
 
+	public static double getSample() {
+	    Random rand = new Random();
+		// Par défaut, loi uniforme sur [0,1]
+
+	    return rand.nextDouble();
+	}
 
 }

@@ -106,7 +106,7 @@ public abstract class Exam extends Event {
 		
 		// On effectue le test
 		this.setOutput(this.calculoutput());
-		this.getPatient().fillRecord(Integer.toString(this.getPatient().getPatientRecord().size()) + " - " + Integer.toString(this.getPatient().getId()) + " - Actually in examroom "+ getExam().getName() + " : " + getExam().getId() + " - Taking exam with " + Integer.toString(this.getPhysician().getId()) + " at " + Integer.toString(this.timeStamp) + " - Bilan : " + getOutput() );
+		this.getPatient().fillRecord(Integer.toString(this.getPatient().getPatientRecord().size()) + " - " + Integer.toString(this.getPatient().getId()) + " - Actually in examroom "+ getExam().getName() + " : " + getExam().getId() + " - Taking exam with " + Integer.toString(this.getPhysician().getId()) + " at " + Double.toString(this.timeStamp) + " - Bilan : " + getOutput() );
 		this.getExam().notifyObservers();
 		
 		//On met à jour les données du patient
