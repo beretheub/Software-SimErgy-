@@ -16,9 +16,9 @@ public class Radiography extends HealthServices {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "radiography";
+		return ResourcesType.RADIOGRAPHY;
 	}
 
 }

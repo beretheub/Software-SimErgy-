@@ -13,9 +13,9 @@ public class BoxRoom extends Rooms {
 	}
 
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "boxroom";
+		return ResourcesType.BOXROOM;
 	}
 	
 	

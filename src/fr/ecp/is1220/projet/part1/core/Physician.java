@@ -50,9 +50,9 @@ public class Physician extends HumanResources implements Observer {
 		return this.state;
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "physician";
+		return ResourcesType.PHYSICIAN;
 	}
 	
 	/**

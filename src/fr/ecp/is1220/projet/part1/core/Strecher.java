@@ -10,9 +10,9 @@ public class Strecher extends Equipment {
 	}
 
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "strecher";
+		return ResourcesType.STRECHER;
 	}
 	
 

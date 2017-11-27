@@ -13,8 +13,8 @@ public class ShockRoom extends Rooms {
 	}
 
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "shockroom";
+		return ResourcesType.SHOCKROOM;
 	}
 }

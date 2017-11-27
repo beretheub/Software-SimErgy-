@@ -40,9 +40,9 @@ public class Transporter extends HumanResources {
 		return this.state;
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "transporter";
+		return ResourcesType.TRANSPORTER;
 	}
 	
 	

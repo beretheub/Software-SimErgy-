@@ -32,9 +32,9 @@ public class ConsultationService extends HealthServices {
 		
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "consultationService";
+		return ResourcesType.CONSULTATIONSERVICE;
 	}
 
 

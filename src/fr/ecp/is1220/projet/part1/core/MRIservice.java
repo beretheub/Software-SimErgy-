@@ -10,9 +10,9 @@ public class MRIservice extends HealthServices {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "mri";
+		return ResourcesType.MRI;
 	}
 
 }

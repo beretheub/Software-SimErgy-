@@ -11,9 +11,9 @@ public class Scan extends HealthServices {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "scan";
+		return ResourcesType.SCAN;
 	}
 
 }

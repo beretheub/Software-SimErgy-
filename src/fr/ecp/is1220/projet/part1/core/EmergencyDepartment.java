@@ -131,20 +131,20 @@ public class EmergencyDepartment {
 	 * 
 	 *  if there is no such hr available or if the type entered as parameter is wrong returns null 
 	 */
-	public HumanResources returnFreeHumanResource(String type) {
+	public HumanResources returnFreeHumanResource(ResourcesType type) {
 		// Je ne fais pas le truc le plus optimisé 
 			for (Resources resources : edResources) {
-				if (resources.getType() == type && type.equalsIgnoreCase("nurse")){
+				if (resources.getType() == type && type == ResourcesType.NURSE){
 					Nurse resources1 = (Nurse) resources;
 					if (resources1.getState() == NurseState.ONDUTY){
 						return (HumanResources) resources;
 						}
-					}else if (resources.getType() == type && type.equalsIgnoreCase("physician")){
+					}else if (resources.getType() == type && type == ResourcesType.PHYSICIAN){
 						Physician resources1 = (Physician) resources;
 						if (resources1.getState() == PhysicianState.ONDUTY){
 							return (HumanResources) resources;
 						}
-					}else if (resources.getType() == type && type.equalsIgnoreCase("transporter")){
+					}else if (resources.getType() == type && type == ResourcesType.TRANSPORTER){
 						Transporter resources1 = (Transporter) resources;
 						if (resources1.getState() == TransporterState.ONDUTY){
 							return (HumanResources) resources;

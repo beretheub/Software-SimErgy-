@@ -43,9 +43,9 @@ public class Nurse extends HumanResources{
 		return "Nurse [state=" + state + ", id=" + id + ", name=" + name + ", surname=" + surname + "]";
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "nurse";
+		return ResourcesType.NURSE;
 	}
 	public void nextFreeTime(Date endEvent) {
 		this.nextFreeTime = endEvent;

@@ -8,6 +8,6 @@ public interface Resources {
 	 * shockroom, waitingroom, or the different health services...
 	 * @return
 	 */
-	String getType();
+	ResourcesType getType();
 
 }

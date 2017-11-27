@@ -14,8 +14,8 @@ public class WaitingRoom extends Rooms {
 	}
 
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "waitingroom";
+		return ResourcesType.WAITINGROOM;
 	}
 }

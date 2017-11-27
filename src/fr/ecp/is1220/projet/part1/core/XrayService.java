@@ -18,9 +18,9 @@ public class XrayService extends HealthServices {
 		
 	}
 	@Override
-	public String getType() {
+	public ResourcesType getType() {
 		// TODO Auto-generated method stub
-		return "xray";
+		return ResourcesType.XRAY;
 	}
 
 }
