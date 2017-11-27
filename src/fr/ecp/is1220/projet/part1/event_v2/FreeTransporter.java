@@ -1,10 +1,9 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
-import fr.ecp.is1220.projet.part1.core.Nurse;
-import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Transporter;
 import fr.ecp.is1220.projet.part1.core.TransporterState;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class FreeTransporter extends Event {
 	Transporter tran;
@@ -22,9 +21,9 @@ public class FreeTransporter extends Event {
 	}
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "freetransporter";
+		return EventsType.FREETRANSPORTER;
 	}
 
 

@@ -113,6 +113,7 @@ public class EmergencyDepartment {
 			throw new noPatientinED();
 		}
 		}
+	
 	public void patientOutOfEmergencyDepartment(Patient patient) {
 		listOfEndedPatient.add(patient);
 		

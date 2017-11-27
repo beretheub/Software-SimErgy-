@@ -3,6 +3,7 @@ package fr.ecp.is1220.projet.part1.event_v2;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.NurseState;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class FreeNurse extends Event {
 	Nurse nurse;
@@ -20,9 +21,9 @@ public class FreeNurse extends Event {
 	}
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "freenurse";
+		return EventsType.FREENURSE;
 	}
 
 

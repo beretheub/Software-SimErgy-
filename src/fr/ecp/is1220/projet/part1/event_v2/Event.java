@@ -1,6 +1,7 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public abstract class Event {
 	
@@ -15,7 +16,7 @@ public abstract class Event {
 	
 	public abstract void execute();
 
-	public abstract String getType();
+	public abstract EventsType getType();
 	
 
 }

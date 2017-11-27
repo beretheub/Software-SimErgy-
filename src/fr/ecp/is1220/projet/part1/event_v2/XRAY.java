@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.XrayService;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class XRAY extends Exam {
 
@@ -17,7 +18,7 @@ public class XRAY extends Exam {
 	 * 
 	 */	
 
-	public XRAY(EmergencyDepartment ed, int timeStamp, XrayService room, Patient p1,Physician phys) throws ParameterUnifException {
+	public XRAY(EmergencyDepartment ed, double timeStamp, XrayService room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed,(HealthServices)room, p1, phys, calculduree());
 	
 	}
@@ -31,8 +32,8 @@ public class XRAY extends Exam {
 
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "xray";
+		return EventsType.XRAY;
 	}
 }

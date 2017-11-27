@@ -8,13 +8,14 @@ import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.ShockRoom;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 
 // A besoin d'une nurse, d'une shockRoom libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L4 ou L5.
 // Cet évènement doit etre classé avant (dans la liste EventQueue) les events Regist_NonUrgent (pour un meme timeStamp) 
 public class Regist_Urgent extends Regist {
 
-	public Regist_Urgent(int timeStamp, EmergencyDepartment ed, ShockRoom room1, Patient p, Nurse n1) {
+	public Regist_Urgent(double timeStamp, EmergencyDepartment ed, ShockRoom room1, Patient p, Nurse n1) {
 		super(timeStamp, ed, room1, p, n1);
 		
 	}
@@ -45,9 +46,9 @@ public class Regist_Urgent extends Regist {
 	}
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "registurgent";
+		return EventsType.REGISTURGENT;
 	}
 
 }

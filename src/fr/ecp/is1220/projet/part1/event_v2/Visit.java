@@ -10,6 +10,7 @@ import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.PhysicianState;
 import fr.ecp.is1220.projet.part1.core.Rooms;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class Visit extends Event {
 	
@@ -25,7 +26,7 @@ public class Visit extends Event {
 	double duree;
 	ConsultationService consultation;
 	
-	public Visit(int timeStamp, EmergencyDepartment ed, Rooms room, Physician phys, ConsultationService consultation ) throws ParameterUnifException {
+	public Visit(double timeStamp, EmergencyDepartment ed, Rooms room, Physician phys, ConsultationService consultation ) throws ParameterUnifException {
 		super(timeStamp, ed);
 		this.room=room;
 		this.pat=room.getPatientsInside().get(0); // on récupère le patient qui est dans la pièce
@@ -70,8 +71,8 @@ public class Visit extends Event {
 	}
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "visit";
+		return EventsType.VISIT;
 	}
 }

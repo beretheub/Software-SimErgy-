@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.Radiography;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class RADIOGRAPHY extends Exam{
 	/**
@@ -16,7 +17,7 @@ public class RADIOGRAPHY extends Exam{
 	 * 
 	 */	
 
-	public RADIOGRAPHY(EmergencyDepartment ed, int timeStamp, Radiography room, Patient p1,Physician phys) throws ParameterUnifException {
+	public RADIOGRAPHY(EmergencyDepartment ed, double timeStamp, Radiography room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
 		this.duree=calculduree();
 				
@@ -32,9 +33,9 @@ public class RADIOGRAPHY extends Exam{
 
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "radiography";
+		return EventsType.RADIOGRAPHY;
 	}
 
 }

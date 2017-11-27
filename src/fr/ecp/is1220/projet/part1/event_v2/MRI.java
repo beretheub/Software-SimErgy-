@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.MRIservice;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class MRI extends Exam {
 	
@@ -18,7 +19,7 @@ public class MRI extends Exam {
 	 * 
 	 */	
 
-	public MRI( EmergencyDepartment ed,int timeStamp, MRIservice room, Patient p1,Physician phys) throws ParameterUnifException {
+	public MRI( EmergencyDepartment ed,double timeStamp, MRIservice room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed, (HealthServices) room, p1, phys, calculduree());
 				
 
@@ -29,8 +30,8 @@ public class MRI extends Exam {
 	}
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "mri";
+		return EventsType .MRI;
 	}
 }

@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.Scan;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class SCAN extends Exam {
 	/**
@@ -16,7 +17,7 @@ public class SCAN extends Exam {
 	 * 
 	 */	
 
-	public SCAN(EmergencyDepartment ed, int timeStamp, Scan room, Patient p1,Physician phys) throws ParameterUnifException {
+	public SCAN(EmergencyDepartment ed, double timeStamp, Scan room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
 		this.duree=calculduree();
 				
@@ -32,8 +33,8 @@ public class SCAN extends Exam {
 
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "scan";
+		return EventsType.SCAN;
 	}
 }

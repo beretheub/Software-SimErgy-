@@ -6,15 +6,29 @@ import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 public class EnabledEvents {
 	
-	private ArrayList<Event> list;
+	public ArrayList<EventsType> list;
 	
 	public EnabledEvents(){
 		list = new ArrayList<>();
 	}
+	
 
-	public static EnabledEvents updateEnabledEvents(EnabledEvents enabledEvents, EmergencyDepartment state) {
+	public static ArrayList<EventsType> updateEnabledEvents(EnabledEvents enabledEvents, EmergencyDepartment state) {
+			ArrayList<EventsType> liste = new ArrayList<>();
+			// on commence par ajouter les évènements sans condition
+			liste.add(EventsType.ARRL1);
+			liste.add(EventsType.ARRL2);
+			liste.add(EventsType.ARRL3);
+			liste.add(EventsType.ARRL4);
+			liste.add(EventsType.ARRL5);
+			
+			// on gère ensuite les registrations
+			
+			if(state.returnFreeNonHumanResources(Choice))
+			
+			
+			return liste;
 		
-		return null;
 	}
 
 	public static void updateEventQueue(EnabledEvents enabledEventsBis, EnabledEvents enabledEvents, ArrayList<Event> eventQueue) {
@@ -22,10 +36,10 @@ public class EnabledEvents {
 		
 	}
 
-	public void removeFirstEventOfType(String type) {
-		for (Event event : list) {
-			if(event.getType() == type){
-				list.remove(event);
+	public void removeFirstEventOfType(EventsType type) {
+		for (EventsType eventType : list) {
+			if(eventType == type){
+				list.remove(eventType);
 			}
 			
 		}

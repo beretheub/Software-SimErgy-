@@ -6,10 +6,11 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class Arr_L2 extends Arr {
 	private static double lastArr = 0;
-	public Arr_L2(EmergencyDepartment ed) throws ParameterNormException {
+	public Arr_L2(EmergencyDepartment ed){
 		super(Arr_L2.getNextPatientTimeStamp(lastArr), ed);
 		lastArr = this.timeStamp;
 		
@@ -19,8 +20,12 @@ public class Arr_L2 extends Arr {
 	 * Nous décidons que le temps de la prochaine arrivée suit une loi normale de paramètre (6,2)
 	 * @throws ParameterNormException 
 	 */
-	private static double getNextPatientTimeStamp(double lastArr2) throws ParameterNormException {
-		return lastArr2 + Math.abs(Norm.getSample(6, 2)); // Il faudra utiliser la loi de proba pour déterminer le temps d'arrivée du prochain patient
+	private static double getNextPatientTimeStamp(double lastArr2) {
+		try {
+			return lastArr2 + Math.abs(Norm.getSample(6, 2));
+		} catch (ParameterNormException e) {
+			return lastArr2 + 6;
+		} 
 	}
 	@Override
 	public void execute() {
@@ -36,9 +41,9 @@ public class Arr_L2 extends Arr {
 	}
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "arrl2";
+		return EventsType.ARRL2;
 	}
 
 }

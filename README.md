@@ -101,3 +101,11 @@ Je commence à coder la partie deux simulation, et on fera tous les ajouts de fon
 Je crée une nouvelle class EnabledEvents dans la partie simulation pour rassembler toutes les méthodes liées à cette liste
 
 Dants la méthode timeManager.startSimulation :   On crée une copie de l'ed initial, et on retourne son état final, ça permet de pouvoir faire plusieurs simulation sur le même ED en changeant quelques paramètres (on ne fait pas de changement directement sur l'ed) 
+
+
+_______________________________
+
+
+Il ne faut pas que la création d'un évènement renvoit une exception sinon ça fait une erreur de compilation lorsque que l'on veut faire d'autre choses avec cette évènement (comme le programme n'est pas sur que l'évènement a bien été créé à cause du try/catch) il faut donc aboslument gérer tes exceptions de lois normale au sein de l'évènement.
+
+

@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 public class Bloodtest extends Exam {
 
@@ -17,7 +18,7 @@ public class Bloodtest extends Exam {
 	 * 
 	 */	
 
-	public Bloodtest(EmergencyDepartment ed, int timeStamp, BloodTest room, Patient p1,Physician phys) throws ParameterUnifException {
+	public Bloodtest(EmergencyDepartment ed, double timeStamp, BloodTest room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
 		this.duree=calculduree();
 				
@@ -33,8 +34,8 @@ public class Bloodtest extends Exam {
 
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "bloodtest";
+		return EventsType.BLOODTEST;
 	}
 }

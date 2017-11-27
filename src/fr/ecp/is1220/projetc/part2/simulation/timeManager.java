@@ -6,10 +6,9 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 public class timeManager {
-	private timeManager instance = null;
 	private ArrayList<Event> eventQueue;
 	private EnabledEvents enabledEvents;
-	public int simTime;
+	public double simTime;
 	
 
 	public timeManager() {
@@ -44,7 +43,7 @@ public class timeManager {
 		EnabledEvents enabledEventsBis = new EnabledEvents();
 		
 		// initialisation de la liste enabledEventBis
-		enabledEventsBis = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
+		enabledEventsBis.list = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
 		// initialisation de l'eventQueue 
 		EnabledEvents.updateEventQueue(enabledEventsBis, enabledEvents,eventQueue);
 		
@@ -58,7 +57,7 @@ public class timeManager {
 			
 			enabledEvents.removeFirstEventOfType(e1.getType());
 			
-			enabledEventsBis = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
+			enabledEventsBis.list = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
 			
 			EnabledEvents.updateEventQueue(enabledEventsBis, enabledEventsBis, eventQueue);	
 		}

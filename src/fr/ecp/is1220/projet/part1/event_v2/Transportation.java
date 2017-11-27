@@ -10,6 +10,7 @@ import fr.ecp.is1220.projet.part1.core.PatientState;
 
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
+import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 
 /**
  * Fonctionnemet du transport : 
@@ -24,7 +25,7 @@ public class Transportation extends Event {
 	public HealthServices nextexam; //destination
 	
 	
-	public Transportation(EmergencyDepartment ed, int timeStamp, Transporter transporter, Strecher strecher, Patient pat, HealthServices nextstep ) {
+	public Transportation(EmergencyDepartment ed, double timeStamp, Transporter transporter, Strecher strecher, Patient pat, HealthServices nextstep ) {
 		super(timeStamp, ed);
 		this.transporter=transporter;
 		this.p1=pat;
@@ -55,9 +56,9 @@ public class Transportation extends Event {
 	}
 
 	@Override
-	public String getType() {
+	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return "transportation";
+		return EventsType.TRANSPORTATION;
 	}
 
 }

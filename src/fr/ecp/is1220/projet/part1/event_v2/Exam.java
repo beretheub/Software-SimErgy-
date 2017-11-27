@@ -52,7 +52,7 @@ public abstract class Exam extends Event {
 		this.output = output;
 	}
 
-	public Exam(int timeStamp, EmergencyDepartment ed, HealthServices room, Patient p1, Physician phys, Double duree) {
+	public Exam(double timeStamp, EmergencyDepartment ed, HealthServices room, Patient p1, Physician phys, Double duree) {
 		super(timeStamp, ed);
 		this.exam=room;
 		this.physician=phys;

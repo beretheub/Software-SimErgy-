@@ -31,7 +31,7 @@ public abstract class Regist extends Event {
 	 * @param p
 	 * @param nurse
 	 */
-	public Regist(int timeStamp, EmergencyDepartment ed, Rooms room, Patient p, Nurse nurse) {
+	public Regist(double timeStamp, EmergencyDepartment ed, Rooms room, Patient p, Nurse nurse) {
 		super(timeStamp, ed);
 		this.nextRoom = room;
 		this.p1 = p;
