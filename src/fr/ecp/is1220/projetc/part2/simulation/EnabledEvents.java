@@ -16,7 +16,7 @@ public class EnabledEvents {
 	}
 	
 
-	public static ArrayList<EventsType> updateEnabledEvents(EnabledEvents enabledEvents, EmergencyDepartment state) {
+	public static ArrayList<EventsType> updateEnabledEvents(EmergencyDepartment state) {
 			ArrayList<EventsType> liste = new ArrayList<>();
 			// on commence par ajouter les évènements sans condition
 			liste.add(EventsType.ARRL1);

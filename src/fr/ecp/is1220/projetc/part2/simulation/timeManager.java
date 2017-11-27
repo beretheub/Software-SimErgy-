@@ -43,7 +43,7 @@ public class timeManager {
 		EnabledEvents enabledEventsBis = new EnabledEvents();
 		
 		// initialisation de la liste enabledEventBis
-		enabledEventsBis.list = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
+		enabledEventsBis.list = EnabledEvents.updateEnabledEvents(simultatedED);
 		// initialisation de l'eventQueue 
 		EnabledEvents.updateEventQueue(enabledEventsBis, enabledEvents,eventQueue);
 		
@@ -57,7 +57,7 @@ public class timeManager {
 			
 			enabledEvents.removeFirstEventOfType(e1.getType());
 			
-			enabledEventsBis.list = EnabledEvents.updateEnabledEvents(enabledEvents, simultatedED);
+			enabledEventsBis.list = EnabledEvents.updateEnabledEvents(simultatedED);
 			
 			EnabledEvents.updateEventQueue(enabledEventsBis, enabledEventsBis, eventQueue);	
 		}

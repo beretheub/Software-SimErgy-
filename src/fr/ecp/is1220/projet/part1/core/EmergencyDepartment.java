@@ -219,8 +219,6 @@ public class EmergencyDepartment {
 						if (resources1.getState() == TransporterState.ONDUTY){
 							return (HumanResources) resources;
 						}
-					}else{
-						return null;
 					}
 			}
 			return null;
@@ -248,8 +246,6 @@ public class EmergencyDepartment {
 					if (resources1.isFree()){
 						return (NonHumanResources) resources;
 					}
-				}else{
-					return null;
 				}
 		}
 		return null;
