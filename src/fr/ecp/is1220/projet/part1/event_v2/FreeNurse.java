@@ -6,8 +6,8 @@ import fr.ecp.is1220.projet.part1.core.NurseState;
 
 public class FreeNurse extends Event {
 	Nurse nurse;
-	public FreeNurse(int timeStamp, EmergencyDepartment ed, Nurse nurse) {
-		super(timeStamp, ed);
+	public FreeNurse(double d, EmergencyDepartment ed, Nurse nurse) {
+		super(d, ed);
 		this.nurse = nurse;
 		
 	}

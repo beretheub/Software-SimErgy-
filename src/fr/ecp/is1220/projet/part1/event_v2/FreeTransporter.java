@@ -8,8 +8,8 @@ import fr.ecp.is1220.projet.part1.core.TransporterState;
 
 public class FreeTransporter extends Event {
 	Transporter tran;
-	public FreeTransporter(int timeStamp, EmergencyDepartment ed, Transporter tran) {
-		super(timeStamp, ed);
+	public FreeTransporter(double d, EmergencyDepartment ed, Transporter tran) {
+		super(d, ed);
 		this.tran = tran;
 		
 	}

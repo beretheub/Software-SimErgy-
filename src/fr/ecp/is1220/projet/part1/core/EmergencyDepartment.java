@@ -112,6 +112,7 @@ public class EmergencyDepartment {
 		else{
 			throw new noPatientinED();
 		}
+		}
 	public void patientOutOfEmergencyDepartment(Patient patient) {
 		listOfEndedPatient.add(patient);
 		

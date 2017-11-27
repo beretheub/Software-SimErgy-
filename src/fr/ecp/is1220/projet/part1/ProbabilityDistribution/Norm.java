@@ -3,29 +3,14 @@ package fr.ecp.is1220.projet.part1.ProbabilityDistribution;
 import java.util.Random;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterExpException;
+import fr.ecp.is1220.projet.part1.Exceptions.ParameterNormException;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 
+/*
+ * On code une loi normale, qui par défaut est centrée réduite.
+ */
 public class Norm extends ProbabilityDistributions {
-	protected double borneinf;
-	protected double bornesup;
-	
-	public Norm() throws ParameterUnifException {
-		super();
-		// On échange les valeurs sup et inf si elles ne sont pas dans le bon ordre
-		if (borneinf>bornesup){
-			double c=bornesup;
-			double bornesup=borneinf;
-			double borneinf=c;
-		}
-		// il suffit donc de le vérifier pour la plus faible des deux
-		if (borneinf<0){
-			throw new ParameterUnifException();
-		}
-		else {
-	this.borneinf = borneinf;
-	this.bornesup=bornesup;
-		}
-	}
+
 	// Loi noramle centrée réduite
 	public static double getSample(){
 		Random rand=new Random();
@@ -33,8 +18,10 @@ public class Norm extends ProbabilityDistributions {
 	}
 	
 	// LOI NORMALE non centrée réduite 
-	public static double getSample(double esperance, double ecarttype){
-	     
+	public static double getSample(double esperance, double ecarttype) throws ParameterNormException{
+		if (ecarttype<0){
+			throw new ParameterNormException();
+		}
 	     return esperance + ecarttype*Norm.getSample();
 	}
 

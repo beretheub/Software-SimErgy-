@@ -46,7 +46,7 @@ public class Visit extends Event {
 		this.physician.setState(PhysicianState.VISITING);
 		this.pat.setPatientState(PatientState.BEEINGVISITED);
 		EndEvent e = new EndEvent((int)(this.timeStamp + duree), this.ed, this.pat); 
-		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + Integer.toString(this.timeStamp) + " - Verdict : " + this.outputconsultation);
+		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + Double.toString(this.timeStamp) + " - Verdict : " + this.outputconsultation);
 		this.ed.addEventInEventQueue(e);
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.physician); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);
