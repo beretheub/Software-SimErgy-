@@ -109,3 +109,12 @@ _______________________________
 Il ne faut pas que la création d'un évènement renvoit une exception sinon ça fait une erreur de compilation lorsque que l'on veut faire d'autre choses avec cette évènement (comme le programme n'est pas sur que l'évènement a bien été créé à cause du try/catch) il faut donc aboslument gérer tes exceptions de lois normale au sein de l'évènement.
 
 
+-> est ce qu'il faut changer dans l'ED aussi du coup par exemple ? 
+--------
+Béré 27/11
+- je mets des prix plus logiques : 
+	- 50€ pour un examen
+	- 30€ pour une consultation
+
+Commentaires : 
+- peut-ête revoir un peu l'ed qui est lourd 

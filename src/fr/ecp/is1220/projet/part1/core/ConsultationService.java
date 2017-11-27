@@ -13,16 +13,15 @@ package fr.ecp.is1220.projet.part1.core;
 
 
 public class ConsultationService extends HealthServices {
+	
 	/**
-	 * Creates a new consultation service. It inherits the attributes of a healtService.
-	 * 
-	 * The default price of a consultation is 10, bus you can determine a new price for this specifiq consultation service
-	 * 
+	 * Consultationservice : hérite de la classe heathservice.
+	 * Le prix par défaut est fixé à 30, mais il est possible de fixer directement le prix à la création. 
 	 */
 	
 	public ConsultationService(EmergencyDepartment ed, String name) {
-		// Il je fixe le prix par défaut d'une consultation à 10
-		super(ed, name, 10);
+		// le prix par défaut d'une consultation est fixé à 30
+		super(ed, name, 30);
 		// TODO Auto-generated constructor stub
 		
 	}
@@ -31,6 +30,10 @@ public class ConsultationService extends HealthServices {
 		// TODO Auto-generated constructor stub
 		
 	}
+	
+	/**
+	 * Retourne le type de la ressource : consultation ici
+	 *  */
 	@Override
 	public ResourcesType getType() {
 		// TODO Auto-generated method stub
