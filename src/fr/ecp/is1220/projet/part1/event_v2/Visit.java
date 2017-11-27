@@ -61,6 +61,7 @@ public class Visit extends Event {
 		pat.addcharges(consultation.getCost());
 		
 		pat.setNexstep(outputconsultation);
+		room.removePatient(pat);
 		ed.addPatientWaitingForTransportation(pat);
 			
 		}

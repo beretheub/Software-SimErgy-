@@ -32,6 +32,6 @@ public class MRI extends Exam {
 	@Override
 	public EventsType getType() {
 		// TODO Auto-generated method stub
-		return EventsType .MRI;
+		return EventsType.MRI;
 	}
 }

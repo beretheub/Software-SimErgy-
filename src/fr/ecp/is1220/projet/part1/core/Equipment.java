@@ -1,13 +1,10 @@
 package fr.ecp.is1220.projet.part1.core;
 
-import fr.ecp.is1220.projet.part1.Exceptions.FullEquipment;
-import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
-
 public abstract class Equipment implements NonHumanResources {
 	private EmergencyDepartment ed;
 	private String name;
 	private int id;
-	private Patient patient;
+	
 	private NHRState nhrstate;
 	
 	/**
@@ -39,9 +36,7 @@ public abstract class Equipment implements NonHumanResources {
 		return nhrstate;
 		}
 	
-	public Patient getPatient() {
-		return patient;
-		}
+	
 	
 	@Override
 	public int getId() {
@@ -59,14 +54,6 @@ public abstract class Equipment implements NonHumanResources {
 		this.nhrstate=NHRState.FREE;
 	}
 	
-	public boolean newPatient(Patient patient) throws FullEquipment {
-		if (this.nhrstate==NHRState.FREE){
-			this.patient=patient;
-			this.nhrstate=NHRState.OCCUPIED;
-			return true; 
-		}
-		else{throw new FullEquipment();}
-	}
 	
 
 }

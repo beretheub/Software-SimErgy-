@@ -161,7 +161,27 @@ public class EmergencyDepartment {
 	 * 
 	 *  if there is no such hr available or if the type entered as parameter is wrong returns null 
 	 */
-	public Rooms returnFreeNonHumanResources(String Choice) {
+	public NonHumanResources returnFreeNonHumanResources(ResourcesType type) {
+		for (Resources resources : edResources) {
+			if (resources.getType() == type && type == ResourcesType.BOXROOM){
+				BoxRoom resources1 = (BoxRoom) resources;
+				if (resources1.isFree()){
+					return (NonHumanResources) resources;
+					}
+				}else if (resources.getType() == type && type == ResourcesType.SHOCKROOM){
+					ShockRoom resources1 = (ShockRoom) resources;
+					if (resources1.isFree()){
+						return (NonHumanResources) resources;
+					}
+				}else if (resources.getType() == type && type == ResourcesType.STRECHER){
+					Strecher resources1 = (Strecher) resources;
+					if (resources1.isFree()){
+						return (NonHumanResources) resources;
+					}
+				}else{
+					return null;
+				}
+		}
 		return null;
 		
 	}
@@ -175,6 +195,10 @@ public class EmergencyDepartment {
 		//Et utiliser cette méthode à chaque fois que l'on touche à la liste eventQueue
 		//A coder quand on s'occupera de la partie 2
 		
+	}
+	public ArrayList<Patient> getListOfPatientsWaitingForTriange() {
+		
+		return patientWaitingForTriage;
 	}
 	
 

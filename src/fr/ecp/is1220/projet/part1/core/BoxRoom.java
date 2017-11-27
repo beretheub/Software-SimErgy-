@@ -17,6 +17,13 @@ public class BoxRoom extends Rooms {
 		// TODO Auto-generated method stub
 		return ResourcesType.BOXROOM;
 	}
+
+	public boolean isFree() {
+		if (listOfPatientsInside.size() > 0){
+			return false;
+		}
+		return true;
+	}
 	
 	
 

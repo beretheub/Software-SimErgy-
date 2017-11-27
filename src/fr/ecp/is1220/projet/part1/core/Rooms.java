@@ -101,6 +101,10 @@ public abstract class Rooms implements NonHumanResources {
 		ed.addResource(this);
 		
 	}
+	public void removePatient(Patient pat) {
+		listOfPatientsInside.remove(pat);
+		
+	}
 	
 	
 	
