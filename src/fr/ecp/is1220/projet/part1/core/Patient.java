@@ -25,7 +25,6 @@ public class Patient {
 	private Insurance insurance;
 	private ArrayList<String> patientRecord;
 	private SeverityLevel severity;
-	@SuppressWarnings("unused")
 	private PatientState state;
 	public Output nextstep;
 	public double totalcharge;
@@ -168,6 +167,9 @@ public class Patient {
 	 */
 	public void setPatientState(PatientState state) {
 		this.state = state;
+	}
+	public PatientState getPatientState(){
+		return this.state;
 	}
 
 		/** Retourne la prochaine étape que va suivre le patient

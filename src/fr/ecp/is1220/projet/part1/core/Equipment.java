@@ -1,5 +1,4 @@
 package fr.ecp.is1220.projet.part1.core;
-
 import fr.ecp.is1220.projet.part1.Exceptions.FullEquipment;
 import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
@@ -18,7 +17,7 @@ public abstract class Equipment implements NonHumanResources {
 	private EmergencyDepartment ed;
 	private String name;
 	private int id;
-	private Patient patient;
+	
 	private NHRState nhrstate;
 	
 	/**
@@ -58,12 +57,6 @@ public abstract class Equipment implements NonHumanResources {
 	public NHRState getNHRState() {
 		return nhrstate;
 		}
-	/**
-	 * Retourne le patient affecté à l'équipement
-	 */
-	public Patient getPatient() {
-		return patient;
-		}
 	
 	/**
 	 * Retourne l'identifiant de l'équipement
@@ -88,19 +81,6 @@ public abstract class Equipment implements NonHumanResources {
 		ed.addResource(this);
 		this.nhrstate=NHRState.FREE;
 	}
-	
-	/**
-	 * Si l'équipement n'est pas déjà utilisé, la fonction lui affecte le patient en paramètre, et le fait donc passer à l'état occupé. 
-	 * Dans le cas contraire, une exception est levée
-	 */
-	public boolean newPatient(Patient patient) throws FullEquipment {
-		if (this.nhrstate==NHRState.FREE){
-			this.patient=patient;
-			this.nhrstate=NHRState.OCCUPIED;
-			return true; 
-		}
-		else{throw new FullEquipment();}
-	}
-	
+
 
 }

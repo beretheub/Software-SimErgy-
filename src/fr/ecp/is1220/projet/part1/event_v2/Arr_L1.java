@@ -1,6 +1,7 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterNormException;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Norm;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;

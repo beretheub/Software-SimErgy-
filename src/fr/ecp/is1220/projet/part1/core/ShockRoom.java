@@ -17,4 +17,11 @@ public class ShockRoom extends Rooms {
 		// TODO Auto-generated method stub
 		return ResourcesType.SHOCKROOM;
 	}
+
+	public boolean isFree() {
+		if (listOfPatientsInside.size() > 0){
+			return false;
+		}
+		return true;
+	}
 }
