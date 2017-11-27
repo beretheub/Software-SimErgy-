@@ -2,7 +2,7 @@ package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Uniform;
-import fr.ecp.is1220.projet.part1.core.BloodTest;
+import fr.ecp.is1220.projet.part1.core.BloodTestService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.Patient;
@@ -18,7 +18,7 @@ public class Bloodtest extends Exam {
 	 * 
 	 */	
 
-	public Bloodtest(EmergencyDepartment ed, double timeStamp, BloodTest room, Patient p1,Physician phys) throws ParameterUnifException {
+	public Bloodtest(EmergencyDepartment ed, double timeStamp, BloodTestService room, Patient p1,Physician phys) throws ParameterUnifException {
 		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
 		this.duree=calculduree();
 				

@@ -2,6 +2,7 @@ package fr.ecp.is1220.projet.part1.core;
 
 import fr.ecp.is1220.projet.part1.Exceptions.FullEquipment;
 import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
 /**
  * La classe englobe tous les équipements. Pour l'instant, seul le stretcher existe, mais cette classe permet d'en ajouter plus facilement.
@@ -75,9 +76,10 @@ public abstract class Equipment implements NonHumanResources {
 	/**
 	 * Constructeur : crée un équipement, pour un ED donné, et un nom donnée. 
 	 * 	Lui génère un identifiant, et l'ajoute en tant que ressource à l'ED 
+	 * @throws WrongIDAttribution 
 	 * 
 	 */
-	public Equipment(EmergencyDepartment ed, String name) {
+	public Equipment(EmergencyDepartment ed, String name) throws WrongIDAttribution {
 		super();
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();

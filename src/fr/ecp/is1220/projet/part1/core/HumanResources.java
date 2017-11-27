@@ -1,5 +1,15 @@
 package fr.ecp.is1220.projet.part1.core;
 
+import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
+
+/**
+ * La classe HumanRessources regroupe l'ensemble ddu personnel dans l'ED. Elle hérite donc de la classe Ressources
+ * Paramètres : 
+ * 	- ED (ed)
+ * 	- Identifiant (int)
+ * 	- Nom et nom de famille (String)
+ */
+
 public abstract class HumanResources implements Resources {
 	int id;
 	String name;
@@ -11,7 +21,7 @@ public abstract class HumanResources implements Resources {
 		return ed;
 	}
 	/**
-	 * Return an int number which is the id of the HR.
+	 * Retourne l'identifiant du salarié
 	 */
 	@Override
 	public int getId() {
@@ -21,14 +31,14 @@ public abstract class HumanResources implements Resources {
 	
 	
 	/**
-	 * Return a string which is the name of the HR.
+	 * Retourne le nom du salarié
 	 */
 	public String getName() {
 		// TODO Auto-generated method stub
 		return this.name;
 	}
 	/**
-	 * Sets a new name for the HR. Which is the string taken as parameter.
+	 * Remplace le nom du salarié par celui en paramètre
 	 */
 	public void setName(String name) {
 		// TODO Auto-generated method stub
@@ -36,7 +46,7 @@ public abstract class HumanResources implements Resources {
 	}
 	
 	/**
-	 * Return a string which is the surname of the HR.
+	 * Retourne le nom de famille du salarié
 	 */
 	public String getSurname() {
 		// TODO Auto-generated method stub
@@ -44,13 +54,21 @@ public abstract class HumanResources implements Resources {
 	}
 	
 	/**
-	 * Sets a new surname for the HR. Which is the string taken as parameter.
+	 * Remplace le nom de famille du salarié par celui en paramètre 
 	 */
 	public void setSurname(String surname) {
 		// TODO Auto-generated method stub
 		this.surname = surname;
 	}
-	public HumanResources(EmergencyDepartment ed, String name, String surname) {
+	
+	/**
+	 * Crée un salarié pour l'ED, avec un certain nom et prenom, et l'affecte à l'ED
+	 * @param ed
+	 * @param name
+	 * @param surname
+	 * @throws WrongIDAttribution 
+	 */
+	public HumanResources(EmergencyDepartment ed, String name, String surname) throws WrongIDAttribution {
 		super();
 		IdGenerator idRoom = IdGenerator.getInstance();
 		this.id = idRoom.generateId(10); //Le prefix des id des HR est 10 

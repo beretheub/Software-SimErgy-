@@ -2,9 +2,21 @@ package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
+import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 import fr.ecp.is1220.projet.part1.ObserverPattern.Observable;
 import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
 
+/**
+ * La classe healthservice regroupe l'ensemble des service disponibles dans l'ED. Elle hérite donc de la classe NonHumanressources
+ * Paramètres : 
+ * 	- ED (ed)
+ * 	- Identifiant (int)
+ * 	- Nom (String)
+ * 	- Cout (double)
+ * 	- Liste de patients dans la queue du service (ArrayList<Patient)
+ * 	- Liste d'observers (ArrayList<Observer>, cf observer pattern)
+ *
+ */
 public abstract class HealthServices implements Observable, NonHumanResources {
 	private EmergencyDepartment ed;
 	private int id;
@@ -14,13 +26,13 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	private double cost;
 	
 	/**
-	 * Returns the ed of the health service
+	 * Retourne l'ED auquel le service appartient
 	 */
 	public EmergencyDepartment getEd(){
 		return ed;
 	}
 	/**
-	 * Returns the name of the healthService
+	 * Retourne le nom du service
 	 */
 	@Override
 	public String getName() {
@@ -30,7 +42,7 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	
 	
 	/**
-	 * Sets the name of the healthService
+	 * Remplace le nom du service par celui en paramètre
 	 */
 	@Override
 	public void setName(String name) {
@@ -39,7 +51,7 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 
 	}
 	/**
-	 * Returns the id of the healtService 
+	 * Retourne l'identifiant du service 
 	 */
 	@Override
 	public int getId() {
@@ -47,19 +59,27 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 		return this.id;
 	}
 
+	/**
+	 * Ajoute l'observer en paramètre (ie quelqu'un qui doit être informé des changements) à la liste existante
+	 */
 	@Override
 	public void registerObserver(Observer obs) {
 		// TODO Auto-generated method stub
 		observers.add(obs);
 
 	}
-
+	/**
+	 * Supprime l'observer en paramètre de la liste existante
+	 */
 	@Override
 	public void deleteObserver(Observer obs) {
 		// TODO Auto-generated method stub
 		observers.remove(obs);
 	}
-
+	
+	/**
+	 * Agit sur les observer ... à compléter 
+	 */
 	@Override
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
@@ -70,34 +90,38 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	}
 	
 	/**
-	 * Adds a new patient to the waiting queue
-	 * 
-	 * @param patient
+	 *Ajoute le patient en paramètre à la liste d'attente
+	 *@param patient
 	 */
 	public void newPatient(Patient pat){
 		waitingQueue.add(pat);
 	}
 	
 	/**
-	 * Returns the list of patients waiting for the health service
+	 * Retoure la liste d'attente pour ce service
 	 * @return ArrayList<Patient>
 	 */
 	public ArrayList<Patient> getQueue(){
 		return waitingQueue;
 	}
 	
+	/**
+	 * Retoure le prix de ce service
+	 */
 	public double getCost() {
 		return cost;
 	}
 
-
+	/**
+	 * Retmplace le prix du service par celui en paramètre 
+	 */
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
 
 
 	/**
-	 * Prints a snapshot of the waiting Queue
+	 * Affiche une vue de la file d'attente
 	 */
 	public void printQueue(){
 	// Peut être à changer si on passe à une interface graphique ?
@@ -110,11 +134,12 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 		
 	}
 	/**
-	 *  Create a new health service with the automatic generation of an id
+	 *  Créée un nouveau service, avec génération automatique de l'identifiant, et le rattache à l'ED en question
 	 * @param name
 	 * @param cost
+	 * @throws WrongIDAttribution 
 	 */
-	public HealthServices(EmergencyDepartment ed, String name, float cost) {
+	public HealthServices(EmergencyDepartment ed, String name, float cost) throws WrongIDAttribution {
 		super();
 		this.name = name;
 		this.cost = cost;

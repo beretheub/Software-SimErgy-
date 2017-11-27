@@ -4,7 +4,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
-import fr.ecp.is1220.projet.part1.core.BloodTest;
+import fr.ecp.is1220.projet.part1.core.BloodTestService;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
 import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
@@ -33,7 +33,7 @@ public class TransportationTest {
  		AbstractFactory hservice = FactoryProducer.getFactory("healtservice");
  		BoxRoom room2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
  		Strecher strecher1 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
- 		BloodTest bloodtest1 =(BloodTest) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
+ 		BloodTestService bloodtest1 =(BloodTestService) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
  		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1");
 		
  		

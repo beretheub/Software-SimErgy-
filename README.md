@@ -115,6 +115,17 @@ Béré 27/11
 - je mets des prix plus logiques : 
 	- 50€ pour un examen
 	- 30€ pour une consultation
+Je remplace l'erreur de génération d'ID par une exception 
+Je complète les exceptions que tu avais laissées vides
+POurquoi une date prochainedate à laquelle elle est libre dans la classe nurse et pas physician ? 
 
 Commentaires : 
 - peut-ête revoir un peu l'ed qui est lourd 
+- peut-être revoir pour l'ID generator
+
+---- A FAIRE -----
+* Fonction Sort ? 
+* Système d'observer dans healthservice, physician ? Revoir la messagerie du médecin car non utilsée pour l'instant ? 
+* choisir entre la queue du health serice ou de l'ed pour les exams ? 
+* remplacer nos tests par des JUNITS ? 
+* Je comprends pas le dernier commentaire de HumanRessources

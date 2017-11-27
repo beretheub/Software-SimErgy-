@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
-import fr.ecp.is1220.projet.part1.core.BloodTest;
+import fr.ecp.is1220.projet.part1.core.BloodTestService;
 import fr.ecp.is1220.projet.part1.core.Equipment;
 import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
@@ -56,7 +56,7 @@ public class HealtServiceFactory extends AbstractFactory {
 		}else if(resourceType.equalsIgnoreCase("scan")){
 			return new Scan(ed, name);
 		}else if(resourceType.equalsIgnoreCase("bloodtest")){
-			return new BloodTest(ed, name);
+			return new BloodTestService(ed, name);
 		}else{
 			// On pourrait peut être faire ça avec une exception ?
 			System.out.println("The creation of the health service didn't work, please enter a valid choice");

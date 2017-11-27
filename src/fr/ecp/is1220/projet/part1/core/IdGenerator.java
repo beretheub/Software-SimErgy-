@@ -1,5 +1,7 @@
 package fr.ecp.is1220.projet.part1.core;
 
+import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
+
 public class IdGenerator {
 	private int idcompteur = 0;
 	private static IdGenerator instance = null;
@@ -32,18 +34,18 @@ public class IdGenerator {
 	 * (13 : health service)
 	 * (20 : Patient)
 	 * 
-	 * Negative id signifies a wrong id attribution.
+	 * 
+	 * @throws WrongIDAttribution 
 	 * 
 	 */
-	public int generateId(int idPrefix){
+	public int generateId(int idPrefix) throws WrongIDAttribution{
 		String id = String.valueOf(idcompteur);
 		String prefix;
 		if (idPrefix >= 10 && idPrefix < 100){
 			prefix = String.valueOf(idPrefix);
 		}
 		else{
-			System.out.println("Wrong Prefix : the attribution of an id did not work");
-			return-1;
+			throw new WrongIDAttribution();
 		}
 		
 		idcompteur += 1;
