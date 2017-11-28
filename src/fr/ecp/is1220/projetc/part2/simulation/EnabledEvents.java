@@ -33,6 +33,7 @@ public class EnabledEvents {
 						if (state.returnFreeNonHumanResources(ResourcesType.SHOCKROOM) != null){
 							if (!liste.contains(EventsType.REGISTURGENT)){
 								liste.add(EventsType.REGISTURGENT); // L'évent ne doit apparaitre qu'une seule fois dans la liste
+								break;
 							}
 						}
 							
@@ -47,6 +48,7 @@ public class EnabledEvents {
 						if (state.returnFreeNonHumanResources(ResourcesType.BOXROOM) != null){
 							if (!liste.contains(EventsType.REGISTNONURGENT)){
 								liste.add(EventsType.REGISTNONURGENT); // L'évent ne doit apparaitre qu'une seule fois dans la liste
+								break;
 							}
 						}
 							
@@ -54,6 +56,15 @@ public class EnabledEvents {
 					
 				}
 				
+			}
+			if (state.getOccupiedRoom() != null){
+				if (state.returnFreeHumanResource(ResourcesType.PHYSICIAN) != null){
+					if (state.returnHealthService("consultation") != null){
+						if (!liste.contains(EventsType.VISIT)){
+							liste.add(EventsType.VISIT);
+						}
+					}
+				}
 			}
 			
 			

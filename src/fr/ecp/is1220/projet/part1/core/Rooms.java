@@ -3,6 +3,7 @@ package fr.ecp.is1220.projet.part1.core;
 import java.util.ArrayList;
 
 import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
 public abstract class Rooms implements NonHumanResources {
 	protected EmergencyDepartment ed;
@@ -96,7 +97,12 @@ public abstract class Rooms implements NonHumanResources {
 		this.name = name;
 		listOfPatientsInside = new ArrayList<>();
 		IdGenerator idRoom = IdGenerator.getInstance();
-		this.id = idRoom.generateId(11); //Le prefix des id des room est 11
+		try {
+			this.id = idRoom.generateId(11);
+		} catch (WrongIDAttribution e) {
+			// n'arrivera jamais
+			e.printStackTrace();
+		} //Le prefix des id des room est 11
 		this.ed = ed;
 		ed.addResource(this);
 		

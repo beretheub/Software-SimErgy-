@@ -1,7 +1,6 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterNormException;
-import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 import fr.ecp.is1220.projet.part1.ProbabilityDistribution.Norm;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
@@ -20,7 +19,7 @@ public class Arr_L1 extends Arr {
 	
 	/**
 	 * Nous décidons que le temps de la prochaine arrivée suit une loi normale de paramètre (5,2)
-	 * @throws ParameterNormException 
+	 * 
 	 */
 	private static double getNextPatientTimeStamp(double lastArr2){
 		try {

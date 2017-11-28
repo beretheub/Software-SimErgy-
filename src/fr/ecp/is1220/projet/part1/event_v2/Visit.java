@@ -26,13 +26,15 @@ public class Visit extends Event {
 	double duree;
 	ConsultationService consultation;
 	
-	public Visit(double timeStamp, EmergencyDepartment ed, Rooms room, Physician phys, ConsultationService consultation ) throws ParameterUnifException {
+	public Visit(double timeStamp, EmergencyDepartment ed, Rooms room, Physician phys, ConsultationService consultation ){
 		super(timeStamp, ed);
 		this.room=room;
 		this.pat=room.getPatientsInside().get(0); // on récupère le patient qui est dans la pièce
 		this.physician=phys;
 		
+	
 		this.duree=calculduree();
+		
 		this.consultation=consultation;
 				
 		// TODO Auto-generated constructor stub
@@ -69,8 +71,13 @@ public class Visit extends Event {
 		}
 	
 	
-	private double calculduree() throws ParameterUnifException {
-		return Uniform.getSample(5,20);
+	private double calculduree(){
+		try {
+			return Uniform.getSample(5,20);
+		} catch (ParameterUnifException e) {
+			// n'arrivera jamais
+		}
+		return 20;
 	}
 
 	@Override

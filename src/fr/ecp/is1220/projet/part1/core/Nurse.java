@@ -1,9 +1,5 @@
 package fr.ecp.is1220.projet.part1.core;
 
-import java.util.Date;
-
-import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
-
 /** 
  * Classe nurse : hérite de la classe humanresources
  * Paramètres : 
@@ -12,7 +8,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
  */
 public class Nurse extends HumanResources{
 	NurseState state;
-	Date nextFreeTime;
+	
 	
 	/**
 	 * Retourne l'état de la nurse
@@ -32,11 +28,11 @@ public class Nurse extends HumanResources{
 	 *Par défaut, celle-ci est au travail, et disponible
 	 *
 	 */
-	public Nurse(EmergencyDepartment ed, String name, String surname) throws WrongIDAttribution {
+	public Nurse(EmergencyDepartment ed, String name, String surname){
 		super(ed, name, surname);
 		this.state = NurseState.ONDUTY;
 	}
-	public Nurse(EmergencyDepartment ed, String name, String surname, NurseState choice) throws WrongIDAttribution {
+	public Nurse(EmergencyDepartment ed, String name, String surname, NurseState choice){
 		super(ed, name, surname);
 		this.setState(choice);
 	}
@@ -54,14 +50,6 @@ public class Nurse extends HumanResources{
 		return ResourcesType.NURSE;
 	}
 	
-	/** 
-	 * Retourne la date à partir de laquelle l'infirmière est disponible, soit la fin de son prochain événement
-	 * @param endEvent
-	 */
-	public void nextFreeTime(Date endEvent) {
-		this.nextFreeTime = endEvent;
-		
-	}
 	
 	
 	

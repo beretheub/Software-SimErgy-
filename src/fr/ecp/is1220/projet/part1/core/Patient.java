@@ -42,12 +42,16 @@ public class Patient {
 	 * @throws WrongIDAttribution 
 	**/
 	
-	public Patient(EmergencyDepartment ed, String name) throws WrongIDAttribution {
+	public Patient(EmergencyDepartment ed, String name){
 		super();
 		this.ed = ed;
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();
-		id = idG.generateId(20);
+		try {
+			id = idG.generateId(20);
+		} catch (WrongIDAttribution e) {
+			//n'arrivera jamais
+		}
 		this.insurance = Insurance.NO;
 		patientRecord = new ArrayList<>();
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...

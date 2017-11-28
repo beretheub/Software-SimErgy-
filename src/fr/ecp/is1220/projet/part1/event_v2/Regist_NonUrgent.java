@@ -14,9 +14,11 @@ import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 //A besoin d'une nurse, d'une waiting Room libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L1, L3 ou L3.
 // Cet evènement doit etre classé temporellement après un Regist_Urgent (dans eventQueue) pour un meme timeStamp quand on s'attaque à la partie temporelle
 public class Regist_NonUrgent extends Regist {
+		private int duration;
 
 		public Regist_NonUrgent(double timeStamp, EmergencyDepartment ed, BoxRoom room1, Patient p, Nurse n1) {
 			super(timeStamp, ed, room1, p, n1);	
+			duration = 5; // mettons 5 minutes -> faire une distribution de proba ?
 		}
 
 		@Override
@@ -36,13 +38,13 @@ public class Regist_NonUrgent extends Regist {
 			}
 			this.p1.setPatientState(PatientState.INSTALLING);
 			this.nurse.setState(NurseState.OCCUPIED);
-			p1.calculDTDT(5);
-			p1.calculLOS(5);
-			EndEvent e = new EndEvent(this.timeStamp + 5, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
+			p1.calculDTDT(duration);
+			p1.calculLOS(duration);
+			EndEvent e = new EndEvent(this.timeStamp + duration, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
 			p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + Double.toString(this.timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
 			
 			this.ed.addEventInEventQueue(e);
-			FreeNurse e2 = new FreeNurse(this.timeStamp + 5, this.ed, this.nurse); // La nurse est occupée pendant 5 minutes puis libérée de la meme manière que les patients
+			FreeNurse e2 = new FreeNurse(this.timeStamp + duration, this.ed, this.nurse); // La nurse est occupée pendant 5 minutes puis libérée de la meme manière que les patients
 			this.ed.addEventInEventQueue(e2);
 
 		}

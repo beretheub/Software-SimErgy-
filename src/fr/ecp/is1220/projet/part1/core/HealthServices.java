@@ -139,14 +139,19 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	 * @param cost
 	 * @throws WrongIDAttribution 
 	 */
-	public HealthServices(EmergencyDepartment ed, String name, float cost) throws WrongIDAttribution {
+	public HealthServices(EmergencyDepartment ed, String name, float cost){
 		super();
 		this.name = name;
 		this.cost = cost;
 		waitingQueue = new ArrayList<>();
 		observers = new ArrayList<>();
 		IdGenerator idG = IdGenerator.getInstance();
-		id = idG.generateId(13);
+		try {
+			id = idG.generateId(13);
+		} catch (WrongIDAttribution e) {
+			// n'arrivera jamais car le 13 est un constante qui marchera forcément
+			
+		}
 		this.ed = ed;
 		ed.addResource(this);
 	}

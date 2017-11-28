@@ -21,13 +21,13 @@ public class ConsultationService extends HealthServices {
 	 * @throws WrongIDAttribution 
 	 */
 	
-	public ConsultationService(EmergencyDepartment ed, String name) throws WrongIDAttribution {
+	public ConsultationService(EmergencyDepartment ed, String name){
 		// le prix par défaut d'une consultation est fixé à 30
 		super(ed, name, 30);
 		// TODO Auto-generated constructor stub
 		
 	}
-	public ConsultationService(EmergencyDepartment ed, String name, float cost) throws WrongIDAttribution {
+	public ConsultationService(EmergencyDepartment ed, String name, float cost){
 		super(ed, name, cost);
 		// TODO Auto-generated constructor stub
 		

@@ -68,10 +68,14 @@ public abstract class HumanResources implements Resources {
 	 * @param surname
 	 * @throws WrongIDAttribution 
 	 */
-	public HumanResources(EmergencyDepartment ed, String name, String surname) throws WrongIDAttribution {
+	public HumanResources(EmergencyDepartment ed, String name, String surname){
 		super();
 		IdGenerator idRoom = IdGenerator.getInstance();
-		this.id = idRoom.generateId(10); //Le prefix des id des HR est 10 
+		try {
+			this.id = idRoom.generateId(10);
+		} catch (WrongIDAttribution e) {
+			//n'arrivera jamais
+		} //Le prefix des id des HR est 10 
 		this.name = name;
 		this.surname = surname;
 		this.ed = ed;

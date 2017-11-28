@@ -1,6 +1,4 @@
 package fr.ecp.is1220.projet.part1.core;
-import fr.ecp.is1220.projet.part1.Exceptions.FullEquipment;
-import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
 /**
@@ -72,11 +70,15 @@ public abstract class Equipment implements NonHumanResources {
 	 * @throws WrongIDAttribution 
 	 * 
 	 */
-	public Equipment(EmergencyDepartment ed, String name) throws WrongIDAttribution {
+	public Equipment(EmergencyDepartment ed, String name){
 		super();
 		this.name = name;
 		IdGenerator idG = IdGenerator.getInstance();
-		id = idG.generateId(12);
+		try {
+			id = idG.generateId(12);
+		} catch (WrongIDAttribution e) {
+			//n'arrivera jamais 
+		}
 		this.ed = ed;
 		ed.addResource(this);
 		this.nhrstate=NHRState.FREE;

@@ -25,11 +25,11 @@ public class Physician extends HumanResources implements Observer {
 	 * @param surname
 	 * @throws WrongIDAttribution
 	 */
-	public Physician(EmergencyDepartment ed, String name, String surname) throws WrongIDAttribution {
+	public Physician(EmergencyDepartment ed, String name, String surname){
 		super(ed, name, surname);
 		this.state = PhysicianState.ONDUTY;
 	}
-	public Physician(EmergencyDepartment ed, String name, String surname, PhysicianState choice) throws WrongIDAttribution {
+	public Physician(EmergencyDepartment ed, String name, String surname, PhysicianState choice){
 		super(ed, name, surname);
 		this.setState(choice);
 	}

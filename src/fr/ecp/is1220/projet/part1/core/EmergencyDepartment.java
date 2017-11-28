@@ -15,6 +15,7 @@ public class EmergencyDepartment {
 	private ArrayList<Patient> patientWaitingForExam;
 	private ArrayList<Patient> patientWaitingForTransportation;
 	private ArrayList<Patient> listOfEndedPatient;
+	private ArrayList<HealthServices> listOfHealthServices;
 	
 	
 	/**
@@ -43,6 +44,7 @@ public class EmergencyDepartment {
 		patientWaitingForExam = new ArrayList<>();
 		patientWaitingForTransportation = new ArrayList<>();
 		listOfEndedPatient = new ArrayList<>();
+		listOfHealthServices = new ArrayList<>();
 	}
 	
 	/**
@@ -293,6 +295,11 @@ public class EmergencyDepartment {
 	public ArrayList<Patient> getListOfPatientsWaitingForTriage() {
 		
 		return patientWaitingForTriage;
+	}
+
+	public void addHealthServices(HealthServices healthServices) {
+		this.listOfHealthServices.add(healthServices);
+		
 	}
 	
 	

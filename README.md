@@ -150,4 +150,16 @@ Commentaires :
 * Je comprends pas le dernier commentaire de HumanRessources
 	Ouais je me suis un peu emporté, mais je voulais dire par là qu'il fallait bien que lorsque l'on initialise une ressource on lui attribue un ed spécifique, et il faut donc bien qu'on ajoute aussi systématiquement cette ressource à la liste des ressources qu'il y a dans l'ED correspondant ;) 
 	
-* Il faut faire la command line user interface aussi ! En plus on peut la faire en parallèle du simulateur : y'a pas trop d'influence de l'un sur l'autre !a
+* Il faut faire la command line user interface aussi ! En plus on peut la faire en parallèle du simulateur : y'a pas trop d'influence de l'un sur l'autre !
+
+
+
+--------
+
+Il faut éviter de throws des exception sur des constructor, sinon ça fait le problème dont je t'ai parlé à propos des events. Et plus généralement essayer de catch les exception le plus tôt possible et ne pas seulement les throw plus loin
+
+
+Pour le rapport : dans la modélisation que l'on fait, le patient après avoir été visité par un médecin dans une box/shockRoom est replacé instantanément dans une salle ou il attend d'être transporté à son service : il n'occupe plus la room de la visite, celle ci peut être utilisée pour un autre patient !
+
+
+ATTENTION : je viens de me rendre compte d'un problème, si un médecin déclare qu'un patient n'a pas besoin d'un test, la patient est tout de même placé dans la    
