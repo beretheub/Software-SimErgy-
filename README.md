@@ -129,17 +129,25 @@ Béré 28/11
 J'ai commencé à ajouter les key performance indicators. Tous n'est pas correct car : 
 - ne prend pour l'instant pas en compte les temps d'attente*
 - en y réfléchissant, il vaut peut-etre mieux ne calculer LOS que à la fin plutot que au fur et à mesure ? 
-Dis moi ce que tu en penses
+	Pour moi il faut faire une class "computeKPI" qui prend en argument un ED après qu'il soit 	passé dans le simulateur et calcul tout d'un coup à la fin oui 
+
 
 
 
 Commentaires : 
 - peut-ête revoir un peu l'ed qui est lourd 
+	
 - peut-être revoir pour l'ID generator
 
 ---- A FAIRE -----
 * Fonction Sort ? 
+	(Je le fais en m'occupant du simulateur)
 * Système d'observer dans healthservice, physician ? Revoir la messagerie du médecin car non utilsée pour l'instant ? 
-* choisir entre la queue du health serice ou de l'ed pour les exams ? 
+* choisir entre la queue du health serice ou de l'ed pour les exams ?
+	On a dit la queue de l'ed je crois la dernière fois ! 
 * remplacer nos tests par des JUNITS ? 
+	Ouais il fait le faire ! Mais il faut qu'on ai aussi deux tests qui correspondent au 	scénario décrit dans le sujet 
 * Je comprends pas le dernier commentaire de HumanRessources
+	Ouais je me suis un peu emporté, mais je voulais dire par là qu'il fallait bien que lorsque l'on initialise une ressource on lui attribue un ed spécifique, et il faut donc bien qu'on ajoute aussi systématiquement cette ressource à la liste des ressources qu'il y a dans l'ED correspondant ;) 
+	
+* Il faut faire la command line user interface aussi ! En plus on peut la faire en parallèle du simulateur : y'a pas trop d'influence de l'un sur l'autre !a

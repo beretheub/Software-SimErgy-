@@ -194,6 +194,8 @@ public class EmergencyDepartment {
 			return;
 		}
 		
+	}
+		
 		
 	/**
 	 * Calcul le LOS moyen pour l'ensemble des patients déjà traités
