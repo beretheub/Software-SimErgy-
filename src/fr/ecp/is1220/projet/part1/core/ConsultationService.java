@@ -1,5 +1,6 @@
 package fr.ecp.is1220.projet.part1.core;
 
+import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
 /*
  * Je ne sais pas si les consultation ont leur place en tant que health service etant donné que l'on a déjà la
@@ -17,15 +18,16 @@ public class ConsultationService extends HealthServices {
 	/**
 	 * Consultationservice : hérite de la classe heathservice.
 	 * Le prix par défaut est fixé à 30, mais il est possible de fixer directement le prix à la création. 
+	 * @throws WrongIDAttribution 
 	 */
 	
-	public ConsultationService(EmergencyDepartment ed, String name) {
+	public ConsultationService(EmergencyDepartment ed, String name) throws WrongIDAttribution {
 		// le prix par défaut d'une consultation est fixé à 30
 		super(ed, name, 30);
 		// TODO Auto-generated constructor stub
 		
 	}
-	public ConsultationService(EmergencyDepartment ed, String name, float cost) {
+	public ConsultationService(EmergencyDepartment ed, String name, float cost) throws WrongIDAttribution {
 		super(ed, name, cost);
 		// TODO Auto-generated constructor stub
 		
