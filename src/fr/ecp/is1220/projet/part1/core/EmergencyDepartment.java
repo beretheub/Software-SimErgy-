@@ -194,7 +194,33 @@ public class EmergencyDepartment {
 			return;
 		}
 		
+		
+	/**
+	 * Calcul le LOS moyen pour l'ensemble des patients déjà traités
+	 */
+		
+	double averagelos(){
+		double moy=0;
+		for(Patient p1:this.listOfEndedPatient){
+			moy=moy+p1.los;
+		}
+		moy = (double)moy/(((CharSequence) this.listOfEndedPatient).length());
+		return moy;
 	}
+	
+	/**
+	 * Calcul le dtdt moyen pour l'ensemble des patients déjà traités
+	 */
+		
+	double averagedtdt(){
+		double moy=0;
+		for(Patient p1:this.listOfEndedPatient){
+			moy=moy+p1.dtdt;
+		}
+		moy = (double)moy/(((CharSequence) this.listOfEndedPatient).length());
+		return moy;
+	}
+	
 	/**
 	 * Returns the first HR of the asked type that is available from the list of resources of the ED
 	 * @param (String) the type of resource you want : nurse, physician or transporter
@@ -267,7 +293,7 @@ public class EmergencyDepartment {
 		return patientWaitingForTriage;
 	}
 	
-
+	
 	
 	/**public ArrayList<Event> sortEvent(ArrayList<Event> eQ){
 	* Comparator<Event> comparator = (e1, e2) -> (getIntSeveritylevel(e1.patient) < getIntSeveritylevel(e2.patient)) ? 1 : ((getIntSeverityLevel(e1.patient) == getIntSeverityLevel(e2.patient) ? 0 : -1)); 

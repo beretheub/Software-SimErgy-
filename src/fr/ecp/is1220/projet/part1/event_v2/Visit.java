@@ -46,6 +46,8 @@ public class Visit extends Event {
 		// On s'occupe d'abord de la temporalité des acteurs (on fait en sorte qu'ils soient occupés pendant la consultation
 		this.physician.setState(PhysicianState.VISITING);
 		this.pat.setPatientState(PatientState.BEEINGVISITED);
+		pat.calculDTDT(duree);
+		pat.calculLOS(duree);
 		EndEvent e = new EndEvent((int)(this.timeStamp + duree), this.ed, this.pat); 
 		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + Double.toString(this.timeStamp) + " - Verdict : " + this.outputconsultation);
 		this.ed.addEventInEventQueue(e);

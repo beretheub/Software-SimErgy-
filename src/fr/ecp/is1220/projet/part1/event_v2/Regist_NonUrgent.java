@@ -36,6 +36,8 @@ public class Regist_NonUrgent extends Regist {
 			}
 			this.p1.setPatientState(PatientState.INSTALLING);
 			this.nurse.setState(NurseState.OCCUPIED);
+			p1.calculDTDT(5);
+			p1.calculLOS(5);
 			EndEvent e = new EndEvent(this.timeStamp + 5, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
 			p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + Double.toString(this.timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
 			

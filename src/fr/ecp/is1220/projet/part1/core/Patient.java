@@ -16,6 +16,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
  * 	- Etat (PatientState)
  * 	- Prochaine étape (output)
  * 	- Prix à payer (double)
+ * 	- Temps passé à l'ED : LOS(double)
+ * 	- Porte à Porte: DTDT(double)
  */
 public class Patient {
 	
@@ -28,6 +30,8 @@ public class Patient {
 	private PatientState state;
 	public Output nextstep;
 	public double totalcharge;
+	public double los;
+	public double dtdt;
 	
 
 	
@@ -49,6 +53,8 @@ public class Patient {
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
 		this.totalcharge=0;
 		this.nextstep = Output.CONSULTATION;
+		this.dtdt=0;
+		this.los=0;
 	}
 	
 	public Patient(EmergencyDepartment ed, String name, Insurance insurance) throws WrongIDAttribution {
@@ -213,7 +219,15 @@ public class Patient {
 		}
 	}
 	
-	
-	
+	/** Ajoute la durée en paramèle à la durée totale passée dans l'ED
+	 */
+	public void calculLOS(double duree){
+		this.los=this.los+duree;
+	}
+	/** Ajoute la durée en paramèle à la durée en porte à porte passée dans l'ED
+	 */
+	public void calculDTDT(double duree){
+		this.dtdt=this.dtdt+duree;
+	}
 	
 }

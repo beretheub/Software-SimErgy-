@@ -124,6 +124,15 @@ Je remplace l'erreur de génération d'ID par une exception
 Je complète les exceptions que tu avais laissées vides
 POurquoi une date prochainedate à laquelle elle est libre dans la classe nurse et pas physician ? 
 
+-------
+Béré 28/11
+J'ai commencé à ajouter les key performance indicators. Tous n'est pas correct car : 
+- ne prend pour l'instant pas en compte les temps d'attente*
+- en y réfléchissant, il vaut peut-etre mieux ne calculer LOS que à la fin plutot que au fur et à mesure ? 
+Dis moi ce que tu en penses
+
+
+
 Commentaires : 
 - peut-ête revoir un peu l'ed qui est lourd 
 - peut-être revoir pour l'ID generator
