@@ -288,7 +288,7 @@ public class EmergencyDepartment {
 		//A coder quand on s'occupera de la partie 2
 		
 	}
-	public ArrayList<Patient> getListOfPatientsWaitingForTriange() {
+	public ArrayList<Patient> getListOfPatientsWaitingForTriage() {
 		
 		return patientWaitingForTriage;
 	}

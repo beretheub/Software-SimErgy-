@@ -28,8 +28,8 @@ public class EnabledEvents {
 			// on gère ensuite les registrations urgentes
 			
 			if(state.returnFreeHumanResource(ResourcesType.NURSE) != null){
-				for ( Patient p : state.getListOfPatientsWaitingForTriange()) {
-					if (p.getSeverity() == SeverityLevel.L5 || p.getSeverity() == SeverityLevel.L5){
+				for ( Patient p : state.getListOfPatientsWaitingForTriage()) {
+					if (p.getSeverity() == SeverityLevel.L5 || p.getSeverity() == SeverityLevel.L4){
 						if (state.returnFreeNonHumanResources(ResourcesType.SHOCKROOM) != null){
 							if (!liste.contains(EventsType.REGISTURGENT)){
 								liste.add(EventsType.REGISTURGENT); // L'évent ne doit apparaitre qu'une seule fois dans la liste
@@ -42,7 +42,7 @@ public class EnabledEvents {
 				
 			}
 			if(state.returnFreeHumanResource(ResourcesType.NURSE) != null){
-				for ( Patient p : state.getListOfPatientsWaitingForTriange()) {
+				for ( Patient p : state.getListOfPatientsWaitingForTriage()) {
 					if (p.getSeverity() == SeverityLevel.L1 || p.getSeverity() == SeverityLevel.L2|| p.getSeverity() == SeverityLevel.L3 ){
 						if (state.returnFreeNonHumanResources(ResourcesType.BOXROOM) != null){
 							if (!liste.contains(EventsType.REGISTNONURGENT)){
