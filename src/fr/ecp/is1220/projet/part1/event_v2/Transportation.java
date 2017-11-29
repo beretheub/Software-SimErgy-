@@ -2,8 +2,6 @@ package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
-import fr.ecp.is1220.projet.part1.core.HealthServices;
-
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 
@@ -21,15 +19,15 @@ public class Transportation extends Event {
 	Transporter transporter;
 	Patient p1;
 	Strecher strecher;
-	public HealthServices nextexam; //destination
 	
 	
-	public Transportation(EmergencyDepartment ed, double timeStamp, Transporter transporter, Strecher strecher, Patient pat, HealthServices nextstep ) {
+	
+	public Transportation(EmergencyDepartment ed, double timeStamp, Transporter transporter, Strecher strecher, Patient pat) {
 		super(timeStamp, ed);
 		this.transporter=transporter;
 		this.p1=pat;
 		this.strecher=strecher;
-		this.nextexam=nextstep;
+		
 
 	}
 	

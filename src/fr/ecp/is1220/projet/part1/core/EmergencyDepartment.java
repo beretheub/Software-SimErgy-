@@ -11,7 +11,7 @@ public class EmergencyDepartment {
 	private ArrayList<Resources> edResources;
 	public ArrayList<Patient> listOfPatientsInTheED;
 	private ArrayList<Patient> patientWaitingForTriage;
-	private ArrayList<Event> eventQueue;
+	public ArrayList<Event> eventQueue;
 	private ArrayList<Patient> patientWaitingForExam;
 	private ArrayList<Patient> patientWaitingForTransportation;
 	private ArrayList<Patient> listOfEndedPatient;
@@ -287,11 +287,29 @@ public class EmergencyDepartment {
 	
 	public void addEventInEventQueue(Event e) {
 		eventQueue.add(e);
-		//eventQueue.sort(); Il faut absolument créer une fonction qui réordone temporellement la liste
-		//Et utiliser cette méthode à chaque fois que l'on touche à la liste eventQueue
-		//A coder quand on s'occupera de la partie 2
+		EmergencyDepartment.sortEventQueue(eventQueue);
 		
 	}
+	public static void sortEventQueue(ArrayList<Event> eventQueue2) {
+	
+	for (int i = eventQueue2.size() - 1; i >= 0; i--) {
+		for (int j = 0; j < i; j++) {
+			if(eventQueue2.get(j+1).timeStamp < eventQueue2.get(j).timeStamp){
+				Event e = eventQueue2.get(j);
+				Event e2 = eventQueue2.get(j+1);
+				eventQueue2.remove(j);
+				eventQueue2.remove(j);
+				
+				eventQueue2.add(j, e2);
+				eventQueue2.add(j+1, e);
+			}
+			
+		}
+		
+	}
+	
+}
+
 	public ArrayList<Patient> getListOfPatientsWaitingForTriage() {
 		
 		return patientWaitingForTriage;
@@ -336,13 +354,5 @@ public class EmergencyDepartment {
 		return patientWaitingForExam;
 	}
 	
-	
-	
-	/**public ArrayList<Event> sortEvent(ArrayList<Event> eQ){
-	* Comparator<Event> comparator = (e1, e2) -> (getIntSeveritylevel(e1.patient) < getIntSeveritylevel(e2.patient)) ? 1 : ((getIntSeverityLevel(e1.patient) == getIntSeverityLevel(e2.patient) ? 0 : -1)); 
-	* eQ.sort(comparator);
-	* return eQ;
-	* }
-	**/
 
 }

@@ -17,7 +17,7 @@ public class SCAN extends Exam {
 	 * 
 	 */	
 
-	public SCAN(EmergencyDepartment ed, double timeStamp, Scan room, Patient p1,Physician phys) throws ParameterUnifException {
+	public SCAN(EmergencyDepartment ed, double timeStamp, Scan room, Patient p1,Physician phys){
 		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
 		this.duree=calculduree();
 				
@@ -26,8 +26,12 @@ public class SCAN extends Exam {
 	
 	
 	
-	private static double calculduree() throws ParameterUnifException {
-		return Uniform.getSample(15,90);
+	private static double calculduree(){
+		try {
+			return Uniform.getSample(15,90);
+		} catch (ParameterUnifException e) {
+			return 90;
+		}
 	}
 
 

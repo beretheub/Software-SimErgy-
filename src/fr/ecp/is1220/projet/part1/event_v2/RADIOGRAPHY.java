@@ -17,7 +17,7 @@ public class RADIOGRAPHY extends Exam{
 	 * 
 	 */	
 
-	public RADIOGRAPHY(EmergencyDepartment ed, double timeStamp, Radiography room, Patient p1,Physician phys) throws ParameterUnifException {
+	public RADIOGRAPHY(EmergencyDepartment ed, double timeStamp, Radiography room, Patient p1,Physician phys){
 		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
 		this.duree=calculduree();
 				
@@ -26,8 +26,12 @@ public class RADIOGRAPHY extends Exam{
 	
 	
 	
-	private static double calculduree() throws ParameterUnifException {
-		return Uniform.getSample(15,90);
+	private static double calculduree(){
+		try {
+			return Uniform.getSample(15,90);
+		} catch (ParameterUnifException e) {
+			return 90;
+		}
 	}
 
 

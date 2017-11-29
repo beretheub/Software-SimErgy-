@@ -18,7 +18,7 @@ public class Bloodtest extends Exam {
 	 * 
 	 */	
 
-	public Bloodtest(EmergencyDepartment ed, double timeStamp, BloodTestService room, Patient p1,Physician phys) throws ParameterUnifException {
+	public Bloodtest(EmergencyDepartment ed, double timeStamp, BloodTestService room, Patient p1,Physician phys){
 		super(timeStamp, ed,(HealthServices) room, p1, phys, calculduree());
 		this.duree=calculduree();
 				
@@ -27,8 +27,13 @@ public class Bloodtest extends Exam {
 	
 	
 	
-	private static double calculduree() throws ParameterUnifException {
-		return Uniform.getSample(15,90);
+	private static double calculduree(){
+		try {
+			return Uniform.getSample(15,90);
+		} catch (ParameterUnifException e) {
+			return 90;
+		}
+		
 	}
 
 

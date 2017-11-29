@@ -161,9 +161,15 @@ Il faut éviter de throws des exception sur des constructor, sinon ça fait le pro
 
 Pour le rapport : dans la modélisation que l'on fait, le patient après avoir été visité par un médecin dans une box/shockRoom est replacé instantanément dans une salle ou il attend d'être transporté à son service : il n'occupe plus la room de la visite, celle ci peut être utilisée pour un autre patient !
 
-Attention : pour la visite il y a un problème auquel il faut penser, s'il y a deux patients avec un séverity level différent au même timestamp, le prioritaire n'est pas celui qui a le priority level le plus élevé. 
+
 
 
 ATTENTION : je viens de me rendre compte d'un problème, si un médecin déclare qu'un patient n'a pas besoin d'un test, la patient est tout de même placé dans la  file d'attente pour les exam... Il n'en sortira donc jamais. 
 
 Pour le calcul des KPI je pense que c'est plus pratique de créer 3 variables dans la class patient (arrivéehopital, premierMédecin et sortie d'hopital) de les mettre à jour une seule fois avec le timeStamp et d'en déduire les KPI
+
+
+Il y aurait moyen de respecter mieux l'encaplusaltion en créant une factory d'events (à voir si on a le temps) ou seulement l'indiquer dans le rapport
+
+
+Pour la transportation aussi, les patients pris en priorité sont les patients graves
