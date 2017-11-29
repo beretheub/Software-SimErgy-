@@ -93,6 +93,8 @@ public class EnabledEvents {
 					}
 						
 					}
+			}{
+				System.out.println("There is no mri service, some patients will never exit the hopital");
 			}
 			if (state.returnHealthService(ResourcesType.BLOODTEST) != null){
 				if (state.returnFreeHumanResource(ResourcesType.PHYSICIAN) != null){
@@ -105,6 +107,8 @@ public class EnabledEvents {
 					}
 						
 					}
+			}{
+				System.out.println("There is no bloodtest service, some patients will never exit the hopital");
 			}
 			if (state.returnHealthService(ResourcesType.SCAN) != null){
 				if (state.returnFreeHumanResource(ResourcesType.PHYSICIAN) != null){
@@ -117,6 +121,8 @@ public class EnabledEvents {
 					}
 						
 					}
+			}{
+				System.out.println("There is no scan service, some patients will never exit the hopital");
 			}
 			if (state.returnHealthService(ResourcesType.XRAY) != null){
 				if (state.returnFreeHumanResource(ResourcesType.PHYSICIAN) != null){
@@ -129,6 +135,8 @@ public class EnabledEvents {
 					}
 						
 					}
+			}{
+				System.out.println("There is no xray service, some patients will never exit the hopital");
 			}
 			if (state.returnHealthService(ResourcesType.RADIOGRAPHY) != null){
 				if (state.returnFreeHumanResource(ResourcesType.PHYSICIAN) != null){
@@ -141,6 +149,8 @@ public class EnabledEvents {
 					}
 						
 					}
+			}else{
+				System.out.println("There is no radiography service, some patients will never exit the hopital");
 			}
 			return liste;
 		

@@ -17,7 +17,7 @@ public class FactoryProducer {
 			return new EquipmentFactory();
 		}else if(choice.equalsIgnoreCase("room")){
 			return new RoomFactory();
-		}else if(choice.equalsIgnoreCase("healtservice")){
+		}else if(choice.equalsIgnoreCase("healthservice")){
 			return new HealtServiceFactory();
 		}else{
 			// On peut peut être faire avec les exceptions ici
