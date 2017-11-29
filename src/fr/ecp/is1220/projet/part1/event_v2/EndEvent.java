@@ -11,7 +11,7 @@ import fr.ecp.is1220.projetc.part2.simulation.EventsType;
 **/
 
 public class EndEvent extends Event {
-	private Patient patient;
+	protected Patient patient;
 	public EndEvent(double d, EmergencyDepartment ed, Patient patient) {
 		super(d, ed);
 		this.patient = patient;

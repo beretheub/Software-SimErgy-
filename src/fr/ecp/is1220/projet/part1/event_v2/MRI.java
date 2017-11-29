@@ -19,14 +19,19 @@ public class MRI extends Exam {
 	 * 
 	 */	
 
-	public MRI( EmergencyDepartment ed,double timeStamp, MRIservice room, Patient p1,Physician phys) throws ParameterUnifException {
+	public MRI( EmergencyDepartment ed,double timeStamp, MRIservice room, Patient p1,Physician phys){
 		super(timeStamp, ed, (HealthServices) room, p1, phys, calculduree());
 				
 
 	}
 	
-	private static double calculduree() throws ParameterUnifException {
-		return Uniform.getSample(15,90);
+	private static double calculduree(){
+		try {
+			return Uniform.getSample(15,90);
+		} catch (ParameterUnifException e) {
+			// n'arrivera jamais
+		}
+		return 90; 
 	}
 
 	@Override

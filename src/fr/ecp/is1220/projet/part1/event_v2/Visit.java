@@ -50,9 +50,9 @@ public class Visit extends Event {
 		this.pat.setPatientState(PatientState.BEEINGVISITED);
 		pat.calculDTDT(duree);
 		pat.calculLOS(duree);
-		EndEvent e = new EndEvent((int)(this.timeStamp + duree), this.ed, this.pat); 
+		 
 		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + Double.toString(this.timeStamp) + " - Verdict : " + this.outputconsultation);
-		this.ed.addEventInEventQueue(e);
+		
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.physician); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);
 		
@@ -65,9 +65,10 @@ public class Visit extends Event {
 		pat.addcharges(consultation.getCost());
 		
 		pat.setNexstep(outputconsultation);
-		room.removePatient(pat);
-		ed.addPatientWaitingForTransportation(pat);
-			
+		
+		// On s'occupe de la gérer la libération du patient et de la room
+		EndEvent e = new EndConsultation((int)(this.timeStamp + duree), this.ed, this.pat, this.room);
+		this.ed.addEventInEventQueue(e);	
 		}
 	
 	

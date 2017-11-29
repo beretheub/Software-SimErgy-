@@ -301,6 +301,40 @@ public class EmergencyDepartment {
 		this.listOfHealthServices.add(healthServices);
 		
 	}
+
+	public Rooms getOccupiedRoom(ResourcesType type) {
+		for (Resources resources : edResources) {
+			if (resources.getType() == type && type == ResourcesType.BOXROOM){
+				BoxRoom resources1 = (BoxRoom) resources;
+				if (!resources1.isFree()){
+					return (Rooms) resources;
+					}
+				}else if (resources.getType() == type && type == ResourcesType.SHOCKROOM){
+					ShockRoom resources1 = (ShockRoom) resources;
+					if (!resources1.isFree()){
+						return (Rooms) resources;
+					}
+				}
+		}
+		return null;
+	}
+
+	public HealthServices returnHealthService(ResourcesType choice) {
+		for (HealthServices hr : listOfHealthServices) {
+			if (hr.getType() == choice){
+				return hr;
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<Patient> getListOfPatientWaitingForTransporation() {
+		return patientWaitingForTransportation;
+	}
+
+	public ArrayList<Patient> getListOfPatientWaitingForExam() {
+		return patientWaitingForExam;
+	}
 	
 	
 	

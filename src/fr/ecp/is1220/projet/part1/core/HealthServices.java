@@ -153,6 +153,6 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 			
 		}
 		this.ed = ed;
-		ed.addResource(this);
+		ed.addHealthServices(this);
 	}
 }
