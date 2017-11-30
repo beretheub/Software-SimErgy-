@@ -87,6 +87,7 @@ public abstract class Exam extends Event {
 			patient.getPatientEd().addPatientWaitingForTriage(patient);
 		}else if(patient.nextstep == Output.HOSPITAL || patient.nextstep == Output.RELEASE ){
 			patient.getPatientEd().patientOutOfEmergencyDepartment(patient);
+			patient.setDepartureTime(time);
 		}
 		else{
 			throw new noValidOutputException();
@@ -104,7 +105,6 @@ public abstract class Exam extends Event {
 		this.ed.addEventInEventQueue(e);
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.getPhysician()); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);
-		p1.calculLOS(duree);
 		// On effectue le test
 		this.setOutput(this.calculoutput());
 		this.getPatient().fillRecord(Integer.toString(this.getPatient().getPatientRecord().size()) + " - " + Integer.toString(this.getPatient().getId()) + " - Actually in examroom "+ getExam().getName() + " : " + getExam().getId() + " - Taking exam with " + Integer.toString(this.getPhysician().getId()) + " at " + Double.toString(this.timeStamp) + " - Bilan : " + getOutput() );

@@ -45,12 +45,8 @@ public class SimulationTest {
  		Radiography radio1=(Radiography) hservice.getHealthService(ed1, "radiography", "radio1");
  		
  		timeManager tm = new timeManager();
- 		/*
- 		Arr_L1 ev1 = new Arr_L1(ed1);
- 		ev1.execute();
- 		Arr_L2 ev2 = new Arr_L2(ed1);
- 		ev2.execute();*/
- 		ed1 = tm.startSimulation(500, ed1);
+ 		
+ 		ed1 = tm.startSimulation(1000, ed1);
  		System.out.println("Simulation Terminée");
  		
  		ed1.listOfEndedPatient.get(0).printPatientRecord();

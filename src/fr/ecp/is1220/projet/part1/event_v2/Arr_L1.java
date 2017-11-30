@@ -33,10 +33,9 @@ public class Arr_L1 extends Arr {
 	public void execute() {
 		Patient p1 = new Patient(this.ed, "Random name");
 		p1.setSeverity(SeverityLevel.L1);
+		p1.setArrivalTime(timeStamp);
 		//Le patient est en train d'arriver 
 		p1.setPatientState(PatientState.ARRIVING);
-		p1.calculDTDT(3);
-		p1.calculLOS(3);
 		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Arrived in " + p1.getPatientEd().getEdName() + " at " + Double.toString(this.timeStamp)); 
 		EndEvent e = new EndEvent(this.timeStamp + 3, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
 		this.ed.addEventInEventQueue(e);

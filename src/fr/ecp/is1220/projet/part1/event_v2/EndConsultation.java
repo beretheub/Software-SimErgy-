@@ -23,6 +23,7 @@ public class EndConsultation extends EndEvent {
 			ed.addPatientWaitingForTransportation(patient);
 		}else{
 			ed.patientOutOfEmergencyDepartment(patient);
+			patient.setDepartureTime(timeStamp);
 		}
 	}
 	

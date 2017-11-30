@@ -44,7 +44,6 @@ public class Transportation extends Event {
 		EndEvent e = new EndEvent(this.timeStamp + this.duree, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
 		FreeTransporter e2 = new FreeTransporter(this.timeStamp + this.duree, this.ed, this.transporter); // le transport dure 5 minutes
 		FreeStrecher e3 = new FreeStrecher(this.timeStamp + this.duree, this.ed, this.strecher);
-		p1.calculLOS(5);
 		this.ed.addEventInEventQueue(e);
 		this.ed.addEventInEventQueue(e2);
 		this.ed.addEventInEventQueue(e3);

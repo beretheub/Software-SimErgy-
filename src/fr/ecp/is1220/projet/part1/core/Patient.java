@@ -30,8 +30,9 @@ public class Patient {
 	private PatientState state;
 	public Output nextstep;
 	public double totalcharge;
-	public double los;
-	public double dtdt;
+	private double arrivalTime;
+	private double firstPhysicianTime;
+	private double departureTime;
 	
 
 	
@@ -57,8 +58,7 @@ public class Patient {
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
 		this.totalcharge=0;
 		this.nextstep = Output.CONSULTATION;
-		this.dtdt=0;
-		this.los=0;
+		this.firstPhysicianTime = -1;
 	}
 	
 	public Patient(EmergencyDepartment ed, String name, Insurance insurance) throws WrongIDAttribution {
@@ -71,6 +71,19 @@ public class Patient {
 		this.state = PatientState.WAITING;
 		this.totalcharge=0;
 		this.nextstep = Output.CONSULTATION;
+		this.firstPhysicianTime = -1;
+	}
+	
+	public void setArrivalTime(double time){
+		this.arrivalTime = time;
+	}
+	public void setFirstPhysicianTime(double time){
+		if (this.firstPhysicianTime < 0){
+			this.firstPhysicianTime = time;
+		}
+	}
+	public void setDepartureTime(double time){
+		this.departureTime = time;
 	}
 	
 	/** 
@@ -213,15 +226,17 @@ public class Patient {
 		}
 	}
 	
-	/** Ajoute la durée en paramèle à la durée totale passée dans l'ED
+	/** 
+	 * 
 	 */
-	public void calculLOS(double duree){
-		this.los=this.los+duree;
-	}
-	/** Ajoute la durée en paramèle à la durée en porte à porte passée dans l'ED
-	 */
-	public void calculDTDT(double duree){
-		this.dtdt=this.dtdt+duree;
+	public double returnLOS(){
+		if(this.departureTime > this.arrivalTime){
+			return this.departureTime - this.arrivalTime;
+		}else{
+			System.out.println("Abberant length of stay");
+			return 0;
+		}
+		
 	}
 	
 }
