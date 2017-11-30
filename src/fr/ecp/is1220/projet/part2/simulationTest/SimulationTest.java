@@ -8,6 +8,7 @@ import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.MRIservice;
 import fr.ecp.is1220.projet.part1.core.Nurse;
+import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.Radiography;
 import fr.ecp.is1220.projet.part1.core.Scan;
@@ -15,7 +16,8 @@ import fr.ecp.is1220.projet.part1.core.ShockRoom;
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
 import fr.ecp.is1220.projet.part1.core.XrayService;
-
+import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
+import fr.ecp.is1220.projet.part1.event_v2.Arr_L2;
 import fr.ecp.is1220.projetc.part2.simulation.timeManager;
 
 public class SimulationTest {
@@ -45,9 +47,13 @@ public class SimulationTest {
  		timeManager tm = new timeManager();
  		/*
  		Arr_L1 ev1 = new Arr_L1(ed1);
- 		ev1.execute();*/
- 		tm.startSimulation(300, ed1);
+ 		ev1.execute();
+ 		Arr_L2 ev2 = new Arr_L2(ed1);
+ 		ev2.execute();*/
+ 		ed1 = tm.startSimulation(500, ed1);
  		System.out.println("Simulation Terminée");
+ 		
+ 		ed1.listOfEndedPatient.get(0).printPatientRecord();
 	}
 	
 }

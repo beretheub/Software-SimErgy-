@@ -68,7 +68,7 @@ public abstract class Exam extends Event {
 		double random = Math.random();
 		if (random <= 0.35){
 			return Output.RELEASE;
-		}else if (random <= 0.7){
+		}else if (random <= 80){
 			return Output.CONSULTATION;
 		}else{
 			return Output.HOSPITAL;
@@ -81,8 +81,9 @@ public abstract class Exam extends Event {
 	 * If the patient does not have a valid Output throws exception 
 	 * @param patient
 	 */
-	protected static void directPatient(Patient patient) throws noValidOutputException {
+	protected static void directPatient(Patient patient, EmergencyDepartment ed, double time, double duree) throws noValidOutputException {
 		if(patient.nextstep == Output.CONSULTATION){
+			patient.setPatientState(PatientState.ARRIVING);
 			patient.getPatientEd().addPatientWaitingForTriage(patient);
 		}else if(patient.nextstep == Output.HOSPITAL || patient.nextstep == Output.RELEASE ){
 			patient.getPatientEd().patientOutOfEmergencyDepartment(patient);
@@ -115,11 +116,11 @@ public abstract class Exam extends Event {
 		
 		//On envoie le patient dans la file d'attente suivante
 		try {
-			Exam.directPatient(this.getPatient());
+			Exam.directPatient(this.getPatient(), this.ed, this.timeStamp, this.duree);
 			
 		} catch (noValidOutputException e1) {
 			// si on récupère l'excpation on replace le patient dans patientWaitingForExam
-			System.out.println(Integer.toString(this.getPatient().getId()) + "Exam didn't worout well, trying again");
+			System.out.println(Integer.toString(this.getPatient().getId()) + "Exam didn't workout well, trying again");
 			this.ed.addPatientWaitingForExam(this.getPatient());
 			
 		}

@@ -19,6 +19,7 @@ public class Transportation extends Event {
 	Transporter transporter;
 	Patient p1;
 	Strecher strecher;
+	private double duree;
 	
 	
 	
@@ -27,6 +28,7 @@ public class Transportation extends Event {
 		this.transporter=transporter;
 		this.p1=pat;
 		this.strecher=strecher;
+		this.duree = 5;
 		
 
 	}
@@ -39,9 +41,9 @@ public class Transportation extends Event {
 		p1.setPatientState(PatientState.INSTALLING);
 		
 		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Transporté par " + transporter.getName() + " :" + transporter.getId() + " sur " + strecher.getId() + " at " + Double.toString(this.timeStamp)); 
-		EndEvent e = new EndEvent(this.timeStamp + 3, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
-		FreeTransporter e2 = new FreeTransporter(this.timeStamp + 5, this.ed, this.transporter); // le transport dure 5 minutes
-		FreeStrecher e3 = new FreeStrecher(this.timeStamp + 5, this.ed, this.strecher);
+		EndEvent e = new EndEvent(this.timeStamp + this.duree, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
+		FreeTransporter e2 = new FreeTransporter(this.timeStamp + this.duree, this.ed, this.transporter); // le transport dure 5 minutes
+		FreeStrecher e3 = new FreeStrecher(this.timeStamp + this.duree, this.ed, this.strecher);
 		p1.calculLOS(5);
 		this.ed.addEventInEventQueue(e);
 		this.ed.addEventInEventQueue(e2);

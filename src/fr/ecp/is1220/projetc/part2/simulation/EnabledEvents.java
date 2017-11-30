@@ -199,10 +199,17 @@ public class EnabledEvents {
 			}
 		}
 		
-		for(Event ev : eventQueue){
-			if(newlyDesabledEvents.contains(ev.getType())){
-				eventQueue.remove(ev);
+		ArrayList<Event> deleteEvent = new ArrayList<>();
+		
+		for (EventsType evt : newlyDesabledEvents){
+			for (Event ev : eventQueue){
+				if (ev.getType() == evt){
+					deleteEvent.add(ev);
+				}
 			}
+		}
+		for (Event ev : deleteEvent){
+			eventQueue.remove(ev);
 		}
 		
 		
@@ -230,7 +237,7 @@ public class EnabledEvents {
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientsWaitingForTriage()){
-					if (pat.getSeverity() == SeverityLevel.L1 || pat.getSeverity() == SeverityLevel.L2 ||pat.getSeverity() == SeverityLevel.L3 && pat.getPatientState() == PatientState.WAITING){
+					if ((pat.getSeverity() == SeverityLevel.L1 || pat.getSeverity() == SeverityLevel.L2 ||pat.getSeverity() == SeverityLevel.L3) && pat.getPatientState() == PatientState.WAITING){
 						patient = pat;
 						break;
 					}
@@ -242,7 +249,7 @@ public class EnabledEvents {
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientsWaitingForTriage()){
-					if (pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 && pat.getPatientState() == PatientState.WAITING){
+					if ((pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5) && pat.getPatientState() == PatientState.WAITING){
 						patient = pat;
 						break;
 					}
@@ -283,12 +290,13 @@ public class EnabledEvents {
 				
 				
 				e = new Transportation(state, timestamp,(Transporter) state.returnFreeHumanResource(ResourcesType.TRANSPORTER),(Strecher) state.returnFreeNonHumanResources(ResourcesType.STRECHER), patient);
+			
 			}else if(evT == EventsType.MRI){
 				
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientWaitingForExam()){
-					if (pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.MRI){
+					if ((pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5) && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.MRI){
 						patient = pat;
 						break;
 					}
@@ -310,7 +318,7 @@ public class EnabledEvents {
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientWaitingForExam()){
-					if (pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.BLOODTEST){
+					if ((pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5) && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.BLOODTEST){
 						patient = pat;
 						break;
 					}
@@ -332,7 +340,7 @@ public class EnabledEvents {
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientWaitingForExam()){
-					if (pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.XRAY){
+					if ((pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5) && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.XRAY){
 						patient = pat;
 						break;
 					}
@@ -354,7 +362,7 @@ public class EnabledEvents {
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientWaitingForExam()){
-					if (pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.SCAN){
+					if ((pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5) && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.SCAN){
 						patient = pat;
 						break;
 					}
@@ -376,7 +384,7 @@ public class EnabledEvents {
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientWaitingForExam()){
-					if (pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.RADIOGRAPHY){
+					if ((pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5) && pat.getPatientState() == PatientState.WAITING && pat.nextstep == Output.RADIOGRAPHY){
 						patient = pat;
 						break;
 					}

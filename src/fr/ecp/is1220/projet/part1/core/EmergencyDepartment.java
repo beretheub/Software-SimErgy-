@@ -14,7 +14,7 @@ public class EmergencyDepartment {
 	public ArrayList<Event> eventQueue;
 	private ArrayList<Patient> patientWaitingForExam;
 	private ArrayList<Patient> patientWaitingForTransportation;
-	private ArrayList<Patient> listOfEndedPatient;
+	public ArrayList<Patient> listOfEndedPatient;
 	private ArrayList<HealthServices> listOfHealthServices;
 	
 	

@@ -109,7 +109,7 @@ public class Physician extends HumanResources implements Observer {
 		if (output <= 0.35){
 			this.newMessage("Prescribe no further test for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp)); 
 			return Output.NOTEST;
-		}else if (output <= 0.46){
+		}else if (output <= 0){
 			return Output.RADIOGRAPHY;
 		}else if (output <= 0.62){
 			return Output.BLOODTEST;
