@@ -119,7 +119,7 @@ public class EmergencyDepartment {
 	 */
 	public void addPatientWaitingForTriage(Patient p){
 		patientWaitingForTriage.add(p);
-		p.setPatientState(PatientState.WAITING);
+		
 	}
 	
 	/**
@@ -129,7 +129,7 @@ public class EmergencyDepartment {
 	public void removePatientWaitingForTriage(Patient p) throws noPatientinED{
 		if (patientWaitingForTriage.contains(p)){
 			patientWaitingForTriage.remove(p);
-			p.setPatientState(PatientState.INSTALLING);
+			
 		}
 		else{
 			throw new noPatientinED();
@@ -142,7 +142,7 @@ public class EmergencyDepartment {
 	public void addPatientWaitingForExam(Patient p1) {
 			// TODO Auto-generated method stub
 		patientWaitingForExam.add(p1);
-		p1.setPatientState(PatientState.WAITING);
+		
 		}
 	
 	/**
@@ -152,7 +152,7 @@ public class EmergencyDepartment {
 	public void removePatientWaitingForExam(Patient p) throws noPatientinED{
 		if (patientWaitingForExam.contains(p)){
 			patientWaitingForExam.remove(p);
-			p.setPatientState(PatientState.TAKINGEXAM);
+			
 		}
 		else{
 			throw new noPatientinED();
@@ -165,7 +165,7 @@ public class EmergencyDepartment {
 	public void addPatientWaitingForTransportation(Patient p1) {
 		// TODO Auto-generated method stub
 	patientWaitingForTransportation.add(p1);
-	p1.setPatientState(PatientState.WAITING);
+	
 	}
 
 	/**
@@ -175,7 +175,7 @@ public class EmergencyDepartment {
 	public void removePatientWaitingForTransportation(Patient p) throws noPatientinED{
 		if (patientWaitingForTransportation.contains(p)){
 			patientWaitingForTransportation.remove(p);
-			p.setPatientState(PatientState.INTRANSPORT);
+			
 		}
 		else{
 			throw new noPatientinED();
@@ -325,14 +325,18 @@ public class EmergencyDepartment {
 			if (resources.getType() == type && type == ResourcesType.BOXROOM){
 				BoxRoom resources1 = (BoxRoom) resources;
 				if (!resources1.isFree()){
-					return (Rooms) resources;
-					}
-				}else if (resources.getType() == type && type == ResourcesType.SHOCKROOM){
-					ShockRoom resources1 = (ShockRoom) resources;
-					if (!resources1.isFree()){
+					if(resources1.getPatientsInside().get(0).getPatientState() == PatientState.WAITING){
 						return (Rooms) resources;
 					}
 				}
+			}else if (resources.getType() == type && type == ResourcesType.SHOCKROOM){
+				ShockRoom resources1 = (ShockRoom) resources;
+				if (!resources1.isFree()){
+					if(resources1.getPatientsInside().get(0).getPatientState() == PatientState.WAITING){
+						return (Rooms) resources;
+					}
+				}
+			}
 		}
 		return null;
 	}

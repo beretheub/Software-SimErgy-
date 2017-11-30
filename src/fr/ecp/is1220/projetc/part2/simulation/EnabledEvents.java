@@ -50,17 +50,17 @@ public class EnabledEvents {
 	public static ArrayList<EventsType> updateEnabledEvents(EmergencyDepartment state) {
 			ArrayList<EventsType> liste = new ArrayList<>();
 			// on commence par ajouter les évènements sans condition
-			/*liste.add(EventsType.ARRL1);
+			liste.add(EventsType.ARRL1);
 			liste.add(EventsType.ARRL2);
 			liste.add(EventsType.ARRL3);
 			liste.add(EventsType.ARRL4);
-			liste.add(EventsType.ARRL5);*/
+			liste.add(EventsType.ARRL5);
 			
 			// on gère ensuite les registrations urgentes
 			
 			if(state.returnFreeHumanResource(ResourcesType.NURSE) != null){
 				for ( Patient p : state.getListOfPatientsWaitingForTriage()) {
-					if (p.getSeverity() == SeverityLevel.L5 || p.getSeverity() == SeverityLevel.L4 && p.getPatientState() == PatientState.WAITING){
+					if ((p.getSeverity() == SeverityLevel.L5 || p.getSeverity() == SeverityLevel.L4) && p.getPatientState() == PatientState.WAITING){
 						if (state.returnFreeNonHumanResources(ResourcesType.SHOCKROOM) != null){
 							if (!liste.contains(EventsType.REGISTURGENT)){
 								liste.add(EventsType.REGISTURGENT); // L'évent ne doit apparaitre qu'une seule fois dans la liste
@@ -75,7 +75,7 @@ public class EnabledEvents {
 			}
 			if(state.returnFreeHumanResource(ResourcesType.NURSE) != null){
 				for ( Patient p : state.getListOfPatientsWaitingForTriage()) {
-					if (p.getSeverity() == SeverityLevel.L1 || p.getSeverity() == SeverityLevel.L2|| p.getSeverity() == SeverityLevel.L3 && p.getPatientState() == PatientState.WAITING){
+					if ((p.getSeverity() == SeverityLevel.L1 || p.getSeverity() == SeverityLevel.L2|| p.getSeverity() == SeverityLevel.L3) && p.getPatientState() == PatientState.WAITING){
 						if (state.returnFreeNonHumanResources(ResourcesType.BOXROOM) != null){
 							if (!liste.contains(EventsType.REGISTNONURGENT)){
 								liste.add(EventsType.REGISTNONURGENT); // L'évent ne doit apparaitre qu'une seule fois dans la liste
@@ -266,7 +266,7 @@ public class EnabledEvents {
 				Patient patient = null;
 				
 				for (Patient pat : state.getListOfPatientWaitingForTransporation()){
-					if (pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 && pat.getPatientState() == PatientState.WAITING){
+					if ((pat.getSeverity() == SeverityLevel.L4 || pat.getSeverity() == SeverityLevel.L5 )&& pat.getPatientState() == PatientState.WAITING){
 						patient = pat;
 						break;
 					}

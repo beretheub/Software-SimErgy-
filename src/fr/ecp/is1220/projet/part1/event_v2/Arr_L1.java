@@ -43,8 +43,6 @@ public class Arr_L1 extends Arr {
 		this.ed.addPatientInED(p1);
 		this.ed.addPatientWaitingForTriage(p1);
 		
-		
-		
 	}
 
 	@Override

@@ -153,17 +153,7 @@ public class Patient {
 		return severity;
 	}
 	
-	/**
-	 * Retourne l'entier correspondant au niveau de sévérité du patient (1 à 5)
-	 * @return
-	 */
-	public int getIntSeverity() {
-		if (severity==SeverityLevel.L1) { return 1;}
-		else if (severity==SeverityLevel.L2) { return 2;}
-		else if (severity==SeverityLevel.L3) { return 3;}
-		else if (severity==SeverityLevel.L4) { return 4;}
-		else {return 5;}
-	}
+	
 	
 	/**
 	 * Remplace la sévérité par celle en paramètre

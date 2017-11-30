@@ -15,7 +15,7 @@ import fr.ecp.is1220.projet.part1.core.ShockRoom;
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
 import fr.ecp.is1220.projet.part1.core.XrayService;
-import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
+
 import fr.ecp.is1220.projetc.part2.simulation.timeManager;
 
 public class SimulationTest {
@@ -43,10 +43,11 @@ public class SimulationTest {
  		Radiography radio1=(Radiography) hservice.getHealthService(ed1, "radiography", "radio1");
  		
  		timeManager tm = new timeManager();
- 		
+ 		/*
  		Arr_L1 ev1 = new Arr_L1(ed1);
- 		ev1.execute();
+ 		ev1.execute();*/
  		tm.startSimulation(300, ed1);
- 		
+ 		System.out.println("Simulation Terminée");
 	}
+	
 }

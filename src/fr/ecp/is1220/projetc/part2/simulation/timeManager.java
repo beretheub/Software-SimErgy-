@@ -1,11 +1,13 @@
 package fr.ecp.is1220.projetc.part2.simulation;
 
+import java.util.ArrayList;
+
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 public class timeManager {
 	
-	private EnabledEvents enabledEvents;
+	
 	public double simTime;
 	
 	
@@ -19,13 +21,14 @@ public class timeManager {
 	 * @param Limit, initialED
 	 * @return edAfterSimulation
 	 */
+	
 	public EmergencyDepartment startSimulation(int limit, EmergencyDepartment initialED){
 		// Initialisation de la simulation
 		this.simTime = 0; // on initialise le temps à 0
 		EmergencyDepartment simultatedED = initialED;  // On crée une copy de l'ed initial, et on retourne son état final, ça permet de pouvoir faire plusieurs simulation sur le m 
 		
 		
-		enabledEvents = new EnabledEvents();
+		EnabledEvents enabledEvents = new EnabledEvents();
 		
 		
 		
@@ -39,18 +42,25 @@ public class timeManager {
 		EnabledEvents.updateEventQueue(enabledEventsBis, enabledEvents, simultatedED.eventQueue, 0, simultatedED);
 		
 		while (simTime < limit) {
+			if (simultatedED.eventQueue.isEmpty()){
+				System.out.println("No more events, simulation is freezed or over before limit");
+				break;
+			}
 			Event e1 = simultatedED.eventQueue.get(0);
 			simultatedED.eventQueue.remove(0);	
 			e1.execute();
 			simTime = e1.timeStamp;
 			
-			enabledEvents = enabledEventsBis;
+			enabledEvents.list.clear();
+			for (EventsType e : enabledEventsBis.list){
+				enabledEvents.list.add(e);
+			}
 			
 			enabledEvents.removeFirstEventOfType(e1.getType());
 			
 			enabledEventsBis.list = EnabledEvents.updateEnabledEvents(simultatedED);
 			
-			EnabledEvents.updateEventQueue(enabledEventsBis, enabledEventsBis, simultatedED.eventQueue, simTime, simultatedED);	
+			EnabledEvents.updateEventQueue(enabledEventsBis, enabledEvents, simultatedED.eventQueue, simTime, simultatedED);	
 		}
 		
 		return simultatedED;
