@@ -10,7 +10,7 @@ import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.PhysicianState;
 import fr.ecp.is1220.projet.part1.core.Rooms;
-import fr.ecp.is1220.projetc.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class Visit extends Event {
 	

@@ -8,7 +8,7 @@ import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.ShockRoom;
-import fr.ecp.is1220.projetc.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 
 // A besoin d'une nurse, d'une shockRoom libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L4 ou L5.

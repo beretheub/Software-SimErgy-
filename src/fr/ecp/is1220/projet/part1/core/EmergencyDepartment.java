@@ -199,31 +199,7 @@ public class EmergencyDepartment {
 	}
 		
 		
-	/**
-	 * Calcul le LOS moyen pour l'ensemble des patients déjà traités
-	 */
-		
-	double averagelos(){
-		double moy=0;
-		for(Patient p1:this.listOfEndedPatient){
-			moy=moy+p1.los;
-		}
-		moy = (double)moy/(((CharSequence) this.listOfEndedPatient).length());
-		return moy;
-	}
 	
-	/**
-	 * Calcul le dtdt moyen pour l'ensemble des patients déjà traités
-	 */
-		
-	double averagedtdt(){
-		double moy=0;
-		for(Patient p1:this.listOfEndedPatient){
-			moy=moy+p1.dtdt;
-		}
-		moy = (double)moy/(((CharSequence) this.listOfEndedPatient).length());
-		return moy;
-	}
 	
 	/**
 	 * Returns the first HR of the asked type that is available from the list of resources of the ED

@@ -7,7 +7,7 @@ import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.Scan;
-import fr.ecp.is1220.projetc.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class SCAN extends Exam {
 	/**

@@ -6,7 +6,7 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
-import fr.ecp.is1220.projetc.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class Arr_L2 extends Arr {
 	private static double lastArr = 0;
@@ -22,7 +22,7 @@ public class Arr_L2 extends Arr {
 	 */
 	private static double getNextPatientTimeStamp(double lastArr2) {
 		try {
-			return lastArr2 + Math.abs(Norm.getSample(6, 2));
+			return lastArr2 + Math.abs(Norm.getSample(15, 11));
 		} catch (ParameterNormException e) {
 			return lastArr2 + 6;
 		} 

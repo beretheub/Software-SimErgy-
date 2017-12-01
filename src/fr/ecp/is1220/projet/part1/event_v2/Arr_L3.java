@@ -6,7 +6,7 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
-import fr.ecp.is1220.projetc.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class Arr_L3 extends Arr{
 	private static double lastArr = 0;
@@ -24,7 +24,7 @@ public class Arr_L3 extends Arr{
 	 */
 	private static double getNextPatientTimeStamp(double lastArr2) {
 		try {
-			return lastArr2 + Math.abs(Norm.getSample(8, 3));
+			return lastArr2 + Math.abs(Norm.getSample(20, 15));
 		} catch (ParameterNormException e) {
 			return lastArr2 + 8;
 		} // Il faudra utiliser la loi de proba pour déterminer le temps d'arrivée du prochain patient

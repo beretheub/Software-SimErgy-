@@ -13,8 +13,8 @@ import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.ShockRoom;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
 import fr.ecp.is1220.projet.part1.event_v2.Regist_NonUrgent;
-import fr.ecp.is1220.projetc.part2.simulation.EnabledEvents;
-import fr.ecp.is1220.projetc.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.EnabledEvents;
+import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 
 public class testEnabledEvents {

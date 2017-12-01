@@ -173,3 +173,6 @@ Il y aurait moyen de respecter mieux l'encaplusaltion en créant une factory d'ev
 
 
 Pour la transportation aussi, les patients pris en priorité sont les patients graves
+
+
+J'actualise les paramètres d'arrivée des patiens, il y en a beaucoup trop là  

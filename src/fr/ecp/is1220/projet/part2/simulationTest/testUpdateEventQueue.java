@@ -3,8 +3,8 @@ package fr.ecp.is1220.projet.part2.simulationTest;
 import java.util.ArrayList;
 
 import fr.ecp.is1220.projet.part1.event_v2.Event;
-import fr.ecp.is1220.projetc.part2.simulation.EnabledEvents;
-import fr.ecp.is1220.projetc.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.EnabledEvents;
+import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class testUpdateEventQueue {
 	public static void main(String[] args) {

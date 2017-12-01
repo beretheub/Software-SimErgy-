@@ -3,6 +3,8 @@ package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 
+import fr.ecp.is1220.projet.part1.Exceptions.DTDTException;
+import fr.ecp.is1220.projet.part1.Exceptions.LOSException;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
 /** Classe patient : représente un patient et toutes ses caractéristiques
@@ -58,7 +60,9 @@ public class Patient {
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
 		this.totalcharge=0;
 		this.nextstep = Output.CONSULTATION;
-		this.firstPhysicianTime = -1;
+		this.firstPhysicianTime = -1;  // time par défaut, si on retrouve ça par la suite c'est que le chiffre n'a pas été traité, il faut gérer particulièrement la situation
+		this.departureTime = -1;
+		this.arrivalTime = -1;
 	}
 	
 	public Patient(EmergencyDepartment ed, String name, Insurance insurance) throws WrongIDAttribution {
@@ -229,12 +233,26 @@ public class Patient {
 	/** 
 	 * 
 	 */
-	public double returnLOS(){
+	public double returnLOS() throws LOSException{
+		if(this.departureTime == -1 || this.arrivalTime == -1){
+			throw new LOSException();
+		}
 		if(this.departureTime > this.arrivalTime){
 			return this.departureTime - this.arrivalTime;
 		}else{
-			System.out.println("Abberant length of stay");
-			return 0;
+			throw new LOSException();
+		}
+		
+	}
+	
+	public double returnDTDT() throws DTDTException {
+		if(this.arrivalTime == -1 || this.firstPhysicianTime == -1){
+			throw new DTDTException();
+		}
+		if(this.firstPhysicianTime > this.arrivalTime){
+			return this.firstPhysicianTime - this.arrivalTime;
+		}else{
+			throw new DTDTException();
 		}
 		
 	}
