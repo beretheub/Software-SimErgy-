@@ -1,5 +1,6 @@
 package fr.ecp.is1220.projet.part2.simulationTest;
 
+import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.core.BloodTestService;
@@ -50,14 +51,17 @@ public class SimulationTest {
  		AbstractFactory roomfac = FactoryProducer.getFactory("room");
  		AbstractFactory equipfac = FactoryProducer.getFactory("equipment");
  		AbstractFactory hservice = FactoryProducer.getFactory("healthservice");
- 		
- 		BoxRoom room2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
- 		BoxRoom broom3 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
- 		BoxRoom broom4 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
- 		BoxRoom broom5 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
- 		ShockRoom sroom3 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
- 		ShockRoom sroom4 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
- 		ShockRoom sroom5 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
+ 		try{
+ 			BoxRoom room2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
+ 			BoxRoom broom3 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
+ 			BoxRoom broom4 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
+ 			BoxRoom broom5 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
+ 			ShockRoom sroom3 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
+ 			ShockRoom sroom4 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
+ 			ShockRoom sroom5 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
+ 		}catch(wrongResourceType e){
+ 			
+ 		}
  
  		Strecher strecher1 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
  		Strecher strecher2 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");

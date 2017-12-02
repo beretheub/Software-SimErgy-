@@ -1,6 +1,7 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
 import fr.ecp.is1220.projet.part1.core.Equipment;
+import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
@@ -15,7 +16,7 @@ public class RoomFactory extends AbstractFactory {
 	 * Then it takes a second parameter String for its name 
 	 */
 	@Override
-	public Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
+	public Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) throws wrongResourceType{
 		if (resourceType.equalsIgnoreCase("waitingRoom")){
 			return new WaitingRoom(ed, name);
 		}
@@ -26,9 +27,7 @@ public class RoomFactory extends AbstractFactory {
 			return new ShockRoom(ed, name);
 		}
 		else{
-			// On pourrait peut être faire ça avec une exception ?
-			System.out.println("The creation of the room didn't work, please enter a valid choice");
-			return null;
+			throw new wrongResourceType();
 		}
 	}
 	/**
