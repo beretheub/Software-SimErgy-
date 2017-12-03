@@ -68,6 +68,16 @@ public class timeManager {
 		
 	}
 	
+	public static String formatTime(double TimeStamp){
+		
+		
+		int hours = (int) TimeStamp/60;
+		int minutes = (int) TimeStamp - hours*60;
+		
+		return Integer.toString(hours) + "h" + Integer.toString(minutes);
+		
+	}
+	
 	
 
 }

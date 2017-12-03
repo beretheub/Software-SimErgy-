@@ -8,6 +8,7 @@ import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.PhysicianState;
+import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 public abstract class Exam extends Event {
 
@@ -107,12 +108,16 @@ public abstract class Exam extends Event {
 		this.ed.addEventInEventQueue(e2);
 		// On effectue le test
 		this.setOutput(this.calculoutput());
-		this.getPatient().fillRecord(Integer.toString(this.getPatient().getPatientRecord().size()) + " - " + Integer.toString(this.getPatient().getId()) + " - Actually in examroom "+ getExam().getName() + " : " + getExam().getId() + " - Taking exam with " + Integer.toString(this.getPhysician().getId()) + " at " + Double.toString(this.timeStamp) + " - Bilan : " + getOutput() );
-		this.getExam().notifyObservers();
+		
+		String message = Integer.toString(this.getPatient().getPatientRecord().size()) + " - " + Integer.toString(this.getPatient().getId()) + " - Actually in examroom "+ getExam().getName() + " : " + getExam().getId() + " - Taking exam with " + Integer.toString(this.getPhysician().getId()) + " at " + timeManager.formatTime(timeStamp) + " - Bilan : " + getOutput();
+		
+		this.getPatient().fillRecord(message);
+		this.getExam().notifyObservers(message, this.p1);
 		
 		//On met à jour les données du patient
 		this.getPatient().setNexstep(this.getOutput());
 		this.getPatient().addcharges(getExam().getCost());
+		this.p1.addEvent(this);
 		
 		//On envoie le patient dans la file d'attente suivante
 		try {

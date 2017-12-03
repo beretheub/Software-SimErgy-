@@ -11,6 +11,7 @@ import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.PhysicianState;
 import fr.ecp.is1220.projet.part1.core.Rooms;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 public class Visit extends Event {
 	
@@ -32,6 +33,7 @@ public class Visit extends Event {
 		this.pat=room.getPatientsInside().get(0); // on récupère le patient qui est dans la pièce
 		this.physician=phys;
 		
+		
 	
 		this.duree=calculduree();
 		
@@ -49,8 +51,8 @@ public class Visit extends Event {
 		this.physician.setState(PhysicianState.VISITING);
 		this.pat.setPatientState(PatientState.BEEINGVISITED);
 		pat.setFirstPhysicianTime(timeStamp);
-		 
-		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + Double.toString(this.timeStamp) + " - Verdict : " + this.outputconsultation);
+		this.pat.addEvent(this);
+		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + timeManager.formatTime(timeStamp) + " - Verdict : " + this.outputconsultation);
 		
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.physician); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);

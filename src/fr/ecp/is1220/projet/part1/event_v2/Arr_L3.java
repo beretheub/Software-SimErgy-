@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 public class Arr_L3 extends Arr{
 	private static double lastArr = 0;
@@ -35,8 +36,9 @@ public class Arr_L3 extends Arr{
 		Patient p1 = new Patient(this.ed, "Random name");
 		p1.setSeverity(SeverityLevel.L3);
 		p1.setArrivalTime(timeStamp);
+		p1.addEvent(this);
 		p1.setPatientState(PatientState.ARRIVING);
-		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Arrived in " + p1.getPatientEd().getEdName() + " at " + Double.toString(this.timeStamp)); 
+		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Arrived in " + p1.getPatientEd().getEdName() + " at " + timeManager.formatTime(timeStamp)); 
 		EndEvent e = new EndEvent(this.timeStamp + 3, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
 		this.ed.addEventInEventQueue(e);
 		this.ed.addPatientInED(p1);

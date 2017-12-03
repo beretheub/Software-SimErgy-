@@ -1,8 +1,9 @@
 package lineUI;
 
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import fr.ecp.is1220.projet.part1.Exceptions.wrongArgument;
 import fr.ecp.is1220.projet.part1.Exceptions.wrongQuery;
 import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;

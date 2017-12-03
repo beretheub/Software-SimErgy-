@@ -4,12 +4,15 @@ import fr.ecp.is1220.projet.part1.Exceptions.DTDTException;
 import fr.ecp.is1220.projet.part1.Exceptions.LOSException;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
+import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 
 public class ComputeStats {
 	
 	
 	/**
-	 * Calcul le LOS moyen pour l'ensemble des patients déjà traités
+	 * Calcul le LOS moyen pour l'ensemble des patients déjà traités.
+	 * 
+	 * Le deuxième argument est optionnel : calculer cette stat pour une certaine catégorie de patient (SeverityLevel)
 	 */
 		
 	public static void averagelos(EmergencyDepartment ed){
@@ -32,6 +35,28 @@ public class ComputeStats {
 		
 		System.out.println("Average Length of Stay : " + average + ". Calculated over " + count + " patients." );
 	}
+	public static void averagelos(EmergencyDepartment ed, SeverityLevel sev){
+		
+		double average = 0;
+		int count = 0;
+		
+		for (Patient pat : ed.listOfEndedPatient){
+			if(pat.getSeverity() == sev){
+				try {
+					average += pat.returnLOS();
+					count += 1;
+				} catch (LOSException e) {
+
+					System.out.println("Error on a patient los computing");
+				}
+			}
+		}
+		
+		average = average/count;
+		
+		System.out.println("Average Length of Stay (" + sev + ") : " + average + ". Calculated over " + count + " patients." );
+	}
+		
 		
 	/**
 	 * Calcul le dtdt moyen pour l'ensemble des patients déjà traités
@@ -49,7 +74,7 @@ public class ComputeStats {
 				average += pat.returnDTDT();
 				count += 1;
 			} catch (DTDTException e) {
-				System.out.println("Error on a patient dtdt computing");
+				
 			}
 			
 		}
@@ -57,15 +82,49 @@ public class ComputeStats {
 			try {
 				average += pat.returnDTDT();
 				count += 1;
-				System.out.println("x");
+				
 			} catch (DTDTException e) {
-				System.out.println("Error on a patient dtdt computing");
+				
 			}
 			
 		}
 		
 		average = average/count;
 		
-		System.out.println("Average Door to Doctor Time : " + average + ". Calculated over " + count + " patients." );
+		System.out.println("Average Door to Doctor Time  : " + average + ". Calculated over " + count + " patients." );
+	}
+	public static void averagedtdt(EmergencyDepartment ed, SeverityLevel sev){
+
+		double average = 0;
+		int count = 0;
+		
+		for (Patient pat : ed.listOfEndedPatient){
+			
+			if(pat.getSeverity() == sev){
+				try {
+					average += pat.returnDTDT();
+					count += 1;
+				} catch (DTDTException e) {
+
+				}
+			}
+			
+		}
+		for (Patient pat : ed.listOfPatientsInTheED){
+			if(pat.getSeverity() == sev){
+				try {
+					average += pat.returnDTDT();
+					count += 1;
+
+				} catch (DTDTException e) {
+
+				}
+			}
+			
+		}
+		
+		average = average/count;
+		
+		System.out.println("Average Door to Doctor Time (" + sev + ") : " + average + ". Calculated over " + count + " patients." );
 	}
 }

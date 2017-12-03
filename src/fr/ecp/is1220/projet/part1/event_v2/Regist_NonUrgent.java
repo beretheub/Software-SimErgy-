@@ -9,6 +9,7 @@ import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 
 //A besoin d'une nurse, d'une waiting Room libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L1, L3 ou L3.
@@ -37,9 +38,10 @@ public class Regist_NonUrgent extends Regist {
 					return;
 			}
 			this.p1.setPatientState(PatientState.INSTALLING);
+			this.p1.addEvent(this);
 			this.nurse.setState(NurseState.OCCUPIED);
 			EndEvent e = new EndEvent(this.timeStamp + duration, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
-			p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + Double.toString(this.timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
+			p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + timeManager.formatTime(timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
 			
 			this.ed.addEventInEventQueue(e);
 			FreeNurse e2 = new FreeNurse(this.timeStamp + duration, this.ed, this.nurse); // La nurse est occupée pendant 5 minutes puis libérée de la meme manière que les patients

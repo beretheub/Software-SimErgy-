@@ -8,14 +8,14 @@ import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 public class EmergencyDepartment {
 	private String edName;
-	private ArrayList<Resources> edResources;
+	public ArrayList<Resources> edResources;
 	public ArrayList<Patient> listOfPatientsInTheED;
 	private ArrayList<Patient> patientWaitingForTriage;
 	public ArrayList<Event> eventQueue;
 	private ArrayList<Patient> patientWaitingForExam;
 	private ArrayList<Patient> patientWaitingForTransportation;
 	public ArrayList<Patient> listOfEndedPatient;
-	private ArrayList<HealthServices> listOfHealthServices;
+	public ArrayList<HealthServices> listOfHealthServices;
 	
 	
 	/**

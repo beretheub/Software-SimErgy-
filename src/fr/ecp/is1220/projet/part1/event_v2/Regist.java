@@ -35,6 +35,7 @@ public abstract class Regist extends Event {
 		super(timeStamp, ed);
 		this.nextRoom = room;
 		this.p1 = p;
+		
 		this.nurse = nurse;
 		
 	}

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import fr.ecp.is1220.projet.part1.Exceptions.DTDTException;
 import fr.ecp.is1220.projet.part1.Exceptions.LOSException;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
+import fr.ecp.is1220.projet.part1.event_v2.Event;
+import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 /** Classe patient : représente un patient et toutes ses caractéristiques
  Paramètres : 
@@ -28,6 +30,7 @@ public class Patient {
 	private String name;
 	private Insurance insurance;
 	private ArrayList<String> patientRecord;
+	private ArrayList<Event> eventRecord;
 	private SeverityLevel severity;
 	private PatientState state;
 	public Output nextstep;
@@ -63,6 +66,7 @@ public class Patient {
 		this.firstPhysicianTime = -1;  // time par défaut, si on retrouve ça par la suite c'est que le chiffre n'a pas été traité, il faut gérer particulièrement la situation
 		this.departureTime = -1;
 		this.arrivalTime = -1;
+		this.eventRecord = new ArrayList<>();
 	}
 	
 	public Patient(EmergencyDepartment ed, String name, Insurance insurance) throws WrongIDAttribution {
@@ -76,6 +80,7 @@ public class Patient {
 		this.totalcharge=0;
 		this.nextstep = Output.CONSULTATION;
 		this.firstPhysicianTime = -1;
+		this.eventRecord = new ArrayList<>();
 	}
 	
 	public void setArrivalTime(double time){
@@ -256,5 +261,29 @@ public class Patient {
 		}
 		
 	}
+	
+	public void addEvent(Event ev){
+		this.eventRecord.add(ev);
+	}
+	
+	public double calculcost(){
+		if(this.insurance == Insurance.GOLD){
+			return this.totalcharge*0.2;
+		}else if(this.insurance == Insurance.SILVER){
+			return this.totalcharge*0.5;
+		}
+		return totalcharge;
+	}
+	
+	public void printPatientPath(){
+		System.out.println("---------------- Patient : " + Integer.toString(this.getId()) + " ----------------");
+		for (Event ev : this.eventRecord){
+			System.out.println(timeManager.formatTime(ev.timeStamp) +" - " + ev.getType());
+		}
+		
+		System.out.println("--- Total cost : " + Double.toString(totalcharge));
+	}
+	
+
 	
 }

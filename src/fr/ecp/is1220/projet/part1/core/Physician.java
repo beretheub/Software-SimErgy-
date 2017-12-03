@@ -28,10 +28,16 @@ public class Physician extends HumanResources implements Observer {
 	public Physician(EmergencyDepartment ed, String name, String surname){
 		super(ed, name, surname);
 		this.state = PhysicianState.ONDUTY;
+		for(HealthServices hs : ed.listOfHealthServices){
+			hs.registerObserver(this);
+		}
 	}
 	public Physician(EmergencyDepartment ed, String name, String surname, PhysicianState choice){
 		super(ed, name, surname);
 		this.setState(choice);
+		for(HealthServices hs : ed.listOfHealthServices){
+			hs.registerObserver(this);
+		}
 	}
 	/**
 	 * Remplace l'état du médecin par celui en paramètre
@@ -90,11 +96,12 @@ public class Physician extends HumanResources implements Observer {
 			System.out.println("Message " + i + " :\n" + messageBox.get(i));
 		}		 
 	}
+	
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		// A REMPLIR UN FOIS QUE LE PATTERN OBSERVABLE EST PRET !
-		
+	public void update(String message, Patient patient) {
+		if(this.patientsTreated.contains(patient)){
+			this.messageBox.add(message);
+		}
 	}
 	
 	/**
@@ -109,15 +116,20 @@ public class Physician extends HumanResources implements Observer {
 		if (output <= 0.35){
 			this.newMessage("Prescribe no further test for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp)); 
 			return Output.NOTEST;
-		}else if (output <= 0){
+		}else if (output <= 0.50){
+			this.newMessage("Prescribe Radiography test for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp));
 			return Output.RADIOGRAPHY;
 		}else if (output <= 0.62){
+			this.newMessage("Prescribe blood test for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp));
 			return Output.BLOODTEST;
 		}else if (output <= 0.75){
+			this.newMessage("Prescribe scanner for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp));
 			return Output.SCAN;
 		}else if (output <= 0.95){
+				this.newMessage("Prescribe Xray for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp));
 			return Output.XRAY;
 		}else{
+			this.newMessage("Prescribe MRI for patient " + Integer.toString(pat.getId()) + " at time " + Double.toString(timeStamp));
 			return Output.MRI;
 		}
 		

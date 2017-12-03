@@ -8,6 +8,7 @@ import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
+import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 /**
  * Fonctionnemet du transport : 
@@ -39,8 +40,8 @@ public class Transportation extends Event {
 		strecher.newPatient();
 
 		p1.setPatientState(PatientState.INSTALLING);
-		
-		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Transporté par " + transporter.getName() + " :" + transporter.getId() + " sur " + strecher.getId() + " at " + Double.toString(this.timeStamp)); 
+		this.p1.addEvent(this);
+		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Transporté par " + transporter.getName() + " :" + transporter.getId() + " sur " + strecher.getId() + " at " + timeManager.formatTime(timeStamp)); 
 		EndEvent e = new EndEvent(this.timeStamp + this.duree, this.ed, p1); // Cet event a pour fonction de mettre a jour l'état du patient pour simuler le temps passé dans l'évent "arrival"
 		FreeTransporter e2 = new FreeTransporter(this.timeStamp + this.duree, this.ed, this.transporter); // le transport dure 5 minutes
 		FreeStrecher e3 = new FreeStrecher(this.timeStamp + this.duree, this.ed, this.strecher);

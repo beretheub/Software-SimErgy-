@@ -9,9 +9,11 @@ import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.MRIservice;
 import fr.ecp.is1220.projet.part1.core.Nurse;
+import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.Radiography;
 import fr.ecp.is1220.projet.part1.core.Scan;
+import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 import fr.ecp.is1220.projet.part1.core.ShockRoom;
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
@@ -79,9 +81,15 @@ public class SimulationTest {
  		timeManager tm = new timeManager();
  		
  		ed1 = tm.startSimulation(500, ed1);
- 		System.out.println("Simulation Terminée");
+ 		System.out.print("Simulation Terminée : ");
+ 		System.out.println(timeManager.formatTime(500));
  		ComputeStats.averagedtdt(ed1);
  		ComputeStats.averagelos(ed1);
+ 		ComputeStats.averagedtdt(ed1, SeverityLevel.L5);
+ 		ComputeStats.averagelos(ed1, SeverityLevel.L5);
+ 		for (Patient pat : ed1.listOfEndedPatient){
+ 			pat.printPatientPath();
+ 		}
 	}
 	
 }

@@ -64,9 +64,9 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	 */
 	@Override
 	public void registerObserver(Observer obs) {
-		// TODO Auto-generated method stub
-		observers.add(obs);
-
+		if (!observers.contains(obs)){
+			observers.add(obs);
+		}
 	}
 	/**
 	 * Supprime l'observer en paramètre de la liste existante
@@ -81,11 +81,9 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	 * Agit sur les observer ... à compléter 
 	 */
 	@Override
-	public void notifyObservers() {
-		// TODO Auto-generated method stub
-		// A modifier une fois que l'on aura la structure complète mise en place !
+	public void notifyObservers(String message, Patient patient) {
 		for (Observer obs : observers) {
-			obs.update();
+			obs.update(message, patient);
 		}
 	}
 	
@@ -154,5 +152,11 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 		}
 		this.ed = ed;
 		ed.addHealthServices(this);
+		for (Resources res : ed.edResources){
+			if (res.getType() == ResourcesType.PHYSICIAN){
+				this.registerObserver((Observer) res);
+			}
+			
+		}
 	}
 }
