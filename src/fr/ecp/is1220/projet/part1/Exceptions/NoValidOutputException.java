@@ -1,10 +1,10 @@
 package fr.ecp.is1220.projet.part1.Exceptions;
 
-public class noValidOutputException extends Exception {
+public class NoValidOutputException extends Exception {
 	/**
 	 * Exception levée lorsque le résultat n'est pas valide 
 	 */
-	public noValidOutputException(){
+	public NoValidOutputException(){
 		System.out.println("The output is not valid");
 	}
 }

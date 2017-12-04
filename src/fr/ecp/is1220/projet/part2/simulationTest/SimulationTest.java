@@ -1,6 +1,7 @@
 package fr.ecp.is1220.projet.part2.simulationTest;
 
-import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;
+import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.core.BloodTestService;
@@ -23,7 +24,7 @@ import fr.ecp.is1220.projet.part2.simulation.ComputeStats;
 
 public class SimulationTest {
 	@SuppressWarnings("unused")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidNameException {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");
 		
@@ -61,7 +62,7 @@ public class SimulationTest {
  			ShockRoom sroom3 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
  			ShockRoom sroom4 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
  			ShockRoom sroom5 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 2");
- 		}catch(wrongResourceType e){
+ 		}catch(WrongResourceType e){
  			
  		}
  

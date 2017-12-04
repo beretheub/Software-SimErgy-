@@ -2,6 +2,8 @@ package fr.ecp.is1220.projet.part2.simulationTest;
 
 import java.util.ArrayList;
 
+import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
@@ -19,7 +21,7 @@ import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class testEnabledEvents {
 	@SuppressWarnings("unused")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws WrongResourceType, InvalidNameException {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Grenoble");
 		
 		

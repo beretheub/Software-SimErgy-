@@ -1,7 +1,7 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
 import fr.ecp.is1220.projet.part1.core.Equipment;
-import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
@@ -29,8 +29,8 @@ public class RoomFactory extends AbstractFactory {
 		}
 		else{
 			try {
-				throw new wrongResourceType();
-			} catch (wrongResourceType e) {
+				throw new WrongResourceType();
+			} catch (WrongResourceType e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

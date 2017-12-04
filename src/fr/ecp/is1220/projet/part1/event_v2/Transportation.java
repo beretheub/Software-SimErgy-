@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.PatientState;
@@ -51,7 +51,7 @@ public class Transportation extends Event {
 		
 		try {
 			this.ed.removePatientWaitingForTransportation(p1);
-		} catch (noPatientinED e1) {
+		} catch (NoPatientinED e1) {
 			System.out.println("The removal of patient " + Integer.toString(p1.getId())+  " from the waiting for transportation didn't work");
 		}
 		this.ed.addPatientWaitingForExam(p1);		

@@ -184,3 +184,4 @@ Béré 04/12
 
 -> transformation des tests d'event en tests JUNIT
 -> Création de tests JUNIT dans le package tests
+-> changements de noms exceptions pour respecter conventions (classe ===> Majuscule)

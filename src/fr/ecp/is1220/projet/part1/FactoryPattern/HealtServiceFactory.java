@@ -1,9 +1,10 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
+import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
 import fr.ecp.is1220.projet.part1.core.BloodTestService;
-import fr.ecp.is1220.projet.part1.core.Equipment;
 import fr.ecp.is1220.projet.part1.core.ConsultationService;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
+import fr.ecp.is1220.projet.part1.core.Equipment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.HumanResources;
 import fr.ecp.is1220.projet.part1.core.MRIservice;
@@ -40,9 +41,10 @@ public class HealtServiceFactory extends AbstractFactory {
 	/**
 	 * Creates a Healt serice (Xray, ConsultationService, MRI, radiography, scan, bloodTest) by writing the kind of resource you want to create as the first parameter (String)
 	 * Then it takes a second parameter String for its name 
+	 * @throws InvalidNameException 
 	 */
 	@Override
-	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
+	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) throws InvalidNameException {
 		if (resourceType.equalsIgnoreCase("Xray")){
 			return new XrayService(ed, name);
 		}
@@ -58,9 +60,7 @@ public class HealtServiceFactory extends AbstractFactory {
 		}else if(resourceType.equalsIgnoreCase("bloodtest")){
 			return new BloodTestService(ed, name);
 		}else{
-			// On pourrait peut être faire ça avec une exception ?
-			System.out.println("The creation of the health service didn't work, please enter a valid choice");
-			return null;
+			throw new InvalidNameException();
 		}
 	}
 

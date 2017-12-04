@@ -3,8 +3,9 @@ package fr.ecp.is1220.projet.testsEvent;
 import org.junit.Test;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
-import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;
+import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
+import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.core.BloodTestService;
@@ -26,7 +27,7 @@ import fr.ecp.is1220.projet.part1.event_v2.Visit;
 
 public class VisitTest {
 	@Test
-	public void testExam() throws ParameterUnifException, noPatientinED, wrongResourceType {
+	public void testExam() throws ParameterUnifException, NoPatientinED, WrongResourceType, InvalidNameException {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		Arr_L1 arrive = new Arr_L1(ed1);
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");

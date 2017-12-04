@@ -2,7 +2,8 @@ package fr.ecp.is1220.projet.testsEvent;
 
 import org.junit.Test;
 
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
@@ -11,6 +12,7 @@ import fr.ecp.is1220.projet.part1.core.HumanResources;
 import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.Patient;
 import fr.ecp.is1220.projet.part1.core.Rooms;
+import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 import fr.ecp.is1220.projet.part1.core.ShockRoom;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L2;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L5;
@@ -19,7 +21,7 @@ import fr.ecp.is1220.projet.part1.event_v2.Regist_Urgent;
 
 public class Triagetest_v2 {
 	@Test
-	public void testExam() throws noPatientinED {
+	public void testExam() throws NoPatientinED, WrongResourceType {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Grenoble");
 		
 		Arr_L5 ev3 = new Arr_L5(ed1);
@@ -41,7 +43,7 @@ public class Triagetest_v2 {
  		Patient p1 = ed1.listOfPatientsInTheED.get(0);
  		Patient p2 = ed1.listOfPatientsInTheED.get(1);
  		
- 		if (p1.getIntSeverity()>3){
+ 		if (p1.getSeverity()==SeverityLevel.L5 | p1.getSeverity()==SeverityLevel.L4){
  			Regist_Urgent ev4 = new Regist_Urgent(18, ed1, room1, p1, (Nurse) n1);
  			ev4.execute();
  	 		System.out.println(ev4.timeStamp);
@@ -52,7 +54,7 @@ public class Triagetest_v2 {
  	 		System.out.println(ev4.timeStamp);
  		}
  		
- 		if (p2.getIntSeverity()>3){
+ 		if (p1.getSeverity()==SeverityLevel.L5 | p1.getSeverity()==SeverityLevel.L4){
  			Regist_Urgent ev4 = new Regist_Urgent(18, ed1, room1, p2, (Nurse) n1);
  			ev4.execute();
  	 		System.out.println(ev4.timeStamp);

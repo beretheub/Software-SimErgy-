@@ -1,7 +1,7 @@
 package fr.ecp.is1220.projet.part1.event_v2;
 
 import fr.ecp.is1220.projet.part1.Exceptions.FullRoom;
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
 import fr.ecp.is1220.projet.part1.core.BoxRoom;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Nurse;
@@ -33,7 +33,7 @@ public class Regist_NonUrgent extends Regist {
 			}
 			try {
 				this.ed.removePatientWaitingForTriage(p1);
-			} catch (noPatientinED e1) {
+			} catch (NoPatientinED e1) {
 					System.out.println("ERROR : Regist Didn't work");
 					return;
 			}

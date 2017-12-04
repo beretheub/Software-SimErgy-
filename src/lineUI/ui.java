@@ -4,9 +4,9 @@ package lineUI;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import fr.ecp.is1220.projet.part1.Exceptions.wrongArgument;
-import fr.ecp.is1220.projet.part1.Exceptions.wrongQuery;
-import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongQuery;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.FactoryPattern.RoomFactory;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
@@ -37,9 +37,9 @@ public class ui {
 			}else{
 				try {
 					executeQuery(formatedQuery, listeED);
-				} catch (wrongQuery e) {
+				} catch (WrongQuery e) {
 					System.out.println("Your request isn't appropriate. You can try Help command");
-				} catch (wrongArgument e){
+				} catch (WrongArgument e){
 					System.out.println("Your arguments aren't appropriate. You can try Help command");
 				}
 			}
@@ -53,7 +53,7 @@ public class ui {
 		
 	}
 	
-	private static void executeQuery(String[] formatedQuery, ArrayList<EmergencyDepartment> lsED) throws wrongQuery, wrongArgument {
+	private static void executeQuery(String[] formatedQuery, ArrayList<EmergencyDepartment> lsED) throws WrongQuery, WrongArgument {
 		
 		
 		RoomFactory roomFact = (RoomFactory) FactoryProducer.getFactory("room");
@@ -64,7 +64,7 @@ public class ui {
 				EmergencyDepartment ed = new EmergencyDepartment(formatedQuery[1]);
 				lsED.add(ed);
 			}else{
-				throw new wrongArgument();
+				throw new WrongArgument();
 			}
 		}else if(formatedQuery[0].equalsIgnoreCase("addRoom")){
 			
@@ -74,20 +74,20 @@ public class ui {
 						
 						try {
 							roomFact.getRoom(ed, formatedQuery[2], formatedQuery[3]);
-						} catch (wrongResourceType e) {
-							throw new wrongArgument();
+						} catch (WrongResourceType e) {
+							throw new WrongArgument();
 						}
 						
 					}else{
-						throw new wrongArgument();
+						throw new WrongArgument();
 					}
 				}
 			}else{
-				throw new wrongArgument();
+				throw new WrongArgument();
 			}
 			
 		}else{
-			throw new wrongQuery();
+			throw new WrongQuery();
 		}
 		
 	}

@@ -2,7 +2,7 @@ package fr.ecp.is1220.projet.part1.core;
 
 import java.util.ArrayList;
 import fr.ecp.is1220.projet.part1.Exceptions.RessourceEDException;
-import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 
@@ -93,13 +93,13 @@ public class EmergencyDepartment {
 	 * Supprime le patient en paramètre de la liste de patients que comprend l'ED
 	 * Si il n'y est pas, lève une exception
 	 */
-	public void removePatientInTheED(Patient p) throws noPatientinED{
+	public void removePatientInTheED(Patient p) throws NoPatientinED{
 		if (listOfPatientsInTheED.contains(p)){
 			listOfPatientsInTheED.remove(p);
 		}
 		else{
 			//Juste au cas où, normalement
-			throw new noPatientinED();
+			throw new NoPatientinED();
 		}
 	}
 	
@@ -126,13 +126,13 @@ public class EmergencyDepartment {
 	 * Supprime le patient en paramètre de la file d'attente enregistrement
 	 * Si il n'y est pas, lève une exception
 	 */
-	public void removePatientWaitingForTriage(Patient p) throws noPatientinED{
+	public void removePatientWaitingForTriage(Patient p) throws NoPatientinED{
 		if (patientWaitingForTriage.contains(p)){
 			patientWaitingForTriage.remove(p);
 			
 		}
 		else{
-			throw new noPatientinED();
+			throw new NoPatientinED();
 		}
 	}
 	
@@ -149,13 +149,13 @@ public class EmergencyDepartment {
 	 * Supprime le patient en paramètre de la file d'attente examen
 	 * Si il n'y est pas, lève une exception
 	 */
-	public void removePatientWaitingForExam(Patient p) throws noPatientinED{
+	public void removePatientWaitingForExam(Patient p) throws NoPatientinED{
 		if (patientWaitingForExam.contains(p)){
 			patientWaitingForExam.remove(p);
 			
 		}
 		else{
-			throw new noPatientinED();
+			throw new NoPatientinED();
 		}
 	}
 	
@@ -172,13 +172,13 @@ public class EmergencyDepartment {
 	 * Supprime le patient en paramètre de la file d'attente transport
 	 * Si il n'y est pas, lève une exception
 	 */
-	public void removePatientWaitingForTransportation(Patient p) throws noPatientinED{
+	public void removePatientWaitingForTransportation(Patient p) throws NoPatientinED{
 		if (patientWaitingForTransportation.contains(p)){
 			patientWaitingForTransportation.remove(p);
 			
 		}
 		else{
-			throw new noPatientinED();
+			throw new NoPatientinED();
 		}
 		}
 	
@@ -191,7 +191,7 @@ public class EmergencyDepartment {
 		
 		try {
 			this.removePatientInTheED(patient);
-		} catch (noPatientinED e) {
+		} catch (NoPatientinED e) {
 			System.out.println(Integer.toString(patient.getId()) + " : is already out of the ED");
 			return;
 		}
