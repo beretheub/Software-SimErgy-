@@ -185,3 +185,5 @@ Béré 04/12
 -> transformation des tests d'event en tests JUNIT
 -> Création de tests JUNIT dans le package tests
 -> changements de noms exceptions pour respecter conventions (classe ===> Majuscule)
+-> Classes testées à fond : dans le package JUNIT
+(je sais pas si j'ai fait exectement ce qu'il fallait, en gros, je teste toutes les méthodes ...)
