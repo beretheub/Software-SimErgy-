@@ -1,7 +1,10 @@
 package fr.ecp.is1220.projet.testsEvent;
 
+import org.junit.Test;
+
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.wrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.core.BloodTestService;
@@ -20,8 +23,8 @@ import fr.ecp.is1220.projet.part1.event_v2.Visit;
 
 
 public class TransportationTest {
-
-	public static void main(String[] args) throws ParameterUnifException, noPatientinED {
+	@Test
+	public void testExam()throws ParameterUnifException, noPatientinED, wrongResourceType {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		Arr_L1 ev1 = new Arr_L1(ed1);
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");
@@ -46,7 +49,7 @@ public class TransportationTest {
  		Visit ev3 = new Visit(ev2.timeStamp, ed1, room2, phys1, consult1);
  		ev3.execute();
  		
- 		Transportation ev4= new Transportation(ed1,ev3.timeStamp, t1, strecher1, p1, bloodtest1);
+ 		Transportation ev4= new Transportation(ed1,ev3.timeStamp, t1, strecher1, p1);
  		ev4.execute();
  		System.out.println(ev4.timeStamp);
  		p1.printPatientRecord();

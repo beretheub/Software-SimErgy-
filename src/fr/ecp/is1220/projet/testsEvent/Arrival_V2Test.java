@@ -1,5 +1,7 @@
 package fr.ecp.is1220.projet.testsEvent;
 
+import org.junit.Test;
+
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterNormException;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
@@ -8,8 +10,8 @@ import fr.ecp.is1220.projet.part1.event_v2.Arr_L5;
 
 
 public class Arrival_V2Test {
-
-	public static void main(String[] args) {
+	@Test
+	public void testArrival() {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		
 		

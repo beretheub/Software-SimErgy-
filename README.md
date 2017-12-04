@@ -176,3 +176,11 @@ Pour la transportation aussi, les patients pris en priorité sont les patients gr
 
 
 J'actualise les paramètres d'arrivée des patiens, il y en a beaucoup trop là  
+-----
+Béré 04/12
+
+* pourquoi des méthodes add ressource dans l'ed, alors qu'on est obligé d'indiquer l'ed à la création d'une ressource ? 
+* tu as supprimé ma méthode get int severity ? 
+
+-> transformation des tests d'event en tests JUNIT
+-> Création de tests JUNIT dans le package tests

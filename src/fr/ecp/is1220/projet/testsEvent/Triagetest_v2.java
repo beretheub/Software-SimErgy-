@@ -1,5 +1,7 @@
 package fr.ecp.is1220.projet.testsEvent;
 
+import org.junit.Test;
+
 import fr.ecp.is1220.projet.part1.Exceptions.noPatientinED;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
@@ -16,8 +18,8 @@ import fr.ecp.is1220.projet.part1.event_v2.Regist_NonUrgent;
 import fr.ecp.is1220.projet.part1.event_v2.Regist_Urgent;
 
 public class Triagetest_v2 {
-
-	public static void main(String[] args) throws noPatientinED {
+	@Test
+	public void testExam() throws noPatientinED {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Grenoble");
 		
 		Arr_L5 ev3 = new Arr_L5(ed1);
