@@ -88,6 +88,7 @@ public class SimulationTest {
  		ComputeStats.averagelos(ed1);
  		ComputeStats.averagedtdt(ed1, SeverityLevel.L5);
  		ComputeStats.averagelos(ed1, SeverityLevel.L5);
+ 		ed1.displayState();
  		for (Patient pat : ed1.listOfEndedPatient){
  			pat.printPatientPath();
  		}

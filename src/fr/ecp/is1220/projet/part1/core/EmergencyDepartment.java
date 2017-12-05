@@ -257,15 +257,48 @@ public class EmergencyDepartment {
 		return null;
 		
 	}
-
+	/**
+	 * Displays the state of the  Emergency Departement
+	 * 
+	 */
+	public void displayState(){
+		System.out.println("----- ED : " + this.getEdName() + " : state -----");
+		System.out.println("- " +  this.listOfPatientsInTheED.size() + " patients in the ed");
+		System.out.println("- " + this.listOfEndedPatient.size() + " patients out of the ed");
+		System.out.println("-- Patient waiting for triange and visit -- ");
+		for (Patient pat : patientWaitingForTriage){
+			pat.printPatientPath();
+		}
+		System.out.println("-- Patient waiting for exam -- ");
+		for (Patient pat : patientWaitingForExam){
+			pat.printPatientPath();
+		}
+		System.out.println("-- Physisician in the ed -- ");
+		for (Resources phy : edResources){
+			if(phy.getType() == ResourcesType.PHYSICIAN){
+				Physician phy1 = (Physician) phy;
+				phy1.printMessageBox();
+			}
+		}
+		
+		
+	}
+ 
 // ------------------------------------------------------ Méthodes d'event
 	
-	
+	/**
+	 * Adds an event in the event Queue
+	 * Then sorts the event queue
+	 * @param event 
+	 */
 	public void addEventInEventQueue(Event e) {
 		eventQueue.add(e);
 		EmergencyDepartment.sortEventQueue(eventQueue);
 		
 	}
+	/**
+	 * Sorts the event queue by crescent order of time stamp 
+	 */
 	public static void sortEventQueue(ArrayList<Event> eventQueue2) {
 	
 	for (int i = eventQueue2.size() - 1; i >= 0; i--) {
@@ -295,7 +328,11 @@ public class EmergencyDepartment {
 		this.listOfHealthServices.add(healthServices);
 		
 	}
-
+	/**
+	 * Return a room that is occupied by a patient (waiting for a transporter)
+	 * @param type of room
+	 * @return room occupied
+	 */
 	public Rooms getOccupiedRoom(ResourcesType type) {
 		for (Resources resources : edResources) {
 			if (resources.getType() == type && type == ResourcesType.BOXROOM){
@@ -316,7 +353,10 @@ public class EmergencyDepartment {
 		}
 		return null;
 	}
-
+	/**
+	 * Return the health service of choice 
+	 * 
+	 */
 	public HealthServices returnHealthService(ResourcesType choice) {
 		for (HealthServices hr : listOfHealthServices) {
 			if (hr.getType() == choice){
@@ -325,11 +365,17 @@ public class EmergencyDepartment {
 		}
 		return null;
 	}
-
+	/**
+	 * Returns the list of patient waiting for transportation (Arraylist<Patient>)
+	 * @return
+	 */
 	public ArrayList<Patient> getListOfPatientWaitingForTransporation() {
 		return patientWaitingForTransportation;
 	}
-
+	/**
+	 * Return the list of patient waiting for exam (Arraylist<Patient>)
+	 * @return
+	 */
 	public ArrayList<Patient> getListOfPatientWaitingForExam() {
 		return patientWaitingForExam;
 	}

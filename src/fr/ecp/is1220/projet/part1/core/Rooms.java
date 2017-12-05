@@ -86,9 +86,15 @@ public abstract class Rooms implements NonHumanResources {
 	public void displayPatientsInside(){
 		System.out.println("Room name : " + this.getName() + ". Id : " + this.getId());
 		System.out.println("List of patients inside :");
+		if (listOfPatientsInside.size() == 0){
+			System.out.println("This room is empty");
+			return;
+		}
+		int i =1;
 		for (Patient patient : listOfPatientsInside) {
-			System.out.println(patient.toString());
-			// Attention vérifier que l'on a bien mis en forme patient.toString() !!!
+			System.out.println(i + " - id: " + patient.getId());
+			i++;
+			
 		}
 		
 	}
@@ -107,6 +113,12 @@ public abstract class Rooms implements NonHumanResources {
 		ed.addResource(this);
 		
 	}
+	/**
+	 * Removes the patient taken in an argument from the room. 
+	 * 
+	 * If this patient is not in the room, the room is unchanged
+	 * 
+	 */
 	public void removePatient(Patient pat) {
 		listOfPatientsInside.remove(pat);
 		

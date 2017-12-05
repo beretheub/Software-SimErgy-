@@ -177,6 +177,7 @@ Pour la transportation aussi, les patients pris en priorité sont les patients gr
 
 J'actualise les paramètres d'arrivée des patiens, il y en a beaucoup trop là  
 -----
+
 Béré 04/12
 
 * pourquoi des méthodes add ressource dans l'ed, alors qu'on est obligé d'indiquer l'ed à la création d'une ressource ? 
@@ -187,3 +188,7 @@ Béré 04/12
 -> changements de noms exceptions pour respecter conventions (classe ===> Majuscule)
 -> Classes testées à fond : dans le package JUNIT
 (je sais pas si j'ai fait exectement ce qu'il fallait, en gros, je teste toutes les méthodes ...)
+
+
+
+-- Attention il va falloir penser à gérer la génération automatique d'assurance pour les patients.

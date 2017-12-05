@@ -77,7 +77,7 @@ public class Physician extends HumanResources implements Observer {
 	/**
 	 * Ajoute le message en paramètre à la liste des messages reçus
 	 */
-	void newMessage(String message){
+	public void newMessage(String message){
 		messageBox.add(message);
 	}
 	/**
@@ -90,10 +90,14 @@ public class Physician extends HumanResources implements Observer {
 	/**
 	 * Affiche le contenu de la messagerie
 	 */
-	void printMessageBox(){
-		System.out.println("Physician " + this.getName() + " " + this.getSurname() + " (id : " + this.getId() + " )");
+	public void printMessageBox(){
+		System.out.println("--- Physician " + this.getName() + " " + this.getSurname() + " (id : " + this.getId() + " ) ---");
+		System.out.println("Patient treated : ");
+		for(Patient pat : patientsTreated){
+			System.out.println("- id:" + pat.getId() + " - severity : " + pat.getSeverity());
+		}
 		for (int i = 0; i < messageBox.size(); i++) {
-			System.out.println("Message " + i + " :\n" + messageBox.get(i));
+			System.out.println("Message " + i + " - " + messageBox.get(i));
 		}		 
 	}
 	

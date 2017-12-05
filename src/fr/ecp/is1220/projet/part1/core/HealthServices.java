@@ -61,6 +61,8 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 
 	/**
 	 * Ajoute l'observer en paramètre (ie quelqu'un qui doit être informé des changements) à la liste existante
+	 * 
+	 * si l'observer est déjà dans la liste, ne fait rien 
 	 */
 	@Override
 	public void registerObserver(Observer obs) {
@@ -70,6 +72,8 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	}
 	/**
 	 * Supprime l'observer en paramètre de la liste existante
+	 * 
+	 * si l'observer n'est pas dans la liste, ne fait rien
 	 */
 	@Override
 	public void deleteObserver(Observer obs) {

@@ -210,30 +210,15 @@ public class Patient {
 		this.nextstep = nextstep;
 	}
 
-	/** Ajoute à la note du patient la charge en paramètre, après calcul à l'aide de la fonction calculPrixService
+	/** Ajoute à la note du patient la charge en paramètre. L'assurance n'est pas prise en compte dans cette méthode
 	 * 
 	 * @param newcharge
 	 */
 	public void addcharges(double newcharge) {
-		this.totalcharge = this.totalcharge+calculPrixService(newcharge);
+		this.totalcharge = this.totalcharge + newcharge;
 	}
 	
-	/** Calcule le prix du service en paramètre en fonction de l'assurance du patient
-	 * 
-	 * @param coutservice
-	 * @return
-	 */
-	public double calculPrixService(double coutservice) {
-		if (this.insurance==Insurance.NO){
-			return coutservice;
-		}
-		else if (this.insurance==Insurance.SILVER){
-			return (coutservice/50);
-		}
-		else {
-			return (coutservice*(80/100));
-		}
-	}
+	
 	
 	/** 
 	 * 
@@ -265,7 +250,11 @@ public class Patient {
 	public void addEvent(Event ev){
 		this.eventRecord.add(ev);
 	}
-	
+	/**
+	 * Computes the cost of a patient depending on its insurance
+	 * 
+	 * @return cost a patient as to pay when it is computed
+	 */
 	public double calculcost(){
 		if(this.insurance == Insurance.GOLD){
 			return this.totalcharge*0.2;
@@ -274,9 +263,14 @@ public class Patient {
 		}
 		return totalcharge;
 	}
-	
+	/**
+	 * Prints a list of the steps a patient has overcome
+	 * 
+	 * then print its total cost depending on its insurance
+	 */
 	public void printPatientPath(){
 		System.out.println("---------------- Patient : " + Integer.toString(this.getId()) + " ----------------");
+		System.out.println("Patient insurance - " + this.insurance);
 		for (Event ev : this.eventRecord){
 			System.out.println(timeManager.formatTime(ev.timeStamp) +" - " + ev.getType());
 		}

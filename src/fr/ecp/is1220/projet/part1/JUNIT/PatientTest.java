@@ -1,6 +1,9 @@
 package fr.ecp.is1220.projet.part1.JUNIT;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
+import org.junit.runners.JUnit4;
 
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
@@ -40,7 +43,48 @@ public class PatientTest {
 		p1.getPatientState();
 		p1.getSeverity();
 		
-}
+	}
+	
+	@Test
+	public void CalculCostTest(){
+		
+		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Blois");
+		
+		Patient pat1 = null;
+		try {
+			pat1 = new Patient(ed1, "Martin", Insurance.GOLD);
+		} catch (WrongIDAttribution e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Patient pat2 = null;
+		try {
+			pat2 = new Patient(ed1, "Martin", Insurance.SILVER);
+		} catch (WrongIDAttribution e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Patient pat3 = null;
+		try {
+			pat3 = new Patient(ed1, "Martin", Insurance.NO);
+		} catch (WrongIDAttribution e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		pat1.addcharges(10);
+		pat2.addcharges(10);
+		pat3.addcharges(10);
+		
+		System.out.println(pat1.calculcost());
+		System.out.println(pat2.calculcost());
+		System.out.println(pat3.calculcost());
+		
+		
+		//assertEquals(pat1.calculcost(), 2.0);
+		/*assertEquals(pat2.calculcost(), 5.0);
+		assertEquals(pat3.calculcost(), 10.0);*/
+	}
 	
 	
 }
