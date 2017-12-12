@@ -15,9 +15,10 @@ public class RoomFactory extends AbstractFactory {
 	 * Creates a box Room, waiting room or a shock room by writing the kind of resource you want to create as the first parameter (String)
 	 * Then it takes a second parameter String for its name 
 	 * @return 
+	 * @throws WrongResourceType 
 	 */
 	@Override
-	public Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) {
+	public Rooms getRoom(EmergencyDepartment ed, String resourceType, String name) throws WrongResourceType {
 		if (resourceType.equalsIgnoreCase("waitingRoom")){
 			return new WaitingRoom(ed, name);
 		}
@@ -28,14 +29,8 @@ public class RoomFactory extends AbstractFactory {
 			return new ShockRoom(ed, name);
 		}
 		else{
-			try {
-				throw new WrongResourceType();
-			} catch (WrongResourceType e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new WrongResourceType();
 		}
-		return null;
 	}
 	/**
 	 * Unusable For this factory

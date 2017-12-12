@@ -97,7 +97,7 @@ public abstract class Exam extends Event {
 	
 	public void execute() {
 		
-		this.getExam().newPatient(this.getPatient());
+		
 		
 		// On s'occupe d'abord de la temporatité
 		this.getPhysician().setState(PhysicianState.VISITING);

@@ -22,7 +22,7 @@ public class ui {
 		boolean exit = false;
 		ArrayList<EmergencyDepartment> listeED = new ArrayList<>();
 	
-		System.out.println("-----  Welcome to SimErgy -------");
+		System.out.println("----------  Welcome to SimErgy -----------");
 		String query = "";	
 
 		while (!exit){
@@ -71,7 +71,6 @@ public class ui {
 			if(formatedQuery.length > 3){
 				for (EmergencyDepartment ed : lsED){
 					if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-						
 						try {
 							roomFact.getRoom(ed, formatedQuery[2], formatedQuery[3]);
 						} catch (WrongResourceType e) {

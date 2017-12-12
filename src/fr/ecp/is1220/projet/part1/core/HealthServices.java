@@ -22,7 +22,6 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	private int id;
 	private String name;
 	private ArrayList<Observer> observers;
-	private ArrayList<Patient> waitingQueue;
 	private double cost;
 	
 	/**
@@ -82,7 +81,7 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 	}
 	
 	/**
-	 * Agit sur les observer ... à compléter 
+	 * Notifie les observer du résultat de l'examen
 	 */
 	@Override
 	public void notifyObservers(String message, Patient patient) {
@@ -90,23 +89,7 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 			obs.update(message, patient);
 		}
 	}
-	
-	/**
-	 *Ajoute le patient en paramètre à la liste d'attente
-	 *@param patient
-	 */
-	public void newPatient(Patient pat){
-		waitingQueue.add(pat);
-	}
-	
-	/**
-	 * Retoure la liste d'attente pour ce service
-	 * @return ArrayList<Patient>
-	 */
-	public ArrayList<Patient> getQueue(){
-		return waitingQueue;
-	}
-	
+
 	/**
 	 * Retoure le prix de ce service
 	 */
@@ -123,19 +106,6 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 
 
 	/**
-	 * Affiche une vue de la file d'attente
-	 */
-	public void printQueue(){
-	// Peut être à changer si on passe à une interface graphique ?
-		for (Patient patient : waitingQueue) {
-			System.out.println("In the line for -- " + this.getName());
-			System.out.println(waitingQueue.indexOf(patient) + 1 + " -- name : " + patient.getName() + " -- id : " + patient.getId());
-			
-		}
-		
-		
-	}
-	/**
 	 *  Créée un nouveau service, avec génération automatique de l'identifiant, et le rattache à l'ED en question
 	 * @param name
 	 * @param cost
@@ -145,7 +115,6 @@ public abstract class HealthServices implements Observable, NonHumanResources {
 		super();
 		this.name = name;
 		this.cost = cost;
-		waitingQueue = new ArrayList<>();
 		observers = new ArrayList<>();
 		IdGenerator idG = IdGenerator.getInstance();
 		try {
