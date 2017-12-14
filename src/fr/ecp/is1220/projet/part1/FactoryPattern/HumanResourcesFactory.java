@@ -53,7 +53,7 @@ public class HumanResourcesFactory extends AbstractFactory {
 	 * Unusable For this factory
 	 */
 	@Override
-	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) {
+	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name,  String strategy) {
 		// TODO Auto-generated method stub
 		return null;
 	}

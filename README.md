@@ -192,3 +192,8 @@ Béré 04/12
 
 
 -- Attention il va falloir penser à gérer la génération automatique d'assurance pour les patients.
+
+ne pas oublier de mentionner le fonctionnement du strategy pattern pour les paramètres ! 
+ - je ne donne pas la possibilité de changer les paramètre, on pourrais le faire mais pas intéressant dans l'exercice.
+ 
+ - si on veut changer les prix par défaut des HS on doit le faire dans la factory

@@ -41,7 +41,7 @@ public class testEnabledEvents {
  		AbstractFactory roomfac = FactoryProducer.getFactory("room");
  		AbstractFactory Servicefac = FactoryProducer.getFactory("healthService");
  		
- 		ConsultationService consultS = (ConsultationService) Servicefac.getHealthService(ed1, "consultation", "Consultation 1");
+ 		ConsultationService consultS = (ConsultationService) Servicefac.getHealthService(ed1, "consultation", "Consultation 1", "uniform");
  		ShockRoom room1 = (ShockRoom) roomfac.getRoom(ed1, "shockroom", "Room 1");
  		BoxRoom room2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
  		BoxRoom broom2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");

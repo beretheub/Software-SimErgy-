@@ -23,12 +23,12 @@ public class ConsultationService extends HealthServices {
 	
 	public ConsultationService(EmergencyDepartment ed, String name){
 		// le prix par défaut d'une consultation est fixé à 30
-		super(ed, name, 30);
+		super(ed, name, 30, "uniform");
 		// TODO Auto-generated constructor stub
 		
 	}
-	public ConsultationService(EmergencyDepartment ed, String name, float cost){
-		super(ed, name, cost);
+	public ConsultationService(EmergencyDepartment ed, String name, float cost, String choice){
+		super(ed, name, cost, choice);
 		// TODO Auto-generated constructor stub
 		
 	}

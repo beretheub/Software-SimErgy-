@@ -73,12 +73,12 @@ public class SimulationTest {
  		Strecher strecher4 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
  		Strecher strecher5 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
  		
- 		BloodTestService bloodtest1 =(BloodTestService) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
- 		MRIservice mri1 =(MRIservice)hservice.getHealthService(ed1, "mri", "MRI1");
- 		XrayService xray1 =(XrayService)hservice.getHealthService(ed1, "xray", "XRAY1");
- 		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1");
- 		Scan scan1=(Scan) hservice.getHealthService(ed1, "scan", "Scan 1");
- 		Radiography radio1=(Radiography) hservice.getHealthService(ed1, "radiography", "radio1");
+ 		BloodTestService bloodtest1 =(BloodTestService) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1", "uniform");
+ 		MRIservice mri1 =(MRIservice)hservice.getHealthService(ed1, "mri", "MRI1", "uniform");
+ 		XrayService xray1 =(XrayService)hservice.getHealthService(ed1, "xray", "XRAY1", "uniform");
+ 		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1", "uniform");
+ 		Scan scan1=(Scan) hservice.getHealthService(ed1, "scan", "Scan 1", "uniform");
+ 		Radiography radio1=(Radiography) hservice.getHealthService(ed1, "radiography", "radio1", "uniform");
  		
  		timeManager tm = new timeManager();
  		

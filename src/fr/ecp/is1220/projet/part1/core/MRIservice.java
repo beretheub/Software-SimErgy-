@@ -14,10 +14,10 @@ public class MRIservice extends HealthServices {
 	 */
 	public MRIservice(EmergencyDepartment ed, String name){
 		// default price is 16
-		super(ed, name, 50);
+		super(ed, name, 50, "uniform");
 	}
-	public MRIservice(EmergencyDepartment ed, String name, float cost){
-		super(ed, name, cost);
+	public MRIservice(EmergencyDepartment ed, String name, float cost, String choice){
+		super(ed, name, cost, choice);
 		// TODO Auto-generated constructor stub
 	}
 	

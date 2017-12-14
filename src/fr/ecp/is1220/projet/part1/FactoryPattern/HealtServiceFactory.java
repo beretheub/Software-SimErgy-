@@ -39,26 +39,27 @@ public class HealtServiceFactory extends AbstractFactory {
 		return null;
 	}
 	/**
-	 * Creates a Healt serice (Xray, ConsultationService, MRI, radiography, scan, bloodTest) by writing the kind of resource you want to create as the first parameter (String)
+	 * Creates a Healt serice (Xray, ConsultationService, MRI, radiography, scan, bloodTest) 
+	 * by writing the kind of resource you want to create as the first parameter (String)
 	 * Then it takes a second parameter String for its name 
 	 * @throws InvalidNameException 
 	 */
 	@Override
-	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) throws InvalidNameException {
+	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name, String strategy) throws InvalidNameException {
 		if (resourceType.equalsIgnoreCase("Xray")){
-			return new XrayService(ed, name);
+			return new XrayService(ed, name, 15, strategy);
 		}
 		else if (resourceType.equalsIgnoreCase("consultation")){
-			return new ConsultationService(ed, name);
+			return new ConsultationService(ed, name, 30, strategy);
 		}
 		else if (resourceType.equalsIgnoreCase("MRI")){
-			return new MRIservice(ed, name);
+			return new MRIservice(ed, name, 50, strategy);
 		}else if(resourceType.equalsIgnoreCase("radiography")){
-			return new Radiography(ed, name);
+			return new Radiography(ed, name, 50, strategy);
 		}else if(resourceType.equalsIgnoreCase("scan")){
-			return new Scan(ed, name);
+			return new Scan(ed, name, 14, strategy);
 		}else if(resourceType.equalsIgnoreCase("bloodtest")){
-			return new BloodTestService(ed, name);
+			return new BloodTestService(ed, name, 50, strategy);
 		}else{
 			throw new InvalidNameException();
 		}

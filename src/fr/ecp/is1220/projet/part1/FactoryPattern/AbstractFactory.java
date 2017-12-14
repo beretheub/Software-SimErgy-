@@ -18,7 +18,7 @@ public abstract class AbstractFactory {
 	public Equipment getEquipment (EmergencyDepartment ed, String resourceType, String name) {
 		return null;
 	}
-	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name) throws InvalidNameException {
+	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name, String Strategy) throws InvalidNameException {
 		return null;
 	}
 

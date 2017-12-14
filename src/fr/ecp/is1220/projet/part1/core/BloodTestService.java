@@ -12,11 +12,11 @@ public class BloodTestService extends HealthServices {
 
 		public BloodTestService(EmergencyDepartment ed, String name){
 			// Il je fixe le prix par défaut d'un blood à 50
-			super(ed, name, 50);
+			super(ed, name, 50, "uniform");
 			// TODO Auto-generated constructor stub
 		}
-		public BloodTestService(EmergencyDepartment ed, String name, float cost){
-		super(ed, name, cost);
+		public BloodTestService(EmergencyDepartment ed, String name, float cost, String strat){
+		super(ed, name, cost, strat);
 		// TODO Auto-generated constructor stub
 	}
 		

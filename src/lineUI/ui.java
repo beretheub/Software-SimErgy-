@@ -17,6 +17,7 @@ public class ui {
 	private static int numberOfParameter = 10;
 	
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		boolean exit = false;
@@ -31,19 +32,19 @@ public class ui {
 			System.out.print("$ ");
 			query = sc.nextLine();
 			String[] formatedQuery = formatQuery(query);
-			
-			if(formatedQuery[0].equalsIgnoreCase("exit")){
-				exit = true;
-			}else{
-				try {
-					executeQuery(formatedQuery, listeED);
-				} catch (WrongQuery e) {
-					System.out.println("Your request isn't appropriate. You can try Help command");
-				} catch (WrongArgument e){
-					System.out.println("Your arguments aren't appropriate. You can try Help command");
+			if(formatedQuery[0] != null){
+				if(formatedQuery[0].equalsIgnoreCase("exit")){
+					exit = true;
+				}else{
+					try {
+						executeQuery(formatedQuery, listeED);
+					} catch (WrongQuery e) {
+						System.out.println("Your request isn't appropriate. You can try Help command");
+					} catch (WrongArgument e){
+						System.out.println("Your arguments aren't appropriate. You can try Help command");
+					}
 				}
 			}
-			
 			
 		}
 		
@@ -69,18 +70,31 @@ public class ui {
 		}else if(formatedQuery[0].equalsIgnoreCase("addRoom")){
 			
 			if(formatedQuery.length > 3){
-				for (EmergencyDepartment ed : lsED){
-					if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-						try {
-							roomFact.getRoom(ed, formatedQuery[2], formatedQuery[3]);
-						} catch (WrongResourceType e) {
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+					
+				}else{
+					for (EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							try {
+								roomFact.getRoom(ed, formatedQuery[2], formatedQuery[3]);
+							} catch (WrongResourceType e) {
+								throw new WrongArgument();
+							}
+
+						}else{
 							throw new WrongArgument();
 						}
-						
-					}else{
-						throw new WrongArgument();
 					}
 				}
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addMRI")){
+			if(formatedQuery.length > 4){
+				
+				
 			}else{
 				throw new WrongArgument();
 			}
