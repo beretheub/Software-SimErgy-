@@ -1,6 +1,7 @@
 package fr.ecp.is1220.projet.part2.simulationTest;
 
 import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
@@ -29,28 +30,38 @@ public class SimulationTest {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");
 		
- 		Nurse n1 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
- 		Nurse n2 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
- 		Nurse n3 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
- 		Nurse n4 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
- 		Nurse n5 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
- 		Nurse n6 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+ 		try {
+			Nurse n1 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+			Nurse n2 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+	 		Nurse n3 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+	 		Nurse n4 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+	 		Nurse n5 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+	 		Nurse n6 = (Nurse) nursfac.getHumanResource(ed1, "nurse", "Benoit", "Charmettant");
+	 		
+	 		Physician phys1 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
+	 		Physician phys2 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
+	 		Physician phys3 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
+	 		Physician phys4 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
+	 		Physician phys5 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
+	 		Physician phys6 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
+	 		Physician phys7 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
+	 		
+	 		Transporter t1 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
+	 		Transporter t2 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
+	 		Transporter t3 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
+	 		Transporter t4 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
+	 		Transporter t5 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
+	 		Transporter t6 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
+		} catch (WrongArgument e1) {
+			
+			e1.printStackTrace();
+		}
  		
- 		Physician phys1 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
- 		Physician phys2 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
- 		Physician phys3 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
- 		Physician phys4 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
- 		Physician phys5 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
- 		Physician phys6 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
- 		Physician phys7 = (Physician) nursfac.getHumanResource(ed1, "physician", "Bérénice", "Heuberger");
  		
  		
- 		Transporter t1 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
- 		Transporter t2 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
- 		Transporter t3 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
- 		Transporter t4 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
- 		Transporter t5 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
- 		Transporter t6 =(Transporter) nursfac.getHumanResource(ed1, "transporter", "Alfred", "Sansnom");
+ 		
+ 		
+ 		
  		
  		AbstractFactory roomfac = FactoryProducer.getFactory("room");
  		AbstractFactory equipfac = FactoryProducer.getFactory("equipment");

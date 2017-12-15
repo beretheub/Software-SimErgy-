@@ -1,0 +1,37 @@
+createed chu
+addroom chu boxroom b1
+addroom chu boxroom b2
+addroom chu boxroom b3
+addroom chu boxroom b4
+addroom chu boxroom b5
+addroom chu boxroom b6
+addroom chu shockroom s1
+addroom chu shockroom s2
+addroom chu shockroom s3
+addroom chu shockroom s4
+addroom chu shockroom s5
+addroom chu waitingroom w1
+addnurse chu Benoit Charmettant
+addnurse chu Benoit Charmettant
+addnurse chu Benoit Charmettant
+addnurse chu Benoit Charmettant
+addnurse chu Benoit Charmettant
+addnurse chu Benoit Charmettant
+addphysician chu Benoit Charmettant
+addphysician chu Benoit Charmettant
+addphysician chu Benoit Charmettant
+addphysician chu Benoit Charmettant
+addphysician chu Benoit Charmettant
+addphysician chu Benoit Charmettant
+addtransporter chu benoit Charmettant
+addtransporter chu benoit Charmettant
+addtransporter chu benoit Charmettant
+addtransporter chu benoit Charmettant
+addmri chu mri1 uniform
+addconsultation chu consultation1 uniform
+addxray chu xray1 uniform
+addscan chu scan1 uniform
+addbloodtest chu bloodtest1 uniform
+addradiography chu radio1 uniform
+executesimulation chu 500
+printedstate chu

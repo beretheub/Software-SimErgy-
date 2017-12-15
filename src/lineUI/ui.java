@@ -2,6 +2,10 @@ package lineUI;
 
 
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,6 +18,7 @@ import fr.ecp.is1220.projet.part1.FactoryPattern.HealtServiceFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.HumanResourcesFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.RoomFactory;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
+import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 public class ui {
 	
@@ -26,6 +31,7 @@ public class ui {
 		
 		boolean exit = false;
 		ArrayList<EmergencyDepartment> listeED = new ArrayList<>();
+		
 	
 		System.out.println("----------  Welcome to SimErgy -----------");
 		String query = "";	
@@ -39,6 +45,34 @@ public class ui {
 			if(formatedQuery[0] != null){
 				if(formatedQuery[0].equalsIgnoreCase("exit")){
 					exit = true;
+				}else if(formatedQuery[0].equalsIgnoreCase("importScenario")){
+					
+					if(formatedQuery.length > 1){
+						ArrayList<String> instructions = new ArrayList<>();
+						try {
+							instructions = ui.readScenarioFile(formatedQuery[1]);
+							
+							for(String line : instructions){
+								System.out.println("$ " + line);
+								String[] formatedLine = ui.formatQuery(line);
+								try {
+									if(formatedLine.length > 0){
+										ui.executeQuery(formatedLine, listeED);
+									}
+								} catch (WrongQuery e) {
+									System.out.println("Your request isn't appropriate.");
+									
+								} catch (WrongArgument e) {
+									System.out.println("Your request isn't appropriate.");
+								}
+							}
+						} catch (FileNotFoundException e) {
+							System.out.println("File not found");
+						}
+					}else{
+						System.out.println("Your request isn't appropriate. You can try Help command");
+					}
+					
 				}else{
 					try {
 						executeQuery(formatedQuery, listeED);
@@ -58,7 +92,49 @@ public class ui {
 		
 	}
 	
+	public static ArrayList<String> readScenarioFile(String string) throws FileNotFoundException {
+		FileReader file = null;
+		BufferedReader buffer = null;
+		String returnValue = "";
+		
+		
+		try {
+			file = new FileReader(string);
+			buffer = new BufferedReader(file);
+			String line = "";
+			
+			while((line = buffer.readLine()) != null){
+				returnValue += line + "\n"; 
+			}
+		} catch (IOException e) {
+			throw new FileNotFoundException();
+		}finally{
+			if(buffer!=null){
+				
+				try {
+					buffer.close();
+				} catch (IOException e) {}
+			}
+			if(file != null){
+				try {
+					file.close();
+				} catch (IOException e) {}
+			}
+		}
+			
+		ArrayList<String> listOfCommands = new ArrayList<>();
+		
+		String[] ls = returnValue.split("\n");
+		
+		for(String str : ls){
+			listOfCommands.add(str);
+		}
+		
+		return listOfCommands;
+	}
+
 	private static void executeQuery(String[] formatedQuery, ArrayList<EmergencyDepartment> lsED) throws WrongQuery, WrongArgument {
+		
 		
 		RoomFactory roomFact = (RoomFactory) FactoryProducer.getFactory("room");
 		HealtServiceFactory healthServFact = (HealtServiceFactory) FactoryProducer.getFactory("healthservice");
@@ -98,7 +174,8 @@ public class ui {
 				throw new WrongArgument();
 			}
 			
-		}else if(formatedQuery[0].equalsIgnoreCase("addMRI")){
+		}else if(ui.addHSrequest(formatedQuery[0])){
+			String whichHS = formatedQuery[0].substring(3);
 			if(formatedQuery.length > 3){
 				if(lsED.isEmpty()){
 					System.out.println("Please create an ed first");
@@ -107,7 +184,7 @@ public class ui {
 					for(EmergencyDepartment ed : lsED){
 						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
 							try {
-								healthServFact.getHealthService(ed, "mri", formatedQuery[2], formatedQuery[3]);
+								healthServFact.getHealthService(ed, whichHS, formatedQuery[2], formatedQuery[3]);
 								succeded = true;
 								break;
 							} catch (InvalidNameException e) {
@@ -125,7 +202,8 @@ public class ui {
 				throw new WrongArgument();
 			}
 			
-		}else if(formatedQuery[0].equalsIgnoreCase("addradioservice")){
+		}else if(ui.addHRrequest(formatedQuery[0])){
+			String whichHR = formatedQuery[0].substring(3);
 			if(formatedQuery.length > 3){
 				if(lsED.isEmpty()){
 					System.out.println("Please create an ed first");
@@ -133,142 +211,7 @@ public class ui {
 					boolean succeded = false;
 					for(EmergencyDepartment ed : lsED){
 						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-							try {
-								healthServFact.getHealthService(ed, "radiography", formatedQuery[2], formatedQuery[3]);
-								succeded = true;
-								break;
-							} catch (InvalidNameException e) {
-								throw new WrongArgument();
-							}
-
-						}
-					}
-					if (!succeded){
-						throw new WrongArgument();
-					}
-				}
-				
-			}else{
-				throw new WrongArgument();
-			}
-			
-		}else if(formatedQuery[0].equalsIgnoreCase("addbloodtest")){
-			if(formatedQuery.length > 3){
-				if(lsED.isEmpty()){
-					System.out.println("Please create an ed first");
-				}else{
-					boolean succeded = false;
-					for(EmergencyDepartment ed : lsED){
-						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-							try {
-								healthServFact.getHealthService(ed, "bloodtest", formatedQuery[2], formatedQuery[3]);
-								succeded = true;
-								break;
-							} catch (InvalidNameException e) {
-								throw new WrongArgument();
-							}
-
-						}
-					}
-					if (!succeded){
-						throw new WrongArgument();
-					}
-				}
-				
-			}else{
-				throw new WrongArgument();
-			}
-			
-		}else if(formatedQuery[0].equalsIgnoreCase("addxray")){
-			if(formatedQuery.length > 3){
-				if(lsED.isEmpty()){
-					System.out.println("Please create an ed first");
-				}else{
-					boolean succeded = false;
-					for(EmergencyDepartment ed : lsED){
-						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-							try {
-								healthServFact.getHealthService(ed, "xray", formatedQuery[2], formatedQuery[3]);
-								succeded = true;
-								break;
-							} catch (InvalidNameException e) {
-								throw new WrongArgument();
-							}
-
-						}
-					}
-					if (!succeded){
-						throw new WrongArgument();
-					}
-				}
-				
-			}else{
-				throw new WrongArgument();
-			}
-			
-		}else if(formatedQuery[0].equalsIgnoreCase("addscan")){
-			if(formatedQuery.length > 3){
-				if(lsED.isEmpty()){
-					System.out.println("Please create an ed first");
-				}else{
-					boolean succeded = false;
-					for(EmergencyDepartment ed : lsED){
-						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-							try {
-								healthServFact.getHealthService(ed, "scan", formatedQuery[2], formatedQuery[3]);
-								succeded = true;
-								break;
-							} catch (InvalidNameException e) {
-								throw new WrongArgument();
-							}
-
-						}
-					}
-					if (!succeded){
-						throw new WrongArgument();
-					}
-				}
-				
-			}else{
-				throw new WrongArgument();
-			}
-			
-		}else if(formatedQuery[0].equalsIgnoreCase("addconsultationservice")){
-			if(formatedQuery.length > 3){
-				if(lsED.isEmpty()){
-					System.out.println("Please create an ed first");
-				}else{
-					boolean succeded = false;
-					for(EmergencyDepartment ed : lsED){
-						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-							try {
-								healthServFact.getHealthService(ed, "consultation", formatedQuery[2], formatedQuery[3]);
-								succeded = true;
-								break;
-							} catch (InvalidNameException e) {
-								throw new WrongArgument();
-							}
-
-						}
-					}
-					if (!succeded){
-						throw new WrongArgument();
-					}
-				}
-				
-			}else{
-				throw new WrongArgument();
-			}
-			
-		}else if(formatedQuery[0].equalsIgnoreCase("addNurse")){
-			if(formatedQuery.length > 3){
-				if(lsED.isEmpty()){
-					System.out.println("Please create an ed first");
-				}else{
-					boolean succeded = false;
-					for(EmergencyDepartment ed : lsED){
-						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-							hrFact.getHumanResource(ed, "nurse", formatedQuery[1], formatedQuery[2]);
+							hrFact.getHumanResource(ed, whichHR, formatedQuery[1], formatedQuery[2]);
 							succeded = true;
 							break;
 						}
@@ -281,7 +224,57 @@ public class ui {
 				throw new WrongArgument();
 			}
 			
+		}else if(formatedQuery[0].equalsIgnoreCase("executeSimulation")){
+			if(formatedQuery.length > 2){
+				int time = 0;
+				try{
+					time = Integer.parseInt(formatedQuery[2]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				
+				boolean succeded = false;
+				
+				for(EmergencyDepartment ed : lsED){
+					if(ed.getEdName().equals(formatedQuery[1])){
+						timeManager tm = new timeManager();
+						tm.startSimulation(time,ed);
+						succeded = true;
+						break;
+					}
+				}
+				
+				if(!succeded){
+					throw new WrongArgument();
+				}
+				
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("printedstate")){
+			if (formatedQuery.length > 1){
+				boolean succeded = false;
+				
+				for(EmergencyDepartment ed : lsED){
+					if(ed.getEdName().equals(formatedQuery[1])){
+						ed.displayState();
+						succeded = true;
+						break;
+					}
+				}
+				
+				if(!succeded){
+					throw new WrongArgument();
+				}
+			}else{
+				throw new WrongArgument();
+			}
+			
+			
 		}else{
+		
+		
 			throw new WrongQuery();
 		}
 		
@@ -292,6 +285,34 @@ public class ui {
 	
 	
 	
+	private static boolean addHRrequest(String string) {
+		if(string.equalsIgnoreCase("addnurse")){
+			return true;
+		}else if(string.equalsIgnoreCase("addphysician")){
+			return true;
+		}else if(string.equalsIgnoreCase("addtransporter")){
+			return true;
+		}
+		return false;
+	}
+
+	private static boolean addHSrequest(String string) {
+		if(string.equalsIgnoreCase("addmri")){
+			return true;
+		}else if(string.equalsIgnoreCase("addradiography")){
+			return true;
+		}else if(string.equalsIgnoreCase("addxray")){
+			return true;
+		}else if(string.equalsIgnoreCase("addscan")){
+			return true;
+		}else if(string.equalsIgnoreCase("addbloodtest")){
+			return true;
+		}else if(string.equalsIgnoreCase("addconsultation")){
+			return true;
+		}
+		return false;
+	}
+
 	public static String[] formatQuery(String query){
 		
 		String[] ls = new String[numberOfParameter];
@@ -309,5 +330,7 @@ public class ui {
 		
 		return ls1;
 	}
-	
+
 }
+
+	 
