@@ -4,10 +4,14 @@ package lineUI;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongQuery;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
+import fr.ecp.is1220.projet.part1.FactoryPattern.HealtServiceFactory;
+import fr.ecp.is1220.projet.part1.FactoryPattern.HumanResourcesFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.RoomFactory;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 
@@ -56,8 +60,9 @@ public class ui {
 	
 	private static void executeQuery(String[] formatedQuery, ArrayList<EmergencyDepartment> lsED) throws WrongQuery, WrongArgument {
 		
-		
 		RoomFactory roomFact = (RoomFactory) FactoryProducer.getFactory("room");
+		HealtServiceFactory healthServFact = (HealtServiceFactory) FactoryProducer.getFactory("healthservice");
+		HumanResourcesFactory hrFact = (HumanResourcesFactory) FactoryProducer.getFactory("humanresource");
 		
 		
 		if(formatedQuery[0].equalsIgnoreCase("createEd")){
@@ -68,23 +73,25 @@ public class ui {
 				throw new WrongArgument();
 			}
 		}else if(formatedQuery[0].equalsIgnoreCase("addRoom")){
-			
 			if(formatedQuery.length > 3){
 				if(lsED.isEmpty()){
 					System.out.println("Please create an ed first");
-					
 				}else{
-					for (EmergencyDepartment ed : lsED){
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
 						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
 							try {
 								roomFact.getRoom(ed, formatedQuery[2], formatedQuery[3]);
+								succeded = true;
+								break;
 							} catch (WrongResourceType e) {
 								throw new WrongArgument();
 							}
 
-						}else{
-							throw new WrongArgument();
 						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
 					}
 				}
 			}else{
@@ -92,9 +99,184 @@ public class ui {
 			}
 			
 		}else if(formatedQuery[0].equalsIgnoreCase("addMRI")){
-			if(formatedQuery.length > 4){
+			if(formatedQuery.length > 3){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							try {
+								healthServFact.getHealthService(ed, "mri", formatedQuery[2], formatedQuery[3]);
+								succeded = true;
+								break;
+							} catch (InvalidNameException e) {
+								throw new WrongArgument();
+							}
+
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
 				
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addradioservice")){
+			if(formatedQuery.length > 3){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							try {
+								healthServFact.getHealthService(ed, "radiography", formatedQuery[2], formatedQuery[3]);
+								succeded = true;
+								break;
+							} catch (InvalidNameException e) {
+								throw new WrongArgument();
+							}
+
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
 				
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addbloodtest")){
+			if(formatedQuery.length > 3){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							try {
+								healthServFact.getHealthService(ed, "bloodtest", formatedQuery[2], formatedQuery[3]);
+								succeded = true;
+								break;
+							} catch (InvalidNameException e) {
+								throw new WrongArgument();
+							}
+
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
+				
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addxray")){
+			if(formatedQuery.length > 3){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							try {
+								healthServFact.getHealthService(ed, "xray", formatedQuery[2], formatedQuery[3]);
+								succeded = true;
+								break;
+							} catch (InvalidNameException e) {
+								throw new WrongArgument();
+							}
+
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
+				
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addscan")){
+			if(formatedQuery.length > 3){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							try {
+								healthServFact.getHealthService(ed, "scan", formatedQuery[2], formatedQuery[3]);
+								succeded = true;
+								break;
+							} catch (InvalidNameException e) {
+								throw new WrongArgument();
+							}
+
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
+				
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addconsultationservice")){
+			if(formatedQuery.length > 3){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							try {
+								healthServFact.getHealthService(ed, "consultation", formatedQuery[2], formatedQuery[3]);
+								succeded = true;
+								break;
+							} catch (InvalidNameException e) {
+								throw new WrongArgument();
+							}
+
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
+				
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addNurse")){
+			if(formatedQuery.length > 3){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							hrFact.getHumanResource(ed, "nurse", formatedQuery[1], formatedQuery[2]);
+							succeded = true;
+							break;
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
 			}else{
 				throw new WrongArgument();
 			}

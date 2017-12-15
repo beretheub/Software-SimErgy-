@@ -1,6 +1,7 @@
 package fr.ecp.is1220.projet.part1.FactoryPattern;
 
 import fr.ecp.is1220.projet.part1.core.Equipment;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.HealthServices;
 import fr.ecp.is1220.projet.part1.core.HumanResources;
@@ -13,9 +14,10 @@ public class HumanResourcesFactory extends AbstractFactory {
 	/**
 	 * Creates a Nurse, Physician or a Transporter by writing the kind of resource you want to create as the first parameter (String)
 	 * Then it takes a second parameter String for his/her name and a third for the surname 
+	 * @throws WrongArgument 
 	 */
 	@Override
-	public HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) {
+	public HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) throws WrongArgument {
 		if (resourceType.equalsIgnoreCase("nurse")){
 			return new Nurse(ed, name, surname);
 		}
@@ -26,9 +28,7 @@ public class HumanResourcesFactory extends AbstractFactory {
 			return new Physician(ed, name, surname);
 		}
 		else{
-			// On pourrait peut être faire ça avec une exception ?
-			System.out.println("The creation of a human resource didn't work, please enter a valid choice");
-			return null;
+			throw new WrongArgument();
 		}
 		
 	}
