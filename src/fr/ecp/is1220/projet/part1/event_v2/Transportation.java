@@ -16,7 +16,7 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
  * 
  */
 
-public class Transportation extends Event {
+public class Transportation extends Event implements java.io.Serializable {
 	Transporter transporter;
 	Patient p1;
 	Strecher strecher;

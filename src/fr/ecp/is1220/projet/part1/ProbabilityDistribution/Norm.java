@@ -7,7 +7,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterNormException;
 /*
  * On code une loi normale, qui par défaut est centrée réduite.
  */
-public class Norm extends ProbabilityDistributions {
+public class Norm extends ProbabilityDistributions implements java.io.Serializable {
 
 	// Loi noramle centrée réduite
 	public static double getSample(){

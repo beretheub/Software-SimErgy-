@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.core;
 
-public class Transporter extends HumanResources {
+public class Transporter extends HumanResources implements java.io.Serializable{
 	
 	TransporterState state;
 

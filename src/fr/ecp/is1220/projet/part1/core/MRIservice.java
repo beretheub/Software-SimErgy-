@@ -2,7 +2,7 @@ package fr.ecp.is1220.projet.part1.core;
 
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
-public class MRIservice extends HealthServices {
+public class MRIservice extends HealthServices implements java.io.Serializable{
 	
 	/**
 	 * Service IRM : hérite de la classe healthservice

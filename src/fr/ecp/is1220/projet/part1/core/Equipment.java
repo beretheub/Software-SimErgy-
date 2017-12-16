@@ -11,7 +11,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
  * 	- Etat (nhrstate, free par défaut)
  */
 
-public abstract class Equipment implements NonHumanResources {
+public abstract class Equipment implements NonHumanResources, java.io.Serializable{
 	private EmergencyDepartment ed;
 	private String name;
 	private int id;

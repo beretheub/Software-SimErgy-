@@ -22,7 +22,7 @@ import fr.ecp.is1220.projet.part1.ProbabilityDistribution.uniformStrat;
  * 	- Liste d'observers (ArrayList<Observer>, cf observer pattern)
  *
  */
-public abstract class HealthServices implements Observable, NonHumanResources {
+public abstract class HealthServices implements Observable, NonHumanResources, java.io.Serializable {
 	private EmergencyDepartment ed;
 	private int id;
 	private String name;

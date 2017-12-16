@@ -12,7 +12,7 @@ import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
  * 	- Liste des patients traités (ArrayList<Patient>)
  * 	- Boite de réception des messages (ArrayList<String>)
  */
-public class Physician extends HumanResources implements Observer {
+public class Physician extends HumanResources implements Observer, java.io.Serializable {
 	
 	private PhysicianState state;
 	private ArrayList<Patient> patientsTreated = new ArrayList<>();

@@ -6,7 +6,11 @@ import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
 import fr.ecp.is1220.projet.part1.event_v2.Event;
 
 
-public class EmergencyDepartment {
+public class EmergencyDepartment implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2883963961837820066L;
 	private String edName;
 	public ArrayList<Resources> edResources;
 	public ArrayList<Patient> listOfPatientsInTheED;
@@ -45,6 +49,7 @@ public class EmergencyDepartment {
 		patientWaitingForTransportation = new ArrayList<>();
 		listOfEndedPatient = new ArrayList<>();
 		listOfHealthServices = new ArrayList<>();
+	
 	}
 	
 	/**

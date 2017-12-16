@@ -23,7 +23,7 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
  * 	- Temps passé à l'ED : LOS(double)
  * 	- Porte à Porte: DTDT(double)
  */
-public class Patient {
+public class Patient implements java.io.Serializable {
 	
 	private EmergencyDepartment ed;
 	private int id;

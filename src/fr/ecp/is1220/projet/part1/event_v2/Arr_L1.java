@@ -10,7 +10,7 @@ import fr.ecp.is1220.projet.part2.simulation.EventsType;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 
-public class Arr_L1 extends Arr {
+public class Arr_L1 extends Arr implements java.io.Serializable {
 	private static double lastArr = 0;
 	
 	public Arr_L1(EmergencyDepartment ed){

@@ -9,7 +9,7 @@ import fr.ecp.is1220.projet.part1.core.SeverityLevel;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
-public class Arr_L3 extends Arr{
+public class Arr_L3 extends Arr implements java.io.Serializable{
 	private static double lastArr = 0;
 	public Arr_L3(EmergencyDepartment ed){
 		

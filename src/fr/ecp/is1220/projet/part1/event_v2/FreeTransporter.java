@@ -5,7 +5,7 @@ import fr.ecp.is1220.projet.part1.core.Transporter;
 import fr.ecp.is1220.projet.part1.core.TransporterState;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
-public class FreeTransporter extends Event {
+public class FreeTransporter extends Event implements java.io.Serializable{
 	Transporter tran;
 	public FreeTransporter(double d, EmergencyDepartment ed, Transporter tran) {
 		super(d, ed);

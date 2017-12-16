@@ -2,7 +2,7 @@ package fr.ecp.is1220.projet.part1.ProbabilityDistribution;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 
-public class uniformStrat extends DistributionStrategy {
+public class uniformStrat extends DistributionStrategy implements java.io.Serializable {
 
 	@Override
 	public double getDuree(double[] parameters) {

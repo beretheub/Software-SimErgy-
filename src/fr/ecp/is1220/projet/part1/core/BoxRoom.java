@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.core;
 
-public class BoxRoom extends Rooms {
+public class BoxRoom extends Rooms implements java.io.Serializable {
 	/**
 	 * Crée une nouvelle pièce de type boxroom
 	 * La capacité d'une boxroom est fixée à 1

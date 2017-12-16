@@ -3,7 +3,7 @@ package fr.ecp.is1220.projet.part1.core;
 
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
-public class Radiography extends HealthServices {
+public class Radiography extends HealthServices implements java.io.Serializable {
 
 	/**
 	 * Radiography service : hérite de la classe heathservice.

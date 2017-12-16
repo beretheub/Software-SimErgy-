@@ -3,7 +3,7 @@ package fr.ecp.is1220.projet.part1.event_v2;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
-public abstract class Event {
+public abstract class Event implements java.io.Serializable {
 	
 	public double timeStamp; // instant d'occurence de l'évènement auquel l'évent se produit
 	protected EmergencyDepartment ed;

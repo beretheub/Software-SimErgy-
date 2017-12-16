@@ -1,7 +1,7 @@
 package fr.ecp.is1220.projet.part1.core;
 // Ce qui serait bien avec les waiting room serait de savoir dans quel ordre sont arrivés les patients
 
-public class WaitingRoom extends Rooms {
+public class WaitingRoom extends Rooms implements java.io.Serializable {
 	/**
 	 * Create a new shock room with an initial unlimited capacity
 	 * @param name

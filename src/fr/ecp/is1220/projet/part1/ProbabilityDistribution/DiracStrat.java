@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.ProbabilityDistribution;
 
-public class DiracStrat extends DistributionStrategy {
+public class DiracStrat extends DistributionStrategy implements java.io.Serializable {
 
 	@Override
 	public double getDuree(double[] parameters) {

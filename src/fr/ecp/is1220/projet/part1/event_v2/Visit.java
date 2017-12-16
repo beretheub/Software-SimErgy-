@@ -13,7 +13,7 @@ import fr.ecp.is1220.projet.part1.core.Rooms;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
-public class Visit extends Event {
+public class Visit extends Event implements java.io.Serializable{
 	
 	/**
 	 * Fonctionnement visite : 

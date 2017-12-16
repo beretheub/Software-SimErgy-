@@ -10,7 +10,7 @@ import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.PhysicianState;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
-public abstract class Exam extends Event {
+public abstract class Exam extends Event implements java.io.Serializable{
 
 	/**
 	 * Les différents examens disponibles : Bloodtest, MRI, XRAY 

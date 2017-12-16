@@ -4,7 +4,7 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
-public class FreeStrecher extends Event {
+public class FreeStrecher extends Event implements java.io.Serializable {
 	
 	private Strecher strecher;
 	

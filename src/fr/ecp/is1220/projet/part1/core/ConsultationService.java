@@ -13,7 +13,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
  */
 
 
-public class ConsultationService extends HealthServices {
+public class ConsultationService extends HealthServices implements java.io.Serializable{
 	
 	/**
 	 * Consultationservice : hérite de la classe heathservice.

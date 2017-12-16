@@ -9,7 +9,7 @@ import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part1.core.Radiography;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
-public class RADIOGRAPHY extends Exam{
+public class RADIOGRAPHY extends Exam implements java.io.Serializable{
 	/**
 	 * Fonctionnemet de la visite : 
 	 * - temps de duree suit une loi de probabilité uniforme (15,90)

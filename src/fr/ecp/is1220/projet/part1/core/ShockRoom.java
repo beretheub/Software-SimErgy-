@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.core;
 
-public class ShockRoom extends Rooms {
+public class ShockRoom extends Rooms implements java.io.Serializable{
 	/**
 	 * Create a new shock room with an initial capacity of 1 patient
 	 * @param name

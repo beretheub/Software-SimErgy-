@@ -1,6 +1,6 @@
 package fr.ecp.is1220.projet.part1.core;
 
-public class Scan extends HealthServices {
+public class Scan extends HealthServices implements java.io.Serializable {
 	
 	public Scan(EmergencyDepartment ed, String name) {
 		super(ed, name, 14, "uniform");

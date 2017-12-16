@@ -14,7 +14,7 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 //A besoin d'une nurse, d'une waiting Room libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L1, L3 ou L3.
 // Cet evènement doit etre classé temporellement après un Regist_Urgent (dans eventQueue) pour un meme timeStamp quand on s'attaque à la partie temporelle
-public class Regist_NonUrgent extends Regist {
+public class Regist_NonUrgent extends Regist implements java.io.Serializable{
 		private int duration;
 
 		public Regist_NonUrgent(double timeStamp, EmergencyDepartment ed, BoxRoom room1, Patient p, Nurse n1) {

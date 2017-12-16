@@ -18,7 +18,7 @@ import fr.ecp.is1220.projet.part1.core.Rooms;
  * 
  */
 
-public abstract class Regist extends Event {
+public abstract class Regist extends Event implements java.io.Serializable{
 	Rooms nextRoom; //prochaine pièce qui va accueillir le patient ? 
 	Patient p1;
 	Nurse nurse;

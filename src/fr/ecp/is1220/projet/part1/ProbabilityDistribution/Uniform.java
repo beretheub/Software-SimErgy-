@@ -5,7 +5,7 @@ import java.util.Random;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterExpException;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 
-public class Uniform extends ProbabilityDistributions {
+public class Uniform extends ProbabilityDistributions implements java.io.Serializable{
 	protected double borneinf;
 	protected double bornesup;
 	

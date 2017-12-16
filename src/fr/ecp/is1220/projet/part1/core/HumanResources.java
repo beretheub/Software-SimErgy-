@@ -10,7 +10,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
  * 	- Nom et nom de famille (String)
  */
 
-public abstract class HumanResources implements Resources {
+public abstract class HumanResources implements Resources, java.io.Serializable{
 	int id;
 	String name;
 	String surname;

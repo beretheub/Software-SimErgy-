@@ -5,7 +5,7 @@ import fr.ecp.is1220.projet.part1.core.Nurse;
 import fr.ecp.is1220.projet.part1.core.NurseState;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
-public class FreeNurse extends Event {
+public class FreeNurse extends Event implements java.io.Serializable {
 	Nurse nurse;
 	public FreeNurse(double d, EmergencyDepartment ed, Nurse nurse) {
 		super(d, ed);
