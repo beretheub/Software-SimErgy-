@@ -12,6 +12,10 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
  */
 
 public abstract class Equipment implements NonHumanResources, java.io.Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4419268524718046806L;
 	private EmergencyDepartment ed;
 	private String name;
 	private int id;

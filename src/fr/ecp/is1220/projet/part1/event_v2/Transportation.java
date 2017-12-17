@@ -17,6 +17,8 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
  */
 
 public class Transportation extends Event implements java.io.Serializable {
+
+	private static final long serialVersionUID = -6838607827886751938L;
 	Transporter transporter;
 	Patient p1;
 	Strecher strecher;

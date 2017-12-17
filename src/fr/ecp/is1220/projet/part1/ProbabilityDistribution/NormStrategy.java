@@ -4,6 +4,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterNormException;
 
 public class NormStrategy extends DistributionStrategy implements java.io.Serializable {
 
+	private static final long serialVersionUID = -1808333712252649244L;
+
 	@Override
 	public double getDuree(double[] parameters) {
 		if(parameters.length > 4){

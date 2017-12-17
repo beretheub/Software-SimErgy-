@@ -33,7 +33,7 @@ public class ComputeStats {
 		
 		average = average/count;
 		
-		System.out.println("Average Length of Stay : " + average + ". Calculated over " + count + " patients." );
+		System.out.println("Average Length of Stay : " + timeManager.formatTime(average) + ". Calculated over " + count + " patients." );
 	}
 	public static void averagelos(EmergencyDepartment ed, SeverityLevel sev){
 		
@@ -54,7 +54,7 @@ public class ComputeStats {
 		
 		average = average/count;
 		
-		System.out.println("Average Length of Stay (" + sev + ") : " + average + ". Calculated over " + count + " patients." );
+		System.out.println("Average Length of Stay (" + sev + ") : " + timeManager.formatTime(average) + ". Calculated over " + count + " patients." );
 	}
 		
 		
@@ -91,7 +91,7 @@ public class ComputeStats {
 		
 		average = average/count;
 		
-		System.out.println("Average Door to Doctor Time  : " + average + ". Calculated over " + count + " patients." );
+		System.out.println("Average Door to Doctor Time  : " + timeManager.formatTime(average) + ". Calculated over " + count + " patients." );
 	}
 	public static void averagedtdt(EmergencyDepartment ed, SeverityLevel sev){
 
@@ -125,6 +125,6 @@ public class ComputeStats {
 		
 		average = average/count;
 		
-		System.out.println("Average Door to Doctor Time (" + sev + ") : " + average + ". Calculated over " + count + " patients." );
+		System.out.println("Average Door to Doctor Time (" + sev + ") : " + timeManager.formatTime(average) + ". Calculated over " + count + " patients." );
 	}
 }

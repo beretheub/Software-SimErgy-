@@ -4,6 +4,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
 
 public class uniformStrat extends DistributionStrategy implements java.io.Serializable {
 
+	private static final long serialVersionUID = -372154949141459837L;
+
 	@Override
 	public double getDuree(double[] parameters) {
 		if(parameters.length > 1){

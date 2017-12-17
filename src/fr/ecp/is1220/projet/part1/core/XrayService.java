@@ -1,6 +1,8 @@
 package fr.ecp.is1220.projet.part1.core;
 
 public class XrayService extends HealthServices implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 3663632051430137952L;
 	/**
 	 * Creates a new Xray service. It inherits the attributes of a healtService. 
 	 * The default price of an Xray is 15, bus you can determine a new price for this specific consultation service

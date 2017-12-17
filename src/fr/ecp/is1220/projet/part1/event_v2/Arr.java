@@ -12,8 +12,8 @@ import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 
 public abstract class Arr extends Event {
 	
-	
-	
+	private static final long serialVersionUID = 6772947033626998173L;
+
 	public Arr(double d, EmergencyDepartment ed) {
 		super(d, ed);
 	}	

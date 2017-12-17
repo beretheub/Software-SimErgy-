@@ -16,6 +16,11 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 public class ConsultationService extends HealthServices implements java.io.Serializable{
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4705702770630023354L;
+
+	/**
 	 * Consultationservice : hérite de la classe heathservice.
 	 * Le prix par défaut est fixé à 30, mais il est possible de fixer directement le prix à la création. 
 	 * @throws WrongIDAttribution 

@@ -7,6 +7,8 @@ package fr.ecp.is1220.projet.part1.core;
  * 	- prochaine date à laquelle la nurse est disponible (Date)
  */
 public class Nurse extends HumanResources implements java.io.Serializable{
+
+	private static final long serialVersionUID = -2142218620013892675L;
 	NurseState state;
 	
 	

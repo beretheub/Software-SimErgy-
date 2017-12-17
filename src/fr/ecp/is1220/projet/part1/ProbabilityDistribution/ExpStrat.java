@@ -4,6 +4,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterExpException;
 
 public class ExpStrat extends DistributionStrategy implements java.io.Serializable {
 
+	private static final long serialVersionUID = -5318594274230395873L;
+
 	@Override
 	public double getDuree(double[] parameters) {
 		if (parameters.length > 2){

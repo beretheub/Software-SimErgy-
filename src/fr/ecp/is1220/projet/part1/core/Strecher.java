@@ -1,6 +1,8 @@
 package fr.ecp.is1220.projet.part1.core;
 
 public class Strecher extends Equipment implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 289077096251147696L;
 	private StrecherState state;
 	
 	/**

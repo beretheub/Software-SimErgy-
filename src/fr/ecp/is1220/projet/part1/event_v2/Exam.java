@@ -12,6 +12,8 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 public abstract class Exam extends Event implements java.io.Serializable{
 
+
+	private static final long serialVersionUID = 1832592439611489507L;
 	/**
 	 * Les différents examens disponibles : Bloodtest, MRI, XRAY 
 	 */	

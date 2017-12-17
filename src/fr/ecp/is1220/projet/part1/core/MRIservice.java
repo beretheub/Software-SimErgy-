@@ -4,6 +4,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
 public class MRIservice extends HealthServices implements java.io.Serializable{
 	
+	private static final long serialVersionUID = 5119071496891567058L;
+
 	/**
 	 * Service IRM : hérite de la classe healthservice
 	 * Le prix par défaut est fixé à 50, mais il est possible de fixer directement le prix à la création. 

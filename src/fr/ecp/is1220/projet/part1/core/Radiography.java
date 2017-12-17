@@ -5,6 +5,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
 public class Radiography extends HealthServices implements java.io.Serializable {
 
+	private static final long serialVersionUID = 3489183991627267761L;
+
 	/**
 	 * Radiography service : hérite de la classe heathservice.
 	 * Le prix par défaut est fixé à 50, mais il est possible de fixer directement le prix à la création.

@@ -5,6 +5,8 @@ import java.util.Random;
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterExpException;
 
 public class Exp extends ProbabilityDistributions implements java.io.Serializable {
+
+	private static final long serialVersionUID = 3695483441565725705L;
 	protected double lambda;
 
 	public Exp(double lambda) throws ParameterExpException {

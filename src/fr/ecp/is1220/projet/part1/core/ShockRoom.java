@@ -1,6 +1,9 @@
 package fr.ecp.is1220.projet.part1.core;
 
 public class ShockRoom extends Rooms implements java.io.Serializable{
+	
+	private static final long serialVersionUID = 5773377729064464849L;
+
 	/**
 	 * Create a new shock room with an initial capacity of 1 patient
 	 * @param name

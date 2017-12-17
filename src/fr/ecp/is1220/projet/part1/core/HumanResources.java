@@ -11,6 +11,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
  */
 
 public abstract class HumanResources implements Resources, java.io.Serializable{
+
+	private static final long serialVersionUID = 7273686158791370631L;
 	int id;
 	String name;
 	String surname;

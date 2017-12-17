@@ -14,6 +14,8 @@ import fr.ecp.is1220.projet.part1.ObserverPattern.Observer;
  */
 public class Physician extends HumanResources implements Observer, java.io.Serializable {
 	
+
+	private static final long serialVersionUID = -4641842343038708876L;
 	private PhysicianState state;
 	private ArrayList<Patient> patientsTreated = new ArrayList<>();
 	private ArrayList<String> messageBox = new ArrayList<>();

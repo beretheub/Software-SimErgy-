@@ -2,6 +2,8 @@ package fr.ecp.is1220.projet.part1.core;
 
 public class Transporter extends HumanResources implements java.io.Serializable{
 	
+
+	private static final long serialVersionUID = -6264929187533728L;
 	TransporterState state;
 
 	/**

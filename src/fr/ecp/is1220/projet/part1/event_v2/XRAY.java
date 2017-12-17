@@ -18,6 +18,11 @@ public class XRAY extends Exam implements java.io.Serializable {
 	 * 
 	 */	
 
+
+	private static final long serialVersionUID = -1112723213522904128L;
+
+
+
 	public XRAY(EmergencyDepartment ed, double timeStamp, XrayService room, Patient p1,Physician phys){
 		super(timeStamp, ed,(HealthServices)room, p1, phys, calculduree());
 	

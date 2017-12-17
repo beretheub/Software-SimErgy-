@@ -8,7 +8,7 @@ import lineUI.ui;
 public class uiTest {
 
 	public static void main(String[] args) {
-		
+		/*
 		ArrayList<String> ar = new ArrayList<>();
 		
 		try {
@@ -18,8 +18,9 @@ public class uiTest {
 		}
 		for(String str : ar){
 			System.out.println(str);
-		}
-
+		}*/
+		String[] str = new String()[10];
+		
 	}
 
 }

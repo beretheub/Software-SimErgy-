@@ -19,6 +19,8 @@ import fr.ecp.is1220.projet.part1.core.Rooms;
  */
 
 public abstract class Regist extends Event implements java.io.Serializable{
+
+	private static final long serialVersionUID = -6618345911509768323L;
 	Rooms nextRoom; //prochaine pièce qui va accueillir le patient ? 
 	Patient p1;
 	Nurse nurse;

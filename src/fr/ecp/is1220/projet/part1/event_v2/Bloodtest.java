@@ -10,6 +10,10 @@ import fr.ecp.is1220.projet.part1.core.Physician;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class Bloodtest extends Exam implements java.io.Serializable{
+	
+	private static final long serialVersionUID = -2095811624644023059L;
+
+
 
 	/**
 	 * Fonctionnemet de la visite : 

@@ -11,6 +11,7 @@ import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class MRI extends Exam implements java.io.Serializable{
 	
+	private static final long serialVersionUID = 209357616871439391L;
 
 	/**
 	 * Fonctionnemet de la visite : 

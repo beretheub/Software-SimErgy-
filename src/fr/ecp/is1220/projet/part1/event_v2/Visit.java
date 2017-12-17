@@ -14,7 +14,8 @@ import fr.ecp.is1220.projet.part2.simulation.EventsType;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 public class Visit extends Event implements java.io.Serializable{
-	
+
+	private static final long serialVersionUID = -9000853795856538191L;
 	/**
 	 * Fonctionnement visite : 
 	 * 

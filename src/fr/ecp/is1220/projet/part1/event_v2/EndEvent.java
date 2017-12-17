@@ -11,6 +11,8 @@ import fr.ecp.is1220.projet.part2.simulation.EventsType;
 **/
 
 public class EndEvent extends Event implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 5066079468592727459L;
 	protected Patient patient;
 	public EndEvent(double d, EmergencyDepartment ed, Patient patient) {
 		super(d, ed);

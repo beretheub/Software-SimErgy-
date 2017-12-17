@@ -15,45 +15,47 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
 //A besoin d'une nurse, d'une waiting Room libre et d'un patient dans la liste "waitingForTriage" avec un statut waiting et un severityLevel L1, L3 ou L3.
 // Cet evènement doit etre classé temporellement après un Regist_Urgent (dans eventQueue) pour un meme timeStamp quand on s'attaque à la partie temporelle
 public class Regist_NonUrgent extends Regist implements java.io.Serializable{
-		private int duration;
+	
+	private static final long serialVersionUID = -6384268453974077627L;
+	private int duration;
 
-		public Regist_NonUrgent(double timeStamp, EmergencyDepartment ed, BoxRoom room1, Patient p, Nurse n1) {
-			super(timeStamp, ed, room1, p, n1);	
-			duration = 5; // mettons 5 minutes -> faire une distribution de proba ?
+	public Regist_NonUrgent(double timeStamp, EmergencyDepartment ed, BoxRoom room1, Patient p, Nurse n1) {
+		super(timeStamp, ed, room1, p, n1);	
+		duration = 5; // mettons 5 minutes -> faire une distribution de proba ?
+	}
+
+	@Override
+	public void execute(){
+
+		try {
+			this.nextRoom.newPatient(p1);
+		} catch (FullRoom e) {		
+			e.printStackTrace();
+			return; //si on arrive pas a placer le patient dans la salle, on arrête la méthode ! On ne fait pas la suite
 		}
-
-		@Override
-		public void execute(){
-			
-			try {
-				this.nextRoom.newPatient(p1);
-			} catch (FullRoom e) {		
-				e.printStackTrace();
-				return; //si on arrive pas a placer le patient dans la salle, on arrête la méthode ! On ne fait pas la suite
-			}
-			try {
-				this.ed.removePatientWaitingForTriage(p1);
-			} catch (NoPatientinED e1) {
-					System.out.println("ERROR : Regist Didn't work");
-					return;
-			}
-			this.p1.setPatientState(PatientState.INSTALLING);
-			this.p1.addEvent(this);
-			this.nurse.setState(NurseState.OCCUPIED);
-			EndEvent e = new EndEvent(this.timeStamp + duration, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
-			p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + timeManager.formatTime(timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
-			
-			this.ed.addEventInEventQueue(e);
-			FreeNurse e2 = new FreeNurse(this.timeStamp + duration, this.ed, this.nurse); // La nurse est occupée pendant 5 minutes puis libérée de la meme manière que les patients
-			this.ed.addEventInEventQueue(e2);
-
+		try {
+			this.ed.removePatientWaitingForTriage(p1);
+		} catch (NoPatientinED e1) {
+			System.out.println("ERROR : Regist Didn't work");
+			return;
 		}
+		this.p1.setPatientState(PatientState.INSTALLING);
+		this.p1.addEvent(this);
+		this.nurse.setState(NurseState.OCCUPIED);
+		EndEvent e = new EndEvent(this.timeStamp + duration, this.ed, this.p1); // Mettons que l'installation dans la shock room prend 5 minutes.	
+		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Register by nurse : " + Integer.toString(this.nurse.getId()) + " at " + timeManager.formatTime(timeStamp) + " - Is placed in room : " + this.nextRoom.getId());
 
-		@Override
-		public EventsType getType() {
-			// TODO Auto-generated method stub
-			return EventsType.REGISTNONURGENT;
-		}
+		this.ed.addEventInEventQueue(e);
+		FreeNurse e2 = new FreeNurse(this.timeStamp + duration, this.ed, this.nurse); // La nurse est occupée pendant 5 minutes puis libérée de la meme manière que les patients
+		this.ed.addEventInEventQueue(e2);
+
+	}
+
+	@Override
+	public EventsType getType() {
+		// TODO Auto-generated method stub
+		return EventsType.REGISTNONURGENT;
+	}
 
 
 }

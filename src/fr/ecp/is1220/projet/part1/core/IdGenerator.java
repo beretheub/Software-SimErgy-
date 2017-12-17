@@ -2,7 +2,9 @@ package fr.ecp.is1220.projet.part1.core;
 
 import fr.ecp.is1220.projet.part1.Exceptions.WrongIDAttribution;
 
-public class IdGenerator {
+public class IdGenerator implements java.io.Serializable{
+
+	private static final long serialVersionUID = 3631716926893860036L;
 	private int idcompteur = 0;
 	private static IdGenerator instance = null;
 	

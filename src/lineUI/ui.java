@@ -18,6 +18,8 @@ import fr.ecp.is1220.projet.part1.FactoryPattern.HealtServiceFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.HumanResourcesFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.RoomFactory;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
+import fr.ecp.is1220.projet.part1.core.SeverityLevel;
+import fr.ecp.is1220.projet.part2.simulation.ComputeStats;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
 public class ui {
@@ -271,6 +273,44 @@ public class ui {
 				throw new WrongArgument();
 			}
 			
+		}else if(formatedQuery[0].equalsIgnoreCase("computeStats")){
+			if (formatedQuery.length > 1){
+				boolean succeded = false;
+				
+				for(EmergencyDepartment ed : lsED){
+					if(ed.getEdName().equals(formatedQuery[1])){
+						succeded = true;
+						if(formatedQuery[2] == null){
+							System.out.println("Statistics for emergency departement : " + ed.getEdName());
+							System.out.println("Calculated for any kind of patient");
+							ComputeStats.averagedtdt(ed);
+							ComputeStats.averagelos(ed);
+
+							
+						}else if(formatedQuery[2] != null){
+							succeded = false;
+							if(formatedQuery[2].equalsIgnoreCase("l1") || formatedQuery[2].equalsIgnoreCase("l2") || formatedQuery[2].equalsIgnoreCase("l3") || formatedQuery[2].equalsIgnoreCase("l4") || formatedQuery[2].equalsIgnoreCase("l5")){
+								System.out.println("Statistics for emergency departement : " + ed.getEdName());
+								System.out.println("Calculated for patients with " + formatedQuery[2] + " severity");
+								SeverityLevel sev = returnSeverity(formatedQuery[2]);
+								if(sev != null){
+									succeded = true;
+									ComputeStats.averagedtdt(ed, sev);
+									ComputeStats.averagelos(ed, sev);
+								}
+							}
+						}
+					}
+				}
+				
+				if(!succeded){
+					throw new WrongArgument();
+				}
+				
+			}else{
+				throw new WrongArgument();
+			}
+			
 			
 		}else{
 		
@@ -285,6 +325,21 @@ public class ui {
 	
 	
 	
+	private static SeverityLevel returnSeverity(String string) {
+		if(string.equalsIgnoreCase("l1")){
+			return SeverityLevel.L1;
+		}else if(string.equalsIgnoreCase("l2")){
+			return SeverityLevel.L2;
+		}else if(string.equalsIgnoreCase("l3")){
+			return SeverityLevel.L3;
+		}else if(string.equalsIgnoreCase("l4")){
+			return SeverityLevel.L4;
+		}else if(string.equalsIgnoreCase("l5")){
+			return SeverityLevel.L5;
+		}
+		return null;
+	}
+
 	private static boolean addHRrequest(String string) {
 		if(string.equalsIgnoreCase("addnurse")){
 			return true;
@@ -327,10 +382,27 @@ public class ui {
 				j++;
 			}
 		}
+		int count = 0;
+		for(String str : ls1){
+			if(str != null){
+				count+=1;
+			}
+		}
 		
-		return ls1;
+		String[] ls2 = new String[count];
+		for(int i = 0 ; i< count; i++){
+			ls2[i] = ls1[i];
+		}
+		if(count != 0){
+			return ls2;
+		}else{
+			String[] ls3 = new String[1];
+			
+			return ls3;	
+		}
+		
+		
 	}
-
 }
 
 	 

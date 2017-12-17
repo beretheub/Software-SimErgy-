@@ -23,6 +23,8 @@ import fr.ecp.is1220.projet.part1.ProbabilityDistribution.uniformStrat;
  *
  */
 public abstract class HealthServices implements Observable, NonHumanResources, java.io.Serializable {
+	
+	private static final long serialVersionUID = -3111084927568792374L;
 	private EmergencyDepartment ed;
 	private int id;
 	private String name;

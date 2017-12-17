@@ -25,6 +25,7 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
  */
 public class Patient implements java.io.Serializable {
 	
+	private static final long serialVersionUID = -6046509168055962163L;
 	private EmergencyDepartment ed;
 	private int id;
 	private String name;

@@ -9,6 +9,8 @@ import fr.ecp.is1220.projet.part1.Exceptions.ParameterNormException;
  */
 public class Norm extends ProbabilityDistributions implements java.io.Serializable {
 
+	private static final long serialVersionUID = -2393710809496883846L;
+
 	// Loi noramle centrée réduite
 	public static double getSample(){
 		Random rand=new Random();

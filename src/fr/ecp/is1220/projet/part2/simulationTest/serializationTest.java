@@ -1,9 +1,6 @@
 package fr.ecp.is1220.projet.part2.simulationTest;
 
-import static org.junit.Assert.*;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -33,6 +30,7 @@ import fr.ecp.is1220.projet.part1.core.XrayService;
 
 public class serializationTest {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testSerialize() {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
@@ -121,23 +119,21 @@ public class serializationTest {
 	}
 	
 	@Test
-		public void testDeserialize() {
-		
+	public void testDeserialize() {
+
 		try {
 			FileInputStream fileIn = new FileInputStream("serializeDemo");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			EmergencyDepartment ed = (EmergencyDepartment) in.readObject();
-			
+
 			for(Resources re :ed.edResources){
 				System.out.println(re.getType());
 			}
+			in.close();
 		} catch (IOException | ClassNotFoundException e) {
-			
+
 			e.printStackTrace();
 		}
-		
-	
-		
 		
 	}
 	

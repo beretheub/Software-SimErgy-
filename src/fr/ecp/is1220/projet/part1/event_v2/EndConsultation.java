@@ -7,6 +7,8 @@ import fr.ecp.is1220.projet.part1.core.PatientState;
 import fr.ecp.is1220.projet.part1.core.Rooms;
 
 public class EndConsultation extends EndEvent implements java.io.Serializable{
+	
+	private static final long serialVersionUID = 7944700265431846312L;
 	private Rooms room;
 	
 	public EndConsultation(double timestamp, EmergencyDepartment ed, Patient patient, Rooms room) {

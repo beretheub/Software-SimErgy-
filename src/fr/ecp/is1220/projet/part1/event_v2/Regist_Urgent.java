@@ -16,6 +16,8 @@ import fr.ecp.is1220.projet.part2.simulation.timeManager;
 // Cet évènement doit etre classé avant (dans la liste EventQueue) les events Regist_NonUrgent (pour un meme timeStamp) 
 public class Regist_Urgent extends Regist implements java.io.Serializable {
 
+	private static final long serialVersionUID = 252308020082341658L;
+
 	public Regist_Urgent(double timeStamp, EmergencyDepartment ed, ShockRoom room1, Patient p, Nurse n1) {
 		super(timeStamp, ed, room1, p, n1);
 		

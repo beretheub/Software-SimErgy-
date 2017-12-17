@@ -10,6 +10,11 @@ import fr.ecp.is1220.projet.part1.core.Scan;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 
 public class SCAN extends Exam implements java.io.Serializable{
+
+	private static final long serialVersionUID = 1142234712469514716L;
+
+
+
 	/**
 	 * Fonctionnemet de la visite : 
 	 * - temps de duree suit une loi de probabilité uniforme (15,90)
