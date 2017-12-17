@@ -19,6 +19,11 @@ import fr.ecp.is1220.projet.part1.FactoryPattern.HumanResourcesFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.RoomFactory;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
+import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
+import fr.ecp.is1220.projet.part1.event_v2.Arr_L2;
+import fr.ecp.is1220.projet.part1.event_v2.Arr_L3;
+import fr.ecp.is1220.projet.part1.event_v2.Arr_L4;
+import fr.ecp.is1220.projet.part1.event_v2.Arr_L5;
 import fr.ecp.is1220.projet.part2.simulation.ComputeStats;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
@@ -311,6 +316,171 @@ public class ui {
 				throw new WrongArgument();
 			}
 			
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("setL1arrivalDist")){
+			if (formatedQuery.length == 3 ){
+				double arg;
+				try{
+					arg = Double.valueOf(formatedQuery[2]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L1.changeStrat(formatedQuery[1], arg);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+				
+				
+			}else if(formatedQuery.length > 3){
+				double arg1;
+				double arg2;
+				try{
+					arg1 = Double.valueOf(formatedQuery[2]);
+					arg2 = Double.valueOf(formatedQuery[3]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L1.changeStrat(formatedQuery[1], arg1, arg2);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("setL2arrivalDist")){
+			if (formatedQuery.length == 3 ){
+				double arg;
+				try{
+					arg = Double.valueOf(formatedQuery[2]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L2.changeStrat(formatedQuery[1], arg);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+				
+				
+			}else if(formatedQuery.length > 3){
+				double arg1;
+				double arg2;
+				try{
+					arg1 = Double.valueOf(formatedQuery[2]);
+					arg2 = Double.valueOf(formatedQuery[3]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L2.changeStrat(formatedQuery[1], arg1, arg2);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("setL3arrivalDist")){
+			if (formatedQuery.length == 3 ){
+				double arg;
+				try{
+					arg = Double.valueOf(formatedQuery[2]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L3.changeStrat(formatedQuery[1], arg);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+				
+				
+			}else if(formatedQuery.length > 3){
+				double arg1;
+				double arg2;
+				try{
+					arg1 = Double.valueOf(formatedQuery[2]);
+					arg2 = Double.valueOf(formatedQuery[3]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L3.changeStrat(formatedQuery[1], arg1, arg2);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("setL4arrivalDist")){
+			if (formatedQuery.length == 3 ){
+				double arg;
+				try{
+					arg = Double.valueOf(formatedQuery[2]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L4.changeStrat(formatedQuery[1], arg);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+				
+				
+			}else if(formatedQuery.length > 3){
+				double arg1;
+				double arg2;
+				try{
+					arg1 = Double.valueOf(formatedQuery[2]);
+					arg2 = Double.valueOf(formatedQuery[3]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L4.changeStrat(formatedQuery[1], arg1, arg2);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("setL5arrivalDist")){
+			if (formatedQuery.length == 3 ){
+				double arg;
+				try{
+					arg = Double.valueOf(formatedQuery[2]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L5.changeStrat(formatedQuery[1], arg);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+				
+				
+			}else if(formatedQuery.length > 3){
+				double arg1;
+				double arg2;
+				try{
+					arg1 = Double.valueOf(formatedQuery[2]);
+					arg2 = Double.valueOf(formatedQuery[3]);
+				}catch(NumberFormatException e){
+					throw new WrongArgument();
+				}
+				try{
+					Arr_L5.changeStrat(formatedQuery[1], arg1, arg2);
+				}catch(WrongArgument e){
+					throw new WrongArgument();
+				}
+			}else{
+				throw new WrongArgument();
+			}
 			
 		}else{
 		
