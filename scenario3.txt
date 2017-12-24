@@ -1,0 +1,41 @@
+createed chu1
+addroom chu1 boxroom b1
+addroom chu1 boxroom b2
+addroom chu1 boxroom b3
+addroom chu1 boxroom b4
+addroom chu1 boxroom b5
+addroom chu1 boxroom b6
+addroom chu1 shockroom s1
+addroom chu1 shockroom s2
+addroom chu1 shockroom s3
+addroom chu1 shockroom s4
+addroom chu1 shockroom s5
+addroom chu1 waitingroom w1
+addnurse chu1 Benoit Charmettant
+addnurse chu1 Benoit Charmettant
+addnurse chu1 Benoit Charmettant
+addnurse chu1 Benoit Charmettant
+addnurse chu1 Benoit Charmettant
+addnurse chu1 Benoit Charmettant
+addphysician chu1 Benoit Charmettant
+addphysician chu1 Benoit Charmettant
+addphysician chu1 Benoit Charmettant
+addphysician chu1 Benoit Charmettant
+addphysician chu1 Benoit Charmettant
+addphysician chu1 Benoit Charmettant
+addtransporter chu1 benoit Charmettant
+addtransporter chu1 benoit Charmettant
+addtransporter chu1 benoit Charmettant
+addtransporter chu1 benoit Charmettant
+addmri chu1 mri1 uniform
+addconsultation chu1 consultation1 dirac
+addxray chu1 xray1 uniform
+addscan chu1 scan1 norm
+addbloodtest chu1 bloodtest1 dirac
+addradiography chu1 radio1 norm
+setL1arrivaldist chu1 norm 15 4
+setL2arrivaldist chu1 norm 18 5
+setL3arrivaldist chu1 uniform 15 30
+setL4arrivaldist chu1 uniform 30 60
+setL5arrivaldist chu1 dirac 90
+

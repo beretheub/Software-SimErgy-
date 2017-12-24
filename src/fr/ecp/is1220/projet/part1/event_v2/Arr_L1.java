@@ -17,8 +17,8 @@ public class Arr_L1 extends Arr implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 590641915826535310L;
 	private static double lastArr = 0;
-	private static DistributionStrategy strat;
-	private static double[] parameters;
+	private static DistributionStrategy strat = new uniformStrat();
+	private static double[] parameters = {1,2,1,1,1,1};
 	
 	/**
 	 * Initialement la stratégie de distribution est initialement normale avec les paramètres (15,6)
@@ -28,6 +28,7 @@ public class Arr_L1 extends Arr implements java.io.Serializable {
 		super(Arr_L1.getNextPatientTimeStamp(lastArr), ed);
 		lastArr = this.timeStamp;
 		strat = new uniformStrat();
+		
 		parameters = new double[10];
 		
 		// Les deux premiers arguments de la liste sont ceux de la distribution uniforme

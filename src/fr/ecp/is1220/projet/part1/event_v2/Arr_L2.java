@@ -17,8 +17,8 @@ public class Arr_L2 extends Arr implements java.io.Serializable {
 	
 	private static final long serialVersionUID = -4064782584914428351L;
 	private static double lastArr = 0;
-	private static DistributionStrategy strat;
-	private static double[] parameters;
+	private static DistributionStrategy strat = new uniformStrat();
+	private static double[] parameters = {1,2,1,1,1,1};
 	public Arr_L2(EmergencyDepartment ed){
 		super(Arr_L2.getNextPatientTimeStamp(lastArr), ed);
 		lastArr = this.timeStamp;
@@ -38,6 +38,7 @@ public class Arr_L2 extends Arr implements java.io.Serializable {
 		
 		// Le 6eme pour la distribution dirac
 		parameters[5] = 16;
+		
 		
 	}
 	
@@ -76,7 +77,7 @@ public class Arr_L2 extends Arr implements java.io.Serializable {
 	 * @throws ParameterNormException 
 	 */
 	private static double getNextPatientTimeStamp(double lastArr2) {
-		return strat.getDuree(parameters);
+		return lastArr2 + strat.getDuree(parameters);
 	}
 	@Override
 	public void execute() {

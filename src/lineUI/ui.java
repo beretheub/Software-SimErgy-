@@ -19,6 +19,7 @@ import fr.ecp.is1220.projet.part1.FactoryPattern.HumanResourcesFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.RoomFactory;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
+import fr.ecp.is1220.projet.part1.event_v2.Arr;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L2;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L3;
@@ -140,6 +141,7 @@ public class ui {
 		return listOfCommands;
 	}
 
+	@SuppressWarnings("unused")
 	private static void executeQuery(String[] formatedQuery, ArrayList<EmergencyDepartment> lsED) throws WrongQuery, WrongArgument {
 		
 		
@@ -152,6 +154,11 @@ public class ui {
 			if(formatedQuery.length > 1){
 				EmergencyDepartment ed = new EmergencyDepartment(formatedQuery[1]);
 				lsED.add(ed);
+				Arr_L1 ini = new Arr_L1(ed);
+				Arr_L2 ini2 = new Arr_L2(ed);
+				Arr_L3 ini3 = new Arr_L3(ed);
+				Arr_L4 ini4 = new Arr_L4(ed);
+				Arr_L5 ini5 = new Arr_L5(ed);
 			}else{
 				throw new WrongArgument();
 			}
@@ -318,31 +325,31 @@ public class ui {
 			
 			
 		}else if(formatedQuery[0].equalsIgnoreCase("setL1arrivalDist")){
-			if (formatedQuery.length == 3 ){
+			if (formatedQuery.length == 4 ){
 				double arg;
 				try{
-					arg = Double.valueOf(formatedQuery[2]);
+					arg = Double.valueOf(formatedQuery[3]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L1.changeStrat(formatedQuery[1], arg);
+					Arr_L1.changeStrat(formatedQuery[2], arg);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
 				
 				
-			}else if(formatedQuery.length > 3){
+			}else if(formatedQuery.length > 4){
 				double arg1;
 				double arg2;
 				try{
-					arg1 = Double.valueOf(formatedQuery[2]);
-					arg2 = Double.valueOf(formatedQuery[3]);
+					arg1 = Double.valueOf(formatedQuery[3]);
+					arg2 = Double.valueOf(formatedQuery[4]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L1.changeStrat(formatedQuery[1], arg1, arg2);
+					Arr_L1.changeStrat(formatedQuery[2], arg1, arg2);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
@@ -351,31 +358,31 @@ public class ui {
 			}
 			
 		}else if(formatedQuery[0].equalsIgnoreCase("setL2arrivalDist")){
-			if (formatedQuery.length == 3 ){
+			if (formatedQuery.length == 4 ){
 				double arg;
 				try{
-					arg = Double.valueOf(formatedQuery[2]);
+					arg = Double.valueOf(formatedQuery[3]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L2.changeStrat(formatedQuery[1], arg);
+					Arr_L2.changeStrat(formatedQuery[2], arg);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
 				
 				
-			}else if(formatedQuery.length > 3){
+			}else if(formatedQuery.length > 4){
 				double arg1;
 				double arg2;
 				try{
-					arg1 = Double.valueOf(formatedQuery[2]);
-					arg2 = Double.valueOf(formatedQuery[3]);
+					arg1 = Double.valueOf(formatedQuery[3]);
+					arg2 = Double.valueOf(formatedQuery[4]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L2.changeStrat(formatedQuery[1], arg1, arg2);
+					Arr_L2.changeStrat(formatedQuery[2], arg1, arg2);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
@@ -384,31 +391,31 @@ public class ui {
 			}
 			
 		}else if(formatedQuery[0].equalsIgnoreCase("setL3arrivalDist")){
-			if (formatedQuery.length == 3 ){
+			if (formatedQuery.length == 4 ){
 				double arg;
 				try{
-					arg = Double.valueOf(formatedQuery[2]);
+					arg = Double.valueOf(formatedQuery[3]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L3.changeStrat(formatedQuery[1], arg);
+					Arr_L3.changeStrat(formatedQuery[2], arg);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
 				
 				
-			}else if(formatedQuery.length > 3){
+			}else if(formatedQuery.length > 4){
 				double arg1;
 				double arg2;
 				try{
-					arg1 = Double.valueOf(formatedQuery[2]);
-					arg2 = Double.valueOf(formatedQuery[3]);
+					arg1 = Double.valueOf(formatedQuery[3]);
+					arg2 = Double.valueOf(formatedQuery[4]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L3.changeStrat(formatedQuery[1], arg1, arg2);
+					Arr_L3.changeStrat(formatedQuery[2], arg1, arg2);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
@@ -417,31 +424,31 @@ public class ui {
 			}
 			
 		}else if(formatedQuery[0].equalsIgnoreCase("setL4arrivalDist")){
-			if (formatedQuery.length == 3 ){
+			if (formatedQuery.length == 4 ){
 				double arg;
 				try{
-					arg = Double.valueOf(formatedQuery[2]);
+					arg = Double.valueOf(formatedQuery[3]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L4.changeStrat(formatedQuery[1], arg);
+					Arr_L4.changeStrat(formatedQuery[2], arg);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
 				
 				
-			}else if(formatedQuery.length > 3){
+			}else if(formatedQuery.length > 4){
 				double arg1;
 				double arg2;
 				try{
-					arg1 = Double.valueOf(formatedQuery[2]);
-					arg2 = Double.valueOf(formatedQuery[3]);
+					arg1 = Double.valueOf(formatedQuery[3]);
+					arg2 = Double.valueOf(formatedQuery[4]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L4.changeStrat(formatedQuery[1], arg1, arg2);
+					Arr_L4.changeStrat(formatedQuery[2], arg1, arg2);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
@@ -450,31 +457,31 @@ public class ui {
 			}
 			
 		}else if(formatedQuery[0].equalsIgnoreCase("setL5arrivalDist")){
-			if (formatedQuery.length == 3 ){
+			if (formatedQuery.length == 4 ){
 				double arg;
 				try{
-					arg = Double.valueOf(formatedQuery[2]);
+					arg = Double.valueOf(formatedQuery[3]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L5.changeStrat(formatedQuery[1], arg);
+					Arr_L5.changeStrat(formatedQuery[2], arg);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}
 				
 				
-			}else if(formatedQuery.length > 3){
+			}else if(formatedQuery.length > 4){
 				double arg1;
 				double arg2;
 				try{
-					arg1 = Double.valueOf(formatedQuery[2]);
-					arg2 = Double.valueOf(formatedQuery[3]);
+					arg1 = Double.valueOf(formatedQuery[3]);
+					arg2 = Double.valueOf(formatedQuery[4]);
 				}catch(NumberFormatException e){
 					throw new WrongArgument();
 				}
 				try{
-					Arr_L5.changeStrat(formatedQuery[1], arg1, arg2);
+					Arr_L5.changeStrat(formatedQuery[2], arg1, arg2);
 				}catch(WrongArgument e){
 					throw new WrongArgument();
 				}

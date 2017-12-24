@@ -17,8 +17,8 @@ public class Arr_L3 extends Arr implements java.io.Serializable{
 
 	private static final long serialVersionUID = -1587280495581829660L;
 	private static double lastArr = 0;
-	private static DistributionStrategy strat;
-	private static double[] parameters;
+	private static DistributionStrategy strat = new uniformStrat();
+	private static double[] parameters = {1,2,1,1,1,1};
 	public Arr_L3(EmergencyDepartment ed){
 		
 		super(Arr_L3.getNextPatientTimeStamp(lastArr), ed);
@@ -39,15 +39,14 @@ public class Arr_L3 extends Arr implements java.io.Serializable{
 		
 		// Le 6eme pour la distribution dirac
 		parameters[5] = 20;
-		
-	}
+		}
 	
 	/**
 	 * Nous décidons que le temps de la prochaine arrivée suit une loi normale de paramètre (8,3)
 	 * @throws ParameterNormException 
 	 */
 	private static double getNextPatientTimeStamp(double lastArr2) {
-		return strat.getDuree(parameters);
+		return lastArr2 + strat.getDuree(parameters);
 	}
 
 	@Override
