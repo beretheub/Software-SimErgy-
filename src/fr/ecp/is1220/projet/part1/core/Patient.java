@@ -2,6 +2,7 @@ package fr.ecp.is1220.projet.part1.core;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import fr.ecp.is1220.projet.part1.Exceptions.DTDTException;
 import fr.ecp.is1220.projet.part1.Exceptions.LOSException;
@@ -59,7 +60,19 @@ public class Patient implements java.io.Serializable {
 		} catch (WrongIDAttribution e) {
 			//n'arrivera jamais
 		}
-		this.insurance = Insurance.NO;
+		
+		// Génération aléatoire d'assurance
+		
+		double rand = Math.random();
+		
+		if(rand < 0.5){
+			this.insurance = Insurance.SILVER;
+		}else if(rand < 0.85){
+			this.insurance = Insurance.GOLD;
+		}else{
+			this.insurance = Insurance.NO;
+		}
+		
 		patientRecord = new ArrayList<>();
 		this.state = PatientState.WAITING; //ça veut dire qu'il ne fait rien, n'est pas en transport etc...
 		this.totalcharge=0;

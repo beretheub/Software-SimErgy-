@@ -1,0 +1,45 @@
+--- Here is a list of all the commands you can use. ---
+In order to use a command you should first write the name of your command
+And then you write all your arguments separated by a space
+If there are to many arguments the lasts ones will be ignored
+------
+Warning : there should not be spaces inside an argument :
+
+CreateEd Hopital_De_Grenoble 
+(This request works)
+
+CreateEd Hopital De Grenoble 
+(This request does not work proporly : it creates an Emergency Departement
+ with the name "Hopital" the arguments "De" and "Grenoble" are ignored)
+
+
+--------------------------------------------------------------------
+
+List of all the commands :
+
+
+CreateEd EdName                      - (create a new Emergency Departement)
+runTest fileName.txt                 - (imports a test case)
+exit 		                     - (ends the program)
+
+addRoom EdName TypeOfRoom Name       - (Creates a new room)
+
+addRadiography EdName Name DistributionProbability     - (Creates a new exam Service)
+addConsultation EdName Name DistributionProbability    - (Creates a new exam Service)
+addMRI EdName Name DistributionProbability             - (Creates a new exam Service)
+addBloodTest EdName Name DistributionProbability       - (Creates a new exam Service)
+addScan EdName Name DistributionProbability            - (Creates a new exam Service)
+addXRay EdName Name DistributionProbability            - (Creates a new exam Service)
+
+addNurse EdName NurseName NurseSurname     - (creates a new nurse)
+addPhysician EdName Name Surname           - (creates a new physician)
+addTransporter EdName Name Surname         - (creates a new transporter)
+
+executeSimulation EdName LimitTime         - (Simulate the functioning of the ED, by generating patients)
+
+printEdState EdName                - (Prints the state of the ED, you should have executed a)
+			             (simulation before otherwise there would not be much interest)
+
+ComputeStats	
+
+

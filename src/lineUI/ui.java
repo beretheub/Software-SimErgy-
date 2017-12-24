@@ -19,7 +19,6 @@ import fr.ecp.is1220.projet.part1.FactoryPattern.HumanResourcesFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.RoomFactory;
 import fr.ecp.is1220.projet.part1.core.EmergencyDepartment;
 import fr.ecp.is1220.projet.part1.core.SeverityLevel;
-import fr.ecp.is1220.projet.part1.event_v2.Arr;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L1;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L2;
 import fr.ecp.is1220.projet.part1.event_v2.Arr_L3;
@@ -53,7 +52,7 @@ public class ui {
 			if(formatedQuery[0] != null){
 				if(formatedQuery[0].equalsIgnoreCase("exit")){
 					exit = true;
-				}else if(formatedQuery[0].equalsIgnoreCase("importScenario")){
+				}else if(formatedQuery[0].equalsIgnoreCase("runTest")){
 					
 					if(formatedQuery.length > 1){
 						ArrayList<String> instructions = new ArrayList<>();
