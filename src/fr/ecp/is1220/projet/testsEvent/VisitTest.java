@@ -3,6 +3,7 @@ package fr.ecp.is1220.projet.testsEvent;
 import org.junit.Test;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
 import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
 import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
@@ -27,7 +28,7 @@ import fr.ecp.is1220.projet.part1.event_v2.Visit;
 
 public class VisitTest {
 	@Test
-	public void testExam() throws ParameterUnifException, NoPatientinED, WrongResourceType, InvalidNameException {
+	public void testExam() throws ParameterUnifException, NoPatientinED, WrongResourceType, InvalidNameException, WrongArgument {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		Arr_L1 arrive = new Arr_L1(ed1);
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");
@@ -38,8 +39,8 @@ public class VisitTest {
  		AbstractFactory equipfac = FactoryProducer.getFactory("equipment");
  		BoxRoom room2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
  		Strecher strecher1 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
- 		BloodTestService bloodtest1 =(BloodTestService) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
- 		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1");
+ 		BloodTestService bloodtest1 =(BloodTestService) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1", "bloodtest");
+ 		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1", "bloodtest");
  		
  		arrive.execute();
  		

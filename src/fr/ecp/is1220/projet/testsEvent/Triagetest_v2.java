@@ -3,6 +3,7 @@ package fr.ecp.is1220.projet.testsEvent;
 import org.junit.Test;
 
 import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
 import fr.ecp.is1220.projet.part1.FactoryPattern.AbstractFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
@@ -21,7 +22,7 @@ import fr.ecp.is1220.projet.part1.event_v2.Regist_Urgent;
 
 public class Triagetest_v2 {
 	@Test
-	public void testExam() throws NoPatientinED, WrongResourceType {
+	public void testExam() throws NoPatientinED, WrongResourceType, WrongArgument {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Grenoble");
 		
 		Arr_L5 ev3 = new Arr_L5(ed1);
