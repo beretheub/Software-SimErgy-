@@ -57,7 +57,7 @@ public class ObserverPatternTest {
 		MRIservice mri = null;
 		Physician phys1=new Physician(ed1,"Alfred","Garde");
 		Patient pat1 =new Patient (ed1,"Jeff");
-		mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "healthservice");
+		mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "norm");
 		mri.registerObserver(phys1);
 		phys1.newPatientTreated(pat1);
 		mri.notifyObservers("ce patient ne va pas bien", pat1);
