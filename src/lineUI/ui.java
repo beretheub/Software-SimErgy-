@@ -13,6 +13,7 @@ import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongQuery;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
+import fr.ecp.is1220.projet.part1.FactoryPattern.EquipmentFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.FactoryProducer;
 import fr.ecp.is1220.projet.part1.FactoryPattern.HealtServiceFactory;
 import fr.ecp.is1220.projet.part1.FactoryPattern.HumanResourcesFactory;
@@ -160,7 +161,7 @@ public class ui {
 		RoomFactory roomFact = (RoomFactory) FactoryProducer.getFactory("room");
 		HealtServiceFactory healthServFact = (HealtServiceFactory) FactoryProducer.getFactory("healthservice");
 		HumanResourcesFactory hrFact = (HumanResourcesFactory) FactoryProducer.getFactory("humanresource");
-		
+		EquipmentFactory equipFact = (EquipmentFactory) FactoryProducer.getFactory("equipment");
 		
 		if(formatedQuery[0].equalsIgnoreCase("createEd")){
 			if(formatedQuery.length > 1){
@@ -189,6 +190,28 @@ public class ui {
 							} catch (WrongResourceType e) {
 								throw new WrongArgument();
 							}
+
+						}
+					}
+					if (!succeded){
+						throw new WrongArgument();
+					}
+				}
+			}else{
+				throw new WrongArgument();
+			}
+			
+		}else if(formatedQuery[0].equalsIgnoreCase("addStrecher")){
+			if(formatedQuery.length > 2){
+				if(lsED.isEmpty()){
+					System.out.println("Please create an ed first");
+				}else{
+					boolean succeded = false;
+					for(EmergencyDepartment ed : lsED){
+						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
+							equipFact.getEquipment(ed, "strecher", formatedQuery[2]);
+							succeded = true;
+							break;
 
 						}
 					}
@@ -304,14 +327,14 @@ public class ui {
 				for(EmergencyDepartment ed : lsED){
 					if(ed.getEdName().equals(formatedQuery[1])){
 						succeded = true;
-						if(formatedQuery[2] == null){
+						if(formatedQuery.length == 2){
 							System.out.println("Statistics for emergency departement : " + ed.getEdName());
 							System.out.println("Calculated for any kind of patient");
 							ComputeStats.averagedtdt(ed);
 							ComputeStats.averagelos(ed);
 
 							
-						}else if(formatedQuery[2] != null){
+						}else if(formatedQuery.length > 2){
 							succeded = false;
 							if(formatedQuery[2].equalsIgnoreCase("l1") || formatedQuery[2].equalsIgnoreCase("l2") || formatedQuery[2].equalsIgnoreCase("l3") || formatedQuery[2].equalsIgnoreCase("l4") || formatedQuery[2].equalsIgnoreCase("l5")){
 								System.out.println("Statistics for emergency departement : " + ed.getEdName());
