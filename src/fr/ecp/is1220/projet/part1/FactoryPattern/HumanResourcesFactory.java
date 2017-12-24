@@ -17,7 +17,7 @@ public class HumanResourcesFactory extends AbstractFactory {
 	 * @throws WrongArgument 
 	 */
 	@Override
-	public HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname) throws WrongArgument {
+	public HumanResources getHumanResource(EmergencyDepartment ed, String resourceType, String name, String surname)  {
 		if (resourceType.equalsIgnoreCase("nurse")){
 			return new Nurse(ed, name, surname);
 		}
@@ -28,8 +28,14 @@ public class HumanResourcesFactory extends AbstractFactory {
 			return new Physician(ed, name, surname);
 		}
 		else{
-			throw new WrongArgument();
+			try {
+				throw new WrongArgument();
+			} catch (WrongArgument e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		return null;
 		
 	}
 	

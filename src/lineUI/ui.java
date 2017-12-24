@@ -232,13 +232,9 @@ public class ui {
 					boolean succeded = false;
 					for(EmergencyDepartment ed : lsED){
 						if(ed.getEdName().equalsIgnoreCase(formatedQuery[1])){
-							try {
-								healthServFact.getHealthService(ed, whichHS, formatedQuery[2], formatedQuery[3]);
-								succeded = true;
-								break;
-							} catch (InvalidNameException e) {
-								throw new WrongArgument();
-							}
+							healthServFact.getHealthService(ed, whichHS, formatedQuery[2], formatedQuery[3]);
+							succeded = true;
+							break;
 
 						}
 					}

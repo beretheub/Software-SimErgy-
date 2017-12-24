@@ -45,7 +45,7 @@ public class HealtServiceFactory extends AbstractFactory {
 	 * @throws InvalidNameException 
 	 */
 	@Override
-	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name, String strategy) throws InvalidNameException {
+	public HealthServices getHealthService(EmergencyDepartment ed, String resourceType, String name, String strategy) {
 		if (resourceType.equalsIgnoreCase("Xray")){
 			return new XrayService(ed, name, 15, strategy);
 		}
@@ -61,8 +61,14 @@ public class HealtServiceFactory extends AbstractFactory {
 		}else if(resourceType.equalsIgnoreCase("bloodtest")){
 			return new BloodTestService(ed, name, 50, strategy);
 		}else{
-			throw new InvalidNameException();
+			try {
+				throw new InvalidNameException();
+			} catch (InvalidNameException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		return null;
 	}
 
 }

@@ -3,6 +3,7 @@ package fr.ecp.is1220.projet.testsEvent;
 import org.junit.Test;
 
 import fr.ecp.is1220.projet.part1.Exceptions.ParameterUnifException;
+import fr.ecp.is1220.projet.part1.Exceptions.WrongArgument;
 import fr.ecp.is1220.projet.part1.Exceptions.InvalidNameException;
 import fr.ecp.is1220.projet.part1.Exceptions.NoPatientinED;
 import fr.ecp.is1220.projet.part1.Exceptions.WrongResourceType;
@@ -31,7 +32,7 @@ import fr.ecp.is1220.projet.part1.event_v2.XRAY;
 public class Examtest {
 
 	@Test
-	public void testExam() throws ParameterUnifException, NoPatientinED, WrongResourceType, InvalidNameException {
+	public void testExam() throws ParameterUnifException, NoPatientinED, WrongResourceType, InvalidNameException, WrongArgument {
 		EmergencyDepartment ed1 = new EmergencyDepartment("CHU Bracieux");
 		Arr_L1 ev1 = new Arr_L1(ed1);
 		AbstractFactory nursfac = FactoryProducer.getFactory("humanresource");
@@ -43,10 +44,10 @@ public class Examtest {
  		AbstractFactory hservice = FactoryProducer.getFactory("healtservice");
  		BoxRoom room2 = (BoxRoom) roomfac.getRoom(ed1, "boxroom", "Room 2");
  		Strecher strecher1 =(Strecher) equipfac.getEquipment(ed1, "strecher", "Strecher 1");
- 		BloodTestService bloodtest1 =(BloodTestService) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1");
- 		MRIservice mri1 =(MRIservice)hservice.getHealthService(ed1, "mri", "MRI1");
- 		XrayService xray1 =(XrayService)hservice.getHealthService(ed1, "xray", "XRAY1");
- 		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1");
+ 		BloodTestService bloodtest1 =(BloodTestService) hservice.getHealthService(ed1, "bloodtest", "Bloodtest1", "bloodtest");
+ 		MRIservice mri1 =(MRIservice)hservice.getHealthService(ed1, "mri", "MRI1", "mri");
+ 		XrayService xray1 =(XrayService)hservice.getHealthService(ed1, "xray", "XRAY1", "xray");
+ 		ConsultationService consult1=(ConsultationService) hservice.getHealthService(ed1, "consultation", "Consultation 1", "consultation");
 		
  		
  		ev1.execute();

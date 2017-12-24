@@ -26,12 +26,7 @@ public class HealthServiceTest {
 		
 		
 		MRIservice mri = null;
-		try {
-			mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "healthservice");
-		} catch (InvalidNameException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "healthservice");
 		
 		
 		assertEquals(mri.getName(), "MRI 1");
@@ -46,12 +41,8 @@ public class HealthServiceTest {
 		
 		
 		MRIservice mri = null;
-		try {
-			mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "healthservice");
-		} catch (InvalidNameException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "healthservice");
+		
 		
 		Physician p1 = new Physician(ed1, "Benoit", "Charmettant");
 		Physician p2 = new Physician(ed1, "Jérôme", "Charmettant");
