@@ -27,7 +27,7 @@ public class HealthServiceTest {
 		
 		MRIservice mri = null;
 		try {
-			mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1");
+			mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "healthservice");
 		} catch (InvalidNameException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,7 +47,7 @@ public class HealthServiceTest {
 		
 		MRIservice mri = null;
 		try {
-			mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1");
+			mri = (MRIservice) fact.getHealthService(ed1, "mri", "MRI 1", "healthservice");
 		} catch (InvalidNameException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
