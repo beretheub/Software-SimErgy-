@@ -80,6 +80,19 @@ public class ui {
 						System.out.println("Your request isn't appropriate. You can try Help command");
 					}
 					
+				}else if(formatedQuery[0].equalsIgnoreCase("help")){
+					
+					ArrayList<String> instructions = new ArrayList<>();
+					try {
+						instructions = ui.readScenarioFile("help.txt");
+
+						for(String line : instructions){
+							System.out.println(line);
+						}
+					} catch (FileNotFoundException e) {
+						System.out.println("File not found");
+					}
+					System.out.println("\n");
 				}else{
 					try {
 						executeQuery(formatedQuery, listeED);

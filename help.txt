@@ -40,6 +40,19 @@ executeSimulation EdName LimitTime         - (Simulate the functioning of the ED
 printEdState EdName                - (Prints the state of the ED, you should have executed a)
 			             (simulation before otherwise there would not be much interest)
 
-ComputeStats	
+ComputeStats EdName                - (Computes the ED statistics over every kind of patient, you )
+			             (should have executed asimulation before otherwise there    )
+				     (would not be much interest                                 )
+
+ComputeStats EdName Lx             - (Computes the ED statistics a certain kind of patient, you  )
+                 	             (should have executed asimulation before otherwise there    )
+x = 1,2,3,4,5			     (would not be much interest                                 )
+
+
+
+SetLxArrivalDist EdName Distribution Arg1 (Arg2)    - (Sets the distribution of probability which can  )
+						      (be uniform, norm, exp, dirac for a certain kind )
+						      ( of patient                                     )
+
 
 
