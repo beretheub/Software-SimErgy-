@@ -53,7 +53,7 @@ public class Visit extends Event implements java.io.Serializable{
 		this.pat.setPatientState(PatientState.BEEINGVISITED);
 		pat.setFirstPhysicianTime(timeStamp);
 		this.pat.addEvent(this);
-		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + timeManager.formatTime(timeStamp) + " - Verdict : " + this.outputconsultation);
+		
 		
 		FreePhysician e2 = new FreePhysician((int)(this.timeStamp + duree), this.ed, this.physician); // Médecin occupé pendant le temps de la consultation puis libéré de la meme manière que les patients
 		this.ed.addEventInEventQueue(e2);
@@ -68,6 +68,7 @@ public class Visit extends Event implements java.io.Serializable{
 		
 		pat.setNexstep(outputconsultation);
 		
+		pat.fillRecord(Integer.toString(pat.getPatientRecord().size()) + " - " + Integer.toString(pat.getId()) + " - Actually in boxroom "+ room.getName() + " : " + room.getId() + " - Visited by physician : " + Integer.toString(this.physician.getId()) + " at " + timeManager.formatTime(timeStamp) + " - Verdict : " + this.outputconsultation);
 		// On s'occupe de la gérer la libération du patient et de la room
 		EndEvent e = new EndConsultation((int)(this.timeStamp + duree), this.ed, this.pat, this.room);
 		this.ed.addEventInEventQueue(e);	

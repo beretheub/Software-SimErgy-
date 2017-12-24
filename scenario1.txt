@@ -11,6 +11,14 @@ addroom chu shockroom s3
 addroom chu shockroom s4
 addroom chu shockroom s5
 addroom chu waitingroom w1
+addstrecher chu strecher1
+addstrecher chu strecher1
+addstrecher chu strecher1
+addstrecher chu strecher1
+addstrecher chu strecher1
+addstrecher chu strecher1
+addstrecher chu strecher1
+addstrecher chu strecher1
 addnurse chu Benoit Charmettant
 addnurse chu Benoit Charmettant
 addnurse chu Benoit Charmettant
@@ -23,15 +31,17 @@ addphysician chu Benoit Charmettant
 addphysician chu Benoit Charmettant
 addphysician chu Benoit Charmettant
 addphysician chu Benoit Charmettant
+addtransporter chu benoit Charmettant
+addtransporter chu benoit Charmettant
 addtransporter chu benoit Charmettant
 addtransporter chu benoit Charmettant
 addtransporter chu benoit Charmettant
 addtransporter chu benoit Charmettant
 addmri chu mri1 uniform
-addconsultation chu consultation1 uniform
-addxray chu xray1 uniform
+addconsultation chu consultation1 exp
+addxray chu xray1 dirac
 addscan chu scan1 uniform
-addbloodtest chu bloodtest1 uniform
+addbloodtest chu bloodtest1 norm
 addradiography chu radio1 uniform
 executesimulation chu 500
 printedstate chu

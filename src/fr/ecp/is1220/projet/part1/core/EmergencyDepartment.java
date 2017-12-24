@@ -267,15 +267,19 @@ public class EmergencyDepartment implements java.io.Serializable {
 	 * 
 	 */
 	public void displayState(){
-		System.out.println("----- ED : " + this.getEdName() + " : state -----");
+		System.out.println("----- ED : " + this.getEdName() + " : state -----\n");
 		System.out.println("- " +  this.listOfPatientsInTheED.size() + " patients in the ed");
 		System.out.println("- " + this.listOfEndedPatient.size() + " patients out of the ed");
-		System.out.println("-- Patient waiting for triange and visit -- ");
+		System.out.println("\n-- Patient waiting for triange and visit --\n ");
 		for (Patient pat : patientWaitingForTriage){
 			pat.printPatientPath();
 		}
-		System.out.println("-- Patient waiting for exam -- ");
+		System.out.println("\n-- Patient waiting for exam -- \n");
 		for (Patient pat : patientWaitingForExam){
+			pat.printPatientPath();
+		}
+		System.out.println("\n-- Patient in the ED -- \n");
+		for (Patient pat : this.listOfPatientsInTheED){
 			pat.printPatientPath();
 		}
 		System.out.println("-- Physisician in the ed -- ");
@@ -284,6 +288,10 @@ public class EmergencyDepartment implements java.io.Serializable {
 				Physician phy1 = (Physician) phy;
 				phy1.printMessageBox();
 			}
+		}
+		System.out.println("\n----- Patient out of the ED ----- \n");
+		for (Patient pat : this.listOfPatientsInTheED){
+			pat.printPatientPath();
 		}
 		
 		
@@ -383,6 +391,15 @@ public class EmergencyDepartment implements java.io.Serializable {
 	 */
 	public ArrayList<Patient> getListOfPatientWaitingForExam() {
 		return patientWaitingForExam;
+	}
+
+	public boolean ArePatientWaitingForConsultation() {
+		for(Patient pat : patientWaitingForTransportation){
+			if(pat.getPatientState() == PatientState.WAITING){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 

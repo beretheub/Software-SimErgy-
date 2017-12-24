@@ -7,6 +7,7 @@ import fr.ecp.is1220.projet.part1.core.PatientState;
 
 import fr.ecp.is1220.projet.part1.core.Strecher;
 import fr.ecp.is1220.projet.part1.core.Transporter;
+import fr.ecp.is1220.projet.part1.core.TransporterState;
 import fr.ecp.is1220.projet.part2.simulation.EventsType;
 import fr.ecp.is1220.projet.part2.simulation.timeManager;
 
@@ -40,7 +41,7 @@ public class Transportation extends Event implements java.io.Serializable {
 	public void execute() {
 		
 		strecher.newPatient();
-
+		transporter.setState(TransporterState.OCCUPIED);
 		p1.setPatientState(PatientState.INSTALLING);
 		this.p1.addEvent(this);
 		p1.fillRecord(Integer.toString(p1.getPatientRecord().size()) + " - " + Integer.toString(p1.getId()) +" - Transporté par " + transporter.getName() + " :" + transporter.getId() + " sur " + strecher.getId() + " at " + timeManager.formatTime(timeStamp)); 

@@ -105,5 +105,4 @@ public class SimulationTest {
  			pat.printPatientPath();
  		}
 	}
-	
 }

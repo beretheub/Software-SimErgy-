@@ -99,7 +99,7 @@ public class EnabledEvents {
 					}
 				}
 			}
-			if (!state.getListOfPatientWaitingForTransporation().isEmpty()){
+			if (state.ArePatientWaitingForConsultation()){
 				if(state.returnFreeNonHumanResources(ResourcesType.STRECHER) != null){
 					if(state.returnFreeHumanResource(ResourcesType.TRANSPORTER) != null){
 						if (!liste.contains(EventsType.TRANSPORTATION)){
